@@ -22,8 +22,8 @@
 - Cultures: 50+
 
 **Data model attributes (to sort by):**
-- Restaurants: alphabetic, star rating, which meal (breakfast, lunch, dinner), hours open, location, takeout/delivery allowed, culture of origin, review count, price $-$$$
-- Recipes: alphabetic, cooking difficulty, time to cook, culture of origin, nutrition (healthy vs. not), cost $-$$$, which meal, spice levels
+- Restaurants: alphabetic, star rating, which meal (breakfast, lunch, dinner), hours open, location, takeout/delivery allowed, culture of origin, review count, price $ - $\$\$\$
+- Recipes: alphabetic, cooking difficulty, time to cook, culture of origin, nutrition (healthy vs. not), price $ - $\$\$\$ which meal, spice levels
 - Cultures: alphabetic, continent, country, language
 
 **Data model attributes (per instance):**
