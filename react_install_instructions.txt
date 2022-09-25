@@ -1,9 +1,12 @@
 1) Install Node.js: https://nodejs.org/en/ use 16.17.1
 2) Give npm global permissions:
-sudo chown -R `whoami` ~/.npm
-sudo chown -R `whoami` /usr/local/lib/node_modules
+
+	sudo chown -R `whoami` ~/.npm
+	sudo chown -R `whoami` /usr/local/lib/node_modules
+
 Where `whoami` is your local username.
-3) Run
-npm install --global yarn
-4) Run to start app (cd into front-end first)
-yarn start
+
+3) npm install --global yarn
+4) cd into front-end
+5) npm install
+6) yarn start
