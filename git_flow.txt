@@ -1,0 +1,16 @@
+This is intended to familiarize yourself with the git workflow.
+
+1) Fork the main repository at https://gitlab.com/mihikabirmiwal/cs373-idb. Name it whatever. Your personal fork is where you will make feature changes and create merge requests from.
+2) git clone your fork repository onto your local system
+3) When you do git remote -v, you should see your origin set to your personal fork and NOT the production repo (mihikabirmiwal/cs373-idb/)
+4) You now need to set up an upstream repository. This is where you will pull the latest production code from to keep your fork up to date. Do git remote add upstream https://gitlab.com/mihikabirmiwal/cs373-idb
+5) DO NOT EVER PUSH TO UPSTREAM!!!!!!!!!! for early dev its ok but this can break our app
+6) now when you do git remote -v it should display your origin as your local fork and the upstream as the production repository
+7) Note that the production repository has two branches - main and develop. Main is our production app code - we never ever ever want to break this (do not ever push here directly). 
+Develop is where the development changes happen and get merged into. Your feature branches on your local repository will merge into the production develop branch after approval and testing. 
+All this is to say that your local forked repository does not need to have a develop branch. It just needs to have a main branch.
+8) Whenever you want to make an update to the app, you will first update your local repository to match the latest working state of the app in production. You will make sure that you have checked out your local's main branch. Then you will run git pull upstream main to get your local main branch updated to production code.
+Then, you will make a branch to address whatever you are doing to the code. Call it feature/*name* for whatever feature you're adding, or bug/*name*, or whatever. It doesn't really matter - just make sure you are branching from your main branch so that your new branch will start with the latest code. 
+Whenever you are finished making changes to your feature branch, add and commit your changes. It is then VERY important that you pull from upstream main again. There is a chance that while you were working on changing something, someone could have merged changes into the same file you are working on. If this happens, there will be merge conflicts which you will need to resolve. Follow the steps to resolve your merge conflicts. Once there are no conflicts, you will push to ORIGIN. VERY IMPORTANT: ORIGIN. DO NOT EVER PUSH TO UPSTREAM!!!!!!!!!!
+9) Once your code is pushed to your fork, you will have to create a merge request from the branch you created (feature/*, bug/*, etc.) to the DEVELOP branch on the production repository. Get someone to approve this - once you're approved, you can merge your changes into develop (this should automatically delete your local branch, but it might not so do that.)
+10) If those develop changes go through, they will be merged into main production (we have not set this up yet).
