@@ -1,0 +1,51 @@
+{
+    "reviews": [
+        {
+            "id": "CiRS2ebLnJ428O0WUlpctg",
+            "url": "https://www.yelp.com/biz/terry-blacks-barbecue-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&hrid=CiRS2ebLnJ428O0WUlpctg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
+            "text": "We were recommended that this is a go-to place for our first time in Austin so we went in today -- what a great experience it was, being Californians so not...",
+            "rating": 5,
+            "time_created": "2022-08-26 14:15:31",
+            "user": {
+                "id": "owO-97qUtWgfk-xdPdyTqg",
+                "profile_url": "https://www.yelp.com/user_details?userid=owO-97qUtWgfk-xdPdyTqg",
+                "image_url": "https://s3-media1.fl.yelpcdn.com/photo/Wqii90oWejvxJphAKL5vTw/o.jpg",
+                "name": "Jules L."
+            }
+        },
+        {
+            "id": "eqlq5LV4mRlghY1a_IEeTQ",
+            "url": "https://www.yelp.com/biz/terry-blacks-barbecue-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&hrid=eqlq5LV4mRlghY1a_IEeTQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
+            "text": "Visited from ATL and It was good, but the brisket seemed a little dry on a Thursday around 1-2pm. Ribs were great, sausage was ok. Also a bit pricey, spent...",
+            "rating": 4,
+            "time_created": "2022-08-17 10:12:28",
+            "user": {
+                "id": "dDFKlAeqbNgC4fOnqWHUPA",
+                "profile_url": "https://www.yelp.com/user_details?userid=dDFKlAeqbNgC4fOnqWHUPA",
+                "image_url": null,
+                "name": "Tyler O."
+            }
+        },
+        {
+            "id": "rHIZhzxuQQGdPy-zVsyu9g",
+            "url": "https://www.yelp.com/biz/terry-blacks-barbecue-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&hrid=rHIZhzxuQQGdPy-zVsyu9g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
+            "text": "Julian and jaley serving uo the beeeest meat!!!!! Come through and eat!!! First time for family and they made sure to give us the best cuts",
+            "rating": 5,
+            "time_created": "2022-08-16 09:00:08",
+            "user": {
+                "id": "fPr_1h0oSoGpz4-2tznyiA",
+                "profile_url": "https://www.yelp.com/user_details?userid=fPr_1h0oSoGpz4-2tznyiA",
+                "image_url": null,
+                "name": "Jacob H."
+            }
+        }
+    ],
+    "total": 5130,
+    "possible_languages": [
+        "en",
+        "es",
+        "zh",
+        "da",
+        "pt"
+    ]
+}

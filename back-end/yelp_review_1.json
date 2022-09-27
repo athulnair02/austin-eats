@@ -1,0 +1,52 @@
+{
+    "reviews": [
+        {
+            "id": "MssLPaL9dgoZXdvkGYDbdA",
+            "url": "https://www.yelp.com/biz/franklin-barbecue-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&hrid=MssLPaL9dgoZXdvkGYDbdA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
+            "text": "One of the best food experiences I've ever had! My boyfriend and I arrived around 7:00AM and were the first in line. A few minutes later more people arrived...",
+            "rating": 5,
+            "time_created": "2022-09-07 08:19:29",
+            "user": {
+                "id": "CdVKpiRQaD7IRw9t4FC96w",
+                "profile_url": "https://www.yelp.com/user_details?userid=CdVKpiRQaD7IRw9t4FC96w",
+                "image_url": "https://s3-media3.fl.yelpcdn.com/photo/fp4JLxx93IGPaiLf77ZHZw/o.jpg",
+                "name": "Ally K."
+            }
+        },
+        {
+            "id": "4YFUfdP7i8OjS1QRYzIqSg",
+            "url": "https://www.yelp.com/biz/franklin-barbecue-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&hrid=4YFUfdP7i8OjS1QRYzIqSg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
+            "text": "Meh... \n\n30 years in Austin and my first visit to Franklin.  We ordered the meat a month in advance for my Birthday (maybe they cut it when we placed the...",
+            "rating": 3,
+            "time_created": "2022-09-02 12:18:28",
+            "user": {
+                "id": "FHLZJ0shAkqIFVmtfMjCSQ",
+                "profile_url": "https://www.yelp.com/user_details?userid=FHLZJ0shAkqIFVmtfMjCSQ",
+                "image_url": "https://s3-media1.fl.yelpcdn.com/photo/sap98bYIq1kVrdRVSwYbIg/o.jpg",
+                "name": "Chris P."
+            }
+        },
+        {
+            "id": "xg1xAgkzjpSIPONjHderFg",
+            "url": "https://www.yelp.com/biz/franklin-barbecue-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&hrid=xg1xAgkzjpSIPONjHderFg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_reviews&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
+            "text": "So many were raving about this BBQ spot that we had to try it. One of us waited in line, while the other walked over to Try Hard for some coffee. The wait...",
+            "rating": 3,
+            "time_created": "2022-08-31 08:44:21",
+            "user": {
+                "id": "D3Ucpvg2Q2SquTKJn8Rhhw",
+                "profile_url": "https://www.yelp.com/user_details?userid=D3Ucpvg2Q2SquTKJn8Rhhw",
+                "image_url": "https://s3-media3.fl.yelpcdn.com/photo/YdZdYIawl8h3QEFNCi8QoA/o.jpg",
+                "name": "Alia N."
+            }
+        }
+    ],
+    "total": 5535,
+    "possible_languages": [
+        "en",
+        "es",
+        "ja",
+        "de",
+        "it",
+        "da"
+    ]
+}
