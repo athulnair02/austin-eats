@@ -1,0 +1,106 @@
+{
+    "id": "cs6HfZNykLVitm09jWFqWg",
+    "alias": "moonshine-patio-bar-and-grill-austin",
+    "name": "Moonshine Patio Bar & Grill",
+    "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/wpnO7yB337a5rnhcZVJAiA/o.jpg",
+    "is_claimed": true,
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/moonshine-patio-bar-and-grill-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
+    "phone": "+15122369599",
+    "display_phone": "(512) 236-9599",
+    "review_count": 5435,
+    "categories": [
+        {
+            "alias": "southern",
+            "title": "Southern"
+        },
+        {
+            "alias": "cocktailbars",
+            "title": "Cocktail Bars"
+        }
+    ],
+    "rating": 4.5,
+    "location": {
+        "address1": "303 Red River St",
+        "address2": "",
+        "address3": "",
+        "city": "Austin",
+        "zip_code": "78701",
+        "country": "US",
+        "state": "TX",
+        "display_address": [
+            "303 Red River St",
+            "Austin, TX 78701"
+        ],
+        "cross_streets": ""
+    },
+    "coordinates": {
+        "latitude": 30.263769,
+        "longitude": -97.738036
+    },
+    "photos": [
+        "https://s3-media1.fl.yelpcdn.com/bphoto/wpnO7yB337a5rnhcZVJAiA/o.jpg",
+        "https://s3-media2.fl.yelpcdn.com/bphoto/Pa1fbo-oMQnFXHTsgE_54g/o.jpg",
+        "https://s3-media4.fl.yelpcdn.com/bphoto/Ae-cks9Ng7i4pAzVHSmGWw/o.jpg"
+    ],
+    "price": "$$",
+    "hours": [
+        {
+            "open": [
+                {
+                    "is_overnight": false,
+                    "start": "1100",
+                    "end": "2100",
+                    "day": 0
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1100",
+                    "end": "2100",
+                    "day": 1
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1100",
+                    "end": "2100",
+                    "day": 2
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1100",
+                    "end": "2100",
+                    "day": 3
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1100",
+                    "end": "2200",
+                    "day": 4
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1000",
+                    "end": "2200",
+                    "day": 5
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1000",
+                    "end": "1400",
+                    "day": 6
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1600",
+                    "end": "2100",
+                    "day": 6
+                }
+            ],
+            "hours_type": "REGULAR",
+            "is_open_now": true
+        }
+    ],
+    "transactions": [
+        "delivery"
+    ]
+}

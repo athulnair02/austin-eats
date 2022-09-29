@@ -1,0 +1,358 @@
+{
+    "id": "MGzro82Fi4LYvc86acoONQ",
+    "alias": "franklin-barbecue-austin",
+    "name": "Franklin Barbecue",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/xV3c8kwe-q10139Dh-Xc-g/o.jpg",
+    "is_claimed": true,
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/franklin-barbecue-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
+    "phone": "+15126531187",
+    "display_phone": "(512) 653-1187",
+    "review_count": 5535,
+    "categories": [
+        {
+            "alias": "bbq",
+            "title": "Barbeque"
+        }
+    ],
+    "rating": 4.5,
+    "location": {
+        "address1": "900 E 11th St",
+        "address2": "",
+        "address3": "",
+        "city": "Austin",
+        "zip_code": "78702",
+        "country": "US",
+        "state": "TX",
+        "display_address": [
+            "900 E 11th St",
+            "Austin, TX 78702"
+        ],
+        "cross_streets": ""
+    },
+    "coordinates": {
+        "latitude": 30.2701348,
+        "longitude": -97.7313451068641
+    },
+    "photos": [
+        "https://s3-media4.fl.yelpcdn.com/bphoto/xV3c8kwe-q10139Dh-Xc-g/o.jpg",
+        "https://s3-media2.fl.yelpcdn.com/bphoto/gdBJoqeu78swDgo3XUOaBw/o.jpg",
+        "https://s3-media1.fl.yelpcdn.com/bphoto/5m-2pfZs1HS3DA-3In6hwA/o.jpg"
+    ],
+    "price": "$$",
+    "hours": [
+        {
+            "open": [
+                {
+                    "is_overnight": false,
+                    "start": "1100",
+                    "end": "1500",
+                    "day": 1
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1100",
+                    "end": "1500",
+                    "day": 2
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1100",
+                    "end": "1500",
+                    "day": 3
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1100",
+                    "end": "1500",
+                    "day": 4
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1100",
+                    "end": "1500",
+                    "day": 5
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1100",
+                    "end": "1500",
+                    "day": 6
+                }
+            ],
+            "hours_type": "REGULAR",
+            "is_open_now": false
+        }
+    ],
+    "transactions": [
+        "delivery"
+    ],
+    "special_hours": [
+        {
+            "date": "2022-11-24",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2022-11-25",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2022-11-25",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2022-11-26",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2022-12-25",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2022-12-26",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2022-12-27",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2022-12-28",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-01-01",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-01-02",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-04",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-05",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-25",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-26",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-26",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-27",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-27",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-28",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-28",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-29",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-29",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-30",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-30",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-07-31",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-08-01",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-08-02",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-08-02",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-08-03",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-08-03",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-08-04",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-11-23",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-11-24",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-11-24",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-11-25",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-12-26",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-12-27",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-12-27",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        },
+        {
+            "date": "2023-12-28",
+            "is_closed": true,
+            "start": null,
+            "end": null,
+            "is_overnight": null
+        }
+    ]
+}

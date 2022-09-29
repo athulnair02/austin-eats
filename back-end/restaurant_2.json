@@ -1,0 +1,104 @@
+{
+    "id": "YZs1gNSh_sN8JmN_nrpxeA",
+    "alias": "terry-blacks-barbecue-austin",
+    "name": "Terry Black's Barbecue",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/jUh-UQ_WkzDsLZ-9AsK5Aw/o.jpg",
+    "is_claimed": true,
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/terry-blacks-barbecue-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
+    "phone": "+15123945899",
+    "display_phone": "(512) 394-5899",
+    "review_count": 5131,
+    "categories": [
+        {
+            "alias": "bbq",
+            "title": "Barbeque"
+        },
+        {
+            "alias": "sandwiches",
+            "title": "Sandwiches"
+        },
+        {
+            "alias": "southern",
+            "title": "Southern"
+        }
+    ],
+    "rating": 4.5,
+    "location": {
+        "address1": "1003 Barton Springs Rd",
+        "address2": "",
+        "address3": "",
+        "city": "Austin",
+        "zip_code": "78704",
+        "country": "US",
+        "state": "TX",
+        "display_address": [
+            "1003 Barton Springs Rd",
+            "Austin, TX 78704"
+        ],
+        "cross_streets": ""
+    },
+    "coordinates": {
+        "latitude": 30.2596915716907,
+        "longitude": -97.7548013627529
+    },
+    "photos": [
+        "https://s3-media2.fl.yelpcdn.com/bphoto/jUh-UQ_WkzDsLZ-9AsK5Aw/o.jpg",
+        "https://s3-media3.fl.yelpcdn.com/bphoto/0saMEFaT_psQ8sFvcG_jvw/o.jpg",
+        "https://s3-media1.fl.yelpcdn.com/bphoto/fhGK3iXfFxK62sTfATtcyA/o.jpg"
+    ],
+    "price": "$$",
+    "hours": [
+        {
+            "open": [
+                {
+                    "is_overnight": false,
+                    "start": "1030",
+                    "end": "2130",
+                    "day": 0
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1030",
+                    "end": "2130",
+                    "day": 1
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1030",
+                    "end": "2130",
+                    "day": 2
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1030",
+                    "end": "2130",
+                    "day": 3
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1030",
+                    "end": "2200",
+                    "day": 4
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1030",
+                    "end": "2200",
+                    "day": 5
+                },
+                {
+                    "is_overnight": false,
+                    "start": "1030",
+                    "end": "2130",
+                    "day": 6
+                }
+            ],
+            "hours_type": "REGULAR",
+            "is_open_now": true
+        }
+    ],
+    "transactions": [
+        "delivery"
+    ]
+}
