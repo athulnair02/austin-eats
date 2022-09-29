@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Import pages
 import App from './App'
-import About from './components/Webpage/About'
+import About from './components/About/About'
 import Cultures from './components/Models/Cultures'
 import Recipes from './components/Models/Recipes'
 import Restaurants from './components/Models/Restaurants'
