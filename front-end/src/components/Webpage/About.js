@@ -21,18 +21,65 @@ import Navbar from './Navbar'
 
 async function getGitlabInfo() {
     let totalCommitCount = 0, totalIssueCount = 0, totalTestCount = 0;
-    let commitList = await fetch("https://gitlab.com/api/v4/projects/39586539/repository/commits?per_page=100&page=1&all=true")
 
-    commitList = await commitList.json()
-    commitList.forEach(commit => {
+    let pageNum = 1;
+    let commitList = [];
+    let commits = [];
+
+    // Get all the commits made from GitLab
+    do {
+        commitList = await fetch(`https://gitlab.com/api/v4/projects/39586539/repository/commits?per_page=100&page=${pageNum}&all=true`);
+        commitList = await commitList.json();
+        commits.push(...commitList);
+        pageNum += 1;
+    } while (commitList.length > 0);
+
+    // Calculate which commits belong to whom
+    commits.forEach(commit => {
+        const {author_name, author_email} = commit;
+        teamInfo.forEach(member => {
+            if (member.Name == author_name || member.Username == author_name || member.Email == author_email) {
+                member.Commits += 1;
+            }
+        })
         totalCommitCount += 1;
     });
+
+    pageNum = 1;
+    let issueList = [];
+    let issues = [];
+
+    // Get all the issues made from GitLab
+    do {
+        issueList = await fetch(`https://gitlab.com/api/v4/projects/39586539/issues?per_page=100&page=${pageNum}&scope=all`);
+        issueList = await issueList.json();
+        issues.push(...issueList);
+        pageNum += 1;
+    } while (issueList.length > 0);
+
+    // Calculate which issues belong to whom
+    issues.forEach(issue => {
+        const {author} = issue;
+        const {name, username} = author;
+        teamInfo.forEach(member => {
+            if (member.Name == name || member.Username == username || member.Name == username) {
+                member.Issues += 1;
+            }
+        })
+        totalIssueCount += 1;
+    });
+
+    // Calculate total tests
+    teamInfo.forEach(member => {
+        totalTestCount += member.Tests
+    })
+
 
     return {
         teamList: teamInfo,
         totalCommits: totalCommitCount,
-        totalIssues: 0,
-        totalTests: 0
+        totalIssues: totalIssueCount,
+        totalTests: totalTestCount
     }
 }
 
