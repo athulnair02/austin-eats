@@ -115,9 +115,14 @@ function About() {
             <Container>
                 <p>
                 A reference webpage to local Austin restaurants that displays statistics for restaurants in the city, 
-                recipes for menu items which you can try on your own, and types of cuisines in Austin. There will be 
-                an emphasis placed on supporting local businesses, connecting popular menu items to recipes which you 
-                can try for yourself, and being able to try similar dishes across different cuisines.
+                recipes for menu items which you can try on your own, and types of cuisines in Austin. We are here to
+                help and support local businesses, connecting popular menu items to recipes which you can try for
+                yourself, and being able to try similar dishes across different cuisines. If you are a foodie or love 
+                cooking, this website is for you!
+                </p>
+                <p>
+                We connect data from several sources so you, the user, can be well informed on various restaurants, 
+                recipes, and cultures. We hope you find something you didn't know you were looking for!
                 </p>
             </Container>
 
@@ -126,7 +131,7 @@ function About() {
                 {teamList.map((member) => {
                 return (
                     <MatCard className="bioCard" key={member.Name + "-card"} style={{ width: "18rem" }}>
-                    <Card.Img variant="top" src={member.Photo} />
+                    <Card.Img variant="top" src={member.Photo}/>
                     <CardContent>
                         <Card.Title>{member.Name}</Card.Title>
                         <Card.Subtitle>{member.Role}</Card.Subtitle>

@@ -1,6 +1,6 @@
 // Profile pictures
 import AthulPFP from "../../assets/profilepictures/Athul.jpg";
-// import ChristianPFP from "../../assets/profilepictures/Christian.jpg";
+import ChristianPFP from "../../assets/profilepictures/Christian.png";
 import ClintPFP from "../../assets/profilepictures/Clint.jpg";
 import MihikaPFP from "../../assets/profilepictures/Mihika.jpg";
 import ThomasPFP from "../../assets/profilepictures/Thomas.jpg";
@@ -38,7 +38,7 @@ const teamInfo = [
     Username: "Repoised",
     Email: "christiandcamp@hotmail.com",
     Role: "Front End",
-    // Photo: ChristianPFP,
+    Photo: ChristianPFP,
     Bio: "I'm Christian Camp, a Computer Science major who finds joy in creating and programming games!",
     Commits: 0,
     Issues: 0,
