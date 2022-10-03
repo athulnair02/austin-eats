@@ -107,7 +107,16 @@ function About() {
             setTotalTests(gitlabInfo.totalTests);
         }
         fetchData();
-    }, [])
+    }, [teamInfo])
+
+    const toolCardStyle = {
+        cardStyle : {
+            display: "inline-block",
+            // height: "300px",
+            width: "280px",
+            margin: "8px",
+        }
+    }
 
     return (
         <Container className="wrapper">
@@ -126,7 +135,7 @@ function About() {
                 {teamList.map((member) => {
                 return (
                     <MatCard className="bioCard" key={member.Name + "-card"} style={{ width: "18rem" }}>
-                    {/* <Card.Img variant="top" src={member.Photo} /> */}
+                    <Card.Img variant="top" src={member.Photo} />
                     <CardContent>
                         <Card.Title>{member.Name}</Card.Title>
                         <Card.Subtitle>{member.Role}</Card.Subtitle>
@@ -172,13 +181,13 @@ function About() {
                     <MatCard className="infoCard" variant="outlined">
                         <CardActionArea
                         className="customAction"
-                        // href={api.Link}
+                        href={api.Link}
                         target="_blank"
                         >
                         <CardMedia
                             className="logo"
                             component="img"
-                            // image={api.Logo}
+                            image={api.Logo}
                         />
                         <CardContent>
                             <Typography variant="body1" color="text.primary">
@@ -196,16 +205,16 @@ function About() {
             </Stack>
 
             <h1>Tools</h1>
-            <Stack direction="row" justifyContent="center" flexWrap="wrap">
+            <Stack direction="row" justifyContent="center" spacing={1} sx={{flexWrap: "wrap"}}>
                 {toolInfo.map((tool) => {
                 return (
                     <Col key={tool.Link} as="div">
-                    <MatCard className="infoCard" variant="outlined">
+                    <MatCard className="infoCard" variant="outlined" sx={[toolCardStyle.cardStyle]}>
                         <CardActionArea className="customAction" href={tool.Link}>
                         <CardMedia
                             className="logo"
                             component="img"
-                            // image={tool.Logo}
+                            image={tool.Logo}
                         />
                         <CardContent>
                             <Typography variant="body1" color="text.primary">

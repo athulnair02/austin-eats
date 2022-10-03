@@ -1,23 +1,23 @@
 // TODO: add all images, team info, and tool info, api info, and repo/api info
 
 // Profile pictures
-// import AthulPFP from "../../assets/profilepics/Athul.jpg";
-// import ChristianPFP from "../../assets/profilepics/Christian.jpg";
-// import ClintPFP from "../../assets/profilepics/Clint.jpg";
-// import MihikaPFP from "../../assets/profilepics/Mihika.jpg";
-// import ThomasPFP from "../../assets/profilepics/Thomas.jpg";
+import AthulPFP from "../../assets/profilepictures/Athul.jpg";
+// import ChristianPFP from "../../assets/profilepictures/Christian.jpg";
+import ClintPFP from "../../assets/profilepictures/Clint.jpg";
+import MihikaPFP from "../../assets/profilepictures/Mihika.jpg";
+import ThomasPFP from "../../assets/profilepictures/Thomas.jpg";
 
 // Tool Logos
-// import ReactLogo from "../../assets/tools/ReactLogo.png";
-// import BootstrapLogo from "../../assets/tools/ReactBootstrapLogo.png";
-// import MaterialLogo from "../../assets/tools/MaterialUILogo.png";
-// import GitLabLogo from "../../assets/tools/GitLabLogo.png";
-// import PostmanLogo from "../../assets/tools/PostmanLogo.png";
-// import NamecheapLogo from "../../assets/tools/NamecheapLogo.png";
-// import AWSLogo from "../../assets/tools/AWSLogo.png";
-// import DiscordLogo from "../../assets/tools/DiscordLogo.png";
-// import PrettierLogo from "../../assets/tools/prettierLogo.svg";
-// import BlackLogo from "../../assets/tools/BlackLogo.png";
+import ReactLogo from "../../assets/tools/ReactLogo.png";
+import BootstrapLogo from "../../assets/tools/ReactBootstrapLogo.png";
+import MaterialLogo from "../../assets/tools/MaterialUILogo.png";
+import GitLabLogo from "../../assets/tools/GitLabLogo.png";
+import PostmanLogo from "../../assets/tools/PostmanLogo.png";
+import NamecheapLogo from "../../assets/tools/NamecheapLogo.png";
+import AWSLogo from "../../assets/tools/AWSLogo.png";
+import DiscordLogo from "../../assets/tools/DiscordLogo.png";
+import PrettierLogo from "../../assets/tools/prettierLogo.svg";
+import BlackLogo from "../../assets/tools/BlackLogo.png";
 
 // API logos
 // import YelpLogo from "../../assets/apis/YelpLogo.png";
@@ -28,7 +28,7 @@ const teamInfo = [
     Username: "athuln",
     Email: "athulnair@utexas.edu",
     Role: "Full Stack",
-    // Photo: AthulPFP,
+    Photo: AthulPFP,
     Bio: "I am a junior at UT Austin majoring in computer science and minoring in business. In my free time I love to deweed my garden and play some casual sand volleyball.",
     Commits: 0,
     Issues: 0,
@@ -50,7 +50,7 @@ const teamInfo = [
     Username: "xXDarkEyesXx",
     Email: "clintcamp@hotmail.com",
     Role: "Back End",
-    // Photo: ClintPFP,
+    Photo: ClintPFP,
     Bio: "I'm Clint, a UT Austin student who is passionate about game development. I stop by Gong Cha far too frequently.",
     Commits: 0,
     Issues: 0,
@@ -61,8 +61,8 @@ const teamInfo = [
     Username: "mihikabirmiwal",
     Email: "mihika@cs.utexas.edu",
     Role: "Back End",
-    // Photo: MihikaPFP,
-    Bio: "",
+    Photo: MihikaPFP,
+    Bio: "I am a junior at UT Austin majoring in computer science and minoring in economics. In my free time I love to play tennis and go grocery shopping!",
     Commits: 0,
     Issues: 0,
     Tests: 0,
@@ -72,7 +72,7 @@ const teamInfo = [
     Username: "tmooretcm",
     Email: "tmooretcm@utexas.edu",
     Role: "Front End",
-    // Photo: ThomasPFP,
+    Photo: ThomasPFP,
     Bio: "I am a junior at UT Austin majoring in computer science and minoring in social work. I love to climb, inside and out. I also love cooking and gardening!",
     Commits: 0,
     Issues: 0,
@@ -82,70 +82,70 @@ const teamInfo = [
 
 const toolInfo = [
   {
-    // Logo: AWSLogo,
+    Logo: AWSLogo,
     Link: "https://aws.amazon.com/",
     Title: "Amazon Web Service",
     Desc: "Tool used for cloud hosting",
   },
 
   {
-    // Logo: ReactLogo,
+    Logo: ReactLogo,
     Link: "https://www.reactjs.org/",
     Title: "React",
     Desc: "JavaScript framework used for UI front-end web development",
   },
 
   {
-    // Logo: BootstrapLogo,
+    Logo: BootstrapLogo,
     Link: "https://react-bootstrap.github.io/",
     Title: "React Bootstrap",
     Desc: "JavaScript library used for UI foundation",
   },
 
   {
-    // Logo: MaterialLogo,
+    Logo: MaterialLogo,
     Link: "https://mui.com/",
     Title: "Material UI",
     Desc: "JavaScript library used for UI foundation",
   },
 
   {
-    // Logo: PrettierLogo,
+    Logo: PrettierLogo,
     Link: "https://prettier.io/",
     Title: "Prettier",
     Desc: "Code formatter",
   },
 
   {
-    // Logo: BlackLogo,
+    Logo: BlackLogo,
     Link: "https://pypi.org/project/black/",
     Title: "Black",
     Desc: "Tool for Python code formatting",
   },
 
   {
-    // Logo: NamecheapLogo,
+    Logo: NamecheapLogo,
     Link: "https://www.namecheap.com/",
     Title: "Namecheap",
     Desc: "Domain name registrar",
   },
 
   {
-    // Logo: GitLabLogo,
+    Logo: GitLabLogo,
     Link: "https://www.gitlab.com",
     Title: "GitLab",
     Desc: "Git repository and CI/CD platform",
   },
 
   {
-    // Logo: PostmanLogo,
+    Logo: PostmanLogo,
     Link: "https://www.postman.com/",
     Title: "Postman",
     Desc: "Tool used for design and testing of our API",
   },
 
   {
-    // Logo: DiscordLogo,
+    Logo: DiscordLogo,
     Link: "https://www.discord.com/",
     Title: "Discord",
     Desc: "Tool for communication with team members",
