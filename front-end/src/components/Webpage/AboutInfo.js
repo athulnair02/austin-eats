@@ -1,5 +1,3 @@
-// TODO: add all images, team info, and tool info, api info, and repo/api info
-
 // Profile pictures
 import AthulPFP from "../../assets/profilepictures/Athul.jpg";
 // import ChristianPFP from "../../assets/profilepictures/Christian.jpg";
@@ -20,7 +18,8 @@ import PrettierLogo from "../../assets/tools/prettierLogo.svg";
 import BlackLogo from "../../assets/tools/BlackLogo.png";
 
 // API logos
-// import YelpLogo from "../../assets/apis/YelpLogo.png";
+import YelpLogo from "../../assets/tools/YelpLogo.png";
+import SpoonacularLogo from "../../assets/tools/SpoonacularLogo.png"
 
 const teamInfo = [
   {
@@ -154,28 +153,35 @@ const toolInfo = [
 
 const dataSourceInfo = [
   {
-    // Logo: YelpLogo,
+    Logo: YelpLogo,
     Link: "https://www.yelp.com",
     Title: "Yelp",
     Desc: "API for Restaurant business ",
   },
 
   {
-    // Logo: GitLabLogo,
+    Logo: GitLabLogo,
     Link: "https://www.gitlab.com",
     Title: "GitLab",
     Desc: "API for Git repository statistics",
+  },
+
+  {
+    Logo: SpoonacularLogo,
+    Link: "https://spoonacular.com/food-api",
+    Title: "Spoonacular",
+    Desc: "API for recipe data",
   },
 ];
 
 const repoAndAPI = [
   {
-    // Logo: GitLabLogo,
+    Logo: GitLabLogo,
     Link: "https://gitlab.com/mihikabirmiwal/cs373-idb",
   },
   {
-    // Logo: PostmanLogo,
-    Link: "",
+    Logo: PostmanLogo,
+    Link: "https://documenter.getpostman.com/view/23508831/2s83tJGW4m",
   },
 ];
 

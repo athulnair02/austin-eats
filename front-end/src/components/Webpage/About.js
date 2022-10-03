@@ -16,7 +16,7 @@ import {
   CardActionArea,
   Stack,
 } from "@mui/material";
-// import "../../styles/About.css";
+import "./About.css";
 import Navbar from './Navbar'
 
 async function getGitlabInfo() {
@@ -107,16 +107,7 @@ function About() {
             setTotalTests(gitlabInfo.totalTests);
         }
         fetchData();
-    }, [teamInfo])
-
-    const toolCardStyle = {
-        cardStyle : {
-            display: "inline-block",
-            // height: "300px",
-            width: "280px",
-            margin: "8px",
-        }
-    }
+    }, [])
 
     return (
         <Container className="wrapper">
@@ -131,7 +122,7 @@ function About() {
             </Container>
 
             <h1 className="wrapper">Team Members</h1>
-            <Stack direction="row" justifyContent="center" spacing={2}> {/* gap="32px" */}
+            <Stack direction="row" justifyContent="center" spacing={2}> 
                 {teamList.map((member) => {
                 return (
                     <MatCard className="bioCard" key={member.Name + "-card"} style={{ width: "18rem" }}>
@@ -177,7 +168,7 @@ function About() {
             <Stack direction="row" justifyContent="center" flexWrap="wrap">
                 {dataSourceInfo.map((api) => {
                 return (
-                    <Col as="div"> {/*key={api.Link}*/}
+                    <Col key={api.Link} as="div">
                     <MatCard className="infoCard" variant="outlined">
                         <CardActionArea
                         className="customAction"
@@ -205,11 +196,11 @@ function About() {
             </Stack>
 
             <h1>Tools</h1>
-            <Stack direction="row" justifyContent="center" spacing={1} sx={{flexWrap: "wrap"}}>
+            <Stack direction="row" justifyContent="center" spacing={1} flexWrap="wrap">
                 {toolInfo.map((tool) => {
                 return (
                     <Col key={tool.Link} as="div">
-                    <MatCard className="infoCard" variant="outlined" sx={[toolCardStyle.cardStyle]}>
+                    <MatCard className="infoCard" variant="outlined">
                         <CardActionArea className="customAction" href={tool.Link}>
                         <CardMedia
                             className="logo"
@@ -245,13 +236,8 @@ function About() {
                         <CardMedia
                             className="GLPM"
                             component="img"
-                            // image={tool.Logo}
+                            image={tool.Logo}
                         />
-                        <CardContent>
-                            <Typography variant="body1" color="text.primary">
-                            {tool.Link}
-                            </Typography>
-                        </CardContent>
                         </CardActionArea>
                     </MatCard>
                     </Col>
