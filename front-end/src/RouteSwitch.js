@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import MainNavbar from './components/Webpage/Navbar'
+
 // Import pages
-import App from './App'
-import About from './components/About/About'
+import Home from './components/Home/Home'
+import About from './components/Webpage/About'
 import Cultures from './components/Models/Cultures'
 import Recipes from './components/Models/Recipes'
 import Restaurants from './components/Models/Restaurants'
@@ -11,11 +13,12 @@ import Culture from './components/Instances/Culture'
 import Recipe from './components/Instances/Recipe'
 import Restaurant from './components/Instances/Restaurant'
 
-const RouteSwitch = () => {
+function RouteSwitch() {
     return (
         <BrowserRouter>
+            <MainNavbar />
             <Routes>
-                <Route path="/" element={<App />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/restaurants" element={<Restaurants />} />
                 <Route path="/recipes" element={<Recipes />} />
