@@ -1,4 +1,5 @@
 # Help with the git pipeline format from Texas Votes https://gitlab.com/forbesye/fitsbits/-/blob/master/.gitlab-ci.yml
+
 image: node:latest
 
 stages:          # List of stages for jobs, and their order of execution

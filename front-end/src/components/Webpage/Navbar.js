@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
+import logo from '../../assets/favicon.svg'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './Navbar.css';
 
@@ -10,6 +11,7 @@ function MainNavbar() {
     return (
       <Navbar className='color-nav' variant='dark'>
         <Container>
+          <img className='brand-logo' src={logo} alt="Logo"/>
           <Navbar.Brand className='brand-link' href='/'>AustinEats</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link className='color-link' href='/restaurants'>Restaurants</Nav.Link>
