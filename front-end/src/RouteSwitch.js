@@ -12,6 +12,7 @@ import Restaurants from './components/Models/Restaurants'
 import Culture from './components/Instances/Culture'
 import Recipe from './components/Instances/Recipe'
 import Restaurant from './components/Instances/Restaurant'
+import PageNotFound from './components/Webpage/PageNotFound'
 
 function RouteSwitch() {
     return (
@@ -23,9 +24,10 @@ function RouteSwitch() {
                 <Route path="/restaurants" element={<Restaurants />} />
                 <Route path="/recipes" element={<Recipes />} />
                 <Route path="/cultures" element={<Cultures />} />
-                <Route path="/restaurant/:id" element={<Restaurant />} />
-                <Route path="/recipe/:id" element={<Recipe />} />
-                <Route path="/culture/:id" element={<Culture />} />
+                <Route path="/restaurants/:id" element={<Restaurant />} />
+                <Route path="/recipes/:id" element={<Recipe />} />
+                <Route path="/cultures/:id" element={<Culture />} />
+                <Route path="*" element={<PageNotFound />} />
             </Routes>
         </BrowserRouter>
     );
