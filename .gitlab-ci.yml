@@ -1,9 +1,8 @@
 # Help with the git pipeline format from Texas Votes https://gitlab.com/forbesye/fitsbits/-/blob/master/.gitlab-ci.yml
-
 image: node:latest
 
-stages:
-  -build
+stages:          # List of stages for jobs, and their order of execution
+  - build
 
 cache:
   paths:
