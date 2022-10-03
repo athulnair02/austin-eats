@@ -1,0 +1,89 @@
+.instanceTitle {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 500;
+    line-height: 20px;
+    color: #23022E;
+    font-size: 75px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.instanceSubTitle {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #23022E;
+    text-decoration: underline;
+    text-decoration-color: #a67d02;
+    font-size: 20px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.instanceText {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #23022E;
+    font-size: 20px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.cultureContainer {
+    width: 50%;
+    background-color: transparent;
+    margin: 0 auto;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.cultureTopDownContainer {
+    width: 60%;
+    height: 100%;
+    background-color: rgb(235, 235, 235);
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.cultureFlag {
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-position: left; */
+    float: left;
+    padding: 220px;
+    padding-top: 3px;
+}
+
+.tab {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.googleMap {
+    transform: scale(1.7);
+    display: block;
+    margin: auto;
+}
+
+tbody {
+    display: block;
+    border-spacing: 5px;
+}
+
+td, th {
+    background-color: #f6f4ec;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 10px;
+}
+  
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.tdLeft {
+    background-color: #e1ddd1;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 10px;
+    font-weight: bold;
+}
