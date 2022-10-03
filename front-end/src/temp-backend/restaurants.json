@@ -1,13 +1,11 @@
 [{
-    "id": 0,
+    "id": "0",
     "alias": "franklin-barbecue-austin",
     "name": "Franklin Barbecue",
-    "image": "https://s3-media4.fl.yelpcdn.com/bphoto/xV3c8kwe-q10139Dh-Xc-g/o.jpg",
-    "is_claimed": true,
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/xV3c8kwe-q10139Dh-Xc-g/o.jpg",
     "is_closed": false,
-    "url": "https://www.yelp.com/biz/franklin-barbecue-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
-    "phone": {"number": "+15126531187", "display": "(512) 653-1187"},
-    "review_count": 5535,
+    "url": "https://www.yelp.com/biz/franklin-barbecue-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
+    "review_count": 5548,
     "categories": [
         {
             "alias": "bbq",
@@ -15,6 +13,14 @@
         }
     ],
     "rating": 4.5,
+    "coordinates": {
+        "latitude": 30.2701348,
+        "longitude": -97.7313451068641
+    },
+    "transactions": [
+        "delivery"
+    ],
+    "price": "$$",
     "location": {
         "address1": "900 E 11th St",
         "address2": "",
@@ -26,85 +32,90 @@
         "display_address": [
             "900 E 11th St",
             "Austin, TX 78702"
-        ],
-        "cross_streets": ""
-    },
-    "latlng": [30.2701348, -97.7313451068641],
-    "photos": [
-        "https://s3-media4.fl.yelpcdn.com/bphoto/xV3c8kwe-q10139Dh-Xc-g/o.jpg",
-        "https://s3-media2.fl.yelpcdn.com/bphoto/gdBJoqeu78swDgo3XUOaBw/o.jpg",
-        "https://s3-media1.fl.yelpcdn.com/bphoto/5m-2pfZs1HS3DA-3In6hwA/o.jpg"
-    ],
-    "price": "$$",
-    "transactions": ["delivery"],
-    "hours": {
-        "open": [
-            {
-                "is_overnight": false,
-                "start": "1100",
-                "end": "1500",
-                "day": 1
-            },
-            {
-                "is_overnight": false,
-                "start": "1100",
-                "end": "1500",
-                "day": 2
-            },
-            {
-                "is_overnight": false,
-                "start": "1100",
-                "end": "1500",
-                "day": 3
-            },
-            {
-                "is_overnight": false,
-                "start": "1100",
-                "end": "1500",
-                "day": 4
-            },
-            {
-                "is_overnight": false,
-                "start": "1100",
-                "end": "1500",
-                "day": 5
-            },
-            {
-                "is_overnight": false,
-                "start": "1100",
-                "end": "1500",
-                "day": 6
-            }
         ]
-    }
+    },
+    "phone": "+15126531187",
+    "display_phone": "(512) 653-1187",
+    "distance": 4645.277696597739
 },
 {
-    "id": 1,
-    "alias": "terry-blacks-barbecue-austin",
-    "name": "Terry Black's Barbecue",
-    "image": "https://s3-media2.fl.yelpcdn.com/bphoto/jUh-UQ_WkzDsLZ-9AsK5Aw/o.jpg",
-    "is_claimed": true,
+    "id": "1",
+    "alias": "home-slice-pizza-austin",
+    "name": "Home Slice Pizza",
+    "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/4wmXF0HIDEUdxPEB4Lyqjw/o.jpg",
     "is_closed": false,
-    "url": "https://www.yelp.com/biz/terry-blacks-barbecue-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
-    "phone": {"number": "+15123945899", "display": "(512) 394-5899"},
-    "review_count": 5131,
+    "url": "https://www.yelp.com/biz/home-slice-pizza-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
+    "review_count": 4314,
     "categories": [
         {
-            "alias": "bbq",
-            "title": "Barbeque"
+            "alias": "pizza",
+            "title": "Pizza"
         },
         {
             "alias": "sandwiches",
             "title": "Sandwiches"
-        },
-        {
-            "alias": "southern",
-            "title": "Southern"
         }
     ],
     "rating": 4.5,
+    "coordinates": {
+        "latitude": 30.2492254,
+        "longitude": -97.74955321609525
+    },
+    "transactions": [
+        "delivery",
+        "pickup"
+    ],
+    "price": "$$",
     "location": {
-        "address1": "1003 Barton Springs Rd",
+        "address1": "1415 S Congress St",
+        "address2": null,
+        "address3": "",
+        "city": "Austin",
+        "zip_code": "78704",
+        "country": "US",
+        "state": "TX",
+        "display_address": [
+            "1415 S Congress St",
+            "Austin, TX 78704"
+        ]
+    },
+    "phone": "+15124447437",
+    "display_phone": "(512) 444-7437",
+    "distance": 6268.4890087128915
+},
+{
+    "id": "2",
+    "alias": "uchi-austin",
+    "name": "Uchi",
+    "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/WITXPKAHT0HyF3zzBjZNgA/o.jpg",
+    "is_closed": false,
+    "url": "https://www.yelp.com/biz/uchi-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
+    "review_count": 2733,
+    "categories": [
+        {
+            "alias": "sushi",
+            "title": "Sushi Bars"
+        },
+        {
+            "alias": "japanese",
+            "title": "Japanese"
+        },
+        {
+            "alias": "beer_and_wine",
+            "title": "Beer, Wine & Spirits"
+        }
+    ],
+    "rating": 4.5,
+    "coordinates": {
+        "latitude": 30.257515,
+        "longitude": -97.759806
+    },
+    "transactions": [
+        "delivery"
+    ],
+    "price": "$$$$",
+    "location": {
+        "address1": "801 South Lamar Blvd",
         "address2": "",
         "address3": "",
         "city": "Austin",
@@ -112,159 +123,11 @@
         "country": "US",
         "state": "TX",
         "display_address": [
-            "1003 Barton Springs Rd",
+            "801 South Lamar Blvd",
             "Austin, TX 78704"
-        ],
-        "cross_streets": ""
-    },
-    "latlng": [30.2596915716907, -97.7548013627529],
-    "photos": [
-        "https://s3-media2.fl.yelpcdn.com/bphoto/jUh-UQ_WkzDsLZ-9AsK5Aw/o.jpg",
-        "https://s3-media3.fl.yelpcdn.com/bphoto/0saMEFaT_psQ8sFvcG_jvw/o.jpg",
-        "https://s3-media1.fl.yelpcdn.com/bphoto/fhGK3iXfFxK62sTfATtcyA/o.jpg"
-    ],
-    "price": "$$",
-    "transactions": ["delivery"],
-    "hours": {
-        "open": [
-            {
-                "is_overnight": false,
-                "start": "1030",
-                "end": "2130",
-                "day": 0
-            },
-            {
-                "is_overnight": false,
-                "start": "1030",
-                "end": "2130",
-                "day": 1
-            },
-            {
-                "is_overnight": false,
-                "start": "1030",
-                "end": "2130",
-                "day": 2
-            },
-            {
-                "is_overnight": false,
-                "start": "1030",
-                "end": "2130",
-                "day": 3
-            },
-            {
-                "is_overnight": false,
-                "start": "1030",
-                "end": "2200",
-                "day": 4
-            },
-            {
-                "is_overnight": false,
-                "start": "1030",
-                "end": "2200",
-                "day": 5
-            },
-            {
-                "is_overnight": false,
-                "start": "1030",
-                "end": "2130",
-                "day": 6
-            }
         ]
-    }
-},
-{
-    "id": 2,
-    "alias": "moonshine-patio-bar-and-grill-austin",
-    "name": "Moonshine Patio Bar & Grill",
-    "image": "https://s3-media1.fl.yelpcdn.com/bphoto/wpnO7yB337a5rnhcZVJAiA/o.jpg",
-    "is_claimed": true,
-    "is_closed": false,
-    "url": "https://www.yelp.com/biz/moonshine-patio-bar-and-grill-austin?adjust_creative=HLIe_i7ytzk0WfjWPTu9uQ&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=HLIe_i7ytzk0WfjWPTu9uQ",
-    "phone": {"number": "+15122369599", "display": "(512) 236-9599"},
-    "review_count": 5435,
-    "categories": [
-        {
-            "alias": "southern",
-            "title": "Southern"
-        },
-        {
-            "alias": "cocktailbars",
-            "title": "Cocktail Bars"
-        }
-    ],
-    "rating": 4.5,
-    "location": {
-        "address1": "303 Red River St",
-        "address2": "",
-        "address3": "",
-        "city": "Austin",
-        "zip_code": "78701",
-        "country": "US",
-        "state": "TX",
-        "display_address": [
-            "303 Red River St",
-            "Austin, TX 78701"
-        ],
-        "cross_streets": ""
     },
-    "latlng": [30.263769, -97.738036],
-    "photos": [
-        "https://s3-media1.fl.yelpcdn.com/bphoto/wpnO7yB337a5rnhcZVJAiA/o.jpg",
-        "https://s3-media2.fl.yelpcdn.com/bphoto/Pa1fbo-oMQnFXHTsgE_54g/o.jpg",
-        "https://s3-media4.fl.yelpcdn.com/bphoto/Ae-cks9Ng7i4pAzVHSmGWw/o.jpg"
-    ],
-    "price": "$$",
-    "transactions": ["delivery"],
-    "hours": {
-        "open": [
-            {
-                "is_overnight": false,
-                "start": "1100",
-                "end": "2100",
-                "day": 0
-            },
-            {
-                "is_overnight": false,
-                "start": "1100",
-                "end": "2100",
-                "day": 1
-            },
-            {
-                "is_overnight": false,
-                "start": "1100",
-                "end": "2100",
-                "day": 2
-            },
-            {
-                "is_overnight": false,
-                "start": "1100",
-                "end": "2100",
-                "day": 3
-            },
-            {
-                "is_overnight": false,
-                "start": "1100",
-                "end": "2200",
-                "day": 4
-            },
-            {
-                "is_overnight": false,
-                "start": "1000",
-                "end": "2200",
-                "day": 5
-            },
-            {
-                "is_overnight": false,
-                "start": "1000",
-                "end": "1400",
-                "day": 6
-            },
-            {
-                "is_overnight": false,
-                "start": "1600",
-                "end": "2100",
-                "day": 6
-            }
-        ]
-    }
+    "phone": "+15129164808",
+    "display_phone": "(512) 916-4808",
+    "distance": 5300.527965685337
 }]
