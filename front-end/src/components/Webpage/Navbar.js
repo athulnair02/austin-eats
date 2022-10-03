@@ -11,7 +11,9 @@ function MainNavbar() {
     return (
       <Navbar className='color-nav' variant='dark'>
         <Container>
-          <img className='brand-logo' src={logo} alt="Logo"/>
+          <a href='/'>
+            <img className='brand-logo' src={logo} alt="Logo"/>
+          </a>
           <Navbar.Brand className='brand-link' href='/'>AustinEats</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link className='color-link' href='/restaurants'>Restaurants</Nav.Link>
@@ -25,7 +27,6 @@ function MainNavbar() {
         </Container>
       </Navbar>
     );
-  }
+}
   
-  export default MainNavbar;
-  
+export default MainNavbar;
