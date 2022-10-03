@@ -1,0 +1,325 @@
+[{
+    "id": 0,
+    "name": "Wuxi Ribs",
+    "summary": "Wuxi Ribs is a <b>gluten free and dairy free</b> main course. One portion of this dish contains around <b>40g of protein</b>, <b>44g of fat</b>, and a total of <b>738 calories</b>. For <b>$3.79 per serving</b>, this recipe <b>covers 30%</b> of your daily requirements of vitamins and minerals. This recipe serves 3. 1 person were impressed by this recipe. It is brought to you by Foodista. Head to the store and pick up vinegar, pepper powder, soy sauce, and a few other things to make it today. From preparation to the plate, this recipe takes around <b>around 45 minutes</b>. With a spoonacular <b>score of 52%</b>, this dish is pretty good. Try <a href=\"https://spoonacular.com/recipes/dans-baby-back-ribs-you-can-make-tasty-ribs-599254\">Dan’s Baby Back Ribs – you can make tasty ribs</a>, <a href=\"https://spoonacular.com/recipes/sweet-temptation-ribs-tamarind-glazed-spare-ribs-391730\">Sweet Temptation Ribs: Tamarind-Glazed Spare Ribs</a>, and <a href=\"https://spoonacular.com/recipes/ward-winning-ribs-sticky-ribs-329399\">Ward Winning Ribs (Sticky Ribs)</a> for similar recipes.",
+    "image": "https://spoonacular.com/recipeImages/665438-312x231.jpg",
+    "source": {"name": "Foodista", "url": "https://www.foodista.com/recipe/CRPZZLRL/wuxi-ribs", "credits": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit"},
+    "preparation_minutes": -1,
+    "cooking_minutes": -1,
+    "ready_in_minutes": 45,
+    "instructions_minutes": 122,
+    "servings": 3,
+    "labels": {
+        "vegetarian": false,
+        "vegan": false,
+        "gluten_free": true,
+        "dairy_free": true,
+        "very_healthy": false,
+        "cheap": false,
+        "very_popular": false,
+        "sustainable": false
+    },
+    "health_score": 16,
+    "ingredients": [
+        {
+            "aisle": "Meat",
+            "name": "pork ribs",
+            "name_clean": "pork ribs",
+            "amount": 800,
+            "unit": "g"
+        },
+        {
+            "aisle": "Produce",
+            "name": "spring onions",
+            "name_clean": "spring onions",
+            "amount": 10,
+            "unit": ""
+        },
+        {
+            "aisle": "Produce;Ethnic Foods;Spices and Seasonings",
+            "name": "ginger",
+            "name_clean": "ginger",
+            "amount": 4,
+            "unit": "slices"
+        },
+        {
+            "aisle": "Ethnic Foods;Condiments",
+            "name": "soy sauce",
+            "name_clean": "soy sauce",
+            "amount": 2,
+            "unit": "tablespoons"
+        },
+        {
+            "aisle": "Alcoholic Beverages",
+            "name": "rice wine",
+            "name_clean": "shaoxing wine",
+            "amount": 1,
+            "unit": "cup"
+        },
+        {
+            "aisle": "Ethnic Foods;Condiments",
+            "name": "soy sauce",
+            "name_clean": "soy sauce",
+            "amount": 1,
+            "unit": "cup"
+        },
+        {
+            "aisle": "Oil, Vinegar, Salad Dressing",
+            "name": "vinegar",
+            "name_clean": "distilled white vinegar",
+            "amount": 1,
+            "unit": "tablespoon"
+        },
+        {
+            "aisle": "Spices and Seasonings",
+            "name": "star anise",
+            "name_clean": "star anise",
+            "amount": 1,
+            "unit": ""
+        },
+        {
+            "aisle": "Spices and Seasonings",
+            "name": "clove",
+            "name_clean": "clove",
+            "amount": 1,
+            "unit": ""
+        },
+        {
+            "aisle": "Spices and Seasonings",
+            "name": "red pepper powder",
+            "name_clean": "ground cayenne pepper",
+            "amount": 0.25,
+            "unit": "teaspoon"
+        },
+        {
+            "aisle": "Ethnic Foods;Spices and Seasonings",
+            "name": "5 spice powder",
+            "name_clean": "chinese five spice",
+            "amount": 5,
+            "unit": ""
+        },
+        {
+            "aisle": "Condiments",
+            "name": "ketchup",
+            "name_clean": "ketchup",
+            "amount": 1,
+            "unit": "tablespoon"
+        },
+        {
+            "aisle": "Baking",
+            "name": "sugar",
+            "name_clean": "sugar",
+            "amount": 2,
+            "unit": "tablespoons"
+        }
+    ],
+    "nutrition": {
+        "nutrients": [
+            {"name": "Calories", "amount": 737.06, "unit": "kcal", "percent_daily": 36.85},
+            {"name": "Fat", "amount": 44.25, "unit": "g", "percent_daily": 68.08},
+            {"name": "Saturated Fat", "amount": 14.1, "unit": "g", "percent_daily": 88.14},
+            {"name": "Carbohydrates", "amount": 22.86, "unit": "g", "percent_daily": 7.62},
+            {"name": "Sugar", "amount": 11.57, "unit": "g", "percent_daily": 12.85},
+            {"name": "Sodium", "amount": 5198.8, "unit": "mg", "percent_daily": 225.9},
+            {"name": "Protein", "amount": 39.87, "unit": "g", "percent_daily": 79.75}
+        ],
+        "caloric_breakdown": {"percent_protein": 24.57, "percent_fat": 61.34, "percent_carbs": 14.09},
+        "weight_per_serving": {"amount": 419, "unit": "g"}
+    },
+    "instructions": [
+        "Marinade ribs with 2 tablespoons soy sauce, heat up 2 cups of oil in the wok with full gas power. Fry the ribs in 180C Oil for 2 minutes and place it on a plate. This procedure is for colouring the ribs.",
+        "Heat up 1 tablespoon of oil and stir-fry the spring onion and , ginger until the fragrance comes out.",
+        "Place the spring onion and ginger into a stock pot and place",
+        "ribs on top of the spring onion.",
+        "Add all the spice, Shaoshing rice wine, soy sauce and dark vinegar into the stock pot and use full gas power to boil everything at first. Once it has boiled turn reduce the temperate to the lowest gas heat and simmer for 1.5 hours.",
+        "Add sugar and ketchup after the ribs have simmered for 1.5 hours and keep simmering until the meat on the ribs is soft.",
+        "Time to make: 2 hours",
+        "Serves: 3 people"
+    ],
+    "cuisines": ["American", "Chinese"],
+    "dish_types": ["lunch", "dinner"]
+},
+{
+    "id": 1,
+    "name": "Spare Ribs",
+    "summary": "If you have roughly <b>roughly 45 minutes</b> to spend in the kitchen, Spare Ribs might be a tremendous <b>gluten free and dairy free</b> recipe to try. For <b>$2.03 per serving</b>, this recipe <b>covers 23%</b> of your daily requirements of vitamins and minerals. This recipe serves 3. This main course has <b>773 calories</b>, <b>35g of protein</b>, and <b>59g of fat</b> per serving. 2 people were glad they tried this recipe. It is brought to you by Foodista. If you have spare ribs, hoisin sauce, soy sauce, and a few other ingredients on hand, you can make it. Taking all factors into account, this recipe <b>earns a spoonacular score of 51%</b>, which is solid. Try <a href=\"https://spoonacular.com/recipes/sweet-temptation-ribs-tamarind-glazed-spare-ribs-391730\">Sweet Temptation Ribs: Tamarind-Glazed Spare Ribs</a>, <a href=\"https://spoonacular.com/recipes/spare-ribs-83079\">Spare Ribs</a>, and <a href=\"https://spoonacular.com/recipes/dads-spare-ribs-288209\">Dad's Spare Ribs</a> for similar recipes.",
+    "image": "https://spoonacular.com/recipeImages/660884-312x231.jpg",
+    "source": {"name": "Foodista", "url": "https://www.foodista.com/recipe/M86P5G7L/spare-ribs", "credits": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit"},
+    "preparation_minutes": -1,
+    "cooking_minutes": -1,
+    "ready_in_minutes": 45,
+    "instructions_minutes": 45,
+    "servings": 3,
+    "labels": {
+        "vegetarian": false,
+        "vegan": false,
+        "gluten_free": true,
+        "dairy_free": true,
+        "very_healthy": false,
+        "cheap": false,
+        "very_popular": false,
+        "sustainable": false
+    },
+    "health_score": 12,
+    "ingredients": [
+        {
+            "aisle": "Oil, Vinegar, Salad Dressing",
+            "name": "oil",
+            "name_clean": "cooking oil",
+            "amount": 2,
+            "unit": "tablespoons"
+        },
+        {
+            "aisle": "Nut butters, Jams, and Honey",
+            "name": "clear honey",
+            "name_clean": "honey",
+            "amount": 3,
+            "unit": "tablespoons"
+        },
+        {
+            "aisle": "Produce;Ethnic Foods;Spices and Seasonings",
+            "name": "fresh ginger root",
+            "name_clean": "ginger",
+            "amount": 1,
+            "unit": "piece"
+        },
+        {
+            "aisle": "Ethnic Foods;Condiments",
+            "name": "soy sauce",
+            "name_clean": "soy sauce",
+            "amount": 2,
+            "unit": "tablespoons"
+        },
+        {
+            "aisle": "Ethnic Foods",
+            "name": "hoisin sauce",
+            "name_clean": "hoisin sauce",
+            "amount": 2,
+            "unit": "tablespoons"
+        },
+        {
+            "aisle": "Ethnic Foods;Spices and Seasonings",
+            "name": "5 spice powder",
+            "name_clean": "chinese five spice",
+            "amount": 1,
+            "unit": "teaspoon"
+        },
+        {
+            "aisle": "Produce",
+            "name": "garlic cloves",
+            "name_clean": "garlic",
+            "amount": 2,
+            "unit": ""
+        },
+        {
+            "aisle": "Meat",
+            "name": "spare ribs",
+            "name_clean": "spare ribs",
+            "amount": 2,
+            "unit": "pounds"
+        }
+    ],
+    "nutrition": {
+        "nutrients": [
+            {"name": "Calories", "amount": 772.7, "unit": "kcal", "percent_daily": 38.63},
+            {"name": "Fat", "amount": 59.48, "unit": "g", "percent_daily": 91.51},
+            {"name": "Saturated Fat", "amount": 16.7, "unit": "g", "percent_daily": 104.38},
+            {"name": "Carbohydrates", "amount": 24.42, "unit": "g", "percent_daily": 8.14},
+            {"name": "Sugar", "amount": 20.42, "unit": "g", "percent_daily": 22.69},
+            {"name": "Sodium", "amount": 1016.27, "unit": "mg", "percent_daily": 44.19},
+            {"name": "Protein", "amount": 34.83, "unit": "g", "percent_daily": 69.66}
+        ],
+        "caloric_breakdown": {"percent_protein": 18.04, "percent_fat": 69.31, "percent_carbs": 12.65},
+        "weight_per_serving": {"amount": 270, "unit": "g"}
+    },
+    "instructions": [
+        "Preheat oven 400 degrees.",
+        "Combine all the ingredients, except the spare ribs, in a jug and mix well.",
+        "Pour over the ribs and leave to marinate for as long as possible, ideally overnight.",
+        "Place the ribs on a rack in a roasting pan. Cook in a preheated oven at 400 degrees for about 45 minutes, turning the ribs over half way through the cooking time. Allow to cool and serve cold."
+    ],
+    "cuisines": ["American"],
+    "dish_types": ["lunch", "dinner"]
+},
+{
+    "id": 2,
+    "name": "Slow Cooker Spicy Hot Wings",
+    "summary": "Slow Cooker Spicy Hot Wings is a <b>gluten free and dairy free</b> hor d'oeuvre. For <b>$1.01 per serving</b>, this recipe <b>covers 11%</b> of your daily requirements of vitamins and minerals. One serving contains <b>384 calories</b>, <b>23g of protein</b>, and <b>20g of fat</b>. Several people made this recipe, and 16911 would say it hit the spot. A mixture of louisiana hot sauce, cayenne pepper, regular chicken wings, and a handful of other ingredients are all it takes to make this recipe so flavorful. From preparation to the plate, this recipe takes approximately <b>14 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 59%</b>. This score is pretty good. Try <a href=\"https://spoonacular.com/recipes/slow-cooker-chicken-wings-491718\">Slow Cooker Chicken Wings</a>, <a href=\"https://spoonacular.com/recipes/slow-cooker-chicken-wings-615678\">Slow Cooker Chicken Wings</a>, and <a href=\"https://spoonacular.com/recipes/slow-cooker-teriyaki-wings-553885\">Slow Cooker Teriyaki Wings</a> for similar recipes.",
+    "image": "https://spoonacular.com/recipeImages/715419-312x231.jpg",
+    "source": {"name": "Pink When", "url": "http://www.pinkwhen.com/slow-cooker-spicy-hot-wings/", "credits": "Jen West"},
+    "preparation_minutes": 10,
+    "cooking_minutes": 4,
+    "ready_in_minutes": 14,
+    "instructions_minutes": 246,
+    "servings": 4,
+    "labels": {
+        "vegetarian": false,
+        "vegan": false,
+        "gluten_free": true,
+        "dairy_free": true,
+        "very_healthy": false,
+        "cheap": false,
+        "very_popular": true,
+        "sustainable": false
+    },
+    "health_score": 4,
+    "ingredients": [
+        {
+            "aisle": "Baking",
+            "name": "brown sugar",
+            "name_clean": "golden brown sugar",
+            "amount": 0.5,
+            "unit": "cup"
+        },
+        {
+            "aisle": "Spices and Seasonings",
+            "name": "cayenne pepper",
+            "name_clean": "ground cayenne pepper",
+            "amount": 1,
+            "unit": "tsp"
+        },
+        {
+            "aisle": "Meat",
+            "name": "chicken wings",
+            "name_clean": "chicken wings",
+            "amount": 2,
+            "unit": "pounds"
+        },
+        {
+            "aisle": "Produce",
+            "name": "garlic",
+            "name_clean": "garlic",
+            "amount": 1,
+            "unit": "Tbsp"
+        },
+        {
+            "aisle": "Condiments",
+            "name": "hot sauce",
+            "name_clean": "hot sauce",
+            "amount": 0.5,
+            "unit": "cup"
+        }
+    ],
+    "nutrition": {
+        "nutrients": [
+            {"name": "Calories", "amount": 384.09, "unit": "kcal", "percent_daily": 19.2},
+            {"name": "Fat", "amount": 19.76, "unit": "g", "percent_daily": 30.4},
+            {"name": "Saturated Fat", "amount": 5.52, "unit": "g", "percent_daily": 34.49},
+            {"name": "Carbohydrates", "amount": 28.42, "unit": "g", "percent_daily": 9.47},
+            {"name": "Sugar", "amount": 27.12, "unit": "g", "percent_daily": 30.13},
+            {"name": "Sodium", "amount": 890.48, "unit": "mg", "percent_daily": 38.72},
+            {"name": "Protein", "amount": 22.82, "unit": "g", "percent_daily": 45.63}
+        ],
+        "caloric_breakdown": {"percent_protein": 23.84, "percent_fat": 46.46, "percent_carbs": 29.7},
+        "weight_per_serving": {"amount": 182, "unit": "g"}
+    },
+    "instructions": [
+        "Yes, these are called SPICY hot wings for a reason. I like adding the brown sugar to give them a little sweeter taste, but it is by far a delicious spicy recipe more than anything.To get started, mix the brown sugar, crushed garlic, hot sauce, and cayenne pepper into a medium mixing bowl.",
+        "Mix well and then set aside.Take the cooking spray and spray the entire inside portion of the slow cooker AND also the wings. (Spraying the wings before you grill, bake, or cook chicken keeps the flavor and makes them super juicy. TRUST ME.)Take the wings and add them into the mixing bowl with your spices and toss to get a good even coat over the wings.",
+        "Place in the slow cooker on low for 4 hours. After 4hours, remove carefully and place on a prepared cookie sheet.",
+        "Place in the oven under broiler setting for 4-6 minutes, allowing the wings to get a little crisp.",
+        "Serve immediately with a little blue cheese dressing and celery."
+    ],
+    "cuisines": ["American"],
+    "dish_types": ["lunch", "dinner"]
+}]
