@@ -4,8 +4,6 @@ image: node:latest
 
 stages:
   -build
-  -test
-  -deploy
 
 cache:
   paths:
@@ -17,24 +15,3 @@ build:
     - cd front-end
     - npm install
     - CI=false npm run-script build
-
-test:
-  stage: test
-  script:
-    - echo "Running React test suite..."
-
-deploy_dev:
-  only:
-    variables:
-      - $CI_COMMIT_BRANCH == "develop"
-  stage: deploy
-  script: 
-      - $AWS_DEV_DEPLOY
-
-deploy_prod:
-  only:
-    variables:
-      - $CI_COMMIT_BRANCH == "main"
-  stage: deploy
-  script:
-    - $AWS_PROD_DEPLOY
