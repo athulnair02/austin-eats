@@ -3,6 +3,8 @@ image: node:latest
 
 stages:          # List of stages for jobs, and their order of execution
   - build
+  - test
+  - deploy
 
 cache:
   paths:
@@ -14,3 +16,24 @@ build:
     - cd front-end
     - npm install
     - CI=false npm run-script build
+
+test:
+  stage: test
+  script:
+    - echo "Running React test suite......"
+
+deploy_development:
+  only:
+    variables:
+      - $CI_COMMIT_BRANCH == "develop"
+  stage: deploy
+  script:
+    - $AWS_DEV_DEPLOY
+
+deploy_production:
+  only:
+    variables:
+      - $CI_COMMIT_BRANCH == "main"
+  stage: deploy
+  script:
+    - $AWS_PROD_DEPLOY
