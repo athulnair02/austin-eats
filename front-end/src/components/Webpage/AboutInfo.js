@@ -59,8 +59,8 @@ const teamInfo = [
   {
     Name: "Mihika Birmiwal",
     Username: "mihikabirmiwal",
-    Email: "",
-    Role: "",
+    Email: "mihika@cs.utexas.edu",
+    Role: "Back End",
     // Photo: MihikaPFP,
     Bio: "",
     Commits: 0,
