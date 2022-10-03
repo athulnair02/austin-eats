@@ -45,7 +45,7 @@ function Recipe() {
 
     // Get recipe metrics
     const metrics = {
-      ['TOTAL TIME']: format_time(recipe['instructions_minutes']),
+      ['TOTAL TIME']: format_time(recipe.instructions_minutes < 0 ? recipe.ready_in_minutes : recipe.instructions_minutes),
       ['SERVINGS']: recipe.servings,
       ['HEALTHINESS']: `${recipe.health_score}/100`,
       ['CALORIES']: `${Math.floor(recipe.nutrition.nutrients[0].amount)} ${recipe.nutrition.nutrients[0].unit}`,
