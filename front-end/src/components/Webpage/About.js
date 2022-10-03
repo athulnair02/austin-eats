@@ -7,7 +7,7 @@ import {
   ListGroupItem,
   Table,
 } from "react-bootstrap";
-import { teamInfo, toolInfo, apiInfo, repoAndAPI } from "./AboutInfo.js";
+import { teamInfo, toolInfo, dataSourceInfo, repoAndAPI } from "./AboutInfo.js";
 import { Card as MatCard } from "@mui/material";
 import {
   CardContent,
@@ -22,6 +22,12 @@ import Navbar from './Navbar'
 async function getGitlabInfo() {
     let totalCommitCount = 0, totalIssueCount = 0, totalTestCount = 0;
 
+    // Reset all member stats before calculations
+    teamInfo.forEach(member => {
+        member.Commits = 0
+        member.Issues = 0
+    })
+
     let pageNum = 1;
     let commitList = [];
     let commits = [];
@@ -32,7 +38,6 @@ async function getGitlabInfo() {
         commitList = await commitList.json();
         commits.push(...commitList);
         pageNum += 1;
-        console.log(`pageNum: ${pageNum}  length: ${commitList.length}`)
     } while (commitList.length > 0);
 
     // Calculate which commits belong to whom
@@ -68,9 +73,9 @@ async function getGitlabInfo() {
         teamInfo.forEach(member => {
             if (member.Name == name || member.Username == username || member.Name == username) {
                 member.Issues += 1;
+                totalIssueCount += 1;
             }
         })
-        totalIssueCount += 1;
     });
 
     // Calculate total tests
@@ -115,6 +120,7 @@ function About() {
                 can try for yourself, and being able to try similar dishes across different cuisines.
                 </p>
             </Container>
+
             <h1 className="wrapper">Team Members</h1>
             <Stack direction="row" justifyContent="center" spacing={2}> {/* gap="32px" */}
                 {teamList.map((member) => {
@@ -135,6 +141,115 @@ function About() {
                 );
                 })}
             </Stack>
+
+            <h1>Repository Statistics</h1>
+            <Container>
+                <div className="repoStats">
+                <Table striped bordered hover>
+                    <thead>
+                    <tr>
+                        <th>Total Commits</th>
+                        <th>Total Issues</th>
+                        <th>Total Tests</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{totalCommits}</td>
+                        <td>{totalIssues}</td>
+                        <td>{totalTests}</td>
+                    </tr>
+                    </tbody>
+                </Table>
+                </div>
+            </Container>
+
+            <h1>Data Sources</h1>
+            <Stack direction="row" justifyContent="center" flexWrap="wrap">
+                {dataSourceInfo.map((api) => {
+                return (
+                    <Col as="div"> {/*key={api.Link}*/}
+                    <MatCard className="infoCard" variant="outlined">
+                        <CardActionArea
+                        className="customAction"
+                        // href={api.Link}
+                        target="_blank"
+                        >
+                        <CardMedia
+                            className="logo"
+                            component="img"
+                            // image={api.Logo}
+                        />
+                        <CardContent>
+                            <Typography variant="body1" color="text.primary">
+                            {api.Title}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                            {api.Desc}
+                            </Typography>
+                        </CardContent>
+                        </CardActionArea>
+                    </MatCard>
+                    </Col>
+                );
+                })}
+            </Stack>
+
+            <h1>Tools</h1>
+            <Stack direction="row" justifyContent="center" flexWrap="wrap">
+                {toolInfo.map((tool) => {
+                return (
+                    <Col key={tool.Link} as="div">
+                    <MatCard className="infoCard" variant="outlined">
+                        <CardActionArea className="customAction" href={tool.Link}>
+                        <CardMedia
+                            className="logo"
+                            component="img"
+                            // image={tool.Logo}
+                        />
+                        <CardContent>
+                            <Typography variant="body1" color="text.primary">
+                            {tool.Title}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                            {tool.Desc}
+                            </Typography>
+                        </CardContent>
+                        </CardActionArea>
+                    </MatCard>
+                    </Col>
+                );
+                })}
+            </Stack>
+
+            <h1>GitLab Repository and Postman API</h1>
+            <Stack direction="row" justifyContent="center" flexWrap="wrap">
+                {repoAndAPI.map((tool) => {
+                return (
+                    <Col key={tool.Link} as="div">
+                    <MatCard className="infoCard" variant="outlined">
+                        <CardActionArea
+                        className="customAction"
+                        href={tool.Link}
+                        target="_blank"
+                        >
+                        <CardMedia
+                            className="GLPM"
+                            component="img"
+                            // image={tool.Logo}
+                        />
+                        <CardContent>
+                            <Typography variant="body1" color="text.primary">
+                            {tool.Link}
+                            </Typography>
+                        </CardContent>
+                        </CardActionArea>
+                    </MatCard>
+                    </Col>
+                );
+                })}
+            </Stack>
+
         </Container>
     );
   }

@@ -37,10 +37,10 @@ const teamInfo = [
   {
     Name: "Christian Camp",
     Username: "Repoised",
-    Email: "",
-    Role: "",
+    Email: "christiandcamp@hotmail.com",
+    Role: "Front End",
     // Photo: ChristianPFP,
-    Bio: "",
+    Bio: "I'm Christian Camp, a Computer Science major who finds joy in creating and programming games!",
     Commits: 0,
     Issues: 0,
     Tests: 0,
@@ -152,7 +152,7 @@ const toolInfo = [
   },
 ];
 
-const apiInfo = [
+const dataSourceInfo = [
   {
     // Logo: YelpLogo,
     Link: "https://www.yelp.com",
@@ -179,4 +179,4 @@ const repoAndAPI = [
   },
 ];
 
-export { teamInfo, toolInfo, apiInfo, repoAndAPI };
+export { teamInfo, toolInfo, dataSourceInfo, repoAndAPI };
