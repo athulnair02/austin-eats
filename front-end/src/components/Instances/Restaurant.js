@@ -23,24 +23,23 @@ function Restaurant(props) {
 
     let name = restaurant.name;
     let rating = restaurant.rating;
-    let phoneNumber = restaurant.phone.number;
+    let phoneNumber = restaurant.display_phone;
     let price = restaurant.price;
     let coordinates = restaurant.latlng;
     let address = restaurant.location.display_address;
     let categories = CommaSeparate(restaurant.categories, "title");
+    let open = restaurant.is_closed ? "closed" : "open";
   
     console.log(restaurant);
     
     return (
       <>
         <div className='cultureTopDownContainer'>
-          <div className='instanceTitle'> Restaurant </div>
+          <div className='instanceTitle'> {name} </div>
           <div className='instanceSubTitle' style={{fontSize:`35px`}}>
             A closer look at {name}
           </div>
-          <div className='cultureContainer'>
-            <div title={`Picture of ${restaurant.name}`} className='restaurantPic' style={{backgroundImage:`url(${restaurant.image})`}}> </div>
-          </div>
+          <div> <img src={restaurant.image_url} alt="restaurant image"/> </div>
           <div className='cultureContainer' style={{height:`200px`, display:`flex`, alignItems:'center', marginTop:'50px'}}>
             <iframe align="top" className='googleMap' src={`https://maps.google.com/maps?q=${restaurant.name}&output=embed`}></iframe>
           </div>
@@ -70,6 +69,14 @@ function Restaurant(props) {
             <tr>
               <td className='tdLeft'>Contact info</td>
               <td>{phoneNumber}</td>
+            </tr>
+            <tr>
+              <td className='tdLeft'>Distance</td>
+              <td>{restaurant.distance}</td>
+            </tr>
+            <tr>
+              <td className='tdLeft'>Open?</td>
+              <td>{open}</td>
             </tr>
           </tbody>
         </div>
