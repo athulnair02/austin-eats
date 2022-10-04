@@ -1,0 +1,310 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "unsure what to put here",
+    "title": "Recipe Instance",
+    "description": "Records the details for a recipe instance.",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "A unique identifier of a recipe",
+            "type": "number",
+            "minimum": 0
+        },
+        "name": {
+            "description": "The name of the recipe",
+            "type": "string",
+            "minLength": 1
+        },
+        "summary": {
+            "description": "Quick summary overview of the recipe",
+            "type": "string"
+        },
+        "image": {
+            "description": "Image URL showing the dish the recipe prepares",
+            "type": "string"
+        },
+        "source": {
+            "description": "Records the source the recipe is provided by",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "The name of the recipe's source",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "url": {
+                    "description": "URL of the recipe's source page",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "credits": {
+                    "description": "Short motto or author's name of the recipe's source",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "url",
+                "credits"
+            ],
+            "additionalProperties": false
+        },
+        "preparation_minutes": {
+            "description": "How many minutes the dish takes to prepare",
+            "type": "number",
+            "minimum": -1
+        },
+        "cooking_minutes": {
+            "description": "How many minutes the dish takes to cook",
+            "type": "number",
+            "minimum": -1
+        },
+        "ready_in_minutes": {
+            "description": "How many minutes the dish takes from start to finish",
+            "type": "number",
+            "minimum": -1
+        },
+        "instructions_minutes": {
+            "description": "How many minutes the dish takes from start to finish, based on instruction analysis",
+            "type": "number",
+            "minimum": -1
+        },
+        "servings": {
+            "description": "How many servings the recipe yields",
+            "type": "number",
+            "minimum": 0
+        },
+        "labels": {
+            "description": "Set of pre-defined labels the recipe/dish can or cannot be classified as",
+            "type": "object",
+            "properties": {
+                "vegetarian": {
+                    "description": "Whether the dish is vegetarian",
+                    "type": "boolean"
+                },
+                "vegan": {
+                    "description": "Whether the dish is vegan",
+                    "type": "boolean"
+                },
+                "gluten_free": {
+                    "description": "Whether the dish is gluten free",
+                    "type": "boolean"
+                },
+                "dairy_free": {
+                    "description": "Whether the dish is dairy free",
+                    "type": "boolean"
+                },
+                "very_healthy": {
+                    "description": "Whether the dish is very healthy",
+                    "type": "boolean"
+                },
+                "cheap": {
+                    "description": "Whether the dish is cheap",
+                    "type": "boolean"
+                },
+                "very_popular": {
+                    "description": "Whether the recipe is very popular online",
+                    "type": "boolean"
+                },
+                "sustainable": {
+                    "description": "Whether the recipe is sustainable for the environment",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "vegetarian",
+                "vegan",
+                "gluten_free",
+                "dairy_free",
+                "very_healthy",
+                "cheap",
+                "very_popular",
+                "sustainable"
+            ],
+            "additionalProperties": false
+        },
+        "health_score": {
+            "description": "Recipe health factor score from 0-100",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+        },
+        "ingredients": {
+            "type": "array",
+            "items": {
+                "description": "List of ingredients used in the recipe",
+                "type": "object",
+                "properties": {
+                    "aisle": {
+                        "description": "Comma-separated shopping aisle titles the ingredient can be located in",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the ingredient",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "name_clean": {
+                        "description": "Alternative, usually generic title of the ingredient",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "amount": {
+                        "description": "Amount required of the ingredient for the recipe",
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "unit": {
+                        "description": "Measurement unit to describe the amount needed of the ingredient",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "aisle",
+                    "name",
+                    "name_clean",
+                    "amount",
+                    "unit"
+                ],
+                "additionalProperties": false
+            }
+        },
+        "nutrition": {
+            "description": "Set of nutritional information components describing the recipe",
+            "type": "object",
+            "properties": {
+                "nutrients": {
+                    "type": "array",
+                    "items": {
+                        "description": "List of nutrients in the recipe",
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "description": "Name of the nutrient",
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "amount": {
+                                "description": "Amount of the nutrient present",
+                                "type": "number",
+                                "minimum": 0
+                            },
+                            "unit": {
+                                "description": "Unit to describe the nutrient amount",
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "percent_daily": {
+                                "description": "Daily percent intake of the nutrient present",
+                                "type": "number",
+                                "minimum": 0
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "amount",
+                            "unit",
+                            "percent_daily"
+                        ],
+                        "additionalProperties": false
+                    },
+                    "minItems": 7
+                },
+                "caloric_breakdown": {
+                    "description": "Breakdown of where calories are allocated in the dish",
+                    "type": "object",
+                    "properties": {
+                        "percent_protein": {
+                            "description": "Percent of calories related to protein",
+                            "type": "number",
+                            "minimum": 0
+                        },
+                        "percent_fat": {
+                            "description": "Percent of calories related to fats",
+                            "type": "number",
+                            "minimum": 0
+                        },
+                        "percent_carbs": {
+                            "description": "Percent of calories related to carbohydrates",
+                            "type": "number",
+                            "minimum": 0
+                        }
+                    },
+                    "required": [
+                        "percent_protein",
+                        "percent_fat",
+                        "percent_carbs"
+                    ],
+                    "additionalProperties": false
+                },
+                "weight_per_serving": {
+                    "description": "Weight information for each serving of the dish",
+                    "type": "object",
+                    "properties": {
+                        "amount": {
+                            "description": "Amount of weight per serving",
+                            "type": "number",
+                            "minimum": 0
+                        },
+                        "unit": {
+                            "description": "Unit to describe the amount of weight per serving",
+                            "type": "string",
+                            "minLength": 1
+                        }
+                    },
+                    "required": [
+                        "amount",
+                        "unit"
+                    ],
+                    "additionalProperties": false
+                }
+            },
+            "required": [
+                "nutrients",
+                "caloric_breakdown",
+                "weight_per_serving"
+            ],
+            "additionalProperties": false
+        },
+        "instructions": {
+            "type": "array",
+            "items": {
+                "description": "List of instructions for the recipe",
+                "type": "string"
+            },
+            "minItems": 1
+        },
+        "cuisines": {
+            "type": "array",
+            "items": {
+                "description": "List of cuisines the recipe is related to",
+                "type": "string"
+            }
+        },
+        "dish_types": {
+            "type": "array",
+            "items": {
+                "description": "List of tags related to the type of dish the recipe is",
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "image",
+        "preparation_minutes",
+        "cooking_minutes",
+        "ready_in_minutes",
+        "instructions_minutes",
+        "servings",
+        "labels",
+        "health_score",
+        "ingredients",
+        "nutrition",
+        "instructions",
+        "cuisines",
+        "dish_types"
+    ],
+    "additionalProperties": false
+}

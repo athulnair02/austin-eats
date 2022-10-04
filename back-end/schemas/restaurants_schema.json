@@ -1,0 +1,257 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "unsure what to put here",
+    "title": "Restaurant Instance",
+    "description": "Records the details for a restaurant instance.",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "A unique identifier for a restaurant",
+            "type": "number",
+            "minimum": 0
+        },
+        "alias": {
+            "description": "The restaurant's shorthand name",
+            "type": "string",
+            "minLength": 1
+        },
+        "name": {
+            "description": "The restaurant's formal name",
+            "type": "string",
+            "minLength": 1
+        },
+        "image": {
+            "description": "A thumbnail image URL representing the restaurant",
+            "type": "string"
+        },
+        "is_claimed": {
+            "description": "Whether the restaurant has been claimed by its owner on Yelp",
+            "type": "boolean"
+        },
+        "is_closed": {
+            "description": "Status for if the restaurant is permanently closed",
+            "type": "boolean"
+        },
+        "url": {
+            "description": "A url to the restaurant's original Yelp page",
+            "type": "string",
+            "minLength": 1
+        },
+        "phone": {
+            "description": "Various phone number display formats for the restaurant",
+            "type": "object",
+            "properties": {
+                "number": {
+                    "description": "Phone number represented in a merged format",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "display": {
+                    "description": "Phone number represented in a readable format",
+                    "type": "string",
+                    "minLength": 1
+                }
+            },
+            "required": [
+                "number",
+                "display"
+            ],
+            "additionalProperties": false
+        },
+        "review_count": {
+            "description": "How many reviews the restaurant has",
+            "type": "number",
+            "minimum": 0
+        },
+        "categories": {
+            "type": "array",
+            "items": {
+                "description": "Categories the restaurant can be described as",
+                "type": "object",
+                "properties": {
+                    "alias": {
+                        "description": "Shorthand alias for a restaurant category",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "title": {
+                        "description": "Title for a restaurant category",
+                        "type": "string",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "title"
+                ],
+                "additionalProperties": false
+            }
+        },
+        "rating": {
+            "description": "Rating of the restaurant",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5
+        },
+        "location": {
+            "description": "Addressable location of the restaurant",
+            "type": "object",
+            "properties": {
+                "address1": {
+                    "description": "First address line",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "address2": {
+                    "description": "Second address line",
+                    "type": "string"
+                },
+                "address3": {
+                    "description": "Third address line",
+                    "type": "string"
+                },
+                "city": {
+                    "description": "City the restaurant belongs to",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "zip_code": {
+                    "description": "Zip code",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "country": {
+                    "description": "Country the restaurant belongs to",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "state": {
+                    "description": "State the restaurant belongs in",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "display_address": {
+                    "description": "State the restaurant belongs in",
+                    "type": "array",
+                    "items": {
+                        "description": "Split up address lines used for quick website display",
+                        "type": "string"
+                    },
+                    "minItems": 1
+                },
+                "cross_streets": {
+                    "description": "Cross streets for the restaurant",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "address1",
+                "address2",
+                "address3",
+                "city",
+                "zip_code",
+                "country",
+                "state",
+                "display_address",
+                "cross_streets"
+            ],
+            "additionalProperties": false
+        },
+        "latlng": {
+            "type": "array",
+            "items": {
+                "description": "Latitude and Longitude coordinates of the restaurant",
+                "type": "number",
+                "minimum": -180,
+                "maximum": 180
+            },
+            "minItems": 2,
+            "maxItems": 2
+        },
+        "photos": {
+            "type": "array",
+            "items": {
+                "description": "Thumbnail image URLs for photos related to the restaurant",
+                "type": "string",
+                "minLength": 1
+            },
+            "uniqueItems": true
+        },
+        "price": {
+            "description": "A dollar sign text indicator for how costly the restaurant is",
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 5
+        },
+        "transactions": {
+            "type": "array",
+            "items": {
+                "description": "Various transaction methods the restaurant supports",
+                "type": "string"
+            },
+            "uniqueItems": true
+        },
+        "hours": {
+            "description": "Various types of hours the restaurant supports",
+            "type": "object",
+            "properties": {
+                "open": {
+                    "type": "array",
+                    "items": {
+                        "description": "Open weekly hours for the restaurant",
+                        "type": "object",
+                        "properties": {
+                            "is_overnight": {
+                                "description": "Whether the hours extend overnight",
+                                "type": "boolean"
+                            },
+                            "start": {
+                                "description": "String encoded 24-hour format for when the restaurant starts",
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "end": {
+                                "description": "String encoded 24-hour format for when the restaurant ends",
+                                "type": "string",
+                                "minLength": 1
+                            },
+                            "day": {
+                                "description": "The day of the week for these hours",
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 6
+                            }
+                        },
+                        "required": [
+                            "is_overnight",
+                            "start",
+                            "end",
+                            "day"
+                        ],
+                        "additionalProperties": false
+                    }
+                }
+            },
+            "required": [
+                "open"
+            ]
+        }
+    },
+    "required": [
+        "id",
+        "alias",
+        "name",
+        "image",
+        "is_claimed",
+        "is_closed",
+        "url",
+        "review_count",
+        "rating",
+        "location",
+        "latlng",
+        "photos",
+        "price",
+        "transactions",
+        "hours"
+    ],
+    "additionalProperties": false
+}
