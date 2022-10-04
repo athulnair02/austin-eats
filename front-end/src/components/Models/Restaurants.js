@@ -39,6 +39,23 @@ function Restaurants() {
             <Form.Group className="radius" controlId="formRadius">
               <Form.Control type="radius" placeholder="Radius (in meters, integer)" />
             </Form.Group>
+
+            <Dropdown class="dropdownStyle">
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Rating
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">1 star</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">2 star</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">3 star</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">4 star</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">5 star</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+
+            <Form.Group className="numRatings" controlId="formNumRatings">
+              <Form.Control type="numRatings" placeholder="Minimum number of ratings" />
+            </Form.Group>
           </Row>
         </div>
         
