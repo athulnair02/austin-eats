@@ -1,5 +1,8 @@
 import React from 'react';
 import cultures from '../../temp-backend/cultures.json';
+import restaurants from '../../temp-backend/restaurants.json'
+import recipes from '../../temp-backend/recipes.json'
+import ModelListItem from '../Models/sub_components/ModelListItem';
 import { Images, Container } from "react-bootstrap";
 import { useParams, Navigate } from 'react-router-dom';
 import './Instances.css'
@@ -36,6 +39,9 @@ function Culture(props) {
     if (culture.regional_blocs) {
       regionalBlocs = CommaSeparate(culture.regional_blocs, "name")
     }
+
+    const relatedRestaurant = restaurants[id];
+    const relatedRecipe = recipes[id];
 
     console.log(culture);
     // return (
@@ -104,6 +110,14 @@ function Culture(props) {
               <td>{regionalBlocs == null ? "No regional blocs." : regionalBlocs}</td>
             </tr>
           </tbody>
+          <div className='instanceSubTitle'>{culture.demonym} Restaurants</div>
+          <div className='scrollContainer'>
+            <ModelListItem name={relatedRestaurant.name} image={relatedRestaurant.image_url} link={`/restaurants/${id}`} redirect={true}/>
+          </div>
+          <div className='instanceSubTitle'>{culture.demonym} Recipes</div>
+          <div className='scrollContainer'>
+            <ModelListItem name={relatedRecipe.name} image={relatedRecipe.image} link={`/recipes/${id}`} redirect={true}/>
+          </div>
         </div>
       </>
     );
