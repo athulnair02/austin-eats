@@ -23,7 +23,7 @@ Pipelines         : https://gitlab.com/mihikabirmiwal/cs373-idb/-/pipelines <br>
 
 ## Git SHA
 
-Phase I: 
+Phase I: b52aff4780b259e178c53bf7eb5972d0aa35953b
 
 The project leader for Phase I was Mihika Birmiwal (@mihikabirmiwal).
 
