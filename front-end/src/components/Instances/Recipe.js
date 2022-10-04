@@ -84,25 +84,25 @@ function Recipe() {
     return (
       <>
         <div className='cultureTopDownContainer' style={{width: '80%'}}>
-          <div className='recipeTitle'>{recipe.name}</div>
+          <div className='instanceTitle'>{recipe.name}</div>
           <div className='recipeImage' style={{backgroundImage: `url(${recipe.image})`}}></div>
           <div style={{paddingLeft: '50px', paddingRight: '50px'}}>
             <div className='headerFrame'>
-              <div className='recipeSubtitle'>Recipe</div>
+              <div className='instanceSubTitle'>Recipe</div>
               <div className='recipeInfoList'>
                 {infoCells}
               </div>
             </div>
           </div>
-          <div className='recipeSubtitle'>Ingredients</div>
+          <div className='instanceSubTitle'>Ingredients</div>
           <ul className='horizontalBulletList'>
             {ingredients}
           </ul>
-          <div className='recipeSubtitle'>Preparation</div>
+          <div className='instanceSubTitle'>Preparation</div>
           <ul className='horizontalNumberList'>
             {instructions}
           </ul>
-          <div className='recipeSubtitle'>Nutrition</div>
+          <div className='instanceSubTitle'>Nutrition</div>
           <table className='recipeTable'>
             <tr>
               <th>% DV</th>

@@ -35,7 +35,7 @@ function Restaurant(props) {
     return (
       <>
         <div className='cultureTopDownContainer'>
-          <div className='instanceTitle'> Restaurant </div>
+          <div className='instanceTitle'> {name} </div>
           <div className='instanceSubTitle' style={{fontSize:`35px`}}>
             A closer look at {name}
           </div>
