@@ -222,3 +222,20 @@ tr:nth-child(even) {
 .recipeTable tr:hover {
     background-color: #ddd;
 }
+
+.scrollContainer {
+    margin: auto;
+    width: auto;
+    max-width: 800px;
+    height: 250px;
+    white-space: nowrap;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+div.scrollContainer {
+    width: 235px;
+    height: 270px;
+}

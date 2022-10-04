@@ -1,6 +1,9 @@
 import React from 'react';
 import Recipes from '../Models/Recipes';
 import recipes from '../../temp-backend/recipes.json'
+import restaurants from '../../temp-backend/restaurants.json'
+import cultures from '../../temp-backend/cultures.json'
+import ModelListItem from '../Models/sub_components/ModelListItem';
 import { useParams, Navigate } from 'react-router-dom';
 import './Instances.css'
 
@@ -81,6 +84,9 @@ function Recipe() {
       </tr>)
     }
 
+    const relatedRestaurant = restaurants[id];
+    const relatedCulture = cultures[id];
+
     return (
       <>
         <div className='cultureTopDownContainer' style={{width: '80%'}}>
@@ -111,6 +117,14 @@ function Recipe() {
             </tr>
             {nutrientRows}
           </table>
+          <div className='instanceSubTitle'>Restaurants serving {recipe.name}</div>
+          <div className='scrollContainer'>
+            <ModelListItem name={relatedRestaurant.name} image={relatedRestaurant.image_url} link={`/restaurants/${id}`} redirect={true}/>
+          </div>
+          <div className='instanceSubTitle'>Cultures related to {recipe.name}</div>
+          <div className='scrollContainer'>
+            <ModelListItem name={relatedCulture.name} image={relatedCulture.flags.png} link={`/cultures/${id}`} redirect={true}/>
+          </div>
         </div>
       </>
     );
