@@ -1,10 +1,17 @@
 import React from 'react';
+import restaurants from '../../temp-backend/restaurants.json'
+import ModelListItem from './sub_components/ModelListItem';
 import { Container, Col, Row, Dropdown, Form} from "react-bootstrap";
+import './Models.css'
 
 function Restaurants() {
+    const restaurantElements = restaurants.map((restaurant, index) => 
+      <ModelListItem name={restaurant.name} image={restaurant.image_url} link={index} />
+    )
+
     return (
       <React.Fragment>
-        <div className="restaurants">Restaurants</div>
+        <div className='recipesTitle'>Restaurants</div>
         <div class = "restaurant-information">
           <Row>
             <Dropdown class="dropdownStyle">
@@ -40,6 +47,7 @@ function Restaurants() {
 
           </Row>
         </Container>
+        <div className='recipesList'>{restaurantElements}</div>
       </React.Fragment>
     );
   }
