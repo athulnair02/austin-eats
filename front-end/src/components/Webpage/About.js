@@ -8,7 +8,7 @@ import {
   Table,
 } from "react-bootstrap";
 import { teamInfo, toolInfo, dataSourceInfo, repoAndAPI } from "./AboutInfo.js";
-import { Card as MatCard } from "@mui/material";
+import { Card as MatCard, TableHead, TableCell, TableRow, TableBody } from "@mui/material";
 import {
   CardContent,
   CardMedia,
@@ -149,25 +149,26 @@ function About() {
 
             <h1>Repository Statistics</h1>
             <Container>
-                <div className="repoStats">
+                <div>
                 <Table striped bordered hover>
-                    <thead>
-                    <tr>
-                        <th>Total Commits</th>
-                        <th>Total Issues</th>
-                        <th>Total Tests</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>{totalCommits}</td>
-                        <td>{totalIssues}</td>
-                        <td>{totalTests}</td>
-                    </tr>
-                    </tbody>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell class="git-table-headers">Total Commits</TableCell>
+                            <TableCell class="git-table-headers">Total Issues</TableCell>
+                            <TableCell class="git-table-headers">Total Tests</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>{totalCommits}</TableCell>
+                            <TableCell>{totalIssues}</TableCell>
+                            <TableCell>{totalTests}</TableCell>
+                        </TableRow>
+                    </TableBody>
                 </Table>
                 </div>
             </Container>
+
 
             <h1>Data Sources</h1>
             <Stack direction="row" justifyContent="center" flexWrap="wrap">
