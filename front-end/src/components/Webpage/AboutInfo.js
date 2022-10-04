@@ -20,6 +20,7 @@ import BlackLogo from "../../assets/tools/BlackLogo.png";
 // API logos
 import YelpLogo from "../../assets/tools/YelpLogo.png";
 import SpoonacularLogo from "../../assets/tools/SpoonacularLogo.png"
+import RESTCountriesLogo from "../../assets/tools/RESTCountriesLogo.png"
 
 const teamInfo = [
   {
@@ -171,6 +172,13 @@ const dataSourceInfo = [
     Link: "https://spoonacular.com/food-api",
     Title: "Spoonacular",
     Desc: "API for recipe data",
+  },
+
+  {
+    Logo: RESTCountriesLogo,
+    Link: "https://restcountries.com/",
+    Title: "REST Countries",
+    Desc: "API for information on countries",
   },
 ];
 

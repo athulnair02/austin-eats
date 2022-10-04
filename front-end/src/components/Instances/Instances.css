@@ -2,20 +2,23 @@
     font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-weight: 500;
     line-height: 20px;
-    color: #23022E;
+    color: rgb(202, 39, 39);
     font-size: 75px;
+    text-shadow: 2px 2px rgb(78, 11, 11);
     margin: 50px auto;
     text-align: center;
 }
 
 .instanceSubTitle {
     font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: #23022E;
-    text-decoration: underline;
-    text-decoration-color: #a67d02;
-    font-size: 20px;
-    margin: 0px auto;
+    font-weight: 500;
+    color: rgb(37, 37, 37);
+    font-size: 40px;
+    margin: auto;
     text-align: center;
+    vertical-align: middle;
+    text-decoration: underline;
+    text-decoration-color:darkslateblue;
 }
 
 .instanceText {
@@ -86,4 +89,153 @@ tr:nth-child(even) {
     text-align: left;
     padding: 10px;
     font-weight: bold;
+}
+
+.headerFrame {
+    background-color: #ffd6bf;
+    box-shadow: 7px 7px #db9276;
+    border-radius: 10px;
+    margin: auto;
+    width: auto;
+    max-width: 800px;
+    height: fit-content;
+    margin: 25px auto;
+    overflow: hidden;
+}
+
+.recipeImage {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 400px;
+    height: 250px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.recipeInfoList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    height: fit-content;
+}
+
+.recipeInfoCell {
+    background-color: transparent;
+    width: 130px;
+    height: 55px;
+    margin: auto;
+}
+
+.recipeInfoTitle {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 700;
+    color: rgb(209, 0, 115);
+    font-size: 20px;
+    margin: auto;
+    margin-bottom: -5px;
+    text-align: left;
+}
+
+.recipeInfoText {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400;
+    color: rgb(37, 37, 37);
+    font-size: 20px;
+    margin: auto;
+    text-align: left;
+}
+
+.horizontalBulletList, .horizontalNumberList {
+    list-style: none;
+    width: fit-content;
+    max-width: 800px;
+    margin: auto;
+    margin-bottom: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.horizontalNumberList {
+    counter-reset: li;
+}
+
+.horizontalBulletList li, .horizontalNumberList li {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400;
+    color: rgb(37, 37, 37);
+    font-size: 30px;
+}
+
+.horizontalNumberList li {
+    counter-increment: li;
+    margin-bottom: 1em;
+}
+
+.horizontalBulletList li::before, .horizontalNumberList li::before {
+    color: darkslateblue;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.horizontalBulletList li::before {
+    content: "\2022";
+}
+
+.horizontalNumberList li::before{
+    content: counter(li);
+}
+
+.recipeTable {
+    margin: auto;
+    width: auto;
+    max-width: 800px;
+    height: fit-content;
+    table-layout: auto;
+    box-shadow: 5px 5px rgb(35, 35, 35);
+    margin-bottom: 15px;
+}
+
+.recipeTable tr, .recipeTable th {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: rgb(37, 37, 37);
+    font-size: 25px;
+}
+
+.recipeTable tr {
+    background-color: white;
+}
+
+.recipeTable th {
+    background-color: rgb(190, 190, 190);
+}
+
+.recipeTable, .recipeTable tr, .recipeTable th {
+    border: 2px solid;
+}
+
+.recipeTable tr:hover {
+    background-color: #ddd;
+}
+
+.scrollContainer {
+    margin: auto;
+    width: auto;
+    max-width: 800px;
+    height: 250px;
+    white-space: nowrap;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+div.scrollContainer {
+    width: 235px;
+    height: 270px;
 }

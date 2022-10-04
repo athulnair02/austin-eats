@@ -1,6 +1,9 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import restaurants from '../../temp-backend/restaurants.json';
+import recipes from '../../temp-backend/recipes.json'
+import cultures from '../../temp-backend/cultures.json'
+import ModelListItem from '../Models/sub_components/ModelListItem';
 import './Instances.css'
 
 function CommaSeparate(array, index) {
@@ -32,10 +35,13 @@ function Restaurant(props) {
   
     console.log(restaurant);
     
+    const relatedRecipe = recipes[id];
+    const relatedCulture = cultures[id];
+
     return (
       <>
         <div className='cultureTopDownContainer'>
-          <div className='instanceTitle'> Restaurant </div>
+          <div className='instanceTitle'> {name} </div>
           <div className='instanceSubTitle' style={{fontSize:`35px`}}>
             A closer look at {name}
           </div>
@@ -79,6 +85,14 @@ function Restaurant(props) {
               <td>{open}</td>
             </tr>
           </tbody>
+          <div className='instanceSubTitle'>Recipes similar to {restaurant.name}</div>
+          <div className='scrollContainer'>
+            <ModelListItem name={relatedRecipe.name} image={relatedRecipe.image} link={`/recipes/${id}`} redirect={true}/>
+          </div>
+          <div className='instanceSubTitle'>Cultures related to {restaurant.name}</div>
+          <div className='scrollContainer'>
+            <ModelListItem name={relatedCulture.name} image={relatedCulture.flags.png} link={`/cultures/${id}`} redirect={true}/>
+          </div>
         </div>
       </>
     );
