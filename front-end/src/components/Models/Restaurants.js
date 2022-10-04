@@ -1,7 +1,7 @@
 import React from 'react';
 import restaurants from '../../temp-backend/restaurants.json'
 import ModelListItem from './sub_components/ModelListItem';
-import { Container, Col, Row, Dropdown, Form} from "react-bootstrap";
+import { Row, Dropdown, Form} from "react-bootstrap";
 import './Models.css'
 
 function Restaurants() {
@@ -58,12 +58,6 @@ function Restaurants() {
             </Form.Group>
           </Row>
         </div>
-        
-        <Container>
-          <Row>
-
-          </Row>
-        </Container>
         <div className='recipesList'>{restaurantElements}</div>
       </React.Fragment>
     );
