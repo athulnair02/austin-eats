@@ -1,10 +1,10 @@
 import React from 'react';
 import { Badge } from 'react-bootstrap';
-import { BrowserRouter as Router, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, useNavigate, useLocation } from 'react-router-dom';
 import '../Models.css'
 
 function ModelListItem(props) {
-    const location = useLocation();
+    const navigate = useNavigate();
   
     // <Badge style={{backgroundColor: '#c990f0', color: 'black'}} bg=''>🐟 Seafood</Badge>{' '}
     return (
@@ -16,9 +16,7 @@ function ModelListItem(props) {
           <Badge style={{backgroundColor: '#cccccc', color: 'black'}} bg=''> ⌛ Quick</Badge>{' '} */}
         </div>
         <div className='modelListHeader'>{props.name}</div>
-        <Link to={location.pathname + '/' + props.link}>
-          <button className='modelListButton'></button>
-        </Link>
+        <button className='modelListButton' onClick={() => {navigate(`${props.link}`)}}></button>
       </div>
     )
   }
