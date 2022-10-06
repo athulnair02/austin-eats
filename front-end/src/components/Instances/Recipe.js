@@ -5,7 +5,7 @@ import restaurants from '../../temp-backend/restaurants.json'
 import cultures from '../../temp-backend/cultures.json'
 import ModelListItem from '../Models/sub_components/ModelListItem';
 import { useParams, Navigate } from 'react-router-dom';
-import './Instances.css'
+import '../../styles/Instances.css'
 
 function RecipeInfoCell(props) {
   return (

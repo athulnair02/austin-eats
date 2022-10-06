@@ -16,8 +16,7 @@ import {
   CardActionArea,
   Stack,
 } from "@mui/material";
-import "./About.css";
-import Navbar from './Navbar'
+import "../../styles/About.css";
 
 async function getGitlabInfo() {
     let totalCommitCount = 0, totalIssueCount = 0, totalTestCount = 0;

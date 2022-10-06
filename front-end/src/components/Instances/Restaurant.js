@@ -4,7 +4,7 @@ import restaurants from '../../temp-backend/restaurants.json';
 import recipes from '../../temp-backend/recipes.json'
 import cultures from '../../temp-backend/cultures.json'
 import ModelListItem from '../Models/sub_components/ModelListItem';
-import './Instances.css'
+import '../../styles/Instances.css'
 
 function CommaSeparate(array, index) {
   return array.map(function(val) {

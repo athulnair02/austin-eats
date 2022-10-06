@@ -5,7 +5,7 @@ import recipes from '../../temp-backend/recipes.json'
 import ModelListItem from '../Models/sub_components/ModelListItem';
 import { Images, Container } from "react-bootstrap";
 import { useParams, Navigate } from 'react-router-dom';
-import './Instances.css'
+import '../../styles/Instances.css'
 
 function CommaSeparate(array, index) {
   return array.map(function(val) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge } from 'react-bootstrap';
 import { BrowserRouter as Router, Navigate, useNavigate, Link } from 'react-router-dom';
-import '../Models.css'
+import '../../../styles/Models.css'
 
 function ModelListItem(props) {
     const navigate = useNavigate();

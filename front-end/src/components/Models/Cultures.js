@@ -2,7 +2,7 @@ import React from 'react';
 import cultures from '../../temp-backend/cultures.json'
 import ModelListItem from './sub_components/ModelListItem';
 import { Row, Dropdown, Form} from "react-bootstrap";
-import './Models.css'
+import '../../styles/Models.css'
 
 function Cultures() {
     const cultureElements = cultures.map((culture, index) => 
