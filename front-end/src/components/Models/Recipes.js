@@ -2,7 +2,7 @@ import React from 'react';
 import recipes from '../../temp-backend/recipes.json'
 import ModelListItem from './sub_components/ModelListItem';
 import { Row, Dropdown, Form} from "react-bootstrap";
-import './Models.css'
+import '../../styles/Models.css'
 
 function Recipes() {
     const recipeElements = recipes.map((recipe, index) => 

@@ -2,7 +2,7 @@ import React from 'react';
 import restaurants from '../../temp-backend/restaurants.json'
 import ModelListItem from './sub_components/ModelListItem';
 import { Row, Dropdown, Form} from "react-bootstrap";
-import './Models.css'
+import '../../styles/Models.css'
 
 function Restaurants() {
     const restaurantElements = restaurants.map((restaurant, index) => 
