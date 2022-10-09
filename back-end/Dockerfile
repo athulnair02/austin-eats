@@ -2,7 +2,7 @@ FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=noninteractive
 
 # TO BUILD: docker build -t flask-docker .
-# TO RUN: docker run -it -v `pwd`:/usr/backend -w /usr/backend -p 80:80 flask-docker
+# TO RUN: docker run -it -v `pwd`:/usr/back-end -w /usr/back-end -p 80:80 flask-docker
 
 RUN apt-get update -y
 RUN apt-get install -y python3
