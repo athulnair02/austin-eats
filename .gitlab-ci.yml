@@ -20,12 +20,12 @@ build_front_end:
 test_front_end:
   stage: test
   script:
-    - echo "Running React test suite......"
+    - make front-end-tests
 
 test_back_end:
   image: python:3.6-stretch
   stage: test
   before_script:
     - pip install -r back-end/requirements.txt
-  test:
-    - python back-end/unittests.py -v
+  script:
+    - make back-end-tests
