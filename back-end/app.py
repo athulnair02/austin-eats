@@ -32,4 +32,4 @@ def getRestaurants():
 
 @app.route('/restaurants/id=<id>', methods=["GET"])
 def getRestaurant_id(id):
-    recipe = db.session.query(Restaurant).filter_by(id=id)
+    restaurant = db.session.query(Restaurant).filter_by(id=id)
