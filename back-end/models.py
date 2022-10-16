@@ -53,6 +53,7 @@ class Culture(db.Model) :
     subregion = db.Column(db.String())
     region = db.Column(db.String())
     population = db.Column(db.Integer)
+    latlng = db.Column(db.PickleType)
     demonym = db.Column(db.String())
     independent = db.Column(db.Boolean)
     summary = db.Column(db.String())
@@ -68,6 +69,7 @@ class Restaurant(db.Model) :
     image_url = db.Column(db.String())
     url = db.Column(db.String())
     display_phone = db.Column(db.String())
+    categories = db.Column(db.PickleType)
     rating = db.Column(db.Float)
     review_count = db.Column(db.Integer)
     display_address = db.Column(db.String())
@@ -86,18 +88,21 @@ class Recipe(db.Model) :
     __tablename__ = 'recipes'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
+    uri = db.Column(db.String())
     summary = db.Column(db.String())
-    image = db.Column(db.BLOB)
+    image_url = db.Column(db.String())
     source = db.Column(db.String())
+    source_url = db.Column(db.String())
     ready_in_minutes = db.Column(db.Integer)
     servings = db.Column(db.Float)
-    labels = db.Column(db.PickleType)
-    health_score = db.Column(db.Float)
+    diet_labels = db.Column(db.PickleType)
+    health_labels = db.Column(db.PickleType)
     ingredients = db.Column(db.PickleType)
-    nutrition = db.Column(db.String())
+    total_nutrients = db.Column(db.PickleType)
     instructions = db.Column(db.String())
-    cuisines = db.Column(db.PickleType)
-    dish_types = db.Column(db.PickleType)
+    meal_type = db.Column(db.PickleType)
+    cuisine_type = db.Column(db.PickleType)
+    dish_type = db.Column(db.PickleType)
 
     def __repr__(self):
         return "<Recipe %s>" % self.name
@@ -136,7 +141,7 @@ class RestaurantSchema() :
     recipes = fields.Nested("RecipeSchema", only=("id", "name", "summary", "meal_type", "dish_type", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
 
     image = fields.String(required=False, attribute="image_url")
-    url = fields.String(required=False, attribute="restaurant_url")
+    restaurant_url = fields.String(required=False, attribute="url")
     display_phone = fields.String(required=True)
     categories = fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
     rating = fields.Integer(required=True)
@@ -145,7 +150,7 @@ class RestaurantSchema() :
     latlng = fields.Dict(keys=fields.String(), values=fields.Integer(), required=True)
     price = fields.String(required=True)
     # takeout, delivery
-    transactions = fields.List(fields.String(), required=True)
+    delivery = fields.Bool(required=True)
 
 class RecipeSchema() :
     id = fields.Integer(required=True)
@@ -167,6 +172,7 @@ class RecipeSchema() :
     health_labels = fields.List(fields.String(), required=True)
     ingredients = fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
     total_nutrients = fields.Dict(keys=fields.String(), values=fields.Dict(), required=True)
+    instructions = fields.String(required=True)
     cuisine_type = fields.List(fields.String(), required=True)
     # b/l/d
     meal_type = fields.List(fields.String(), required=True)
