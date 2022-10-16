@@ -45,18 +45,18 @@ join_restaurant_recipe = db.Table(
 class Culture(db.Model) :
     __tablename__ = 'cultures'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String())
-    capital = db.Column(db.String())
+    name = db.Column(db.String)
+    capital = db.Column(db.String)
     flags = db.Column(db.BLOB)
     currencies = db.Column(db.PickleType)
     languages = db.Column(db.PickleType)
-    subregion = db.Column(db.String())
-    region = db.Column(db.String())
+    subregion = db.Column(db.String)
+    region = db.Column(db.String)
     population = db.Column(db.Integer)
     latlng = db.Column(db.PickleType)
-    demonym = db.Column(db.String())
+    demonym = db.Column(db.String)
     independent = db.Column(db.Boolean)
-    summary = db.Column(db.String())
+    summary = db.Column(db.String)
 
     def __repr__(self):
         return "<Culture %s>" % self.name
@@ -65,20 +65,19 @@ class Culture(db.Model) :
 class Restaurant(db.Model) :
     __tablename__ = 'restaurants'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String())
-    image_url = db.Column(db.String())
-    url = db.Column(db.String())
-    display_phone = db.Column(db.String())
+    name = db.Column(db.String)
+    image_url = db.Column(db.String)
+    restaurant_url = db.Column(db.String)
+    display_phone = db.Column(db.String)
     categories = db.Column(db.PickleType)
     rating = db.Column(db.Float)
     review_count = db.Column(db.Integer)
-    display_address = db.Column(db.String())
-    latitude = db.Column(db.Float)
-    longitude = db.Column(db.Float)
+    display_address = db.Column(db.String)
+    latlng = db.Column(db.PickleType)
     photos = db.Column(db.BLOB)
-    price = db.Column(db.Integer)
+    price = db.Column(db.String)
     delivery = db.Column(db.Boolean)
-    hours = db.Column(db.String())
+    hours = db.Column(db.String)
 
     def __repr__(self):
         return "<Restaurant %s>" % self.name
@@ -87,19 +86,19 @@ class Restaurant(db.Model) :
 class Recipe(db.Model) :
     __tablename__ = 'recipes'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String())
-    uri = db.Column(db.String())
-    summary = db.Column(db.String())
-    image_url = db.Column(db.String())
-    source = db.Column(db.String())
-    source_url = db.Column(db.String())
+    name = db.Column(db.String)
+    uri = db.Column(db.String)
+    summary = db.Column(db.String)
+    image_url = db.Column(db.String)
+    source = db.Column(db.String)
+    source_url = db.Column(db.String)
     ready_in_minutes = db.Column(db.Integer)
-    servings = db.Column(db.Float)
+    servings = db.Column(db.Integer)
     diet_labels = db.Column(db.PickleType)
     health_labels = db.Column(db.PickleType)
     ingredients = db.Column(db.PickleType)
     total_nutrients = db.Column(db.PickleType)
-    instructions = db.Column(db.String())
+    instructions = db.Column(db.String)
     meal_type = db.Column(db.PickleType)
     cuisine_type = db.Column(db.PickleType)
     dish_type = db.Column(db.PickleType)
@@ -140,13 +139,13 @@ class RestaurantSchema() :
     # not sure how to link recipes to the dishes; we will see!
     recipes = fields.Nested("RecipeSchema", only=("id", "name", "summary", "meal_type", "dish_type", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
 
-    image = fields.String(required=False, attribute="image_url")
+    image_url = fields.String(required=False, attribute="image_url")
     restaurant_url = fields.String(required=False, attribute="url")
     display_phone = fields.String(required=True)
     categories = fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
     rating = fields.Integer(required=True)
     review_count = fields.Integer(required=True)
-    location = fields.List(fields.String(), required=True, attribute="display_address")
+    display_address = fields.String(required=True)
     latlng = fields.Dict(keys=fields.String(), values=fields.Integer(), required=True)
     price = fields.String(required=True)
     # takeout, delivery
@@ -161,7 +160,7 @@ class RecipeSchema() :
 
     uri = fields.String(required=True, attribute="recipe_uri")
     summary = fields.String(required=True)
-    image = fields.String(required=False, attribute="image_url")
+    image_url = fields.String(required=False, attribute="image_url")
     source = fields.String(required=True)
     source_url = fields.String(required=True, attribute="source_url")
     ready_in_minutes = fields.Integer(required=True, attribute="totalTime")
@@ -178,3 +177,7 @@ class RecipeSchema() :
     meal_type = fields.List(fields.String(), required=True)
     # bread, etc.
     dish_type = fields.List(fields.String(), required=True)
+
+culture_schema = CultureSchema()
+restaurant_schema = RestaurantSchema()
+recipe_schema = RecipeSchema()
