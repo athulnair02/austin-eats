@@ -119,6 +119,9 @@ def scrape_recipes():
     # Do we lock the Recipes it returns to the specific cuisine of the restaurant? Add &cuisine={demonym} (Italian, Mexican, etc.)
     pass
 
+def scrape_recipes_data():
+    pass
+
 # Culture Data
 def scrape_wikipedia_culture(country: str):
     """

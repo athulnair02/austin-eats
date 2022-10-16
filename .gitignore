@@ -1,2 +1,9 @@
 .vscode
 .DS_STORE
+back-end/api/ScrapeJSONs/ChownowPlaceTEMP.json
+back-end/api/ScrapeJSONs/ChownowTEMP.json
+back-end/api/ScrapeJSONs/YelpBusinessTEMP.json
+back-end/api/ScrapeJSONs/MenuTEMP.json
+back-end/api/ScrapeJSONs/YelpSearchTEMP.json
+back-end/api/ScrapeJSONs/YelpReviewsTEMP.json
+back-end/api/Test.py
