@@ -7,3 +7,4 @@ back-end/api/ScrapeJSONs/MenuTEMP.json
 back-end/api/ScrapeJSONs/YelpSearchTEMP.json
 back-end/api/ScrapeJSONs/YelpReviewsTEMP.json
 back-end/api/Test.py
+back-end/__pycache__/

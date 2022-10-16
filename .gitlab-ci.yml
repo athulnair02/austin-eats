@@ -26,6 +26,6 @@ test_back_end:
   image: python:3.6-stretch
   stage: test
   before_script:
-    - pip install -r back-end/requirements.txt
+    - pip3 install -r back-end/requirements.txt
   script:
     - make back-end-tests
