@@ -23,10 +23,11 @@ JSON_INDENT = 4
 CALL_ATTEMPTS = 3
 CHOWNOW_JSON_PATH = SCRAPE_DIR_PATH + SCRAPE_DIR_NAME + "/Chownow.json"
 RESTAURANTS_JSON_PATH = SCRAPE_DIR_PATH + SCRAPE_DIR_NAME + "/Restaurants.json"
+CULTURES_JSON_PATH = SCRAPE_DIR_PATH + SCRAPE_DIR_NAME + "/Cultures.json"
 
 # API secrets
 # TODO: move this elsewhere
-YELP_API_KEY = "KuNWg0Er3A7eKM_pUOJ9TaDy4N9PIWkD63QfZ9mWRKdEoloAq7K9qGtG8vfO68A6d8vGG2EGMXC5BR7Cqnk6BKLtw5hBlIrjI_Eq7MWJQTNxuTflLx0vpvlvktwwY3Yx"
+YELP_API_KEY = ""
 SPOONACULAR_API_KEY = ""
 
 """
@@ -63,14 +64,14 @@ def get_next_weekday(weekday_num):
     today = date.today()
     return today + datetime.timedelta( (weekday_num - today.weekday()) % 7 )
 
-def create_json_file(file_path):
+def create_json_file(file_path, default_data = []):
     """
     creates a json file with a list at the specified path if it does not exist
     """
     file_exists = os.path.exists(file_path)
     if(not file_exists):
         with open(file_path, 'w') as file:
-            json.dump([], file, indent = JSON_INDENT)
+            json.dump(default_data, file, indent = JSON_INDENT)
 
 def parse_yes_from_input(inputStr):
     return any(inputStr.lower() == f for f in ["yes", 'y', '1'])
@@ -119,22 +120,185 @@ def scrape_recipes():
     pass
 
 # Culture Data
-def scrape_culture():
+def scrape_wikipedia_culture(country: str):
     """
-    scrape_culture scrapes the country data for a [Culture Model] from a given Culture name
-    We will scrape from RESTCountries.
-    The results are stored in a Cultures JSON.
+    scrape_wikipedia_culture scrapes the wikipedia page content from a given country name
+    We will scrape from Wikipedia API.
+    The result is returned. It should be stored in the Cultures JSON.
     """
-    # https://restcountries.com/v2/name/india where india is {country_name}
-    # Better yet, we likely want to just search from Demonym, provided from YELP or ChowNow: https://restcountries.com/v2/demonym/American
-    pass
+
+    # API request country wikipedia page summary
+    WIKIPEDIA_API = "https://en.wikipedia.org/api/rest_v1/page/summary/{0}?redirect=true".format(country)
+    wikipedia_data = call_with_attempts(WIKIPEDIA_API)
+
+    # fail check
+    if isinstance(wikipedia_data, int):
+        return -1
+    return wikipedia_data["extract"]
+
+def scrape_culture(culture: str, lookup_type: str):
+    """
+    scrape_culture scrapes the country data for a culture from a given culture string. (Mexican, United States of America)
+    The lookup_type defines the search query. (demonym, name)
+    We will scrape from RESTCountries API.
+    The result is returned. It should be stored in the Cultures JSON.
+    """
+
+    # API request country details
+    RESTCOUNTRIES_API = "https://restcountries.com/v2/{0}/{1}".format(lookup_type, culture)
+    countries_data = call_with_attempts(RESTCOUNTRIES_API)
+
+    # fail check
+    if isinstance(countries_data, int):
+        return -1
+    
+    # if more than one, we must find the equal match
+    country_data = countries_data[0]
+    if len(countries_data) > 1:
+        found_match = False
+        for country in countries_data:
+            if country["name"] == culture or country["demonym"] == culture or country["nativeName"] == culture:
+                country_data = country
+                found_match = True
+        if not found_match:
+            print("Multiple countries found for name: {0}. No equal match found. Perform manual correction.".format(culture))
+            return -1
+    return country_data
+
+def scrape_cultures_data():
+    """
+    scrape_cultures_data scrapes the culture and wikipedia page data for all restaurants in the Restaurants JSON.
+    Restaurants with cultures that already exist are skipped.
+    The resulting cultures data are stored in a Cultures JSON.
+    """
+    # TODO: warn about countries not associated with any cuisine!
+    # TODO: output country not found for cuisine since it must be added to the lookup list
+    print("\t\tScraping cultures data..")
+
+    create_json_file(RESTAURANTS_JSON_PATH)
+    with open(RESTAURANTS_JSON_PATH, 'r+', encoding='utf-8') as file:
+        current_restaurants = json.load(file)
+        num_restaurants = len(current_restaurants)
+        num_restcountry_failures = 0
+        num_restcountry_calls = 0
+        num_wikipedia_failures = 0
+        num_wikipedia_calls = 0
+        num_done = 0
+        failed_cultures = {}
+
+        create_json_file(CULTURES_JSON_PATH, {"culture_lookup": {}, "cultures": []})
+        with open(CULTURES_JSON_PATH, 'r+', encoding='utf-8') as file:
+            cultures_data = json.load(file)
+            culture_lookup = cultures_data["culture_lookup"]
+            current_cultures = cultures_data["cultures"]
+            current_cultures_data_name = dict([(r["name"], {"index": i, "wikipedia_exists": r.get("wikipedia_summary")}) for i,r in enumerate(current_cultures)])
+            current_cultures_data_demonym = dict([(r["demonym"], {"index": i, "wikipedia_exists": r.get("wikipedia_summary")}) for i,r in enumerate(current_cultures)])
+            culture_cache = {}
+
+            # gather cultures/countries list from restaurant cuisine lists
+            def scrape_cultures_from_cuisine(cuisine: str):
+                nonlocal num_restcountry_failures
+                nonlocal num_restcountry_calls
+                nonlocal num_wikipedia_failures
+                nonlocal num_wikipedia_calls
+                
+                counted_cultures = 0
+                countries_list = culture_lookup.get(cuisine)
+                lookup_type = "name"
+                if countries_list is None:
+                    countries_list = [cuisine]
+                    lookup_type = "demonym"
+                
+                for culture in countries_list:
+                    if culture_cache.get(culture):
+                        counted_cultures += 1
+                        continue
+
+                    has_data = current_cultures_data_name.get(culture) or current_cultures_data_demonym.get(culture)
+                    if not has_data:
+                        # take a quick nap
+                        time.sleep(210/1000)
+
+                        # culture scrape
+                        culture_data = scrape_culture(culture, lookup_type)
+                        num_restcountry_calls += 1
+                        if (culture_data == -1):
+                            num_restcountry_failures += 1
+                            failed_cultures[culture] = lookup_type
+                            continue
+                        if lookup_type == "name" and culture_data["name"] != culture:
+                            num_restcountry_failures += 1
+                            culture_cache[culture] = True
+                            culture_cache[culture_data["demonym"]] = True
+                            print("\t\t\t Name lookup must match RestCountry name to prevent duplicates: change '{0}' to '{1}'.".format(culture, culture_data["name"]))
+                            continue
+                    else:
+                        culture_data = current_cultures[has_data["index"]]
+                    
+                    counted_cultures += 1
+                    culture_cache[culture_data["name"]] = True
+                    culture_cache[culture_data["demonym"]] = True
+
+                    # wikipedia summary scrape
+                    if not (has_data and has_data["wikipedia_exists"]):
+                        country_name = culture_data["name"]
+                        wikipedia_summary = scrape_wikipedia_culture(country_name)
+                        num_wikipedia_calls += 1
+                        if (wikipedia_summary == -1):
+                            num_wikipedia_failures += 1
+                            print("\t\t\t Wikipedia summary not found; perform manual review: country: {0}".format(country_name))
+                            continue
+                        culture_data["wikipedia_summary"] = wikipedia_summary
+
+                    # update or append, depending on whether already in Cultures json
+                    if not has_data:
+                        current_cultures.append(culture_data)
+                    else:
+                        index = has_data["index"]
+                        current_cultures[index] = culture_data
+                return counted_cultures
+            
+            # gather cultures data from restaurants
+            for restaurant in current_restaurants:
+                #if num_done >= 60:
+                #   break
+
+                name = restaurant["name"]
+                yelp_data = restaurant.get("yelp_data")
+                if yelp_data is None:
+                    print("\t\t\tNo yelp_data in Restaurant {0}. Scrape restaurants data first.".format(name))
+                    continue
+
+                num_done += 1
+                num_cultures = 0
+                for cuisine in restaurant["cuisines"]:
+                    num_cultures += scrape_cultures_from_cuisine(cuisine)
+                for cuisine_data in yelp_data["restaurant"]["categories"]:
+                    num_cultures += scrape_cultures_from_cuisine(cuisine_data["title"])
+                
+                if num_cultures == 0:
+                    print("\t\t\tNo cultures for Restaurant {0}. Check that cuisines map to countries.".format(name))
+            
+            # update Cultures json
+            file.seek(0)
+            json.dump(cultures_data, file, indent = JSON_INDENT)
+    
+    if num_restaurants == 0:
+        print("\t\tNo restaurants to scrape data for. Scrape ChowNow restaurants first.")
+    else:
+        restcountry_gathered = num_restaurants - num_restcountry_failures
+        wikipedia_gathered = num_restaurants - num_wikipedia_failures
+        print("\n\t\tCultures gathered: {0}/{1}, {2}% success rate, {3} calls made".format(restcountry_gathered, num_restaurants, int((restcountry_gathered / num_restaurants) * 100), num_restcountry_calls))
+        print("\t\tWikipedia summaries gathered: {0}/{1}, {2}% success rate, {3} calls made".format(wikipedia_gathered, num_restaurants, int((wikipedia_gathered / num_restaurants) * 100), num_wikipedia_calls))
+        print("\t\tFailures: {0}".format(failed_cultures))
+        print("\t\tCultures json updated.")
 
 # ChowNow Restaurant Data, ChowNow Menu Data, YELP Restaurant Data
 def scrape_yelp_location(restaurant: dict, latitude: float, longitude: float):
     """
     scrape_yelp_location scrapes the YELP place data for a ChowNow restaurant.
-    We will initially try using YELP Search Suggest API to find the "biz/restaurant-name-austin" to then use /businesses/{id}.
-    If Search Suggest fails us, we have to use /businesses/search to locate the business, then use /businesses/{id}.
+    We will initially try using YELP Search by phone API to find the restaurant id to then use /businesses/{id}.
+    If Phone search fails us, we have to use /businesses/search to locate the business by name, then use /businesses/{id}.
     The result is returned. It should be stored in a yelp_data object within the Restaurant in the Restaurants JSON.
     NOTE: Yelp allows 5000 calls every 24 hours.
     """
@@ -419,8 +583,15 @@ def main():
     if parse_yes_from_input(to_scrape_restaurants):
         scrape_restaurants_data(latitude, longitude)
     
-    # TODO: Scrape cultures?
+    # Scrape cultures?
+    # [FROM: Restaurants json  FOR: Culture data, Wikipedia data  STORE: Cultures json]
+    to_scrape_cultures = input("\tScrape cultures data (y/n): ")
+    if parse_yes_from_input(to_scrape_cultures):
+        scrape_cultures_data()
+
     # TODO: Scrape recipes?
+    # Have to find out which on menu marks a "good candidate" for a recipe. Search for keywords? Lunch items? Size: "Regular"? Price?
+    # [FROM: Restaurants json  FOR: Recipe data  STORE: Recipes json]
 
 
 if __name__ == "__main__":
