@@ -19,8 +19,6 @@ WORKDIR /usr/src/back-end
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 
-ENV FLASK_APP="server.py"
-
 EXPOSE 5000
 
 # CMD ["python3", "app.py"]
