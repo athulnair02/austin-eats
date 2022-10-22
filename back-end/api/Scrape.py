@@ -24,9 +24,9 @@ CALL_ATTEMPTS = 3
 CHOWNOW_JSON_PATH = SCRAPE_DIR_PATH + SCRAPE_DIR_NAME + "/Chownow.json"
 RESTAURANTS_JSON_PATH = SCRAPE_DIR_PATH + SCRAPE_DIR_NAME + "/Restaurants.json"
 CULTURES_JSON_PATH = SCRAPE_DIR_PATH + SCRAPE_DIR_NAME + "/Cultures.json"
+RECIPES_JSON_PATH = SCRAPE_DIR_PATH + SCRAPE_DIR_NAME + "/Recipes.json"
 
-# API secrets
-# TODO: move this elsewhere
+# API secrets (this is really not very secure)
 YELP_API_KEY = ""
 SPOONACULAR_API_KEY = ""
 
@@ -49,7 +49,7 @@ SCRAPE PROCESS:
     - It is wise to start from ChowNow, a Restaurant [Menu API] that contains fewer locations than Yelp.
         -> From ChowNow, we can feed the Restaurant name into Yelp to find the Restaurant Model data
         -> From ChowNow, we can feed popular Restaurant menu items into Spoonacular to find data on multiple Recipe Models.
-    - From each scrape, we can save it into a corresponding JSON file: ChowNow, Yelp, and Spoonacular
+    - From each scrape, we can save it into a corresponding JSON file: ChowNow (temp-holder for found-restaurants), Restaurant (yelp + menu), Culture (cuisine), and Spoonacular (recipe)
 
 AFTER DB AND MODELS CREATED:
     - Later we will run through these JSONs to covert the API variables to our Postman schema variables, including removing
@@ -108,19 +108,123 @@ def call_with_attempts(url, use_cloudscraper = False, auth = None, attempts = CA
 # -------
 
 # Recipe Data
-def scrape_recipes():
+def scrape_recipes(query: str):
     """
-    scrape_recipes scrapes recipes data for multiple [Recipe Model] from a given Restaurant Menu item name
+    scrape_recipes scrapes recipes data from a given Restaurant Menu item name (the query)
     We will scrape from Spoonacular. It might be important to store the original menu item query somewhere in the recipe,
     should Spoonacular's Recipe names vary significantly from the search query.
-    The results are stored in a Recipes JSON.
+    The results are returned. They should be stored in a Recipes JSON.
     """
     # https://api.spoonacular.com/recipes/complexSearch?query={MENU_ITEM_NAME}&instructionsRequired=true&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true
     # Do we lock the Recipes it returns to the specific cuisine of the restaurant? Add &cuisine={demonym} (Italian, Mexican, etc.)
-    pass
+    # time.sleep(50/1000)
+
+    # # Determine whether the query is a good fit for recipes
+    # SPOONACULAR_SEARCH_API = "https://spoonacular.com/search/all?site=spoonacular.com&includeContent=false&limit=5&limitPerGroup=true&query={0}&kvtable=false&complexFilterFormat=false".format(query)
+    # search_data = call_with_attempts(SPOONACULAR_SEARCH_API)
+
+    # # fail check
+    # if isinstance(search_data, int):
+    #     return -1
+    # for category in search_data["searchResults"]:
+    #     if category["name"] == "Recipes" and category["totalResults"] <= 3:
+    #         return -1
+    # return query
+
+    # take a quick nap
+    time.sleep(210/1000)
+    query = query.strip()
+
+    # API call to receive up to 10 recipes per query
+    SPOONACULAR_RECIPE_API = "https://api.spoonacular.com/recipes/complexSearch?query={0}&instructionsRequired=true&addRecipeInformation=true&fillIngredients=true&addRecipeNutrition=true&number=10&apiKey={1}".format(query, SPOONACULAR_API_KEY)
+    recipes_data = call_with_attempts(SPOONACULAR_RECIPE_API)
+
+    # fail check
+    if isinstance(recipes_data, int):
+        return -1
+    if recipes_data["totalResults"] < 1:
+        print("\t\t\tNo recipes found for query: '{0}' Perform manual correction.".format(query))
+    return recipes_data["results"]
 
 def scrape_recipes_data():
-    pass
+    """
+    scrape_recipes_data scrapes the recipes data for restaurants in the Restaurants JSON.
+    Restaurants that already contain chosen recipes are skipped.
+    The resulting recipes data are stored in a Recipes JSON, and Restaurants are given a recipe_items field.
+    """
+    print("\t\tScraping recipes data..")
+
+    create_json_file(RESTAURANTS_JSON_PATH)
+    with open(RESTAURANTS_JSON_PATH, 'r+', encoding='utf-8') as file:
+        current_restaurants = json.load(file)
+        num_restaurants = len(current_restaurants)
+        num_spoonacular_failures = 0
+        num_spoonacular_calls = 0
+        num_done = 0
+        failed_recipes = set()
+
+        create_json_file(RECIPES_JSON_PATH, {"acceptable_menu_items": [], "already_scraped_items": [], "menu_items_lookup": {}, "recipes": []})
+        with open(RECIPES_JSON_PATH, 'r+', encoding='utf-8') as file:
+            current_recipes_data = json.load(file)
+            accepted_items = current_recipes_data["acceptable_menu_items"]
+            already_scraped_items = current_recipes_data["already_scraped_items"]
+            menu_items_lookup = current_recipes_data["menu_items_lookup"]
+            current_recipes = current_recipes_data["recipes"]
+
+            # gather recipes data from restaurants
+            for restaurant in current_restaurants:
+                # if num_done >= 10:
+                #    break
+
+                name = restaurant["name"]
+                menu_data = restaurant.get("menu_categories")
+                if menu_data is None:
+                    print("\t\t\tNo menu_categories in Restaurant {0}. Scrape restaurants data first.".format(name))
+                    continue
+
+                num_done += 1
+                num_acceptable_items = 0
+                # search through menu items (yes, i know its order N cubed, no i do not care, phase 2 is almost due)
+                for menu_category in menu_data:
+                    for item in menu_category["items"]:
+                        for accepted_item in accepted_items:
+                            # guard statement: no partial match found for menu name
+                            item_name = item["name"]
+                            if accepted_item.lower() not in item_name.lower():
+                                continue
+                            num_acceptable_items += 1
+
+                            # name lookup
+                            accepted_name_query = menu_items_lookup.get(accepted_item) or accepted_item
+                            if accepted_name_query in already_scraped_items:
+                                continue
+                            
+                            # recipe scrape
+                            num_spoonacular_calls += 1
+                            recipes_data = scrape_recipes(accepted_name_query)
+                            if recipes_data == -1:
+                                num_spoonacular_failures += 1
+                                failed_recipes.add(accepted_name_query)
+
+                            # store recipes
+                            already_scraped_items.append(accepted_name_query)
+                            for recipe in recipes_data:
+                                recipe["dish_name"] = accepted_name_query.strip()
+                                current_recipes.append(recipe)
+                            break
+                if num_acceptable_items == 0:
+                    print("\t\t\tNo acceptable menu items for Restaurant {0}. Check that menu_categories items map to acceptable items.".format(name))
+            # update Recipes json
+            file.seek(0)
+            json.dump(current_recipes_data, file, indent = JSON_INDENT)
+    
+    if num_restaurants == 0:
+        print("\t\tNo restaurants to scrape data for. Scrape restaurants data first.")
+    else:
+        spoonacular_gathered = num_restaurants - num_spoonacular_failures
+        print("\n\t\tRestaurants with Recipes gathered: {0}/{1}, {2}% success rate, {3} calls made".format(spoonacular_gathered, num_restaurants, int((spoonacular_gathered / num_restaurants) * 100), num_spoonacular_calls))
+        print("\t\tFailures: {0}".format(failed_recipes))
+        print("\t\tRecipes json updated.")
 
 # Culture Data
 def scrape_wikipedia_culture(country: str):
@@ -174,8 +278,6 @@ def scrape_cultures_data():
     Restaurants with cultures that already exist are skipped.
     The resulting cultures data are stored in a Cultures JSON.
     """
-    # TODO: warn about countries not associated with any cuisine!
-    # TODO: output country not found for cuisine since it must be added to the lookup list
     print("\t\tScraping cultures data..")
 
     create_json_file(RESTAURANTS_JSON_PATH)
@@ -287,7 +389,7 @@ def scrape_cultures_data():
             json.dump(cultures_data, file, indent = JSON_INDENT)
     
     if num_restaurants == 0:
-        print("\t\tNo restaurants to scrape data for. Scrape ChowNow restaurants first.")
+        print("\t\tNo restaurants to scrape data for. Scrape restaurants data first.")
     else:
         restcountry_gathered = num_restaurants - num_restcountry_failures
         wikipedia_gathered = num_restaurants - num_wikipedia_failures
@@ -591,10 +693,12 @@ def main():
     to_scrape_cultures = input("\tScrape cultures data (y/n): ")
     if parse_yes_from_input(to_scrape_cultures):
         scrape_cultures_data()
-
-    # TODO: Scrape recipes?
-    # Have to find out which on menu marks a "good candidate" for a recipe. Search for keywords? Lunch items? Size: "Regular"? Price?
+    
+    # Scrape recipes?
     # [FROM: Restaurants json  FOR: Recipe data  STORE: Recipes json]
+    to_scrape_recipes = input("\tScrape recipes data (y/n): ")
+    if parse_yes_from_input(to_scrape_recipes):
+        scrape_recipes_data()
 
 
 if __name__ == "__main__":

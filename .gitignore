@@ -8,3 +8,4 @@ back-end/api/ScrapeJSONs/YelpSearchTEMP.json
 back-end/api/ScrapeJSONs/YelpReviewsTEMP.json
 back-end/api/Test.py
 back-end/__pycache__/
+back-end/api/ScrapeJSONs/SpoonacularTEMP.json
