@@ -63,27 +63,25 @@ class Culture(db.Model) :
     def __repr__(self):
         return "<Culture %s>" % self.name
 
-
 class Restaurant(db.Model) :
     __tablename__ = 'restaurants'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String())
-    image_url = db.Column(db.String())
-    restaurant_url = db.Column(db.String())
-    display_phone = db.Column(db.String())
+    name = db.Column(db.String)
+    image_url = db.Column(db.String)
+    restaurant_url = db.Column(db.String)
+    display_phone = db.Column(db.String)
     categories = db.Column(ARRAY(db.String()))
     rating = db.Column(db.Float)
     review_count = db.Column(db.Integer)
-    display_address = db.Column(db.String())
-    latlng = db.Column(ARRAY(db.Integer))
+    display_address = db.Column(db.String)
+    latlng = db.Column(ARRAY(db.Float()))
     photos = db.Column(ARRAY(db.String()))
-    price = db.Column(db.String())
+    price = db.Column(db.String)
     delivery = db.Column(db.Boolean)
-    hours = db.Column(db.String())
+    is_open = db.Column(db.Boolean)
 
     def __repr__(self):
         return "<Restaurant %s>" % self.name
-
 
 class Recipe(db.Model) :
     __tablename__ = 'recipes'
