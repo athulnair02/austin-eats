@@ -70,7 +70,7 @@ class Restaurant(db.Model) :
     image_url = db.Column(db.String())
     restaurant_url = db.Column(db.String())
     display_phone = db.Column(db.String())
-    categories = db.Column(ARRAY(db.String()()))
+    categories = db.Column(ARRAY(db.String()))
     rating = db.Column(db.Float)
     review_count = db.Column(db.Integer)
     display_address = db.Column(db.String())
