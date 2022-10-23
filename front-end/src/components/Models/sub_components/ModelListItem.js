@@ -2,28 +2,52 @@ import React from 'react';
 import { Badge } from 'react-bootstrap';
 import { BrowserRouter as Router, Navigate, useNavigate, Link } from 'react-router-dom';
 import '../../../styles/Models.css'
+import '../../../styles/Instances.css'
 
 function ModelListItem(props) {
     const navigate = useNavigate();
   
-    // todo: clean this up, there's probably a better way..
-    let button;
-    if (props.redirect) {
+    const button = <button className='modelListButton' onClick={() => {navigate(`${props.link}`)}}></button>
+    /*if (props.redirect) {
       button = <Link to={props.link}><button className='modelListButton'></button></Link>
     } else {
       button = <button className='modelListButton' onClick={() => {navigate(`${props.link}`)}}></button>
+    }*/
+
+    let attributeElements = []
+    if (props.attributes) {
+      attributeElements = props.attributes.map((attributeText) => 
+        <li style={{fontSize: '20px'}}>{attributeText}</li>
+      )
     }
 
-    // <Badge style={{backgroundColor: '#c990f0', color: 'black'}} bg=''>🐟 Seafood</Badge>{' '}
+    let badges = []
+    if (props.badges) {
+      for (const [badgeText, style] of Object.entries(props.badges)) {
+        let newStyle = Object.assign({}, style);
+        newStyle.color = 'black'
+        newStyle.margin = '.15em'
+        newStyle.fontSize = '13px'
+
+        badges.push(
+          <Badge style={newStyle} bg=''>{badgeText}</Badge>
+        )
+      }
+    }
+
     return (
       <div className='modelListItem'>
-        <div className='modelListImage' style={{backgroundImage: `url(${props.image})`}}></div>
+        <div className='modelListImageWrapper'>
+          <div className='modelListImage' style={{backgroundImage: `url(${props.image})`}}></div>
+          <div className='shadowOverlay'></div>
+        </div>
         <div className='modalListBadges'>
-          {/* <Badge style={{backgroundColor: '#f58c8c', color: 'black'}} bg=''>🌎 American</Badge>{' '}
-          <Badge style={{backgroundColor: '#ffaa2b', color: 'black'}} bg=''> 🔥 Spicy</Badge>{' '}
-          <Badge style={{backgroundColor: '#cccccc', color: 'black'}} bg=''> ⌛ Quick</Badge>{' '} */}
+          {badges}
         </div>
         <div className='modelListHeader'>{props.name}</div>
+        <ul className='horizontalBulletList' style={{textAlign: 'left', marginLeft: 0, lineHeight: 1.25}}>
+          {attributeElements}
+        </ul>
         {button}
       </div>
     )

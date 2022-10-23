@@ -1,12 +1,12 @@
 import React from 'react';
 import cultures from '../../temp-backend/cultures.json'
-import ModelListItem from './sub_components/ModelListItem';
+import { Create_Culture_Cell } from '../../SharedFunctions';
 import { Row, Dropdown, Form} from "react-bootstrap";
 import '../../styles/Models.css'
 
 function Cultures() {
     const cultureElements = cultures.map((culture, index) => 
-      <ModelListItem name={culture.name} image={culture.flags.png} link={index} />
+      Create_Culture_Cell(culture, index)
     )
 
     return (

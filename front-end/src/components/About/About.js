@@ -8,7 +8,7 @@ import {
   Table,
 } from "react-bootstrap";
 import { teamInfo, toolInfo, dataSourceInfo, repoAndAPI } from "./AboutInfo.js";
-import { Card as MatCard, TableHead, TableCell, TableRow, TableBody } from "@mui/material";
+import { Card as MatCard, TableHead, TableCell, TableRow, TableBody, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import {
   CardContent,
   CardMedia,
@@ -133,13 +133,37 @@ function About() {
                     <Card.Img variant="top" src={member.Photo}/>
                     <CardContent>
                         <Card.Title>{member.Name}</Card.Title>
-                        <Card.Subtitle>{member.Role}</Card.Subtitle>
-                        <Card.Text>{member.Bio}</Card.Text>
-                        <ListGroup>
-                            <ListGroupItem>Commits: {member.Commits}</ListGroupItem>
-                            <ListGroupItem>Issues: {member.Issues}</ListGroupItem>
-                            <ListGroupItem>Tests: {member.Tests}</ListGroupItem>
-                        </ListGroup>
+                        <Card.Subtitle style={{marginBottom: '10px'}}>{member.Role}</Card.Subtitle>
+                        <Accordion>
+                                <AccordionSummary
+                                    expandIcon={<b>∨</b>}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                >
+                                <Typography>About</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>
+                                    {member.Bio}
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion>
+                                <AccordionSummary
+                                    expandIcon={<b>∨</b>}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                >
+                                <Typography>Contributions</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <ListGroup>
+                                    <ListGroupItem>Commits: {member.Commits}</ListGroupItem>
+                                    <ListGroupItem>Issues: {member.Issues}</ListGroupItem>
+                                    <ListGroupItem>Tests: {member.Tests}</ListGroupItem>
+                                </ListGroup>
+                            </AccordionDetails>
+                        </Accordion>
                     </CardContent>
                     </MatCard>
                 );

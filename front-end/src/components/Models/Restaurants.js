@@ -1,12 +1,12 @@
 import React from 'react';
 import restaurants from '../../temp-backend/restaurants.json'
-import ModelListItem from './sub_components/ModelListItem';
+import { Create_Restaurant_Cell } from '../../SharedFunctions';
 import { Row, Dropdown, Form} from "react-bootstrap";
 import '../../styles/Models.css'
 
 function Restaurants() {
     const restaurantElements = restaurants.map((restaurant, index) => 
-      <ModelListItem name={restaurant.name} image={restaurant.image_url} link={index} />
+      Create_Restaurant_Cell(restaurant, index)
     )
 
     return (
