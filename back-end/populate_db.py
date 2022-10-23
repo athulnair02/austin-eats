@@ -13,25 +13,25 @@ def populate_restaurants():
         data = json.load(f)
     rest_id = 0
     for restaurant in data:
-        yelp_data = restaurant.get("yelp_data")
+        yelp_data = restaurant.get("yelp_data").get("restaurant")
         all_categories = []
-        for cat in yelp_data.get("restaurant").get("categories"):
+        for cat in yelp_data.get("categories"):
             all_categories.append(cat.get("title"))
         new_rest = Restaurant(
         id = rest_id,
-        name = yelp_data.get("restaurant").get("name"),
-        image_url = yelp_data.get("restaurant").get("image_url"),
-        restaurant_url = yelp_data.get("restaurant").get("url"),
-        display_phone = yelp_data.get("restaurant").get("display_phone"),
+        name = yelp_data.get("name"),
+        image_url = yelp_data.get("image_url"),
+        restaurant_url = yelp_data.get("url"),
+        display_phone = yelp_data.get("display_phone"),
         categories = all_categories,
-        rating = yelp_data.get("restaurant").get("rating"),
-        review_count = yelp_data.get("restaurant").get("review_count"),
+        rating = yelp_data.get("rating"),
+        review_count = yelp_data.get("review_count"),
         display_address = restaurant.get("address").get("place_formatted_address"),
         latlng = [restaurant.get("address").get("latitude"), restaurant.get("address").get("longitude")],
-        photos = yelp_data.get("restaurant").get("photos"),
-        price = yelp_data.get("restaurant").get("price"),
+        photos = yelp_data.get("photos"),
+        price = yelp_data.get("price"),
         delivery = restaurant.get("is_delivery_available"),
-        is_open = yelp_data.get("restaurant").get("hours")[0].get("is_open_now"))
+        is_open = yelp_data.get("hours")[0].get("is_open_now"))
         session.add(new_rest)
         rest_id = rest_id + 1
 
