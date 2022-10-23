@@ -45,12 +45,13 @@ join_restaurant_recipe = db.Table(
 
 class Culture(db.Model) :
     __tablename__ = 'cultures'
+    
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
     capital = db.Column(db.String())
     flag_url = db.Column(db.String())
     currency = db.Column(db.String())
-    languages = db.Column(ARRAY(db.String()))
+    languages = db.Column(db.String())
     subregion = db.Column(db.String())
     region = db.Column(db.String())
     population = db.Column(db.Integer)
@@ -115,8 +116,8 @@ class CultureSchema() :
     recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_type", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
 
     capital = fields.String(required=True)
-    flags = fields.String(required=True)
-    currencies = fields.String(required=True)
+    flag_url = fields.String(required=True)
+    currency = fields.String(required=True)
     languages = fields.List(fields.String(), required=True)
     subregion = fields.String(required=True)
     region = fields.String(required=True)
