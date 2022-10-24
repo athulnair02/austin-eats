@@ -2,15 +2,49 @@ from app import db
 import json
 from models import Restaurant, Culture, Recipe
 
-def populate_restaurants() :
-    return -1
+# TexasVotes code helped a lot with this
 
-def push_restaurants() :
-    return -1
+RESTAURANT_JSON = "./api/ScrapeJSONs/Restaurants.json"
+CULTURE_JSON = "./api/ScrapeJSONs/Cultures.json"
+RECIPE_JSON = "./api/ScrapeJSONs/Recipes.json"
+
+def populate_restaurants() :
+    print("Starting populate_restaurants()...")
+    with open(RESTAURANT_JSON) as f:
+        data = json.load(f)
+        push_restaurants(data)
+    db.session.commit()
+    print("Restaurants added!")
+
+def push_restaurants(data) :
+    rest_id = 0
+    for restaurant in data:
+        yelp_data = restaurant.get("yelp_data").get("restaurant")
+        all_categories = []
+        for cat in yelp_data.get("categories"):
+            all_categories.append(cat.get("title"))
+        new_rest = Restaurant(
+            id = rest_id,
+            name = yelp_data.get("name"),
+            image_url = yelp_data.get("image_url"),
+            restaurant_url = yelp_data.get("url"),
+            display_phone = yelp_data.get("display_phone"),
+            categories = all_categories,
+            rating = yelp_data.get("rating"),
+            review_count = yelp_data.get("review_count"),
+            display_address = restaurant.get("address").get("place_formatted_address"),
+            latlng = [restaurant.get("address").get("latitude"), restaurant.get("address").get("longitude")],
+            photos = yelp_data.get("photos"),
+            price = yelp_data.get("price"),
+            delivery = restaurant.get("is_delivery_available"),
+            is_open = yelp_data.get("hours")[0].get("is_open_now")
+        )
+        db.session.add(new_rest)
+        rest_id += 1
 
 def populate_cultures() :
     print("Starting populate_cultures()...")
-    with open('./api/ScrapeJSONs/Cultures.json') as f:
+    with open(CULTURE_JSON) as f:
         data = json.load(f)
         push_cultures(data)
     db.session.commit()
@@ -35,10 +69,54 @@ def push_cultures(data) :
         db.session.add(culture_db_instance)
 
 def populate_recipes() :
-    return -1
+    print("Starting populate_recipes()...")
+    with open(RECIPE_JSON) as f:
+        data = json.load(f)
+        push_recipes(data)
+    db.session.commit()
+    print("Recipes added!")
 
 def push_recipes(data) :
-    return -1
+    LABELS = ["Vegetarian", "Vegan", "Gluten Free", "Dairy Free", "Very Healthy", "Cheap", "Very Popular", "Sustainable"]
+    DISH_TYPES = ["Breakfast", "Lunch", "Dinner", "Appetizer"]
+
+    recipe_id = 0
+    for recipe in data["recipes"]:
+        # Get applicable recipe labels
+        labels = [lab for lab in LABELS if recipe.get((lab[0].lower() + lab[1:]).replace(" ", ""))] # Lowercase first letter & remove spaces to get label key
+
+        # Get ingredients, format into array of strings
+        ingredients = []
+        for ingredient in recipe["nutrition"]["ingredients"]:
+            if ingredient["unit"] != "":
+                ingredients.append(str(ingredient["amount"]) + ' ' + ingredient["unit"] + ' ' + ingredient["name"])
+            else:
+                ingredients.append(str(ingredient["amount"]) + ' ' + ingredient["name"]) # no recipe unit :(
+
+        # Get instructions, format into array of strings
+        instructions = [inst["step"] for inst in recipe["analyzedInstructions"][0]["steps"]]
+
+        # Get dish types, format into array of strings
+        dish_types = [t for t in DISH_TYPES if t.lower() in recipe["dishTypes"]]
+
+        new_recipe = Recipe(
+            id = recipe_id,
+            name = recipe.get("title"),
+            summary = recipe.get("summary"),
+            image_url = recipe.get("image"),
+            source_url = recipe.get("sourceUrl"),
+            ready_in_minutes = recipe.get("readyInMinutes"),
+            servings = recipe.get("servings"),
+            labels = labels,
+            ingredients = ingredients,
+            total_nutrients = recipe.get("nutrition").get("nutrients"),
+            instructions = instructions,
+            dish_types = dish_types,
+            cuisine_type = recipe.get("cuisines"),
+            dish_name = recipe.get("dish_name")
+        )
+        db.session.add(new_recipe)
+        recipe_id += 1
 
 def reset_db():
     # Be VERYYY careful with this...
@@ -49,7 +127,10 @@ def reset_db():
 
 
 if __name__ == '__main__':    
-    print("Initiating db_push...")
+    print("Initiating db_push()...")
     reset_db()
     populate_cultures()
+    populate_restaurants()
+    populate_recipes()
+    print("db_push() completed!")
 
