@@ -81,6 +81,7 @@ class Restaurant(db.Model) :
     price = db.Column(db.String)
     delivery = db.Column(db.Boolean)
     is_open = db.Column(db.Boolean)
+    reviews = db.Column(db.JSON)
 
     def __repr__(self):
         return "<Restaurant %s>" % self.name

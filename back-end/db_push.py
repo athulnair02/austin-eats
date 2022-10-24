@@ -20,16 +20,18 @@ def push_restaurants(data) :
     rest_id = 0
     for restaurant in data:
         yelp_data = restaurant.get("yelp_data").get("restaurant")
-        all_categories = []
+        all_categories = set()
         for cat in yelp_data.get("categories"):
-            all_categories.append(cat.get("title"))
+            all_categories.add(cat.get("title"))
+        for cui in restaurant.get("cuisines"):
+            all_categories.add(cui)
         new_rest = Restaurant(
             id = rest_id,
             name = yelp_data.get("name"),
             image_url = yelp_data.get("image_url"),
             restaurant_url = yelp_data.get("url"),
             display_phone = yelp_data.get("display_phone"),
-            categories = all_categories,
+            categories = list(all_categories),
             rating = yelp_data.get("rating"),
             review_count = yelp_data.get("review_count"),
             display_address = restaurant.get("address").get("place_formatted_address"),
@@ -37,7 +39,8 @@ def push_restaurants(data) :
             photos = yelp_data.get("photos"),
             price = yelp_data.get("price"),
             delivery = restaurant.get("is_delivery_available"),
-            is_open = yelp_data.get("hours")[0].get("is_open_now")
+            is_open = yelp_data.get("hours")[0].get("is_open_now"),
+            reviews = restaurant.get("yelp_data").get("reviews")
         )
         db.session.add(new_rest)
         rest_id += 1
