@@ -1,9 +1,11 @@
-from flask import Flask, make_response, jsonify
+from flask import Flask
 from db import init_db
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
-from marshmallow import fields, post_dump, Schema
+from marshmallow import fields, Schema
 from sqlalchemy.dialects.postgresql import ARRAY
+
+# TexasVotes code helped a lot with this
 
 app = Flask(__name__)
 CORS(app)

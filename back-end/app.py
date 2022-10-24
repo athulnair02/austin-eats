@@ -4,6 +4,8 @@ from format import *
 import requests
 import json
 
+# TexasVotes code helped a lot with this
+
 @app.route('/api/restaurants', methods=['GET'])
 def restaurants() :
     relations = db.session.query(Restaurant).all()
