@@ -48,12 +48,12 @@ class Culture(db.Model) :
     name = db.Column(db.String)
     capital = db.Column(db.String)
     flags = db.Column(db.BLOB)
-    currencies = db.Column(db.PickleType)
-    languages = db.Column(db.PickleType)
+    currencies = db.Column(ARRAY(db.String()))
+    languages = db.Column(ARRAY(db.String()))
     subregion = db.Column(db.String)
     region = db.Column(db.String)
     population = db.Column(db.Integer)
-    latlng = db.Column(db.PickleType)
+    latlng = db.Column(ARRAY(db.Float()))
     demonym = db.Column(db.String)
     independent = db.Column(db.Boolean)
     summary = db.Column(db.String)
@@ -69,15 +69,15 @@ class Restaurant(db.Model) :
     image_url = db.Column(db.String)
     restaurant_url = db.Column(db.String)
     display_phone = db.Column(db.String)
-    categories = db.Column(db.PickleType)
+    categories = db.Column(ARRAY(db.String()))
     rating = db.Column(db.Float)
     review_count = db.Column(db.Integer)
     display_address = db.Column(db.String)
-    latlng = db.Column(db.PickleType)
-    photos = db.Column(db.BLOB)
+    latlng = db.Column(ARRAY(db.Float()))
+    photos = db.Column(ARRAY(db.String()))
     price = db.Column(db.String)
     delivery = db.Column(db.Boolean)
-    hours = db.Column(db.String)
+    is_open = db.Column(db.Boolean)
 
     def __repr__(self):
         return "<Restaurant %s>" % self.name
@@ -94,17 +94,24 @@ class Recipe(db.Model) :
     source_url = db.Column(db.String)
     ready_in_minutes = db.Column(db.Integer)
     servings = db.Column(db.Integer)
-    diet_labels = db.Column(db.PickleType)
-    health_labels = db.Column(db.PickleType)
-    ingredients = db.Column(db.PickleType)
-    total_nutrients = db.Column(db.PickleType)
-    instructions = db.Column(db.String)
-    meal_type = db.Column(db.PickleType)
-    cuisine_type = db.Column(db.PickleType)
-    dish_type = db.Column(db.PickleType)
+    labels = db.Column(ARRAY(db.String()))
+    ingredients = db.Column(ARRAY(db.String()))
+    total_nutrients = db.Column(db.JSON) # db.relationship("Nutrient") # One-Many relationship between recipe & nutrients
+    instructions = db.Column(ARRAY(db.String()))
+    dish_types = db.Column(ARRAY(db.String()))
+    cuisine_type = db.Column(ARRAY(db.String()))
+    dish_name = db.Column(db.String)
 
     def __repr__(self):
         return "<Recipe %s>" % self.name
+
+# Nutrients for recipes
+"""class Nutrient(db.Model) :
+    __tablename__ = 'nutrients'
+    id = db.Column(db.Integer, primary_key=True)
+    amount = db.Column(db.Integer)
+    recipe_id = db.Column(db.Integer, db.ForeignKey("recipes.id"))"""
+
 
 class CultureSchema() :
     id = fields.Integer(required=True)
