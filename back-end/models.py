@@ -2,7 +2,7 @@ from flask import Flask
 from db import init_db
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
-from marshmallow import fields
+from marshmallow import fields, Schema
 from sqlalchemy.dialects.postgresql import ARRAY
 
 # TexasVotes code helped a lot with this
@@ -113,7 +113,7 @@ class Recipe(db.Model) :
     recipe_id = db.Column(db.Integer, db.ForeignKey("recipes.id"))"""
 
 
-class CultureSchema() :
+class CultureSchema(Schema) :
     id = fields.Integer(required=True)
     name = fields.String(required=True)
 
@@ -133,11 +133,11 @@ class CultureSchema() :
     summary = fields.String(required=True)
 
 # may need to adjust this MenuSchema
-class MenuSchema() :
+class MenuSchema(Schema) :
     id = fields.Integer(required=True)
     dishes = fields.List(fields.String(), required=True)
 
-class RestaurantSchema() :
+class RestaurantSchema(Schema) :
     id = fields.Integer(required=True)
     name = fields.String(required=True)
 
@@ -149,16 +149,17 @@ class RestaurantSchema() :
     image_url = fields.String(required=False)
     restaurant_url = fields.String(required=False)
     display_phone = fields.String(required=True)
-    categories = fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
+    categories = fields.List(fields.String(), required=True) #fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
     rating = fields.Integer(required=True)
     review_count = fields.Integer(required=True)
     display_address = fields.String(required=True)
-    latlng = fields.Dict(keys=fields.String(), values=fields.Integer(), required=True)
+    latlng = fields.List(fields.Float(), required=True) #fields.Dict(keys=fields.String(), values=fields.Integer(), required=True)
+    photos = fields.List(fields.String(), required=True)
     price = fields.String(required=True)
     # takeout, delivery
     delivery = fields.Bool(required=True)
 
-class RecipeSchema() :
+class RecipeSchema(Schema) :
     id = fields.Integer(required=True)
     name = fields.String(required=True)
 
@@ -172,7 +173,7 @@ class RecipeSchema() :
     servings = fields.Integer(required=True)
     # low-fat, etc
     diet_labels = fields.List(fields.String(), required=True)
-    ingredients = fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
+    ingredients = fields.List(fields.String(), required=True) #fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
     total_nutrients = fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
     instructions = fields.List(fields.String(), required=True)
     cuisine_type = fields.List(fields.String(), required=True)
