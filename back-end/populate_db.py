@@ -1,5 +1,11 @@
 # populating the database from the json data
 import json
+from pydoc import doc
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+# JSON paths
+RECIPE_JSON = "./api/ScrapeJSONs/Recipes.json"
 # import sqlalchemy
 # from sqlalchemy import create_engine
 
@@ -35,6 +41,50 @@ def populate_restaurants():
         session.add(new_rest)
         rest_id = rest_id + 1
 
+
+def populate_recipes():
+    with open(RECIPE_JSON) as recipe_json:
+        data = json.load(recipe_json)
+        LABELS = ["Vegetarian", "Vegan", "Gluten Free", "Dairy Free", "Very Healthy", "Cheap", "Very Popular", "Sustainable"]
+        DISH_TYPES = ["Breakfast", "Lunch", "Dinner", "Appetizer"]
+
+        recipe_id = 0
+        for recipe in data.recipes:
+            # Get applicable recipe labels
+            labels = [lab for lab in LABELS if recipe.get((lab[0].lower() + lab[1:]).replace(" ", ""))] # Lowercase first letter & remove spaces to get label key
+
+            # Get ingredients, format into array of strings
+            ingredients = []
+            for ingredient in recipe.get("nutrition").get("ingredients"):
+                if ingredient.unit != "":
+                    ingredients.append(ingredient.amount + ' ' + ingredient.unit + ' ' + ingredient.name)
+                else:
+                    ingredients.append(ingredient.amount + ' ' + ingredient.name) # no recipe unit :(
+
+            # Get instructions, format into array of strings
+            instructions = [inst.step for inst in recipe.get("analyzedInstructions").get("steps")]
+
+            # Get dish types, format into array of strings
+            dish_types = [t for t in DISH_TYPES if t.lower() in recipe.get("dishTypes")]
+
+            new_recipe = Recipe(
+                id = recipe_id,
+                name = recipe.get("title"),
+                summary = recipe.get("summary"),
+                image_url = recipe.get("image"),
+                source_url = recipe.get("sourceUrl"),
+                ready_in_minutes = recipe.get("readyInMinutes"),
+                servings = recipe.get("servings"),
+                labels = labels,
+                ingredients = ingredients,
+                total_nutrients = recipe.get("nutrition").get("nutrients"),
+                instructions = instructions,
+                dish_types = dish_types,
+                cuisine_type = recipe.get("cuisines"),
+                dish_name = recipe.get("dish_name")
+            )
+            session.add(new_recipe)
+            recipe_id += 1
 
 
 # def populate_recipes():

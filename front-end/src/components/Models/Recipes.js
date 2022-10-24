@@ -1,12 +1,12 @@
 import React from 'react';
 import recipes from '../../temp-backend/recipes.json'
-import ModelListItem from './sub_components/ModelListItem';
+import { Create_Recipe_Cell } from '../../SharedFunctions';
 import { Row, Dropdown, Form} from "react-bootstrap";
 import '../../styles/Models.css'
 
 function Recipes() {
     const recipeElements = recipes.map((recipe, index) => 
-      <ModelListItem name={recipe.name} image={recipe.image} link={index} />
+      Create_Recipe_Cell(recipe, index)
     )
 
     return (

@@ -92,19 +92,24 @@ class Recipe(db.Model) :
     source_url = db.Column(db.String())
     ready_in_minutes = db.Column(db.Integer)
     servings = db.Column(db.Integer)
-    # dairy free, vegetarian, etc. 
-    diet_labels = db.Column(ARRAY(db.String()))
+    labels = db.Column(ARRAY(db.String())) # Vegan, Vegetarian, etc
     ingredients = db.Column(ARRAY(db.String()))
-    # calories, macros, etc.
-    total_nutrients = db.Column(ARRAY(db.String(), dimensions=2))
+    total_nutrients = db.Column(db.JSON) # Macros, Calories, etc         # db.relationship("Nutrient") # One-Many relationship between recipe & nutrients
     instructions = db.Column(ARRAY(db.String()))
-    # american, chinese, etc
-    cuisine_type = db.Column(ARRAY(db.String()))
-    # b,f,l
-    dish_type = db.Column(ARRAY(db.String()))
+    dish_types = db.Column(ARRAY(db.String())) # Breakfast, Lunch, Dinner, etc
+    cuisine_type = db.Column(ARRAY(db.String())) # American, Chinese, etc
+    dish_name = db.Column(db.String) # Taco, Salad, etc
 
     def __repr__(self):
         return "<Recipe %s>" % self.name
+
+# Nutrients for recipes (MIGHT NOT BE NEEDED if db.JSON type works as expected)
+"""class Nutrient(db.Model) :
+    __tablename__ = 'nutrients'
+    id = db.Column(db.Integer, primary_key=True)
+    amount = db.Column(db.Integer)
+    recipe_id = db.Column(db.Integer, db.ForeignKey("recipes.id"))"""
+
 
 class CultureSchema() :
     id = fields.Integer(required=True)

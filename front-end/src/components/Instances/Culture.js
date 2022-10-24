@@ -2,19 +2,11 @@ import React from 'react';
 import cultures from '../../temp-backend/cultures.json';
 import restaurants from '../../temp-backend/restaurants.json'
 import recipes from '../../temp-backend/recipes.json'
-import ModelListItem from '../Models/sub_components/ModelListItem';
+import { Create_Restaurant_Cell, Create_Recipe_Cell } from '../../SharedFunctions';
 import { Images, Container } from "react-bootstrap";
+import { CommaSeparate } from '../../SharedFunctions';
 import { useParams, Navigate } from 'react-router-dom';
 import '../../styles/Instances.css'
-
-function CommaSeparate(array, index) {
-  return array.map(function(val) {
-    if (index) {
-      return val[index];
-    }
-    return val;
-  }).join(', ');
-}
 
 function Culture(props) {
     let { id } = useParams();
@@ -112,11 +104,11 @@ function Culture(props) {
           </tbody>
           <div className='instanceSubTitle'>{culture.demonym} Restaurants</div>
           <div className='scrollContainer'>
-            <ModelListItem name={relatedRestaurant.name} image={relatedRestaurant.image_url} link={`/restaurants/${id}`} redirect={true}/>
+            {Create_Restaurant_Cell(relatedRestaurant, `/restaurants/${id}`)}
           </div>
           <div className='instanceSubTitle'>{culture.demonym} Recipes</div>
           <div className='scrollContainer'>
-            <ModelListItem name={relatedRecipe.name} image={relatedRecipe.image} link={`/recipes/${id}`} redirect={true}/>
+            {Create_Recipe_Cell(relatedRecipe, `/recipes/${id}`)}
           </div>
         </div>
       </>
