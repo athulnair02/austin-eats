@@ -45,12 +45,13 @@ def populate_restaurants():
 def populate_recipes():
     with open(RECIPE_JSON) as recipe_json:
         data = json.load(recipe_json)
-        LABELS = ["vegetarian", "vegan", "glutenFree", "dairyFree", "veryHealthy", "cheap", "veryPopular", "sustainable"]
+        LABELS = ["Vegetarian", "Vegan", "Gluten Free", "Dairy Free", "Very Healthy", "Cheap", "Very Popular", "Sustainable"]
+        DISH_TYPES = ["Breakfast", "Lunch", "Dinner", "Appetizer"]
 
         recipe_id = 0
         for recipe in data.recipes:
             # Get applicable recipe labels
-            labels = [lab for lab in LABELS if recipe.get(lab)]
+            labels = [lab for lab in LABELS if recipe.get((lab[0].lower() + lab[1:]).replace(" ", ""))] # Lowercase first letter & remove spaces to get label key
 
             # Get ingredients, format into array of strings
             ingredients = []
@@ -61,16 +62,16 @@ def populate_recipes():
                     ingredients.append(ingredient.amount + ' ' + ingredient.name) # no recipe unit :(
 
             # Get instructions, format into array of strings
-            instructions = []
-            for instruction in recipe.get("analyzedInstructions").get("steps"):
-                instructions.append(instruction.step)
+            instructions = [inst.step for inst in recipe.get("analyzedInstructions").get("steps")]
+
+            # Get dish types, format into array of strings
+            dish_types = [t for t in DISH_TYPES if t.lower() in recipe.get("dishTypes")]
 
             new_recipe = Recipe(
                 id = recipe_id,
                 name = recipe.get("title"),
                 summary = recipe.get("summary"),
                 image_url = recipe.get("image"),
-                source = recipe.get("sourceName"),
                 source_url = recipe.get("sourceUrl"),
                 ready_in_minutes = recipe.get("readyInMinutes"),
                 servings = recipe.get("servings"),
@@ -78,7 +79,9 @@ def populate_recipes():
                 ingredients = ingredients,
                 total_nutrients = recipe.get("nutrition").get("nutrients"),
                 instructions = instructions,
-                dish_types = "",
+                dish_types = dish_types,
+                cuisine_type = recipe.get("cuisines"),
+                dish_name = recipe.get("dish_name")
             )
             session.add(new_recipe)
             recipe_id += 1
