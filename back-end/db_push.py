@@ -19,6 +19,7 @@ def populate_restaurants() :
 def push_restaurants(data) :
     rest_id = 0
     for restaurant in data:
+
         yelp_data = restaurant.get("yelp_data").get("restaurant")
         all_categories = set()
         for cat in yelp_data.get("categories"):
@@ -58,6 +59,28 @@ def push_restaurants(data) :
                 culture_orm = db.session.query(Culture).filter_by(name=country).first() or db.session.query(Culture).filter_by(demonym=country).first()
                 if culture_orm:
                     new_rest.cultures.append(culture_orm)
+        
+        # link Restaurants --> Recipes
+        with open(RECIPE_JSON) as rec :
+                rec_data = json.load(rec)
+                nonduplicate_recipes = set()
+                accepted_items = rec_data["acceptable_menu_items"]
+                menu_items_lookup = rec_data["menu_items_lookup"]
+                for categories in restaurant["menu_categories"] :
+                    for item in categories["items"] :
+                        for accepted_item in accepted_items :
+                            item_name = item["name"]
+                            if accepted_item.lower() not in item_name.lower() :
+                                continue
+                            menu_lookup_query = menu_items_lookup.get(accepted_item.lower()) or accepted_item
+                            if menu_lookup_query in nonduplicate_recipes :
+                                break
+                            nonduplicate_recipes.add(menu_lookup_query)
+                            recipe_orm = db.session.query(Recipe).filter_by(dish_name=menu_lookup_query).all()
+                            if recipe_orm :
+                                for r in recipe_orm :
+                                    new_rest.recipes.append(r)
+
         db.session.add(new_rest)
         rest_id += 1
 
