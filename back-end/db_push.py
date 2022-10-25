@@ -40,7 +40,8 @@ def push_restaurants(data) :
             photos = yelp_data.get("photos"),
             price = yelp_data.get("price"),
             delivery = restaurant.get("is_delivery_available"),
-            is_open = yelp_data.get("hours")[0].get("is_open_now")
+            is_open = yelp_data.get("hours")[0].get("is_open_now"),
+            reviews = restaurant.get("yelp_data").get("reviews")
         )
 
         # link Restaurants --> Cultures
