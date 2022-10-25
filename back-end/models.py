@@ -12,17 +12,6 @@ CORS(app)
 db = init_db(app)
 ma = Marshmallow(app)
 
-# Association table between cultures and restaurants; many to many relationship
-join_culture_restaurant = db.Table(
-    "join_culture_restaurant",
-    db.Column(
-        "culture_id", db.Integer, db.ForeignKey("cultures.id"), primary_key=True
-    ),
-    db.Column(
-        "restaurant_id", db.Integer, db.ForeignKey("restaurants.id"), primary_key=True
-    ),
-)
-
 # Association table between cultures and recipes; many to many relationship
 join_culture_recipe = db.Table(
     "join_culture_recipe",
@@ -31,6 +20,17 @@ join_culture_recipe = db.Table(
     ),
     db.Column(
         "recipe_id", db.Integer, db.ForeignKey("recipes.id"), primary_key=True
+    ),
+)
+
+# Association table between cultures and restaurants; many to many relationship
+join_restaurant_culture = db.Table(
+    "join_culture_restaurant",
+    db.Column(
+        "restaurant_id", db.Integer, db.ForeignKey("restaurants.id"), primary_key=True
+    ),
+    db.Column(
+        "culture_id", db.Integer, db.ForeignKey("cultures.id"), primary_key=True
     ),
 )
 
@@ -47,8 +47,9 @@ join_restaurant_recipe = db.Table(
 
 class Culture(db.Model) :
     __tablename__ = 'cultures'
-    
     id = db.Column(db.Integer, primary_key=True)
+
+    # variables
     name = db.Column(db.String())
     capital = db.Column(db.String())
     flag_url = db.Column(db.String())
@@ -68,6 +69,14 @@ class Culture(db.Model) :
 class Restaurant(db.Model) :
     __tablename__ = 'restaurants'
     id = db.Column(db.Integer, primary_key=True)
+    # associations
+    cultures = db.relationship(
+        "Culture",
+        secondary = join_restaurant_culture,
+        backref = db.backref("restaurants", lazy="dynamic")
+    )
+
+    # variables
     name = db.Column(db.String)
     image_url = db.Column(db.String)
     restaurant_url = db.Column(db.String)
@@ -88,6 +97,8 @@ class Restaurant(db.Model) :
 class Recipe(db.Model) :
     __tablename__ = 'recipes'
     id = db.Column(db.Integer, primary_key=True)
+
+    # variables
     name = db.Column(db.String())
     summary = db.Column(db.String())
     image_url = db.Column(db.String())
@@ -117,7 +128,7 @@ class CultureSchema(Schema) :
     id = fields.Integer(required=True)
     name = fields.String(required=True)
 
-    restaurants = fields.Nested("RestaurantSchema", only=("id", "name", "image", "rating", "review_count", "price"), required=True, attribute="restaurants", many=True)
+    restaurants = fields.Nested("RestaurantSchema", only=("id", "name", "image_url", "rating", "review_count", "price"), required=True, attribute="restaurants", many=True)
     recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_type", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
 
     capital = fields.String(required=True)
@@ -163,7 +174,7 @@ class RecipeSchema(Schema) :
     id = fields.Integer(required=True)
     name = fields.String(required=True)
 
-    restaurants = fields.Nested("RestaurantSchema", only=("id", "name", "image", "rating", "review_count", "price"), required=True, attribute="restaurants", many=True)
+    restaurants = fields.Nested("RestaurantSchema", only=("id", "name", "image_url", "rating", "review_count", "price"), required=True, attribute="restaurants", many=True)
     cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region"), required=True, attribute="cultures", many=True)
 
     summary = fields.String(required=True)
