@@ -23,8 +23,9 @@ def push_restaurants(data) :
         all_categories = set()
         for cat in yelp_data.get("categories"):
             all_categories.add(cat.get("title"))
-        for cui in restaurant.get("cuisines"):
-            all_categories.add(cui)
+        for cat in restaurant.get("cuisines"):
+            all_categories.add(cat)
+        
         new_rest = Restaurant(
             id = rest_id,
             name = yelp_data.get("name"),
@@ -42,6 +43,21 @@ def push_restaurants(data) :
             is_open = yelp_data.get("hours")[0].get("is_open_now"),
             reviews = restaurant.get("yelp_data").get("reviews")
         )
+
+        # link Restaurants --> Cultures
+        with open(CULTURE_JSON) as f:
+            data = json.load(f)
+            nonduplicate_countries = set()
+            for category in new_rest.categories:
+                countries_list = data["culture_lookup"].get(category)
+                if countries_list is None:
+                    countries_list = [countries_list]
+                for country in countries_list:
+                    nonduplicate_countries.add(country)
+            for country in nonduplicate_countries:
+                culture_orm = db.session.query(Culture).filter_by(name=country).first() or db.session.query(Culture).filter_by(demonym=country).first()
+                if culture_orm:
+                    new_rest.cultures.append(culture_orm)
         db.session.add(new_rest)
         rest_id += 1
 
@@ -65,7 +81,7 @@ def push_cultures(data) :
         entry["demonym"] = culture["demonym"]
         entry["flag_url"] = culture["flags"]["png"]
         entry["currency"] = culture["currencies"][0]["name"] # maybe
-        entry["languages"] = culture["languages"][0]["name"] # maybe
+        entry["languages"] = [language_dict["name"] for language_dict in culture["languages"]] # culture["languages"][0]["name"]
         entry["independent"] = culture["independent"]
         entry["summary"] = culture["wikipedia_summary"]
         culture_db_instance = Culture(**entry)
@@ -133,7 +149,7 @@ if __name__ == '__main__':
     print("Initiating db_push()...")
     reset_db()
     populate_cultures()
-    populate_restaurants()
     populate_recipes()
+    populate_restaurants()
     print("db_push() completed!")
 
