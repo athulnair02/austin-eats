@@ -76,6 +76,12 @@ class Restaurant(db.Model) :
         backref = db.backref("restaurants", lazy="dynamic")
     )
 
+    recipes = db.relationship(
+        "Recipe",
+        secondary = join_restaurant_recipe,
+        backref = db.backref("restaurants", lazy="dynamic")
+    )
+
     # variables
     name = db.Column(db.String)
     image_url = db.Column(db.String)
@@ -130,7 +136,7 @@ class CultureSchema(Schema) :
     name = fields.String(required=True)
 
     restaurants = fields.Nested("RestaurantSchema", only=("id", "name", "image_url", "rating", "review_count", "price"), required=True, attribute="restaurants", many=True)
-    recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_type", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
+    recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_types", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
 
     capital = fields.String(required=True)
     flag_url = fields.String(required=True)
@@ -156,7 +162,7 @@ class RestaurantSchema(Schema) :
     dishes = fields.Pluck(MenuSchema, "dishes", many=True)
     cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region"), required=True, attribute="cultures", many=True)
     # not sure how to link recipes to the dishes; we will see!
-    recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_type", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
+    recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_types", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
 
     image_url = fields.String(required=False)
     restaurant_url = fields.String(required=False)
@@ -190,7 +196,8 @@ class RecipeSchema(Schema) :
     instructions = fields.List(fields.String(), required=True)
     cuisine_type = fields.List(fields.String(), required=True)
     # b, l, d
-    dish_type = fields.List(fields.String(), required=True)
+    dish_types = fields.List(fields.String(), required=True)
+    dish_name = fields.String(required=True)
 
 culture_schema = CultureSchema()
 restaurant_schema = RestaurantSchema()
