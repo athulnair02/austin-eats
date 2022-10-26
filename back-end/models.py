@@ -105,6 +105,13 @@ class Recipe(db.Model) :
     __tablename__ = 'recipes'
     id = db.Column(db.Integer, primary_key=True)
 
+    # associations
+    cultures = db.relationship(
+        "Culture",
+        secondary = join_culture_recipe,
+        backref = db.backref("recipes", lazy="dynamic")
+    )
+
     # variables
     name = db.Column(db.String())
     summary = db.Column(db.String())
@@ -160,7 +167,7 @@ class RestaurantSchema(Schema) :
     name = fields.String(required=True)
 
     dishes = fields.Pluck(MenuSchema, "dishes", many=True)
-    cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region"), required=True, attribute="cultures", many=True)
+    cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region", "flag_url"), required=True, attribute="cultures", many=True)
     # not sure how to link recipes to the dishes; we will see!
     recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_types", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
 

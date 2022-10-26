@@ -72,7 +72,8 @@ def push_restaurants(data) :
                             item_name = item["name"]
                             if accepted_item.lower() not in item_name.lower() :
                                 continue
-                            menu_lookup_query = menu_items_lookup.get(accepted_item.lower()) or accepted_item
+                            menu_lookup_query = menu_items_lookup.get(accepted_item) or accepted_item
+                            menu_lookup_query = menu_lookup_query.strip()
                             if menu_lookup_query in nonduplicate_recipes :
                                 break
                             nonduplicate_recipes.add(menu_lookup_query)
@@ -80,6 +81,12 @@ def push_restaurants(data) :
                             if recipe_orm :
                                 for r in recipe_orm :
                                     new_rest.recipes.append(r)
+        
+        # link Recipes --> Cultures
+        for recipe in new_rest.recipes:
+            for culture in new_rest.cultures:
+                if culture not in recipe.cultures:
+                    recipe.cultures.append(culture)
 
         db.session.add(new_rest)
         rest_id += 1
