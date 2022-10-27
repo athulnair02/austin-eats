@@ -17,6 +17,7 @@ import {
   Stack,
 } from "@mui/material";
 import "../../styles/About.css";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 async function getGitlabInfo() {
     let totalCommitCount = 0, totalIssueCount = 0, totalTestCount = 0;
@@ -136,7 +137,7 @@ function About() {
                         <Card.Subtitle style={{marginBottom: '10px'}}>{member.Role}</Card.Subtitle>
                         <Accordion>
                                 <AccordionSummary
-                                    expandIcon={<b>∨</b>}
+                                    expandIcon={<ExpandMoreIcon/>}
                                     aria-controls="panel1a-content"
                                     id="panel1a-header"
                                 >
@@ -150,7 +151,7 @@ function About() {
                         </Accordion>
                         <Accordion>
                                 <AccordionSummary
-                                    expandIcon={<b>∨</b>}
+                                    expandIcon={<ExpandMoreIcon/>}
                                     aria-controls="panel1a-content"
                                     id="panel1a-header"
                                 >

@@ -16,7 +16,6 @@ function Home() {
             <div className='homeSubSubTitle'>
                 Explore your favorite recipes, from all over the world, from your favorite restaurants.
             </div>
-            <div style={{backgroundImage: '../../assets/down-arrow.png', backgroundColor: '#cccccc', width: '50px', height: '50px'}}></div>
         </>
     )
 }

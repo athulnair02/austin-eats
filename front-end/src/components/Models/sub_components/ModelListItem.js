@@ -3,6 +3,7 @@ import { Badge } from 'react-bootstrap';
 import { BrowserRouter as Router, Navigate, useNavigate, Link } from 'react-router-dom';
 import '../../../styles/Models.css'
 import '../../../styles/Instances.css'
+import { display } from '@mui/system';
 
 function ModelListItem(props) {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ function ModelListItem(props) {
     let attributeElements = []
     if (props.attributes) {
       attributeElements = props.attributes.map((attributeText) => 
-        <li style={{fontSize: '20px'}}>{attributeText}</li>
+        <li style={{fontSize: '20px', display: 'block', width: '100%'}}>{attributeText}</li>
       )
     }
 
@@ -36,7 +37,7 @@ function ModelListItem(props) {
     }
 
     return (
-      <div className='modelListItem'>
+      <div className='modelListItem' style={props.style}>
         <div className='modelListImageWrapper'>
           <div className='modelListImage' style={{backgroundImage: `url(${props.image})`}}></div>
           <div className='shadowOverlay'></div>
@@ -45,7 +46,7 @@ function ModelListItem(props) {
           {badges}
         </div>
         <div className='modelListHeader'>{props.name}</div>
-        <ul className='horizontalBulletList' style={{textAlign: 'left', marginLeft: 0, lineHeight: 1.25}}>
+        <ul className='horizontalBulletList' style={{textAlign: 'left', paddingRight: '25px', marginLeft: 0, lineHeight: 1.25}}>
           {attributeElements}
         </ul>
         {button}
