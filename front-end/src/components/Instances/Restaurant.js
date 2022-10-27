@@ -78,13 +78,13 @@ function Restaurant(props) {
             </tr>
           </tbody>
           <div className='instanceSubTitle'>Recipes similar to {restaurant.name}</div>
-          <div className='scrollContainer'>
-            {Create_Recipe_Cell(relatedRecipe, `/recipes/${id}`)}
-          </div>
+          <ul className='scrollContainer'>
+            <li>{Create_Recipe_Cell(relatedRecipe, `/recipes/${id}`)}</li>
+          </ul>
           <div className='instanceSubTitle'>Cultures related to {restaurant.name}</div>
-          <div className='scrollContainer'>
-            {Create_Culture_Cell(relatedCulture, `/cultures/${id}`)}
-          </div>
+          <ul className='scrollContainer'>
+            <li>{Create_Culture_Cell(relatedCulture, `/cultures/${id}`)}</li>
+          </ul>
         </div>
       </>
     );

@@ -233,16 +233,18 @@ tr:nth-child(even) {
 .scrollContainer {
     margin: auto;
     width: auto;
-    max-width: 800px;
-    height: 250px;
+    max-width: 1500px;
+    height: fit-content;
     white-space: nowrap;
     overflow: auto;
-    display: flex;
-    flex-direction: row;
-    flex: 1;
+    list-style-type: none;
+    text-align: center;
+    padding: 0 10px;
 }
 
-div.scrollContainer {
-    width: 235px;
-    height: 270px;
+.scrollContainer li {
+    display: inline-block;
+    width: 250px;
+    white-space: normal;
+    margin: 0 5px;
 }

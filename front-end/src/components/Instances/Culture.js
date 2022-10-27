@@ -103,13 +103,13 @@ function Culture(props) {
             </tr>
           </tbody>
           <div className='instanceSubTitle'>{culture.demonym} Restaurants</div>
-          <div className='scrollContainer'>
-            {Create_Restaurant_Cell(relatedRestaurant, `/restaurants/${id}`)}
-          </div>
+          <ul className='scrollContainer'>
+            <li>{Create_Restaurant_Cell(relatedRestaurant, `/restaurants/${id}`)}</li>
+          </ul>
           <div className='instanceSubTitle'>{culture.demonym} Recipes</div>
-          <div className='scrollContainer'>
-            {Create_Recipe_Cell(relatedRecipe, `/recipes/${id}`)}
-          </div>
+          <ul className='scrollContainer'>
+            <li>{Create_Recipe_Cell(relatedRecipe, `/recipes/${id}`)}</li>
+          </ul>
         </div>
       </>
     );

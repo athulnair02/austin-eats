@@ -1,18 +1,82 @@
 import React from 'react';
 import recipes from '../../temp-backend/recipes.json'
 import { Create_Recipe_Cell } from '../../SharedFunctions';
+import Selection from './sub_components/Selection';
+import InputField from './sub_components/InputField';
+import PaginateTable from './sub_components/PaginateTable';
 import { Row, Dropdown, Form} from "react-bootstrap";
+import { Stack } from '@mui/system';
+import { Divider } from '@mui/material';
 import '../../styles/Models.css'
 
 function Recipes() {
-    const recipeElements = recipes.map((recipe, index) => 
-      Create_Recipe_Cell(recipe, index)
-    )
+    // todo: One more column for the additional sort attribute! Health score is not in backend model data!
+    const columns = React.useMemo(() => [
+      {
+        Header: "Id",
+        accessor: "id",
+      },
+      {
+        Header: "Name",
+        accessor: "name",
+      },
+      {
+        Header: "Total time",
+        accessor: "ready_in_minutes",
+      },
+      {
+        Header: "Number of ingredients",
+        accessor: "num_ingredients",
+      },
+      {
+        Header: "Dish types",
+        accessor: "dish_types",
+      },
+      {
+        Header: "Cuisines",
+        accessor: "cuisine_type",
+      },
+    ], []);
+
+    const model_data = recipes;
+    const data = React.useMemo(() => {
+      const t = [];
+      for (const [id, recipe] of Object.entries(model_data)) {
+        t.push({
+          id: id,
+          name: recipe.name,
+          ready_in_minutes: recipe.ready_in_minutes,
+          ingredients: recipe.ingredients.length,
+          dish_types: recipe.dish_types,
+          cuisine_type: recipe.cuisines,
+        });
+      }
+      return t;
+    }, [])
 
     return (
-      <React.Fragment>
-        <div className='recipesTitle'>Recipes</div>
-        <div class = "recipe-information">
+      <>
+        <div className='modelTitle'>Recipes</div>
+        <Stack
+          direction="row"
+          divider={<Divider orientation="vertical" flexItem />}
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+          className='modelFilterBar'
+        >
+          <Selection text='Dish type' helpText='Filter by dish type' choices={['Breakfast', 'Lunch', 'Dinner', 'Appetizer']} multiple={true}></Selection>
+          <InputField helpText='Filter by min healthiness' unit={<b>{'>'}</b>} unitPosition='start'></InputField>
+          <InputField helpText='Filter by max ingredients' unit={<b>{'<'}</b>} unitPosition='start'></InputField>
+          <InputField helpText='Filter by max time' unit={'mins'} unitPosition='end'></InputField>
+          <InputField helpText='Search for cuisine'></InputField>
+        </Stack>
+        <PaginateTable columns={columns} data={data} create_cell={(id) => {
+          return Create_Recipe_Cell(model_data[id], id);
+        }}/>
+
+        
+        {/* <div class = "recipe-information">
           <Row>
             <Dropdown class="dropdownStyle">
               <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -41,9 +105,8 @@ function Recipes() {
               <Form.Control type="timeToPrepare" placeholder="Time to prepare" />
             </Form.Group>
           </Row>
-        </div>
-        <div className='recipesList'>{recipeElements}</div>
-      </React.Fragment>
+        </div> */}
+      </>
     );
   }
   
