@@ -2,9 +2,6 @@
 
 image: node:latest
 
-variables:
-  POSTMAN_COLLECTION: https://api.getpostman.com/collections/23508831-8772309a-58f6-47aa-a9f5-b0d8da2ec0e5?apikey=PMAK-6359cc7672cca955b05f5c3c-0f91a95a1798852bb48a07cb5512dfadd0
-
 stages:          # List of stages for jobs, and their order of execution
   - build
   - test
@@ -33,13 +30,3 @@ test_back_end:
     - pip3 install -r back-end/requirements.txt
   script:
     - make back-end-tests
-
-test_postman:
-  stage: test
-  before_script:
-    - apt-get update -qq && apt-get install -y -qq curl
-    - curl -sL https://deb.nodesource.com/setup_8.x | bash -
-    - apt-get install -y nodejs
-    - npm install newman -g
-  script:
-    - newman run ${POSTMAN_COLLECTION}
