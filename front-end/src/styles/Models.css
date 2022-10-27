@@ -1,4 +1,4 @@
-.recipesTitle {
+.modelTitle {
     font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-weight: 500;
     line-height: 20px;
@@ -7,6 +7,22 @@
     text-shadow: 2px 2px rgb(187, 35, 35);
     margin: 50px auto;
     text-align: center;
+}
+
+.modelFilterBar {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.paginationText {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400;
+    color: rgb(37, 37, 37);
+    font-size: 20px;
+    text-align: left;
+    width: fit-content;
 }
 
 .modelListItem {
@@ -52,6 +68,7 @@
 
 .modalListBadges {
     overflow: auto;
+    text-align: left;
 }
 
 .modelListHeader {
@@ -64,6 +81,7 @@
     overflow: hidden;
     line-height: 1;
     margin-bottom: 5px;
+    padding: 0 5%;
 }
 
 .modalListBadges, .modelListHeader {
@@ -112,7 +130,7 @@
     border: transparent;
 }
 
-.recipesList {
+.modelGrid {
     padding: 0px;
     padding-left: 15px;
     padding-right: 15px;

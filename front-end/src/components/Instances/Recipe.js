@@ -77,7 +77,7 @@ function Recipe() {
         <div className='cultureTopDownContainer' style={{width: '80%'}}>
           <div className='instanceTitle'>{recipe.name}</div>
           <div className='recipeImage' style={{backgroundImage: `url(${recipe.image})`}}></div>
-          <div style={{paddingLeft: '50px', paddingRight: '50px'}}>
+          <div style={{marginLeft: '50px', marginRight: '50px'}}>
             <div className='headerFrame'>
               <div className='instanceSubTitle'>Recipe</div>
               <div className='recipeInfoList'>
@@ -103,13 +103,13 @@ function Recipe() {
             {nutrientRows}
           </table>
           <div className='instanceSubTitle'>Restaurants serving {recipe.name}</div>
-          <div className='scrollContainer'>
-            {Create_Restaurant_Cell(relatedRestaurant, `/restaurants/${id}`)}
-          </div>
+          <ul className='scrollContainer'>
+            <li>{Create_Restaurant_Cell(relatedRestaurant, `/restaurants/${id}`)}</li>
+          </ul>
           <div className='instanceSubTitle'>Cultures related to {recipe.name}</div>
-          <div className='scrollContainer'>
-            {Create_Culture_Cell(relatedCulture, `/cultures/${id}`)}
-          </div>
+          <ul className='scrollContainer'>
+            <li>{Create_Culture_Cell(relatedCulture, `/cultures/${id}`)}</li>
+          </ul>
         </div>
       </>
     );

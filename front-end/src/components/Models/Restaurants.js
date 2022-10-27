@@ -1,18 +1,83 @@
 import React from 'react';
 import restaurants from '../../temp-backend/restaurants.json'
-import { Create_Restaurant_Cell } from '../../SharedFunctions';
+import { Create_Restaurant_Cell, Get_User_Coordinates } from '../../SharedFunctions';
+import Selection from './sub_components/Selection';
+import Check from './sub_components/Check';
+import InputField from './sub_components/InputField';
+import PaginateTable from './sub_components/PaginateTable';
 import { Row, Dropdown, Form} from "react-bootstrap";
+import { Stack } from '@mui/system';
+import { Divider } from '@mui/material';
 import '../../styles/Models.css'
 
 function Restaurants() {
-    const restaurantElements = restaurants.map((restaurant, index) => 
-      Create_Restaurant_Cell(restaurant, index)
-    )
+    const columns = React.useMemo(() => [
+      {
+        Header: "Id",
+        accessor: "id",
+      },
+      {
+        Header: "Name",
+        accessor: "name",
+      },
+      {
+        Header: "Rating",
+        accessor: "rating",
+      },
+      {
+        Header: "Review count",
+        accessor: "review_count",
+      },
+      {
+        Header: "Distance",
+        accessor: "distance",
+      },
+      {
+        Header: "Price",
+        accessor: "price",
+      },
+    ], []);
+
+    const model_data = restaurants;
+    const data = React.useMemo(() => {
+      const t = [];
+      for (const [id, restaurant] of Object.entries(model_data)) {
+        t.push({
+          id: id,
+          name: restaurant.name,
+          rating: restaurant.rating,
+          review_count: restaurant.review_count,
+          distance: 0,
+          price: restaurant.price,
+        });
+      }
+      return t;
+    }, [])
+
+    //const getCoordsPromise = Get_User_Coordinates();
 
     return (
-      <React.Fragment>
-        <div className='recipesTitle'>Restaurants</div>
-        <div class = "restaurant-information">
+      <>
+        <div className='modelTitle'>Restaurants</div>
+        <Stack
+          direction="row"
+          divider={<Divider orientation="vertical" flexItem />}
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+          className='modelFilterBar'
+        >
+          <Selection text='Price' helpText='Filter by price' choices={Array.from(Array(4).keys(), x => '$'.repeat(x+1))} multiple={true}></Selection>
+          <Selection text='Rating' helpText='Filter by rating' choices={Array.from(Array(5).keys(), x => `${x+1} star`)} multiple={true}></Selection>
+          <InputField helpText='Filter by proximity' unit='mi'></InputField>
+          <InputField helpText='Filter by min number of ratings' unit={<b>{'>'}</b>} unitPosition='start'></InputField>
+          <Check text='Open now'></Check>
+        </Stack>
+        <PaginateTable columns={columns} data={data} create_cell={(id) => {
+          return Create_Restaurant_Cell(model_data[id], id);
+        }}/>
+
+        {/* <div class = "restaurant-information">
           <Row>
             <Dropdown class="dropdownStyle">
               <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -57,9 +122,8 @@ function Restaurants() {
               <Form.Control type="numRatings" placeholder="Minimum number of ratings" />
             </Form.Group>
           </Row>
-        </div>
-        <div className='recipesList'>{restaurantElements}</div>
-      </React.Fragment>
+        </div> */}
+      </>
     );
   }
   
