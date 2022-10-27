@@ -19,6 +19,9 @@ build_front_end:
 
 test_front_end:
   stage: test
+  before_script:
+    - python3 -m pip install --upgrade pip
+    - python3 -m pip install selenium
   script:
     - make front-end-tests
 
