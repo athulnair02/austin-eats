@@ -18,7 +18,7 @@ Welcome to the GitLab repository for AustinEats! <br>
 
 Our website (prod): https://www.austineats.me/ <br>
 Our website (dev) : https://develop.d3bl3ypxabjsn.amplifyapp.com/ <br>
-INSERT API LINK HERE:
+Our API           : https://api.austineats.me/api (access endpoints with .me/restaurants/<id>, etc.) <br>
 Postman           : https://documenter.getpostman.com/view/23508831/2s83tJGW4m <br>
 Pipelines         : https://gitlab.com/mihikabirmiwal/cs373-idb/-/pipelines <br>
 
@@ -45,10 +45,10 @@ The project leader for Phase II was Clint Camp. (@xXDarkEyesXx)
 | Name            | Estimated Hours | Actual Hours |
 | --------------- | :-------------: | :----------: |
 | Thomas Moore    | 40              | 20           |
-| Athul Nair      | x               | x            |
-| Mihika Birmiwal | xx              | xx           |
-| Christian Camp  | xx              | xx           |
-| Clint Camp      | xx              | xx           |
+| Athul Nair      | 35              | 20           |
+| Mihika Birmiwal | 40              | 20           |
+| Christian Camp  | 30              | 30           |
+| Clint Camp      | 30              | 30           |
 
 ## Comments
 
