@@ -32,7 +32,7 @@ const teamInfo = [
     Bio: "I am a junior at UT Austin majoring in computer science and minoring in business. In my free time I love to deweed my garden and play some casual sand volleyball.",
     Commits: 0,
     Issues: 0,
-    Tests: 0,
+    Tests: 10,
   },
   {
     Name: "Christian Camp",
@@ -43,7 +43,7 @@ const teamInfo = [
     Bio: "I'm Christian Camp, a Computer Science major who finds joy in creating and programming games!",
     Commits: 0,
     Issues: 0,
-    Tests: 0,
+    Tests: 10,
   },
   {
     Name: "Clint Camp",
@@ -54,7 +54,7 @@ const teamInfo = [
     Bio: "I'm Clint, a UT Austin student who is passionate about game development. I stop by Gong Cha far too frequently.",
     Commits: 0,
     Issues: 0,
-    Tests: 0,
+    Tests: 6,
   },
   {
     Name: "Mihika Birmiwal",
@@ -65,7 +65,7 @@ const teamInfo = [
     Bio: "I am a junior at UT Austin majoring in computer science and minoring in economics. In my free time I love to play tennis and go grocery shopping!",
     Commits: 0,
     Issues: 0,
-    Tests: 0,
+    Tests: 4,
   },
   {
     Name: "Thomas Moore",
