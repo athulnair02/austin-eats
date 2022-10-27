@@ -143,7 +143,7 @@ class CultureSchema(Schema) :
     name = fields.String(required=True)
 
     restaurants = fields.Nested("RestaurantSchema", only=("id", "name", "image_url", "rating", "review_count", "price"), required=True, attribute="restaurants", many=True)
-    recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_types", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
+    recipes = fields.Nested("RecipeSchema", only=("id", "name", "image_url", "ingredients", "dish_types", "ready_in_minutes", "cuisine_type"), required=True, attribute="recipes", many=True)
 
     capital = fields.String(required=True)
     flag_url = fields.String(required=True)
@@ -167,9 +167,9 @@ class RestaurantSchema(Schema) :
     name = fields.String(required=True)
 
     dishes = fields.Pluck(MenuSchema, "dishes", many=True)
-    cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region", "flag_url"), required=True, attribute="cultures", many=True)
+    cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region", "subregion", "population", "flag_url", "independent"), required=True, attribute="cultures", many=True)
     # not sure how to link recipes to the dishes; we will see!
-    recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_types", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
+    recipes = fields.Nested("RecipeSchema", only=("id", "name", "image_url", "ingredients", "dish_types", "ready_in_minutes", "cuisine_type"), required=True, attribute="recipes", many=True)
 
     image_url = fields.String(required=False)
     restaurant_url = fields.String(required=False)
@@ -189,7 +189,7 @@ class RecipeSchema(Schema) :
     name = fields.String(required=True)
 
     restaurants = fields.Nested("RestaurantSchema", only=("id", "name", "image_url", "rating", "review_count", "price"), required=True, attribute="restaurants", many=True)
-    cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region"), required=True, attribute="cultures", many=True)
+    cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region", "subregion", "population", "flag_url", "independent"), required=True, attribute="cultures", many=True)
 
     summary = fields.String(required=True)
     image_url = fields.String(required=True)
