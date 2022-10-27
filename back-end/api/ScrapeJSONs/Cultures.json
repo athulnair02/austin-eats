@@ -1,0 +1,4636 @@
+{
+    "culture_lookup": {
+        "Diners": [
+            "United States of America"
+        ],
+        "Deli": [
+            "Germany",
+            "United States of America",
+            "Israel"
+        ],
+        "Delis": [
+            "Germany",
+            "United States of America",
+            "Israel"
+        ],
+        "Coffee": [
+            "Brazil",
+            "Colombia",
+            "Indonesia",
+            "Ethiopia",
+            "Vietnam"
+        ],
+        "Coffee & Tea": [
+            "Brazil",
+            "Colombia",
+            "Indonesia",
+            "Ethiopia",
+            "Vietnam"
+        ],
+        "Latin American": [
+            "Mexico",
+            "Chile",
+            "Bolivia (Plurinational State of)",
+            "Brazil",
+            "Argentina",
+            "Venezuela (Bolivarian Republic of)",
+            "Dominican Republic"
+        ],
+        "Beer, Wine & Spirits": [
+            "Belgium",
+            "Australia",
+            "United States of America",
+            "United Kingdom of Great Britain and Northern Ireland",
+            "Ireland",
+            "New Zealand",
+            "Czech Republic"
+        ],
+        "Beer Bar": [
+            "Belgium",
+            "Australia",
+            "United States of America",
+            "United Kingdom of Great Britain and Northern Ireland",
+            "Ireland",
+            "New Zealand",
+            "Czech Republic"
+        ],
+        "Wine Bars": [],
+        "Brewpub": [],
+        "Bars": [],
+        "Cocktail Bars": [],
+        "Beer Gardens": [],
+        "Breweries": [],
+        "Szechuan": [
+            "China"
+        ],
+        "Gastropubs": [
+            "United Kingdom of Great Britain and Northern Ireland",
+            "United States of America"
+        ],
+        "Chicken Shop": [],
+        "Chicken": [],
+        "American (Traditional)": [
+            "United States of America"
+        ],
+        "American (New)": [
+            "United States of America"
+        ],
+        "Korean": [
+            "Korea (Republic of)"
+        ],
+        "Caribbean": [
+            "Puerto Rico",
+            "Haiti",
+            "Cuba",
+            "Dominican Republic",
+            "Jamaica"
+        ],
+        "Hainan": [
+            "China"
+        ],
+        "Cafe": [
+            "Turkey",
+            "United States of America"
+        ],
+        "Cafes": [
+            "Turkey",
+            "United States of America"
+        ],
+        "Mediterranean": [
+            "Spain",
+            "Morocco",
+            "Algeria",
+            "Turkey",
+            "Syrian Arab Republic",
+            "Spain",
+            "France",
+            "Italy",
+            "Greece",
+            "Portugal"
+        ],
+        "Bubble Tea": [
+            "Korea (Republic of)",
+            "Japan",
+            "China",
+            "Taiwan"
+        ],
+        "Tea House": [
+            "Korea (Republic of)",
+            "Japan",
+            "China",
+            "Taiwan"
+        ],
+        "Irish Pub": [
+            "Ireland"
+        ],
+        "Music Venues": [],
+        "African": [
+            "Nigeria",
+            "Ethiopia",
+            "Kenya",
+            "South Africa",
+            "Uganda",
+            "Sudan",
+            "Algeria",
+            "Morocco",
+            "Madagascar"
+        ],
+        "Vietnamese": [
+            "Vietnam"
+        ],
+        "Caterers": [],
+        "Rice Bowl": [
+            "Thailand",
+            "Vietnam"
+        ],
+        "Sushi Bars": [
+            "China",
+            "Japan"
+        ],
+        "Sushi": [
+            "China",
+            "Japan"
+        ],
+        "Sports Bars": [
+            "United States of America"
+        ],
+        "Fish & Chips": [
+            "United Kingdom of Great Britain and Northern Ireland"
+        ],
+        "Gelato": [
+            "Italy"
+        ],
+        "Seafood": [],
+        "Chicken Wings": [
+            "United States of America"
+        ],
+        "Wings": [
+            "United States of America"
+        ],
+        "Barbeque": [
+            "United States of America"
+        ],
+        "Barbecue": [
+            "United States of America"
+        ],
+        "Frozen Yogurt": [
+            "United States of America"
+        ],
+        "Ice cream": [
+            "New Zealand",
+            "United States of America",
+            "Australia",
+            "Italy"
+        ],
+        "Ice Cream & Frozen Yogurt": [
+            "New Zealand",
+            "United States of America",
+            "Australia",
+            "Italy"
+        ],
+        "Soup": [],
+        "Vegetarian": [
+            "United States of America"
+        ],
+        "Gluten-Free": [
+            "United States of America"
+        ],
+        "Tex-Mex": [
+            "United States of America",
+            "Mexico"
+        ],
+        "Food Trucks": [],
+        "Desserts": [],
+        "Dessert": [],
+        "Juice Bars & Smoothies": [
+            "United States of America"
+        ],
+        "Smoothie Bar": [
+            "United States of America"
+        ],
+        "Juice Bars": [
+            "United States of America"
+        ],
+        "Halal": [
+            "Egypt",
+            "Algeria",
+            "Sudan",
+            "Morocco",
+            "Iraq"
+        ],
+        "Florists": [],
+        "Salad": [],
+        "Acai Bowls": [
+            "Brazil",
+            "United States of America"
+        ],
+        "Acai/Pitaya Bowls": [
+            "Brazil",
+            "United States of America"
+        ],
+        "Healthy": [],
+        "Poke": [
+            "United States of America"
+        ],
+        "Fast Food": [
+            "United States of America"
+        ],
+        "Food Stands": [],
+        "Ramen": [
+            "Japan",
+            "China"
+        ],
+        "Breakfast & Brunch": [
+            "United Kingdom of Great Britain and Northern Ireland",
+            "United States of America"
+        ],
+        "Food Delivery Services": [],
+        "Middle Eastern": [
+            "Egypt",
+            "Iraq",
+            "Turkey",
+            "Syrian Arab Republic",
+            "Saudi Arabia"
+        ],
+        "Dim Sum": [
+            "China"
+        ],
+        "Health Markets": [],
+        "Hawaiian": [
+            "United States of America"
+        ],
+        "Burgers": [
+            "United States of America",
+            "Germany"
+        ],
+        "Bakeries": [
+            "United States of America",
+            "Germany",
+            "France",
+            "United Kingdom of Great Britain and Northern Ireland",
+            "Italy"
+        ],
+        "Asian Fusion": [
+            "China",
+            "Japan",
+            "Korea (Republic of)",
+            "Thailand",
+            "Indonesia",
+            "Singapore"
+        ],
+        "Tacos": [
+            "Mexico",
+            "United States of America"
+        ],
+        "Lounges": [],
+        "Venues & Event Spaces": [],
+        "Steakhouses": [
+            "United States of America"
+        ],
+        "Smokehouse": [
+            "United States of America"
+        ],
+        "Pizza": [
+            "Italy",
+            "United States of America"
+        ],
+        "Southern": [
+            "United States of America"
+        ],
+        "Noodles": [
+            "China",
+            "Indonesia",
+            "Japan",
+            "Korea (Republic of)",
+            "Vietnam",
+            "Italy"
+        ],
+        "Grocery": [],
+        "Sandwiches": [
+            "France",
+            "United States of America"
+        ],
+        "Hotels": [
+            "United States of America"
+        ]
+    },
+    "cultures": [
+        {
+            "name": "United States of America",
+            "topLevelDomain": [
+                ".us"
+            ],
+            "alpha2Code": "US",
+            "alpha3Code": "USA",
+            "callingCodes": [
+                "1"
+            ],
+            "capital": "Washington, D.C.",
+            "altSpellings": [
+                "US",
+                "USA",
+                "United States of America"
+            ],
+            "subregion": "Northern America",
+            "region": "Americas",
+            "population": 329484123,
+            "latlng": [
+                38.0,
+                -97.0
+            ],
+            "demonym": "American",
+            "area": 9629091.0,
+            "gini": 41.4,
+            "timezones": [
+                "UTC-12:00",
+                "UTC-11:00",
+                "UTC-10:00",
+                "UTC-09:00",
+                "UTC-08:00",
+                "UTC-07:00",
+                "UTC-06:00",
+                "UTC-05:00",
+                "UTC-04:00",
+                "UTC+10:00",
+                "UTC+12:00"
+            ],
+            "borders": [
+                "CAN",
+                "MEX"
+            ],
+            "nativeName": "United States",
+            "numericCode": "840",
+            "flags": {
+                "svg": "https://flagcdn.com/us.svg",
+                "png": "https://flagcdn.com/w320/us.png"
+            },
+            "currencies": [
+                {
+                    "code": "USD",
+                    "name": "United States dollar",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                }
+            ],
+            "translations": {
+                "br": "Stado\u00f9-Unanet",
+                "pt": "Estados Unidos",
+                "nl": "Verenigde Staten",
+                "hr": "Sjedinjene Ameri\u010dke Dr\u017eave",
+                "fa": "\u0627\u06cc\u0627\u0644\u0627\u062a \u0645\u062a\u062d\u062f\u0647 \u0622\u0645\u0631\u06cc\u06a9\u0627",
+                "de": "Vereinigte Staaten von Amerika",
+                "es": "Estados Unidos",
+                "fr": "\u00c9tats-Unis",
+                "ja": "\u30a2\u30e1\u30ea\u30ab\u5408\u8846\u56fd",
+                "it": "Stati Uniti D'America",
+                "hu": "Amerikai Egyes\u00fclt \u00c1llamok"
+            },
+            "flag": "https://flagcdn.com/us.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "NAFTA",
+                    "name": "North American Free Trade Agreement",
+                    "otherNames": [
+                        "Tratado de Libre Comercio de Am\u00e9rica del Norte",
+                        "Accord de Libre-\u00e9change Nord-Am\u00e9ricain"
+                    ]
+                }
+            ],
+            "cioc": "USA",
+            "independent": true,
+            "wikipedia_summary": "The United States of America, commonly known as the United States or America, is a transcontinental country located primarily in North America. It consists of 50 states, a federal district, five major unincorporated territories, nine Minor Outlying Islands, and 326 Indian reservations. It is the third-largest country by both land and total area. The United States shares land borders with Canada to its north and with Mexico to its south. It has maritime borders with the Bahamas, Cuba, Russia, and other nations. With a population of over 331 million, it is the third most populous country in the world. The national capital is Washington, D.C., and the most populous city and financial center is New York City."
+        },
+        {
+            "name": "Spain",
+            "topLevelDomain": [
+                ".es"
+            ],
+            "alpha2Code": "ES",
+            "alpha3Code": "ESP",
+            "callingCodes": [
+                "34"
+            ],
+            "capital": "Madrid",
+            "altSpellings": [
+                "ES",
+                "Kingdom of Spain",
+                "Reino de Espa\u00f1a"
+            ],
+            "subregion": "Southern Europe",
+            "region": "Europe",
+            "population": 47351567,
+            "latlng": [
+                40.0,
+                -4.0
+            ],
+            "demonym": "Spanish",
+            "area": 505992.0,
+            "gini": 34.7,
+            "timezones": [
+                "UTC",
+                "UTC+01:00"
+            ],
+            "borders": [
+                "AND",
+                "FRA",
+                "GIB",
+                "PRT",
+                "MAR"
+            ],
+            "nativeName": "Espa\u00f1a",
+            "numericCode": "724",
+            "flags": {
+                "svg": "https://flagcdn.com/es.svg",
+                "png": "https://flagcdn.com/w320/es.png"
+            },
+            "currencies": [
+                {
+                    "code": "EUR",
+                    "name": "Euro",
+                    "symbol": "\u20ac"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "es",
+                    "iso639_2": "spa",
+                    "name": "Spanish",
+                    "nativeName": "Espa\u00f1ol"
+                }
+            ],
+            "translations": {
+                "br": "Spagn",
+                "pt": "Espanha",
+                "nl": "Spanje",
+                "hr": "\u0160panjolska",
+                "fa": "\u0627\u0633\u067e\u0627\u0646\u06cc\u0627",
+                "de": "Spanien",
+                "es": "Espa\u00f1a",
+                "fr": "Espagne",
+                "ja": "\u30b9\u30da\u30a4\u30f3",
+                "it": "Spagna",
+                "hu": "Spanyolorsz\u00e1g"
+            },
+            "flag": "https://flagcdn.com/es.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "EU",
+                    "name": "European Union"
+                }
+            ],
+            "cioc": "ESP",
+            "independent": true,
+            "wikipedia_summary": "Spain, or the Kingdom of Spain, is a transcontinental country predominantly located in southwestern Europe with parts of territory in the Atlantic Ocean and across the Mediterranean Sea. The largest part of Spain is situated on the Iberian Peninsula; its territory also includes the Canary Islands in the Atlantic Ocean, the Balearic Islands in the Mediterranean Sea, and the autonomous cities of Ceuta and Melilla in Africa. The country's mainland is bordered to the south by Gibraltar; to the south and east by the Mediterranean Sea; to the north by France, Andorra and the Bay of Biscay; and to the west by Portugal and the Atlantic Ocean. With an area of 505,990\u00a0km2 (195,360\u00a0sq\u00a0mi), Spain is the second-largest country in the European Union (EU) and, with a population exceeding 47.4 million, the fourth-most populous EU member state. Spain's capital and largest city is Madrid; other major urban areas include Barcelona, Valencia, Seville, Zaragoza, M\u00e1laga, Murcia, Palma de Mallorca, Las Palmas de Gran Canaria and Bilbao."
+        },
+        {
+            "name": "Morocco",
+            "topLevelDomain": [
+                ".ma"
+            ],
+            "alpha2Code": "MA",
+            "alpha3Code": "MAR",
+            "callingCodes": [
+                "212"
+            ],
+            "capital": "Rabat",
+            "altSpellings": [
+                "MA",
+                "Kingdom of Morocco",
+                "Al-Mamlakah al-Ma\u0121ribiyah"
+            ],
+            "subregion": "Northern Africa",
+            "region": "Africa",
+            "population": 36910558,
+            "latlng": [
+                32.0,
+                -5.0
+            ],
+            "demonym": "Moroccan",
+            "area": 446550.0,
+            "gini": 39.5,
+            "timezones": [
+                "UTC"
+            ],
+            "borders": [
+                "DZA",
+                "ESH",
+                "ESP"
+            ],
+            "nativeName": "\u0627\u0644\u0645\u063a\u0631\u0628",
+            "numericCode": "504",
+            "flags": {
+                "svg": "https://flagcdn.com/ma.svg",
+                "png": "https://flagcdn.com/w320/ma.png"
+            },
+            "currencies": [
+                {
+                    "code": "MAD",
+                    "name": "Moroccan dirham",
+                    "symbol": "\u062f.\u0645."
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "ar",
+                    "iso639_2": "ara",
+                    "name": "Arabic",
+                    "nativeName": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"
+                }
+            ],
+            "translations": {
+                "br": "Maroko",
+                "pt": "Marrocos",
+                "nl": "Marokko",
+                "hr": "Maroko",
+                "fa": "\u0627\u0644\u0645\u063a\u0631\u0628",
+                "de": "Marokko",
+                "es": "Marruecos",
+                "fr": "Maroc",
+                "ja": "\u30e2\u30ed\u30c3\u30b3",
+                "it": "Marocco",
+                "hu": "Marokk\u00f3"
+            },
+            "flag": "https://flagcdn.com/ma.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AU",
+                    "name": "African Union",
+                    "otherNames": [
+                        "\u0627\u0644\u0627\u062a\u062d\u0627\u062f \u0627\u0644\u0623\u0641\u0631\u064a\u0642\u064a",
+                        "Union africaine",
+                        "Uni\u00e3o Africana",
+                        "Uni\u00f3n Africana",
+                        "Umoja wa Afrika"
+                    ]
+                },
+                {
+                    "acronym": "AL",
+                    "name": "Arab League",
+                    "otherNames": [
+                        "\u062c\u0627\u0645\u0639\u0629 \u0627\u0644\u062f\u0648\u0644 \u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+                        "J\u0101mi\u02bbat ad-Duwal al-\u02bbArab\u012byah",
+                        "League of Arab States"
+                    ]
+                }
+            ],
+            "cioc": "MAR",
+            "independent": true,
+            "wikipedia_summary": "Morocco, officially the Kingdom of Morocco, is the westernmost country in the Maghreb region of North Africa. It overlooks the Mediterranean Sea to the north and the Atlantic Ocean to the west, and has land borders with Algeria to the east, and the disputed territory of Western Sahara to the south. Morocco also claims the Spanish exclaves of Ceuta, Melilla and Pe\u00f1\u00f3n de V\u00e9lez de la Gomera, and several small Spanish-controlled islands off its coast. It spans an area of 446,300\u00a0km2 (172,300\u00a0sq\u00a0mi) or 710,850\u00a0km2 (274,460\u00a0sq\u00a0mi), with a population of roughly 37 million. Its official and predominant religion is Islam, and the official languages are Arabic and Berber; the Moroccan dialect of Arabic and French are also widely spoken. Moroccan identity and culture is a vibrant mix of Berber, Arab, and European cultures. Its capital is Rabat, while its largest city is Casablanca."
+        },
+        {
+            "name": "Algeria",
+            "topLevelDomain": [
+                ".dz"
+            ],
+            "alpha2Code": "DZ",
+            "alpha3Code": "DZA",
+            "callingCodes": [
+                "213"
+            ],
+            "capital": "Algiers",
+            "altSpellings": [
+                "DZ",
+                "Dzayer",
+                "Alg\u00e9rie"
+            ],
+            "subregion": "Northern Africa",
+            "region": "Africa",
+            "population": 44700000,
+            "latlng": [
+                28.0,
+                3.0
+            ],
+            "demonym": "Algerian",
+            "area": 2381741.0,
+            "gini": 27.6,
+            "timezones": [
+                "UTC+01:00"
+            ],
+            "borders": [
+                "TUN",
+                "LBY",
+                "NER",
+                "ESH",
+                "MRT",
+                "MLI",
+                "MAR"
+            ],
+            "nativeName": "\u0627\u0644\u062c\u0632\u0627\u0626\u0631",
+            "numericCode": "012",
+            "flags": {
+                "svg": "https://flagcdn.com/dz.svg",
+                "png": "https://flagcdn.com/w320/dz.png"
+            },
+            "currencies": [
+                {
+                    "code": "DZD",
+                    "name": "Algerian dinar",
+                    "symbol": "\u062f.\u062c"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "ar",
+                    "iso639_2": "ara",
+                    "name": "Arabic",
+                    "nativeName": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"
+                }
+            ],
+            "translations": {
+                "br": "Aljeria",
+                "pt": "Arg\u00e9lia",
+                "nl": "Algerije",
+                "hr": "Al\u017eir",
+                "fa": "\u0627\u0644\u062c\u0632\u0627\u06cc\u0631",
+                "de": "Algerien",
+                "es": "Argelia",
+                "fr": "Alg\u00e9rie",
+                "ja": "\u30a2\u30eb\u30b8\u30a7\u30ea\u30a2",
+                "it": "Algeria",
+                "hu": "Alg\u00e9ria"
+            },
+            "flag": "https://flagcdn.com/dz.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AU",
+                    "name": "African Union",
+                    "otherNames": [
+                        "\u0627\u0644\u0627\u062a\u062d\u0627\u062f \u0627\u0644\u0623\u0641\u0631\u064a\u0642\u064a",
+                        "Union africaine",
+                        "Uni\u00e3o Africana",
+                        "Uni\u00f3n Africana",
+                        "Umoja wa Afrika"
+                    ]
+                },
+                {
+                    "acronym": "AL",
+                    "name": "Arab League",
+                    "otherNames": [
+                        "\u062c\u0627\u0645\u0639\u0629 \u0627\u0644\u062f\u0648\u0644 \u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+                        "J\u0101mi\u02bbat ad-Duwal al-\u02bbArab\u012byah",
+                        "League of Arab States"
+                    ]
+                }
+            ],
+            "cioc": "ALG",
+            "independent": true,
+            "wikipedia_summary": "Algeria, officially the People's Democratic Republic of Algeria, is a country in North Africa. Algeria is bordered to the northeast by Tunisia; to the east by Libya; to the southeast by Niger; to the southwest by Mali, Mauritania, and Western Sahara; to the west by Morocco; and to the north by the Mediterranean Sea. It is considered to be a part of the Maghreb region of North Africa. It has a semi-arid geography, with most of the population living in the fertile north and the Sahara dominating the geography of the south. Algeria covers an area of 2,381,741 square kilometres (919,595\u00a0sq\u00a0mi), making it the world's tenth largest nation by area, and the largest nation in Africa, being more than 200 times as large as the smallest country in the continent, The Gambia. With a population of 44 million, Algeria is the ninth-most populous country in Africa, and the 32nd-most populous country in the world. The capital and largest city is Algiers, located in the far north on the Mediterranean coast."
+        },
+        {
+            "name": "Turkey",
+            "topLevelDomain": [
+                ".tr"
+            ],
+            "alpha2Code": "TR",
+            "alpha3Code": "TUR",
+            "callingCodes": [
+                "90"
+            ],
+            "capital": "Ankara",
+            "altSpellings": [
+                "TR",
+                "Turkiye",
+                "Republic of Turkey",
+                "T\u00fcrkiye Cumhuriyeti"
+            ],
+            "subregion": "Western Asia",
+            "region": "Asia",
+            "population": 84339067,
+            "latlng": [
+                39.0,
+                35.0
+            ],
+            "demonym": "Turkish",
+            "area": 783562.0,
+            "gini": 41.9,
+            "timezones": [
+                "UTC+03:00"
+            ],
+            "borders": [
+                "ARM",
+                "AZE",
+                "BGR",
+                "GEO",
+                "GRC",
+                "IRN",
+                "IRQ",
+                "SYR"
+            ],
+            "nativeName": "T\u00fcrkiye",
+            "numericCode": "792",
+            "flags": {
+                "svg": "https://flagcdn.com/tr.svg",
+                "png": "https://flagcdn.com/w320/tr.png"
+            },
+            "currencies": [
+                {
+                    "code": "TRY",
+                    "name": "Turkish lira",
+                    "symbol": "\u20ba"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "tr",
+                    "iso639_2": "tur",
+                    "name": "Turkish",
+                    "nativeName": "T\u00fcrk\u00e7e"
+                }
+            ],
+            "translations": {
+                "br": "Turkia",
+                "pt": "Turquia",
+                "nl": "Turkije",
+                "hr": "Turska",
+                "fa": "\u062a\u0631\u06a9\u06cc\u0647",
+                "de": "T\u00fcrkei",
+                "es": "Turqu\u00eda",
+                "fr": "Turquie",
+                "ja": "\u30c8\u30eb\u30b3",
+                "it": "Turchia",
+                "hu": "T\u00f6r\u00f6korsz\u00e1g"
+            },
+            "flag": "https://flagcdn.com/tr.svg",
+            "cioc": "TUR",
+            "independent": true,
+            "wikipedia_summary": "Turkey, officially the Republic of Turkey , is a transcontinental country located mainly on the Anatolian Peninsula in Western Asia, with a small portion on the Balkan Peninsula in Southeast Europe. It shares borders with the Black Sea to the north; Georgia to the northeast; Armenia, Azerbaijan, and Iran to the east; Iraq to the southeast; Syria and the Mediterranean Sea to the south; the Aegean Sea to the west; and Greece and Bulgaria to the northwest. Cyprus is located off the south coast. Turks form the vast majority of the nation's population and Kurds are the largest minority. Ankara is Turkey's capital, while Istanbul is its largest city and financial centre."
+        },
+        {
+            "name": "France",
+            "topLevelDomain": [
+                ".fr"
+            ],
+            "alpha2Code": "FR",
+            "alpha3Code": "FRA",
+            "callingCodes": [
+                "33"
+            ],
+            "capital": "Paris",
+            "altSpellings": [
+                "FR",
+                "French Republic",
+                "R\u00e9publique fran\u00e7aise"
+            ],
+            "subregion": "Western Europe",
+            "region": "Europe",
+            "population": 67391582,
+            "latlng": [
+                46.0,
+                2.0
+            ],
+            "demonym": "French",
+            "area": 640679.0,
+            "gini": 32.4,
+            "timezones": [
+                "UTC-10:00",
+                "UTC-09:30",
+                "UTC-09:00",
+                "UTC-08:00",
+                "UTC-04:00",
+                "UTC-03:00",
+                "UTC+01:00",
+                "UTC+02:00",
+                "UTC+03:00",
+                "UTC+04:00",
+                "UTC+05:00",
+                "UTC+10:00",
+                "UTC+11:00",
+                "UTC+12:00"
+            ],
+            "borders": [
+                "AND",
+                "BEL",
+                "DEU",
+                "ITA",
+                "LUX",
+                "MCO",
+                "ESP",
+                "CHE"
+            ],
+            "nativeName": "France",
+            "numericCode": "250",
+            "flags": {
+                "svg": "https://flagcdn.com/fr.svg",
+                "png": "https://flagcdn.com/w320/fr.png"
+            },
+            "currencies": [
+                {
+                    "code": "EUR",
+                    "name": "Euro",
+                    "symbol": "\u20ac"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "fr",
+                    "iso639_2": "fra",
+                    "name": "French",
+                    "nativeName": "fran\u00e7ais"
+                }
+            ],
+            "translations": {
+                "br": "Fra\u00f1s",
+                "pt": "Fran\u00e7a",
+                "nl": "Frankrijk",
+                "hr": "Francuska",
+                "fa": "\u0641\u0631\u0627\u0646\u0633\u0647",
+                "de": "Frankreich",
+                "es": "Francia",
+                "fr": "France",
+                "ja": "\u30d5\u30e9\u30f3\u30b9",
+                "it": "Francia",
+                "hu": "Franciaorsz\u00e1g"
+            },
+            "flag": "https://flagcdn.com/fr.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "EU",
+                    "name": "European Union"
+                }
+            ],
+            "cioc": "FRA",
+            "independent": true,
+            "wikipedia_summary": "France, officially the French Republic, is a transcontinental country predominantly located in Western Europe and spanning overseas regions and territories in the Americas and the Atlantic, Pacific and Indian Oceans. Its metropolitan area extends from the Rhine to the Atlantic Ocean and from the Mediterranean Sea to the English Channel and the North Sea; overseas territories include French Guiana in South America, Saint Pierre and Miquelon in the North Atlantic, the French West Indies, and many islands in Oceania and the Indian Ocean. Due to its several coastal territories, France has the largest exclusive economic zone in the world. France borders Belgium, Luxembourg, Germany, Switzerland, Monaco, Italy, Andorra, and Spain in continental Europe, as well as the Netherlands, Suriname, and Brazil in the Americas via its overseas territories in French Guiana and Saint Martin. Its eighteen integral regions span a combined area of 643,801\u00a0km2 (248,573\u00a0sq\u00a0mi) and close to 68 million people. France is a unitary semi-presidential republic with its capital in Paris, the country's largest city and main cultural and commercial centre; other major urban areas include Marseille, Lyon, Toulouse, Lille, Bordeaux, and Nice."
+        },
+        {
+            "name": "Italy",
+            "topLevelDomain": [
+                ".it"
+            ],
+            "alpha2Code": "IT",
+            "alpha3Code": "ITA",
+            "callingCodes": [
+                "39"
+            ],
+            "capital": "Rome",
+            "altSpellings": [
+                "IT",
+                "Italian Republic",
+                "Repubblica italiana"
+            ],
+            "subregion": "Southern Europe",
+            "region": "Europe",
+            "population": 59554023,
+            "latlng": [
+                42.83333333,
+                12.83333333
+            ],
+            "demonym": "Italian",
+            "area": 301336.0,
+            "gini": 35.9,
+            "timezones": [
+                "UTC+01:00"
+            ],
+            "borders": [
+                "AUT",
+                "FRA",
+                "SMR",
+                "SVN",
+                "CHE",
+                "VAT"
+            ],
+            "nativeName": "Italia",
+            "numericCode": "380",
+            "flags": {
+                "svg": "https://flagcdn.com/it.svg",
+                "png": "https://flagcdn.com/w320/it.png"
+            },
+            "currencies": [
+                {
+                    "code": "EUR",
+                    "name": "Euro",
+                    "symbol": "\u20ac"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "it",
+                    "iso639_2": "ita",
+                    "name": "Italian",
+                    "nativeName": "Italiano"
+                }
+            ],
+            "translations": {
+                "br": "Italia",
+                "pt": "It\u00e1lia",
+                "nl": "Itali\u00eb",
+                "hr": "Italija",
+                "fa": "\u0627\u06cc\u062a\u0627\u0644\u06cc\u0627",
+                "de": "Italien",
+                "es": "Italia",
+                "fr": "Italie",
+                "ja": "\u30a4\u30bf\u30ea\u30a2",
+                "it": "Italia",
+                "hu": "Olaszorsz\u00e1g"
+            },
+            "flag": "https://flagcdn.com/it.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "EU",
+                    "name": "European Union"
+                }
+            ],
+            "cioc": "ITA",
+            "independent": true,
+            "wikipedia_summary": "Italy, officially the Italian Republic or the Republic of Italy, is a country that consists of a peninsula delimited by the Alps and several islands surrounding it; its territory largely coincides with the homonymous geographical region. Italy is located in the middle of the Mediterranean Sea, in Southern Europe; it is also considered part of Western Europe. A unitary parliamentary republic with Rome as its capital and largest city, the country covers a total area of 301,230\u00a0km2 (116,310\u00a0sq\u00a0mi) and shares land borders with France, Switzerland, Austria, Slovenia and the enclaved microstates of Vatican City and San Marino. Italy has a territorial exclave in Switzerland, Campione. With over 60 million inhabitants, Italy is the third-most populous member state of the European Union."
+        },
+        {
+            "name": "Greece",
+            "topLevelDomain": [
+                ".gr"
+            ],
+            "alpha2Code": "GR",
+            "alpha3Code": "GRC",
+            "callingCodes": [
+                "30"
+            ],
+            "capital": "Athens",
+            "altSpellings": [
+                "GR",
+                "Ell\u00e1da",
+                "Hellenic Republic",
+                "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ae \u0394\u03b7\u03bc\u03bf\u03ba\u03c1\u03b1\u03c4\u03af\u03b1"
+            ],
+            "subregion": "Southern Europe",
+            "region": "Europe",
+            "population": 10715549,
+            "latlng": [
+                39.0,
+                22.0
+            ],
+            "demonym": "Greek",
+            "area": 131990.0,
+            "gini": 32.9,
+            "timezones": [
+                "UTC+02:00"
+            ],
+            "borders": [
+                "ALB",
+                "BGR",
+                "TUR",
+                "MKD"
+            ],
+            "nativeName": "\u0395\u03bb\u03bb\u03ac\u03b4\u03b1",
+            "numericCode": "300",
+            "flags": {
+                "svg": "https://flagcdn.com/gr.svg",
+                "png": "https://flagcdn.com/w320/gr.png"
+            },
+            "currencies": [
+                {
+                    "code": "EUR",
+                    "name": "Euro",
+                    "symbol": "\u20ac"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "el",
+                    "iso639_2": "ell",
+                    "name": "Greek (modern)",
+                    "nativeName": "\u03b5\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac"
+                }
+            ],
+            "translations": {
+                "br": "Gres",
+                "pt": "Gr\u00e9cia",
+                "nl": "Griekenland",
+                "hr": "Gr\u010dka",
+                "fa": "\u06cc\u0648\u0646\u0627\u0646",
+                "de": "Griechenland",
+                "es": "Grecia",
+                "fr": "Gr\u00e8ce",
+                "ja": "\u30ae\u30ea\u30b7\u30e3",
+                "it": "Grecia",
+                "hu": "G\u00f6r\u00f6gorsz\u00e1g"
+            },
+            "flag": "https://flagcdn.com/gr.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "EU",
+                    "name": "European Union"
+                }
+            ],
+            "cioc": "GRE",
+            "independent": true,
+            "wikipedia_summary": "Greece, officially the Hellenic Republic, is a country in Southeast Europe. It is situated on the southern tip of the Balkans, and is located at the crossroads of Europe, Asia, and Africa. Greece shares land borders with Albania to the northwest, North Macedonia and Bulgaria to the north, and Turkey to the northeast. The Aegean Sea lies to the east of the mainland, the Ionian Sea to the west, and the Sea of Crete and the Mediterranean Sea to the south. Greece has the longest coastline on the Mediterranean Basin, featuring thousands of islands. The country consists of nine traditional geographic regions, and has a population of approximately 10.4 million. Athens is the nation's capital and largest city, followed by Thessaloniki and Patras."
+        },
+        {
+            "name": "Portugal",
+            "topLevelDomain": [
+                ".pt"
+            ],
+            "alpha2Code": "PT",
+            "alpha3Code": "PRT",
+            "callingCodes": [
+                "351"
+            ],
+            "capital": "Lisbon",
+            "altSpellings": [
+                "PT",
+                "Portuguesa",
+                "Portuguese Republic",
+                "Rep\u00fablica Portuguesa"
+            ],
+            "subregion": "Southern Europe",
+            "region": "Europe",
+            "population": 10305564,
+            "latlng": [
+                39.5,
+                -8.0
+            ],
+            "demonym": "Portuguese",
+            "area": 92090.0,
+            "gini": 33.5,
+            "timezones": [
+                "UTC-01:00",
+                "UTC"
+            ],
+            "borders": [
+                "ESP"
+            ],
+            "nativeName": "Portugal",
+            "numericCode": "620",
+            "flags": {
+                "svg": "https://flagcdn.com/pt.svg",
+                "png": "https://flagcdn.com/w320/pt.png"
+            },
+            "currencies": [
+                {
+                    "code": "EUR",
+                    "name": "Euro",
+                    "symbol": "\u20ac"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "pt",
+                    "iso639_2": "por",
+                    "name": "Portuguese",
+                    "nativeName": "Portugu\u00eas"
+                }
+            ],
+            "translations": {
+                "br": "Portugal",
+                "pt": "Portugal",
+                "nl": "Portugal",
+                "hr": "Portugal",
+                "fa": "\u067e\u0631\u062a\u063a\u0627\u0644",
+                "de": "Portugal",
+                "es": "Portugal",
+                "fr": "Portugal",
+                "ja": "\u30dd\u30eb\u30c8\u30ac\u30eb",
+                "it": "Portogallo",
+                "hu": "Portug\u00e1lia"
+            },
+            "flag": "https://flagcdn.com/pt.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "EU",
+                    "name": "European Union"
+                }
+            ],
+            "cioc": "POR",
+            "independent": true,
+            "wikipedia_summary": "Portugal, officially the Portuguese Republic, is a country whose mainland is located on the Iberian Peninsula of Southwestern Europe, and whose territory also includes the Atlantic archipelagos of the Azores and Madeira. It features the westernmost point in continental Europe, and its Iberian portion is bordered to the west and south by the Atlantic Ocean and to the north and east by Spain, the sole country to have a land border with Portugal. Its two archipelagos form two autonomous regions with their own regional governments. Lisbon is the capital and largest city by population."
+        },
+        {
+            "name": "Syrian Arab Republic",
+            "topLevelDomain": [
+                ".sy"
+            ],
+            "alpha2Code": "SY",
+            "alpha3Code": "SYR",
+            "callingCodes": [
+                "963"
+            ],
+            "capital": "Damascus",
+            "altSpellings": [
+                "SY",
+                "Syrian Arab Republic",
+                "Al-Jumh\u016br\u012byah Al-\u02bbArab\u012byah As-S\u016br\u012byah"
+            ],
+            "subregion": "Western Asia",
+            "region": "Asia",
+            "population": 17500657,
+            "latlng": [
+                35.0,
+                38.0
+            ],
+            "demonym": "Syrian",
+            "area": 185180.0,
+            "gini": 37.5,
+            "timezones": [
+                "UTC+02:00"
+            ],
+            "borders": [
+                "IRQ",
+                "ISR",
+                "JOR",
+                "LBN",
+                "TUR"
+            ],
+            "nativeName": "\u0633\u0648\u0631\u064a\u0627",
+            "numericCode": "760",
+            "flags": {
+                "svg": "https://flagcdn.com/sy.svg",
+                "png": "https://flagcdn.com/w320/sy.png"
+            },
+            "currencies": [
+                {
+                    "code": "SYP",
+                    "name": "Syrian pound",
+                    "symbol": "\u00a3"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "ar",
+                    "iso639_2": "ara",
+                    "name": "Arabic",
+                    "nativeName": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"
+                }
+            ],
+            "translations": {
+                "br": "Siria",
+                "pt": "S\u00edria",
+                "nl": "Syri\u00eb",
+                "hr": "Sirija",
+                "fa": "\u0633\u0648\u0631\u06cc\u0647",
+                "de": "Syrien",
+                "es": "Siria",
+                "fr": "Syrie",
+                "ja": "\u30b7\u30ea\u30a2\u30fb\u30a2\u30e9\u30d6\u5171\u548c\u56fd",
+                "it": "Siria",
+                "hu": "Sz\u00edria"
+            },
+            "flag": "https://flagcdn.com/sy.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AL",
+                    "name": "Arab League",
+                    "otherNames": [
+                        "\u062c\u0627\u0645\u0639\u0629 \u0627\u0644\u062f\u0648\u0644 \u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+                        "J\u0101mi\u02bbat ad-Duwal al-\u02bbArab\u012byah",
+                        "League of Arab States"
+                    ]
+                }
+            ],
+            "cioc": "SYR",
+            "independent": true,
+            "wikipedia_summary": "Syria, officially the Syrian Arab Republic, is a Western Asian country located in the Eastern Mediterranean and the Levant. It is a unitary republic that consists of 14 governorates (subdivisions), and is bordered by the Mediterranean Sea to the west, Turkey to the north, Iraq to the east and southeast, Jordan to the south, and Israel and Lebanon to the southwest. Cyprus lies to the west across the Mediterranean Sea. A country of fertile plains, high mountains, and deserts, Syria is home to diverse ethnic and religious groups, including the majority Syrian Arabs, Kurds, Turkmens, Assyrians, Armenians, Circassians, Albanians, and Greeks. Religious groups include Muslims, Christians, Alawites, Druze, and Yazidis. The capital and largest city of Syria is Damascus. Arabs are the largest ethnic group, and Muslims are the largest religious group."
+        },
+        {
+            "name": "China",
+            "topLevelDomain": [
+                ".cn"
+            ],
+            "alpha2Code": "CN",
+            "alpha3Code": "CHN",
+            "callingCodes": [
+                "86"
+            ],
+            "capital": "Beijing",
+            "altSpellings": [
+                "CN",
+                "Zh\u014dnggu\u00f3",
+                "Zhongguo",
+                "Zhonghua",
+                "People's Republic of China",
+                "\u4e2d\u534e\u4eba\u6c11\u5171\u548c\u56fd",
+                "Zh\u014dnghu\u00e1 R\u00e9nm\u00edn G\u00f2ngh\u00e9gu\u00f3"
+            ],
+            "subregion": "Eastern Asia",
+            "region": "Asia",
+            "population": 1402112000,
+            "latlng": [
+                35.0,
+                105.0
+            ],
+            "demonym": "Chinese",
+            "area": 9640011.0,
+            "gini": 38.5,
+            "timezones": [
+                "UTC+08:00"
+            ],
+            "borders": [
+                "AFG",
+                "BTN",
+                "MMR",
+                "HKG",
+                "IND",
+                "KAZ",
+                "PRK",
+                "KGZ",
+                "LAO",
+                "MAC",
+                "MNG",
+                "PAK",
+                "RUS",
+                "TJK",
+                "VNM",
+                "NPL"
+            ],
+            "nativeName": "\u4e2d\u56fd",
+            "numericCode": "156",
+            "flags": {
+                "svg": "https://flagcdn.com/cn.svg",
+                "png": "https://flagcdn.com/w320/cn.png"
+            },
+            "currencies": [
+                {
+                    "code": "CNY",
+                    "name": "Chinese yuan",
+                    "symbol": "\u00a5"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "zh",
+                    "iso639_2": "zho",
+                    "name": "Chinese",
+                    "nativeName": "\u4e2d\u6587 (Zh\u014dngw\u00e9n)"
+                }
+            ],
+            "translations": {
+                "br": "Sina",
+                "pt": "China",
+                "nl": "China",
+                "hr": "Kina",
+                "fa": "\u0686\u06cc\u0646",
+                "de": "China",
+                "es": "China",
+                "fr": "Chine",
+                "ja": "\u4e2d\u56fd",
+                "it": "Cina",
+                "hu": "K\u00edna"
+            },
+            "flag": "https://flagcdn.com/cn.svg",
+            "cioc": "CHN",
+            "independent": true,
+            "wikipedia_summary": "China, officially the People's Republic of China (PRC), is a country in East Asia. It is the world's most populous country with a population exceeding 1.4 billion people. China spans five geographical time zones and borders fourteen countries by land, the most of any country in the world, tied with Russia. China also has a narrow maritime boundary with the disputed Taiwan. Covering an area of approximately 9.6\u00a0million square kilometers (3,700,000\u00a0sq\u00a0mi), it is the world's third largest country by total land area. The country consists of 23 provinces, five autonomous regions, four municipalities, and two Special Administrative Regions. The national capital is Beijing, and the most populous city and financial center is Shanghai."
+        },
+        {
+            "name": "United Kingdom of Great Britain and Northern Ireland",
+            "topLevelDomain": [
+                ".uk"
+            ],
+            "alpha2Code": "GB",
+            "alpha3Code": "GBR",
+            "callingCodes": [
+                "44"
+            ],
+            "capital": "London",
+            "altSpellings": [
+                "GB",
+                "UK",
+                "Great Britain"
+            ],
+            "subregion": "Northern Europe",
+            "region": "Europe",
+            "population": 67215293,
+            "latlng": [
+                54.0,
+                -2.0
+            ],
+            "demonym": "British",
+            "area": 242900.0,
+            "gini": 35.1,
+            "timezones": [
+                "UTC-08:00",
+                "UTC-05:00",
+                "UTC-04:00",
+                "UTC-03:00",
+                "UTC-02:00",
+                "UTC",
+                "UTC+01:00",
+                "UTC+02:00",
+                "UTC+06:00"
+            ],
+            "borders": [
+                "IRL"
+            ],
+            "nativeName": "United Kingdom",
+            "numericCode": "826",
+            "flags": {
+                "svg": "https://flagcdn.com/gb.svg",
+                "png": "https://flagcdn.com/w320/gb.png"
+            },
+            "currencies": [
+                {
+                    "code": "GBP",
+                    "name": "British pound",
+                    "symbol": "\u00a3"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                }
+            ],
+            "translations": {
+                "br": "Rouantelezh-Unanet",
+                "pt": "Reino Unido",
+                "nl": "Verenigd Koninkrijk",
+                "hr": "Ujedinjeno Kraljevstvo",
+                "fa": "\u0628\u0631\u06cc\u062a\u0627\u0646\u06cc\u0627\u06cc \u06a9\u0628\u06cc\u0631 \u0648 \u0627\u06cc\u0631\u0644\u0646\u062f \u0634\u0645\u0627\u0644\u06cc",
+                "de": "Vereinigtes K\u00f6nigreich",
+                "es": "Reino Unido",
+                "fr": "Royaume-Uni",
+                "ja": "\u30a4\u30ae\u30ea\u30b9",
+                "it": "Regno Unito",
+                "hu": "Nagy-Britannia"
+            },
+            "flag": "https://flagcdn.com/gb.svg",
+            "cioc": "GBR",
+            "independent": true,
+            "wikipedia_summary": "The United Kingdom of Great Britain and Northern Ireland, commonly known as the United Kingdom (UK) or Britain, is a country in Europe, off the north-western coast of the continental mainland. It comprises England, Scotland, Wales and Northern Ireland. The United Kingdom includes the island of Great Britain, the north-eastern part of the island of Ireland, and many smaller islands within the British Isles. Northern Ireland shares a land border with the Republic of Ireland; otherwise, the United Kingdom is surrounded by the Atlantic Ocean, the North Sea, the English Channel, the Celtic Sea and the Irish Sea. The total area of the United Kingdom is 242,495 square kilometres (93,628\u00a0sq\u00a0mi), with an estimated 2020 population of more than 67 million people."
+        },
+        {
+            "name": "Vietnam",
+            "topLevelDomain": [
+                ".vn"
+            ],
+            "alpha2Code": "VN",
+            "alpha3Code": "VNM",
+            "callingCodes": [
+                "84"
+            ],
+            "capital": "Hanoi",
+            "altSpellings": [
+                "VN",
+                "Socialist Republic of Vietnam",
+                "C\u1ed9ng h\u00f2a X\u00e3 h\u1ed9i ch\u1ee7 ngh\u0129a Vi\u1ec7t Nam"
+            ],
+            "subregion": "South-Eastern Asia",
+            "region": "Asia",
+            "population": 97338583,
+            "latlng": [
+                16.16666666,
+                107.83333333
+            ],
+            "demonym": "Vietnamese",
+            "area": 331212.0,
+            "gini": 35.7,
+            "timezones": [
+                "UTC+07:00"
+            ],
+            "borders": [
+                "KHM",
+                "CHN",
+                "LAO"
+            ],
+            "nativeName": "Vi\u1ec7t Nam",
+            "numericCode": "704",
+            "flags": {
+                "svg": "https://flagcdn.com/vn.svg",
+                "png": "https://flagcdn.com/w320/vn.png"
+            },
+            "currencies": [
+                {
+                    "code": "VND",
+                    "name": "Vietnamese \u0111\u1ed3ng",
+                    "symbol": "\u20ab"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "vi",
+                    "iso639_2": "vie",
+                    "name": "Vietnamese",
+                    "nativeName": "Ti\u1ebfng Vi\u1ec7t"
+                }
+            ],
+            "translations": {
+                "br": "Vi\u00eat Nam",
+                "pt": "Vietname",
+                "nl": "Vietnam",
+                "hr": "Vijetnam",
+                "fa": "\u0648\u06cc\u062a\u0646\u0627\u0645",
+                "de": "Vietnam",
+                "es": "Vietnam",
+                "fr": "Vi\u00eat Nam",
+                "ja": "\u30d9\u30c8\u30ca\u30e0",
+                "it": "Vietnam",
+                "hu": "Vietn\u00e1m"
+            },
+            "flag": "https://flagcdn.com/vn.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "ASEAN",
+                    "name": "Association of Southeast Asian Nations"
+                }
+            ],
+            "cioc": "VIE",
+            "independent": true,
+            "wikipedia_summary": "Vietnam, or Viet Nam, officially the Socialist Republic of Vietnam, is a country in Southeast Asia, at the eastern edge of mainland Southeast Asia, with an area of 311,699 square kilometres (120,348\u00a0sq\u00a0mi) and population of 96\u00a0million, making it the world's fifteenth-most populous country. Vietnam borders China to the north, and Laos and Cambodia to the west. It shares maritime borders with Thailand through the Gulf of Thailand, and the Philippines, Indonesia, and Malaysia through the South China Sea. Its capital is Hanoi and largest city Ho Chi Minh City."
+        },
+        {
+            "name": "Taiwan",
+            "topLevelDomain": [
+                ".tw"
+            ],
+            "alpha2Code": "TW",
+            "alpha3Code": "TWN",
+            "callingCodes": [
+                "886"
+            ],
+            "capital": "Taipei",
+            "altSpellings": [
+                "TW",
+                "T\u00e1iw\u0101n",
+                "Republic of China",
+                "\u4e2d\u83ef\u6c11\u570b",
+                "Zh\u014dnghu\u00e1 M\u00edngu\u00f3"
+            ],
+            "subregion": "Eastern Asia",
+            "region": "Asia",
+            "population": 23503349,
+            "latlng": [
+                23.5,
+                121.0
+            ],
+            "demonym": "Taiwanese",
+            "area": 36193.0,
+            "timezones": [
+                "UTC+08:00"
+            ],
+            "nativeName": "\u81fa\u7063",
+            "numericCode": "158",
+            "flags": {
+                "svg": "https://flagcdn.com/tw.svg",
+                "png": "https://flagcdn.com/w320/tw.png"
+            },
+            "currencies": [
+                {
+                    "code": "TWD",
+                    "name": "New Taiwan dollar",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "zh",
+                    "iso639_2": "zho",
+                    "name": "Chinese",
+                    "nativeName": "\u4e2d\u6587 (Zh\u014dngw\u00e9n)"
+                }
+            ],
+            "translations": {
+                "br": "Taiwan",
+                "pt": "Taiwan",
+                "nl": "Taiwan",
+                "hr": "Tajvan",
+                "fa": "\u062a\u0627\u06cc\u0648\u0627\u0646",
+                "de": "Taiwan",
+                "es": "Taiw\u00e1n",
+                "fr": "Ta\u00efwan",
+                "ja": "\u53f0\u6e7e\uff08\u4e2d\u83ef\u6c11\u56fd\uff09",
+                "it": "Taiwan",
+                "hu": "Tajvan"
+            },
+            "flag": "https://flagcdn.com/tw.svg",
+            "cioc": "TPE",
+            "independent": true,
+            "wikipedia_summary": "Taiwan, officially the Republic of China (ROC), is a country in East Asia, at the junction of the East and South China Seas in the northwestern Pacific Ocean, with the People's Republic of China (PRC) to the northwest, Japan to the northeast, and the Philippines to the south. The territories controlled by the ROC consist of 168 islands, with a combined area of 36,193 square kilometres (13,974\u00a0sq\u00a0mi). The main island of Taiwan, also known as Formosa, has an area of 35,808 square kilometres (13,826\u00a0sq\u00a0mi), with mountain ranges dominating the eastern two-thirds and plains in the western third, where its highly urbanised population is concentrated. The capital, Taipei, forms along with New Taipei City and Keelung the largest metropolitan area of Taiwan. Other major cities include Taoyuan, Taichung, Tainan, and Kaohsiung. With around 23.9 million inhabitants, Taiwan is among the most densely populated countries in the world."
+        },
+        {
+            "name": "Japan",
+            "topLevelDomain": [
+                ".jp"
+            ],
+            "alpha2Code": "JP",
+            "alpha3Code": "JPN",
+            "callingCodes": [
+                "81"
+            ],
+            "capital": "Tokyo",
+            "altSpellings": [
+                "JP",
+                "Nippon",
+                "Nihon"
+            ],
+            "subregion": "Eastern Asia",
+            "region": "Asia",
+            "population": 125836021,
+            "latlng": [
+                36.0,
+                138.0
+            ],
+            "demonym": "Japanese",
+            "area": 377930.0,
+            "gini": 32.9,
+            "timezones": [
+                "UTC+09:00"
+            ],
+            "nativeName": "\u65e5\u672c",
+            "numericCode": "392",
+            "flags": {
+                "svg": "https://flagcdn.com/jp.svg",
+                "png": "https://flagcdn.com/w320/jp.png"
+            },
+            "currencies": [
+                {
+                    "code": "JPY",
+                    "name": "Japanese yen",
+                    "symbol": "\u00a5"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "ja",
+                    "iso639_2": "jpn",
+                    "name": "Japanese",
+                    "nativeName": "\u65e5\u672c\u8a9e (\u306b\u307b\u3093\u3054)"
+                }
+            ],
+            "translations": {
+                "br": "Japan",
+                "pt": "Jap\u00e3o",
+                "nl": "Japan",
+                "hr": "Japan",
+                "fa": "\u0698\u0627\u067e\u0646",
+                "de": "Japan",
+                "es": "Jap\u00f3n",
+                "fr": "Japon",
+                "ja": "\u65e5\u672c",
+                "it": "Giappone",
+                "hu": "Jap\u00e1n"
+            },
+            "flag": "https://flagcdn.com/jp.svg",
+            "cioc": "JPN",
+            "independent": true,
+            "wikipedia_summary": "Japan is an island country in East Asia. It is situated in the northwest Pacific Ocean, and is bordered on the west by the Sea of Japan, while extending from the Sea of Okhotsk in the north toward the East China Sea, Philippine Sea, and Taiwan in the south. Japan is a part of the Ring of Fire, and spans an archipelago of 6852 islands covering 377,975 square kilometers (145,937\u00a0sq\u00a0mi); the five main islands are Hokkaido, Honshu, Shikoku, Kyushu, and Okinawa. Tokyo is the nation's capital and largest city, followed by Yokohama, Osaka, Nagoya, Sapporo, Fukuoka, Kobe, and Kyoto."
+        },
+        {
+            "name": "Korea (Republic of)",
+            "topLevelDomain": [
+                ".kr"
+            ],
+            "alpha2Code": "KR",
+            "alpha3Code": "KOR",
+            "callingCodes": [
+                "82"
+            ],
+            "capital": "Seoul",
+            "altSpellings": [
+                "KR",
+                "Republic of Korea"
+            ],
+            "subregion": "Eastern Asia",
+            "region": "Asia",
+            "population": 51780579,
+            "latlng": [
+                37.0,
+                127.5
+            ],
+            "demonym": "South Korean",
+            "area": 100210.0,
+            "gini": 31.4,
+            "timezones": [
+                "UTC+09:00"
+            ],
+            "borders": [
+                "PRK"
+            ],
+            "nativeName": "\ub300\ud55c\ubbfc\uad6d",
+            "numericCode": "410",
+            "flags": {
+                "svg": "https://flagcdn.com/kr.svg",
+                "png": "https://flagcdn.com/w320/kr.png"
+            },
+            "currencies": [
+                {
+                    "code": "KRW",
+                    "name": "South Korean won",
+                    "symbol": "\u20a9"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "ko",
+                    "iso639_2": "kor",
+                    "name": "Korean",
+                    "nativeName": "\ud55c\uad6d\uc5b4"
+                }
+            ],
+            "translations": {
+                "br": "Korea ar Su",
+                "pt": "Coreia do Sul",
+                "nl": "Zuid-Korea",
+                "hr": "Ju\u017ena Koreja",
+                "fa": "\u06a9\u0631\u0647 \u0634\u0645\u0627\u0644\u06cc",
+                "de": "S\u00fcdkorea",
+                "es": "Corea del Sur",
+                "fr": "Cor\u00e9e du Sud",
+                "ja": "\u5927\u97d3\u6c11\u56fd",
+                "it": "Corea del Sud",
+                "hu": "D\u00e9l-Korea"
+            },
+            "flag": "https://flagcdn.com/kr.svg",
+            "cioc": "KOR",
+            "independent": true,
+            "wikipedia_summary": "South Korea, officially the Republic of Korea (ROK), is a country in East Asia, constituting the southern part of the Korean Peninsula and sharing a land border with North Korea. Its western border is formed by the Yellow Sea, while its eastern border is defined by the Sea of Japan. South Korea claims to be the sole legitimate government of the entire peninsula and adjacent islands. It has a population of 51.75 million, of which roughly half live in the Seoul Capital Area, the fifth largest metropolis in the world. Other major cities include Incheon, Busan, and Daegu."
+        },
+        {
+            "name": "Egypt",
+            "topLevelDomain": [
+                ".eg"
+            ],
+            "alpha2Code": "EG",
+            "alpha3Code": "EGY",
+            "callingCodes": [
+                "20"
+            ],
+            "capital": "Cairo",
+            "altSpellings": [
+                "EG",
+                "Arab Republic of Egypt"
+            ],
+            "subregion": "Northern Africa",
+            "region": "Africa",
+            "population": 102334403,
+            "latlng": [
+                27.0,
+                30.0
+            ],
+            "demonym": "Egyptian",
+            "area": 1002450.0,
+            "gini": 31.5,
+            "timezones": [
+                "UTC+02:00"
+            ],
+            "borders": [
+                "ISR",
+                "LBY",
+                "SDN"
+            ],
+            "nativeName": "\u0645\u0635\u0631\u200e",
+            "numericCode": "818",
+            "flags": {
+                "svg": "https://flagcdn.com/eg.svg",
+                "png": "https://flagcdn.com/w320/eg.png"
+            },
+            "currencies": [
+                {
+                    "code": "EGP",
+                    "name": "Egyptian pound",
+                    "symbol": "\u00a3"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "ar",
+                    "iso639_2": "ara",
+                    "name": "Arabic",
+                    "nativeName": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"
+                }
+            ],
+            "translations": {
+                "br": "Egipt",
+                "pt": "Egipto",
+                "nl": "Egypte",
+                "hr": "Egipat",
+                "fa": "\u0645\u0635\u0631",
+                "de": "\u00c4gypten",
+                "es": "Egipto",
+                "fr": "\u00c9gypte",
+                "ja": "\u30a8\u30b8\u30d7\u30c8",
+                "it": "Egitto",
+                "hu": "Egyiptom"
+            },
+            "flag": "https://flagcdn.com/eg.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AU",
+                    "name": "African Union",
+                    "otherNames": [
+                        "\u0627\u0644\u0627\u062a\u062d\u0627\u062f \u0627\u0644\u0623\u0641\u0631\u064a\u0642\u064a",
+                        "Union africaine",
+                        "Uni\u00e3o Africana",
+                        "Uni\u00f3n Africana",
+                        "Umoja wa Afrika"
+                    ]
+                },
+                {
+                    "acronym": "AL",
+                    "name": "Arab League",
+                    "otherNames": [
+                        "\u062c\u0627\u0645\u0639\u0629 \u0627\u0644\u062f\u0648\u0644 \u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+                        "J\u0101mi\u02bbat ad-Duwal al-\u02bbArab\u012byah",
+                        "League of Arab States"
+                    ]
+                }
+            ],
+            "cioc": "EGY",
+            "independent": true,
+            "wikipedia_summary": "Egypt, officially the Arab Republic of Egypt, is a transcontinental country spanning the northeast corner of Africa and southwest corner of Asia via a land bridge formed by the Sinai Peninsula. It is bordered by the Mediterranean Sea to the north, the Gaza Strip of Palestine and Israel to the northeast, the Red Sea to the east, Sudan to the south, and Libya to the west. The Gulf of Aqaba in the northeast separates Egypt from Jordan and Saudi Arabia. Cairo is the capital and largest city of Egypt, while Alexandria, the second-largest city, is an important industrial and tourist hub at the Mediterranean coast. At approximately 100 million inhabitants, Egypt is the 14th-most populated country in the world."
+        },
+        {
+            "name": "Iraq",
+            "topLevelDomain": [
+                ".iq"
+            ],
+            "alpha2Code": "IQ",
+            "alpha3Code": "IRQ",
+            "callingCodes": [
+                "964"
+            ],
+            "capital": "Baghdad",
+            "altSpellings": [
+                "IQ",
+                "Republic of Iraq",
+                "Jumh\u016briyyat al-\u2018Ir\u0101q"
+            ],
+            "subregion": "Western Asia",
+            "region": "Asia",
+            "population": 40222503,
+            "latlng": [
+                33.0,
+                44.0
+            ],
+            "demonym": "Iraqi",
+            "area": 438317.0,
+            "gini": 29.5,
+            "timezones": [
+                "UTC+03:00"
+            ],
+            "borders": [
+                "IRN",
+                "JOR",
+                "KWT",
+                "SAU",
+                "SYR",
+                "TUR"
+            ],
+            "nativeName": "\u0627\u0644\u0639\u0631\u0627\u0642",
+            "numericCode": "368",
+            "flags": {
+                "svg": "https://flagcdn.com/iq.svg",
+                "png": "https://flagcdn.com/w320/iq.png"
+            },
+            "currencies": [
+                {
+                    "code": "IQD",
+                    "name": "Iraqi dinar",
+                    "symbol": "\u0639.\u062f"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "ar",
+                    "iso639_2": "ara",
+                    "name": "Arabic",
+                    "nativeName": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"
+                },
+                {
+                    "iso639_1": "ku",
+                    "iso639_2": "kur",
+                    "name": "Kurdish",
+                    "nativeName": "Kurd\u00ee"
+                }
+            ],
+            "translations": {
+                "br": "Irak",
+                "pt": "Iraque",
+                "nl": "Irak",
+                "hr": "Irak",
+                "fa": "\u0639\u0631\u0627\u0642",
+                "de": "Irak",
+                "es": "Irak",
+                "fr": "Irak",
+                "ja": "\u30a4\u30e9\u30af",
+                "it": "Iraq",
+                "hu": "Irak"
+            },
+            "flag": "https://flagcdn.com/iq.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AL",
+                    "name": "Arab League",
+                    "otherNames": [
+                        "\u062c\u0627\u0645\u0639\u0629 \u0627\u0644\u062f\u0648\u0644 \u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+                        "J\u0101mi\u02bbat ad-Duwal al-\u02bbArab\u012byah",
+                        "League of Arab States"
+                    ]
+                }
+            ],
+            "cioc": "IRQ",
+            "independent": true,
+            "wikipedia_summary": "Iraq, officially the Republic of Iraq, is a country in Western Asia. It is bordered by Turkey to the north, Iran to the east, the Persian Gulf and Kuwait to the southeast, Saudi Arabia to the south, Jordan to the southwest and Syria to the west. The capital and largest city is Baghdad. Iraq is home to diverse ethnic groups including Iraqi Arabs, Kurds, Turkmens, Assyrians, Armenians, Yazidis, Mandaeans, Persians and Shabakis with similarly diverse geography and wildlife. The vast majority of the country's 44 million residents are Muslims \u2013 the notable other faiths are Christianity, Yazidism, Mandaeism, Yarsanism and Zoroastrianism. The official languages of Iraq are Arabic and Kurdish; others also recognised in specific regions are Neo-Aramaic, Turkish and Armenian."
+        },
+        {
+            "name": "Saudi Arabia",
+            "topLevelDomain": [
+                ".sa"
+            ],
+            "alpha2Code": "SA",
+            "alpha3Code": "SAU",
+            "callingCodes": [
+                "966"
+            ],
+            "capital": "Riyadh",
+            "altSpellings": [
+                "SA",
+                "Kingdom of Saudi Arabia",
+                "Al-Mamlakah al-\u2018Arabiyyah as-Su\u2018\u016bdiyyah"
+            ],
+            "subregion": "Western Asia",
+            "region": "Asia",
+            "population": 34813867,
+            "latlng": [
+                25.0,
+                45.0
+            ],
+            "demonym": "Saudi Arabian",
+            "area": 2149690.0,
+            "timezones": [
+                "UTC+03:00"
+            ],
+            "borders": [
+                "IRQ",
+                "JOR",
+                "KWT",
+                "OMN",
+                "QAT",
+                "ARE",
+                "YEM"
+            ],
+            "nativeName": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0627\u0644\u0633\u0639\u0648\u062f\u064a\u0629",
+            "numericCode": "682",
+            "flags": {
+                "svg": "https://flagcdn.com/sa.svg",
+                "png": "https://flagcdn.com/w320/sa.png"
+            },
+            "currencies": [
+                {
+                    "code": "SAR",
+                    "name": "Saudi riyal",
+                    "symbol": "\u0631.\u0633"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "ar",
+                    "iso639_2": "ara",
+                    "name": "Arabic",
+                    "nativeName": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"
+                }
+            ],
+            "translations": {
+                "br": "Arabia Saoudat",
+                "pt": "Ar\u00e1bia Saudita",
+                "nl": "Saoedi-Arabi\u00eb",
+                "hr": "Saudijska Arabija",
+                "fa": "\u0639\u0631\u0628\u0633\u062a\u0627\u0646 \u0633\u0639\u0648\u062f\u06cc",
+                "de": "Saudi-Arabien",
+                "es": "Arabia Saud\u00ed",
+                "fr": "Arabie Saoudite",
+                "ja": "\u30b5\u30a6\u30b8\u30a2\u30e9\u30d3\u30a2",
+                "it": "Arabia Saudita",
+                "hu": "Sza\u00fad-Ar\u00e1bia"
+            },
+            "flag": "https://flagcdn.com/sa.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AL",
+                    "name": "Arab League",
+                    "otherNames": [
+                        "\u062c\u0627\u0645\u0639\u0629 \u0627\u0644\u062f\u0648\u0644 \u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+                        "J\u0101mi\u02bbat ad-Duwal al-\u02bbArab\u012byah",
+                        "League of Arab States"
+                    ]
+                }
+            ],
+            "cioc": "KSA",
+            "independent": true,
+            "wikipedia_summary": "Saudi Arabia, officially the Kingdom of Saudi Arabia (KSA), is a country on the Arabian Peninsula in Western Asia. It has a land area of about 2,150,000\u00a0km2 (830,000\u00a0sq\u00a0mi), making it the fifth-largest country in Asia, the second-largest in the Arab world, and the largest in Western Asia. It is bordered by the Red Sea to the west; Jordan, Iraq, and Kuwait to the north; the Persian Gulf, Qatar and the United Arab Emirates to the east; Oman to the southeast; and Yemen to the south. Bahrain is an island country off the east coast. The Gulf of Aqaba in the northwest separates Saudi Arabia from Egypt. Saudi Arabia is the only country with a coastline along both the Red Sea and the Persian Gulf, and most of its terrain consists of arid desert, lowland, steppe, and mountains. Its capital and largest city is Riyadh. The country is home to Mecca and Medina, the two holiest cities in Islam."
+        },
+        {
+            "name": "Sudan",
+            "topLevelDomain": [
+                ".sd"
+            ],
+            "alpha2Code": "SD",
+            "alpha3Code": "SDN",
+            "callingCodes": [
+                "249"
+            ],
+            "capital": "Khartoum",
+            "altSpellings": [
+                "SD",
+                "Republic of the Sudan",
+                "Jumh\u016br\u012byat as-S\u016bd\u0101n"
+            ],
+            "subregion": "Northern Africa",
+            "region": "Africa",
+            "population": 43849269,
+            "latlng": [
+                15.0,
+                30.0
+            ],
+            "demonym": "Sudanese",
+            "area": 1886068.0,
+            "gini": 34.2,
+            "timezones": [
+                "UTC+03:00"
+            ],
+            "borders": [
+                "CAF",
+                "TCD",
+                "EGY",
+                "ERI",
+                "ETH",
+                "LBY",
+                "SSD"
+            ],
+            "nativeName": "\u0627\u0644\u0633\u0648\u062f\u0627\u0646",
+            "numericCode": "729",
+            "flags": {
+                "svg": "https://flagcdn.com/sd.svg",
+                "png": "https://flagcdn.com/w320/sd.png"
+            },
+            "currencies": [
+                {
+                    "code": "SDG",
+                    "name": "Sudanese pound",
+                    "symbol": "\u062c.\u0633."
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "ar",
+                    "iso639_2": "ara",
+                    "name": "Arabic",
+                    "nativeName": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"
+                },
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                }
+            ],
+            "translations": {
+                "br": "Soudan",
+                "pt": "Sud\u00e3o",
+                "nl": "Soedan",
+                "hr": "Sudan",
+                "fa": "\u0633\u0648\u062f\u0627\u0646",
+                "de": "Sudan",
+                "es": "Sud\u00e1n",
+                "fr": "Soudan",
+                "ja": "\u30b9\u30fc\u30c0\u30f3",
+                "it": "Sudan",
+                "hu": "Szud\u00e1n"
+            },
+            "flag": "https://flagcdn.com/sd.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AU",
+                    "name": "African Union",
+                    "otherNames": [
+                        "\u0627\u0644\u0627\u062a\u062d\u0627\u062f \u0627\u0644\u0623\u0641\u0631\u064a\u0642\u064a",
+                        "Union africaine",
+                        "Uni\u00e3o Africana",
+                        "Uni\u00f3n Africana",
+                        "Umoja wa Afrika"
+                    ]
+                },
+                {
+                    "acronym": "AL",
+                    "name": "Arab League",
+                    "otherNames": [
+                        "\u062c\u0627\u0645\u0639\u0629 \u0627\u0644\u062f\u0648\u0644 \u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+                        "J\u0101mi\u02bbat ad-Duwal al-\u02bbArab\u012byah",
+                        "League of Arab States"
+                    ]
+                }
+            ],
+            "cioc": "SUD",
+            "independent": true,
+            "wikipedia_summary": "Sudan, officially the Republic of the Sudan, is a country in Northeast Africa. It shares borders with the Central African Republic to the southwest, Chad to the west, Egypt to the north, Eritrea to the northeast, Ethiopia to the southeast, Libya to the northwest, South Sudan to the south and the Red Sea. It has a population of 45.70 million people as of 2022 and occupies 1,886,068 square kilometres, making it Africa's third-largest country by area, and the third-largest by area in the Arab League. It was the largest country by area in Africa and the Arab League until the secession of South Sudan in 2011, since which both titles have been held by Algeria. Its capital is Khartoum and its most populated city is Omdurman."
+        },
+        {
+            "name": "Brazil",
+            "topLevelDomain": [
+                ".br"
+            ],
+            "alpha2Code": "BR",
+            "alpha3Code": "BRA",
+            "callingCodes": [
+                "55"
+            ],
+            "capital": "Bras\u00edlia",
+            "altSpellings": [
+                "BR",
+                "Brasil",
+                "Federative Republic of Brazil",
+                "Rep\u00fablica Federativa do Brasil"
+            ],
+            "subregion": "South America",
+            "region": "Americas",
+            "population": 212559409,
+            "latlng": [
+                -10.0,
+                -55.0
+            ],
+            "demonym": "Brazilian",
+            "area": 8515767.0,
+            "gini": 53.4,
+            "timezones": [
+                "UTC-05:00",
+                "UTC-04:00",
+                "UTC-03:00",
+                "UTC-02:00"
+            ],
+            "borders": [
+                "ARG",
+                "BOL",
+                "COL",
+                "FRA",
+                "GUF",
+                "GUY",
+                "PRY",
+                "PER",
+                "SUR",
+                "URY",
+                "VEN"
+            ],
+            "nativeName": "Brasil",
+            "numericCode": "076",
+            "flags": {
+                "svg": "https://flagcdn.com/br.svg",
+                "png": "https://flagcdn.com/w320/br.png"
+            },
+            "currencies": [
+                {
+                    "code": "BRL",
+                    "name": "Brazilian real",
+                    "symbol": "R$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "pt",
+                    "iso639_2": "por",
+                    "name": "Portuguese",
+                    "nativeName": "Portugu\u00eas"
+                }
+            ],
+            "translations": {
+                "br": "Brazil",
+                "pt": "Brasil",
+                "nl": "Brazili\u00eb",
+                "hr": "Brazil",
+                "fa": "\u0628\u0631\u0632\u06cc\u0644",
+                "de": "Brasilien",
+                "es": "Brasil",
+                "fr": "Br\u00e9sil",
+                "ja": "\u30d6\u30e9\u30b8\u30eb",
+                "it": "Brasile",
+                "hu": "Braz\u00edlia"
+            },
+            "flag": "https://flagcdn.com/br.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "USAN",
+                    "name": "Union of South American Nations",
+                    "otherAcronyms": [
+                        "UNASUR",
+                        "UNASUL",
+                        "UZAN"
+                    ],
+                    "otherNames": [
+                        "Uni\u00f3n de Naciones Suramericanas",
+                        "Uni\u00e3o de Na\u00e7\u00f5es Sul-Americanas",
+                        "Unie van Zuid-Amerikaanse Naties",
+                        "South American Union"
+                    ]
+                }
+            ],
+            "cioc": "BRA",
+            "independent": true,
+            "wikipedia_summary": "Brazil, officially the Federative Republic of Brazil, is the largest country in South America. It is the world's fifth largest country, both by geographical area and by population with over 190 million people. It is the only Portuguese-speaking country in the Americas and the largest lusophone (Portuguese-speaking) country in the world."
+        },
+        {
+            "name": "Colombia",
+            "topLevelDomain": [
+                ".co"
+            ],
+            "alpha2Code": "CO",
+            "alpha3Code": "COL",
+            "callingCodes": [
+                "57"
+            ],
+            "capital": "Bogot\u00e1",
+            "altSpellings": [
+                "CO",
+                "Republic of Colombia",
+                "Rep\u00fablica de Colombia"
+            ],
+            "subregion": "South America",
+            "region": "Americas",
+            "population": 50882884,
+            "latlng": [
+                4.0,
+                -72.0
+            ],
+            "demonym": "Colombian",
+            "area": 1141748.0,
+            "gini": 51.3,
+            "timezones": [
+                "UTC-05:00"
+            ],
+            "borders": [
+                "BRA",
+                "ECU",
+                "PAN",
+                "PER",
+                "VEN"
+            ],
+            "nativeName": "Colombia",
+            "numericCode": "170",
+            "flags": {
+                "svg": "https://flagcdn.com/co.svg",
+                "png": "https://flagcdn.com/w320/co.png"
+            },
+            "currencies": [
+                {
+                    "code": "COP",
+                    "name": "Colombian peso",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "es",
+                    "iso639_2": "spa",
+                    "name": "Spanish",
+                    "nativeName": "Espa\u00f1ol"
+                }
+            ],
+            "translations": {
+                "br": "Kolombia",
+                "pt": "Col\u00f4mbia",
+                "nl": "Colombia",
+                "hr": "Kolumbija",
+                "fa": "\u06a9\u0644\u0645\u0628\u06cc\u0627",
+                "de": "Kolumbien",
+                "es": "Colombia",
+                "fr": "Colombie",
+                "ja": "\u30b3\u30ed\u30f3\u30d3\u30a2",
+                "it": "Colombia",
+                "hu": "Kolumbia"
+            },
+            "flag": "https://flagcdn.com/co.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "PA",
+                    "name": "Pacific Alliance",
+                    "otherNames": [
+                        "Alianza del Pac\u00edfico"
+                    ]
+                },
+                {
+                    "acronym": "USAN",
+                    "name": "Union of South American Nations",
+                    "otherAcronyms": [
+                        "UNASUR",
+                        "UNASUL",
+                        "UZAN"
+                    ],
+                    "otherNames": [
+                        "Uni\u00f3n de Naciones Suramericanas",
+                        "Uni\u00e3o de Na\u00e7\u00f5es Sul-Americanas",
+                        "Unie van Zuid-Amerikaanse Naties",
+                        "South American Union"
+                    ]
+                }
+            ],
+            "cioc": "COL",
+            "independent": true,
+            "wikipedia_summary": "Colombia, officially the Republic of Colombia, is a country in South America with an insular region in North America. It is bordered by the Caribbean Sea to the north, Venezuela to the east, Brazil to the southeast, Ecuador and Peru to the south, the Pacific Ocean to the west and Panama to the northwest. Colombia comprises 32 departments and the Capital District of Bogot\u00e1, the country's largest city. It covers an area of 1,141,748 square kilometers (440,831\u00a0sq\u00a0mi), with a population of 50 million. Colombia's cultural heritage reflects influences by various Amerindian civilizations, European settlement, enslaved Africans, as well as immigration from Europe and the Middle East. Spanish is the nation's official language, besides which over 70 languages are spoken."
+        },
+        {
+            "name": "Indonesia",
+            "topLevelDomain": [
+                ".id"
+            ],
+            "alpha2Code": "ID",
+            "alpha3Code": "IDN",
+            "callingCodes": [
+                "62"
+            ],
+            "capital": "Jakarta",
+            "altSpellings": [
+                "ID",
+                "Republic of Indonesia",
+                "Republik Indonesia"
+            ],
+            "subregion": "South-Eastern Asia",
+            "region": "Asia",
+            "population": 273523621,
+            "latlng": [
+                -5.0,
+                120.0
+            ],
+            "demonym": "Indonesian",
+            "area": 1904569.0,
+            "gini": 38.2,
+            "timezones": [
+                "UTC+07:00",
+                "UTC+08:00",
+                "UTC+09:00"
+            ],
+            "borders": [
+                "TLS",
+                "MYS",
+                "PNG"
+            ],
+            "nativeName": "Indonesia",
+            "numericCode": "360",
+            "flags": {
+                "svg": "https://flagcdn.com/id.svg",
+                "png": "https://flagcdn.com/w320/id.png"
+            },
+            "currencies": [
+                {
+                    "code": "IDR",
+                    "name": "Indonesian rupiah",
+                    "symbol": "Rp"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "id",
+                    "iso639_2": "ind",
+                    "name": "Indonesian",
+                    "nativeName": "Bahasa Indonesia"
+                }
+            ],
+            "translations": {
+                "br": "Indonezia",
+                "pt": "Indon\u00e9sia",
+                "nl": "Indonesi\u00eb",
+                "hr": "Indonezija",
+                "fa": "\u0627\u0646\u062f\u0648\u0646\u0632\u06cc",
+                "de": "Indonesien",
+                "es": "Indonesia",
+                "fr": "Indon\u00e9sie",
+                "ja": "\u30a4\u30f3\u30c9\u30cd\u30b7\u30a2",
+                "it": "Indonesia",
+                "hu": "Indon\u00e9zia"
+            },
+            "flag": "https://flagcdn.com/id.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "ASEAN",
+                    "name": "Association of Southeast Asian Nations"
+                }
+            ],
+            "cioc": "INA",
+            "independent": true,
+            "wikipedia_summary": "Indonesia, officially the Republic of Indonesia, is a country in Southeast Asia and Oceania between the Indian and Pacific oceans. It consists of over 17,000 islands, including Sumatra, Java, Sulawesi, and parts of Borneo and New Guinea. Indonesia is the world's largest archipelagic state and the 14th-largest country by area, at 1,904,569 square kilometres. With over 275 million people, Indonesia is the world's fourth-most populous country and the most populous Muslim-majority country. Java, the world's most populous island, is home to more than half of the country's population."
+        },
+        {
+            "name": "Ethiopia",
+            "topLevelDomain": [
+                ".et"
+            ],
+            "alpha2Code": "ET",
+            "alpha3Code": "ETH",
+            "callingCodes": [
+                "251"
+            ],
+            "capital": "Addis Ababa",
+            "altSpellings": [
+                "ET",
+                "\u02be\u012aty\u014d\u1e57\u1e57y\u0101",
+                "Federal Democratic Republic of Ethiopia",
+                "\u12e8\u12a2\u1275\u12ee\u1335\u12eb \u134c\u12f4\u122b\u120b\u12ca \u12f2\u121e\u12ad\u122b\u1232\u12eb\u12ca \u122a\u1350\u1265\u120a\u12ad"
+            ],
+            "subregion": "Eastern Africa",
+            "region": "Africa",
+            "population": 114963583,
+            "latlng": [
+                8.0,
+                38.0
+            ],
+            "demonym": "Ethiopian",
+            "area": 1104300.0,
+            "gini": 35.0,
+            "timezones": [
+                "UTC+03:00"
+            ],
+            "borders": [
+                "DJI",
+                "ERI",
+                "KEN",
+                "SOM",
+                "SSD",
+                "SDN"
+            ],
+            "nativeName": "\u12a2\u1275\u12ee\u1335\u12eb",
+            "numericCode": "231",
+            "flags": {
+                "svg": "https://flagcdn.com/et.svg",
+                "png": "https://flagcdn.com/w320/et.png"
+            },
+            "currencies": [
+                {
+                    "code": "ETB",
+                    "name": "Ethiopian birr",
+                    "symbol": "Br"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "am",
+                    "iso639_2": "amh",
+                    "name": "Amharic",
+                    "nativeName": "\u12a0\u121b\u122d\u129b"
+                }
+            ],
+            "translations": {
+                "br": "Etiopia",
+                "pt": "Eti\u00f3pia",
+                "nl": "Ethiopi\u00eb",
+                "hr": "Etiopija",
+                "fa": "\u0627\u062a\u06cc\u0648\u067e\u06cc",
+                "de": "\u00c4thiopien",
+                "es": "Etiop\u00eda",
+                "fr": "\u00c9thiopie",
+                "ja": "\u30a8\u30c1\u30aa\u30d4\u30a2",
+                "it": "Etiopia",
+                "hu": "Eti\u00f3pia"
+            },
+            "flag": "https://flagcdn.com/et.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AU",
+                    "name": "African Union",
+                    "otherNames": [
+                        "\u0627\u0644\u0627\u062a\u062d\u0627\u062f \u0627\u0644\u0623\u0641\u0631\u064a\u0642\u064a",
+                        "Union africaine",
+                        "Uni\u00e3o Africana",
+                        "Uni\u00f3n Africana",
+                        "Umoja wa Afrika"
+                    ]
+                }
+            ],
+            "cioc": "ETH",
+            "independent": true,
+            "wikipedia_summary": "Ethiopia, officially the Federal Democratic Republic of Ethiopia, is a landlocked country in the Horn of Africa. It shares borders with Eritrea to the north, Djibouti to the northeast, Somalia to the east and northeast, Kenya to the south, South Sudan to the west, and Sudan to the northwest. Ethiopia has a total area of 1,100,000 square kilometres (420,000\u00a0sq\u00a0mi). As of 2022, it is home to around 113.5 million inhabitants, making it the 12th-most populous country in the world and the 2nd-most populous in Africa after Nigeria. The national capital and largest city, Addis Ababa, lies several kilometres west of the East African Rift that splits the country into the African and Somali tectonic plates."
+        },
+        {
+            "name": "Mexico",
+            "topLevelDomain": [
+                ".mx"
+            ],
+            "alpha2Code": "MX",
+            "alpha3Code": "MEX",
+            "callingCodes": [
+                "52"
+            ],
+            "capital": "Mexico City",
+            "altSpellings": [
+                "MX",
+                "Mexicanos",
+                "United Mexican States",
+                "Estados Unidos Mexicanos"
+            ],
+            "subregion": "North America",
+            "region": "Americas",
+            "population": 128932753,
+            "latlng": [
+                23.0,
+                -102.0
+            ],
+            "demonym": "Mexican",
+            "area": 1964375.0,
+            "gini": 45.4,
+            "timezones": [
+                "UTC-08:00",
+                "UTC-07:00",
+                "UTC-06:00"
+            ],
+            "borders": [
+                "BLZ",
+                "GTM",
+                "USA"
+            ],
+            "nativeName": "M\u00e9xico",
+            "numericCode": "484",
+            "flags": {
+                "svg": "https://flagcdn.com/mx.svg",
+                "png": "https://flagcdn.com/w320/mx.png"
+            },
+            "currencies": [
+                {
+                    "code": "MXN",
+                    "name": "Mexican peso",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "es",
+                    "iso639_2": "spa",
+                    "name": "Spanish",
+                    "nativeName": "Espa\u00f1ol"
+                }
+            ],
+            "translations": {
+                "br": "Mec'hiko",
+                "pt": "M\u00e9xico",
+                "nl": "Mexico",
+                "hr": "Meksiko",
+                "fa": "\u0645\u06a9\u0632\u06cc\u06a9",
+                "de": "Mexiko",
+                "es": "M\u00e9xico",
+                "fr": "Mexique",
+                "ja": "\u30e1\u30ad\u30b7\u30b3",
+                "it": "Messico",
+                "hu": "Mexik\u00f3"
+            },
+            "flag": "https://flagcdn.com/mx.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "PA",
+                    "name": "Pacific Alliance",
+                    "otherNames": [
+                        "Alianza del Pac\u00edfico"
+                    ]
+                },
+                {
+                    "acronym": "NAFTA",
+                    "name": "North American Free Trade Agreement",
+                    "otherNames": [
+                        "Tratado de Libre Comercio de Am\u00e9rica del Norte",
+                        "Accord de Libre-\u00e9change Nord-Am\u00e9ricain"
+                    ]
+                }
+            ],
+            "cioc": "MEX",
+            "independent": true,
+            "wikipedia_summary": "Mexico, officially the United Mexican States, is a country in the southern portion of North America. It is bordered to the north by the United States; to the south and west by the Pacific Ocean; to the southeast by Guatemala, Belize, and the Caribbean Sea; and to the east by the Gulf of Mexico. Mexico covers 1,972,550 square kilometers (761,610\u00a0sq\u00a0mi), making it the world's 13th-largest country by area; with approximately 126,014,024 inhabitants, it is the 10th-most-populous country and has the most Spanish-speakers. Mexico is organized as a federal republic comprising 31 states and Mexico City, its capital. Other major urban areas include Monterrey, Guadalajara, Puebla, Toluca, Tijuana, Ciudad Ju\u00e1rez, and Le\u00f3n."
+        },
+        {
+            "name": "Germany",
+            "topLevelDomain": [
+                ".de"
+            ],
+            "alpha2Code": "DE",
+            "alpha3Code": "DEU",
+            "callingCodes": [
+                "49"
+            ],
+            "capital": "Berlin",
+            "altSpellings": [
+                "DE",
+                "Federal Republic of Germany",
+                "Bundesrepublik Deutschland"
+            ],
+            "subregion": "Central Europe",
+            "region": "Europe",
+            "population": 83240525,
+            "latlng": [
+                51.0,
+                9.0
+            ],
+            "demonym": "German",
+            "area": 357114.0,
+            "gini": 31.9,
+            "timezones": [
+                "UTC+01:00"
+            ],
+            "borders": [
+                "AUT",
+                "BEL",
+                "CZE",
+                "DNK",
+                "FRA",
+                "LUX",
+                "NLD",
+                "POL",
+                "CHE"
+            ],
+            "nativeName": "Deutschland",
+            "numericCode": "276",
+            "flags": {
+                "svg": "https://flagcdn.com/de.svg",
+                "png": "https://flagcdn.com/w320/de.png"
+            },
+            "currencies": [
+                {
+                    "code": "EUR",
+                    "name": "Euro",
+                    "symbol": "\u20ac"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "de",
+                    "iso639_2": "deu",
+                    "name": "German",
+                    "nativeName": "Deutsch"
+                }
+            ],
+            "translations": {
+                "br": "Alamagn",
+                "pt": "Alemanha",
+                "nl": "Duitsland",
+                "hr": "Njema\u010dka",
+                "fa": "\u0622\u0644\u0645\u0627\u0646",
+                "de": "Deutschland",
+                "es": "Alemania",
+                "fr": "Allemagne",
+                "ja": "\u30c9\u30a4\u30c4",
+                "it": "Germania",
+                "hu": "Gr\u00fazia"
+            },
+            "flag": "https://flagcdn.com/de.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "EU",
+                    "name": "European Union"
+                }
+            ],
+            "cioc": "GER",
+            "independent": true,
+            "wikipedia_summary": "Germany, officially the Federal Republic of Germany, is a country in Central Europe. It is the second most populous country in Europe after Russia, and the most populous member state of the European Union. Germany is situated between the Baltic and North seas to the north, and the Alps to the south; it covers an area of 357,022 square kilometres (137,847\u00a0sq\u00a0mi), with a population of almost 84 million within its 16 constituent states. Germany borders Denmark to the north, Poland and the Czech Republic to the east, Austria and Switzerland to the south, and France, Luxembourg, Belgium, and the Netherlands to the west. The nation's capital and largest city by population is Berlin and its financial centre is Frankfurt; the largest urban area is the Ruhr."
+        },
+        {
+            "name": "Israel",
+            "topLevelDomain": [
+                ".il"
+            ],
+            "alpha2Code": "IL",
+            "alpha3Code": "ISR",
+            "callingCodes": [
+                "972"
+            ],
+            "capital": "Jerusalem",
+            "altSpellings": [
+                "IL",
+                "State of Israel",
+                "Med\u012bnat Yisr\u0101'el"
+            ],
+            "subregion": "Western Asia",
+            "region": "Asia",
+            "population": 9216900,
+            "latlng": [
+                31.5,
+                34.75
+            ],
+            "demonym": "Israeli",
+            "area": 20770.0,
+            "gini": 39.0,
+            "timezones": [
+                "UTC+02:00"
+            ],
+            "borders": [
+                "EGY",
+                "JOR",
+                "LBN",
+                "SYR"
+            ],
+            "nativeName": "\u05d9\u05b4\u05e9\u05b0\u05c2\u05e8\u05b8\u05d0\u05b5\u05dc",
+            "numericCode": "376",
+            "flags": {
+                "svg": "https://flagcdn.com/il.svg",
+                "png": "https://flagcdn.com/w320/il.png"
+            },
+            "currencies": [
+                {
+                    "code": "ILS",
+                    "name": "Israeli new shekel",
+                    "symbol": "\u20aa"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "he",
+                    "iso639_2": "heb",
+                    "name": "Hebrew (modern)",
+                    "nativeName": "\u05e2\u05d1\u05e8\u05d9\u05ea"
+                },
+                {
+                    "iso639_1": "ar",
+                    "iso639_2": "ara",
+                    "name": "Arabic",
+                    "nativeName": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"
+                }
+            ],
+            "translations": {
+                "br": "Israel",
+                "pt": "Israel",
+                "nl": "Isra\u00ebl",
+                "hr": "Izrael",
+                "fa": "\u0627\u0633\u0631\u0627\u0626\u06cc\u0644",
+                "de": "Israel",
+                "es": "Israel",
+                "fr": "Isra\u00ebl",
+                "ja": "\u30a4\u30b9\u30e9\u30a8\u30eb",
+                "it": "Israele",
+                "hu": "Izrael"
+            },
+            "flag": "https://flagcdn.com/il.svg",
+            "cioc": "ISR",
+            "independent": true,
+            "wikipedia_summary": "Israel, officially the State of Israel, is a country in Western Asia. It is situated on the southeastern shore of the Mediterranean Sea and the northern shore of the Red Sea, and shares borders with Lebanon to the north, Syria to the northeast, Jordan to the east, and Egypt to the southwest; it is also bordered by the Palestinian territories of the West Bank and the Gaza Strip to the east and west, respectively. Tel Aviv is the economic and technological center of the country, while its seat of government is in its proclaimed capital of Jerusalem, although Israeli sovereignty over East Jerusalem is unrecognized internationally."
+        },
+        {
+            "name": "Thailand",
+            "topLevelDomain": [
+                ".th"
+            ],
+            "alpha2Code": "TH",
+            "alpha3Code": "THA",
+            "callingCodes": [
+                "66"
+            ],
+            "capital": "Bangkok",
+            "altSpellings": [
+                "TH",
+                "Prathet",
+                "Thai",
+                "Kingdom of Thailand",
+                "\u0e23\u0e32\u0e0a\u0e2d\u0e32\u0e13\u0e32\u0e08\u0e31\u0e01\u0e23\u0e44\u0e17\u0e22",
+                "Ratcha Anachak Thai"
+            ],
+            "subregion": "South-Eastern Asia",
+            "region": "Asia",
+            "population": 69799978,
+            "latlng": [
+                15.0,
+                100.0
+            ],
+            "demonym": "Thai",
+            "area": 513120.0,
+            "gini": 34.9,
+            "timezones": [
+                "UTC+07:00"
+            ],
+            "borders": [
+                "MMR",
+                "KHM",
+                "LAO",
+                "MYS"
+            ],
+            "nativeName": "\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22",
+            "numericCode": "764",
+            "flags": {
+                "svg": "https://flagcdn.com/th.svg",
+                "png": "https://flagcdn.com/w320/th.png"
+            },
+            "currencies": [
+                {
+                    "code": "THB",
+                    "name": "Thai baht",
+                    "symbol": "\u0e3f"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "th",
+                    "iso639_2": "tha",
+                    "name": "Thai",
+                    "nativeName": "\u0e44\u0e17\u0e22"
+                }
+            ],
+            "translations": {
+                "br": "Thailand",
+                "pt": "Tail\u00e2ndia",
+                "nl": "Thailand",
+                "hr": "Tajland",
+                "fa": "\u062a\u0627\u06cc\u0644\u0646\u062f",
+                "de": "Thailand",
+                "es": "Tailandia",
+                "fr": "Tha\u00eflande",
+                "ja": "\u30bf\u30a4",
+                "it": "Tailandia",
+                "hu": "Thaif\u00f6ld"
+            },
+            "flag": "https://flagcdn.com/th.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "ASEAN",
+                    "name": "Association of Southeast Asian Nations"
+                }
+            ],
+            "cioc": "THA",
+            "independent": true,
+            "wikipedia_summary": "Thailand, historically known as Siam and officially the Kingdom of Thailand, is a country in Southeast Asia, located at the centre of Indochinese Peninsula, spanning 513,120 square kilometres (198,120\u00a0sq\u00a0mi), with a population of almost 70 million. The country is bordered to the north by Myanmar and Laos, to the east by Laos and Cambodia, to the south by the Gulf of Thailand and Malaysia, and to the west by the Andaman Sea and the extremity of Myanmar. Thailand also shares maritime borders with Vietnam to the southeast, and Indonesia and India to the southwest. Bangkok is the nation's capital and largest city."
+        },
+        {
+            "name": "Singapore",
+            "topLevelDomain": [
+                ".sg"
+            ],
+            "alpha2Code": "SG",
+            "alpha3Code": "SGP",
+            "callingCodes": [
+                "65"
+            ],
+            "capital": "Singapore",
+            "altSpellings": [
+                "SG",
+                "Singapura",
+                "Republik Singapura",
+                "\u65b0\u52a0\u5761\u5171\u548c\u56fd"
+            ],
+            "subregion": "South-Eastern Asia",
+            "region": "Asia",
+            "population": 5685807,
+            "latlng": [
+                1.36666666,
+                103.8
+            ],
+            "demonym": "Singaporean",
+            "area": 710.0,
+            "timezones": [
+                "UTC+08:00"
+            ],
+            "nativeName": "Singapore",
+            "numericCode": "702",
+            "flags": {
+                "svg": "https://flagcdn.com/sg.svg",
+                "png": "https://flagcdn.com/w320/sg.png"
+            },
+            "currencies": [
+                {
+                    "code": "SGD",
+                    "name": "Singapore dollar",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                },
+                {
+                    "iso639_1": "ms",
+                    "iso639_2": "msa",
+                    "name": "Malay",
+                    "nativeName": "bahasa Melayu"
+                },
+                {
+                    "iso639_1": "ta",
+                    "iso639_2": "tam",
+                    "name": "Tamil",
+                    "nativeName": "\u0ba4\u0bae\u0bbf\u0bb4\u0bcd"
+                },
+                {
+                    "iso639_1": "zh",
+                    "iso639_2": "zho",
+                    "name": "Chinese",
+                    "nativeName": "\u4e2d\u6587 (Zh\u014dngw\u00e9n)"
+                }
+            ],
+            "translations": {
+                "br": "Singapour",
+                "pt": "Singapura",
+                "nl": "Singapore",
+                "hr": "Singapur",
+                "fa": "\u0633\u0646\u06af\u0627\u067e\u0648\u0631",
+                "de": "Singapur",
+                "es": "Singapur",
+                "fr": "Singapour",
+                "ja": "\u30b7\u30f3\u30ac\u30dd\u30fc\u30eb",
+                "it": "Singapore",
+                "hu": "Szingap\u00far"
+            },
+            "flag": "https://flagcdn.com/sg.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "ASEAN",
+                    "name": "Association of Southeast Asian Nations"
+                }
+            ],
+            "cioc": "SIN",
+            "independent": true,
+            "wikipedia_summary": "Singapore, officially the Republic of Singapore, is a sovereign island country and city-state in maritime Southeast Asia. It lies about one degree of latitude north of the equator, off the southern tip of the Malay Peninsula, bordering the Strait of Malacca to the west, the Singapore Strait to the south, the South China Sea to the east, and the Straits of Johor to the north. The country's territory is composed of one main island, 63 satellite islands and islets, and one outlying islet, the combined area of which has increased by 25% since the country's independence as a result of extensive land reclamation projects. It has the third highest population density in the world. With a multicultural population and recognising the need to respect cultural identities of the major ethnic groups within the nation, Singapore has four official languages: English, Malay, Mandarin, and Tamil. English is the lingua franca and numerous public services are available only in English. Multiracialism is enshrined in the constitution and continues to shape national policies in education, housing, and politics."
+        },
+        {
+            "name": "India",
+            "topLevelDomain": [
+                ".in"
+            ],
+            "alpha2Code": "IN",
+            "alpha3Code": "IND",
+            "callingCodes": [
+                "91"
+            ],
+            "capital": "New Delhi",
+            "altSpellings": [
+                "IN",
+                "Bh\u0101rat",
+                "Republic of India",
+                "Bharat Ganrajya"
+            ],
+            "subregion": "Southern Asia",
+            "region": "Asia",
+            "population": 1380004385,
+            "latlng": [
+                20.0,
+                77.0
+            ],
+            "demonym": "Indian",
+            "area": 3287590.0,
+            "gini": 35.7,
+            "timezones": [
+                "UTC+05:30"
+            ],
+            "borders": [
+                "AFG",
+                "BGD",
+                "BTN",
+                "MMR",
+                "CHN",
+                "NPL",
+                "PAK",
+                "LKA"
+            ],
+            "nativeName": "\u092d\u093e\u0930\u0924",
+            "numericCode": "356",
+            "flags": {
+                "svg": "https://flagcdn.com/in.svg",
+                "png": "https://flagcdn.com/w320/in.png"
+            },
+            "currencies": [
+                {
+                    "code": "INR",
+                    "name": "Indian rupee",
+                    "symbol": "\u20b9"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "hi",
+                    "iso639_2": "hin",
+                    "name": "Hindi",
+                    "nativeName": "\u0939\u093f\u0928\u094d\u0926\u0940"
+                },
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                }
+            ],
+            "translations": {
+                "br": "India",
+                "pt": "\u00cdndia",
+                "nl": "India",
+                "hr": "Indija",
+                "fa": "\u0647\u0646\u062f",
+                "de": "Indien",
+                "es": "India",
+                "fr": "Inde",
+                "ja": "\u30a4\u30f3\u30c9",
+                "it": "India",
+                "hu": "India"
+            },
+            "flag": "https://flagcdn.com/in.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "SAARC",
+                    "name": "South Asian Association for Regional Cooperation"
+                }
+            ],
+            "cioc": "IND",
+            "independent": true,
+            "wikipedia_summary": "India, officially the Republic of India, is a country in South Asia. It is the seventh-largest country by area, the second-most populous country, and the most populous democracy in the world. Bounded by the Indian Ocean on the south, the Arabian Sea on the southwest, and the Bay of Bengal on the southeast, it shares land borders with Pakistan to the west; China, Nepal, and Bhutan to the north; and Bangladesh and Myanmar to the east. In the Indian Ocean, India is in the vicinity of Sri Lanka and the Maldives; its Andaman and Nicobar Islands share a maritime border with Thailand, Myanmar, and Indonesia. The nation's capital city is New Delhi."
+        },
+        {
+            "name": "Belgium",
+            "topLevelDomain": [
+                ".be"
+            ],
+            "alpha2Code": "BE",
+            "alpha3Code": "BEL",
+            "callingCodes": [
+                "32"
+            ],
+            "capital": "Brussels",
+            "altSpellings": [
+                "BE",
+                "Belgi\u00eb",
+                "Belgie",
+                "Belgien",
+                "Belgique",
+                "Kingdom of Belgium",
+                "Koninkrijk Belgi\u00eb",
+                "Royaume de Belgique",
+                "K\u00f6nigreich Belgien"
+            ],
+            "subregion": "Western Europe",
+            "region": "Europe",
+            "population": 11555997,
+            "latlng": [
+                50.83333333,
+                4.0
+            ],
+            "demonym": "Belgian",
+            "area": 30528.0,
+            "gini": 27.2,
+            "timezones": [
+                "UTC+01:00"
+            ],
+            "borders": [
+                "FRA",
+                "DEU",
+                "LUX",
+                "NLD"
+            ],
+            "nativeName": "Belgi\u00eb",
+            "numericCode": "056",
+            "flags": {
+                "svg": "https://flagcdn.com/be.svg",
+                "png": "https://flagcdn.com/w320/be.png"
+            },
+            "currencies": [
+                {
+                    "code": "EUR",
+                    "name": "Euro",
+                    "symbol": "\u20ac"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "nl",
+                    "iso639_2": "nld",
+                    "name": "Dutch",
+                    "nativeName": "Nederlands"
+                },
+                {
+                    "iso639_1": "fr",
+                    "iso639_2": "fra",
+                    "name": "French",
+                    "nativeName": "fran\u00e7ais"
+                },
+                {
+                    "iso639_1": "de",
+                    "iso639_2": "deu",
+                    "name": "German",
+                    "nativeName": "Deutsch"
+                }
+            ],
+            "translations": {
+                "br": "Belgia",
+                "pt": "B\u00e9lgica",
+                "nl": "Belgi\u00eb",
+                "hr": "Belgija",
+                "fa": "\u0628\u0644\u0698\u06cc\u06a9",
+                "de": "Belgien",
+                "es": "B\u00e9lgica",
+                "fr": "Belgique",
+                "ja": "\u30d9\u30eb\u30ae\u30fc",
+                "it": "Belgio",
+                "hu": "Belgium"
+            },
+            "flag": "https://flagcdn.com/be.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "EU",
+                    "name": "European Union"
+                }
+            ],
+            "cioc": "BEL",
+            "independent": true,
+            "wikipedia_summary": "Belgium, officially the Kingdom of Belgium, is a country in Northwestern Europe. The country is bordered by the Netherlands to the north, Germany to the east, Luxembourg to the southeast, France to the southwest, and the North Sea to the northwest. It covers an area of 30,528\u00a0km2 (11,787\u00a0sq\u00a0mi) and has a population of more than 11.5\u00a0million, making it the 22nd most densely populated country in the world and the 6th most densely populated country in Europe, with a density of 376 per square kilometre (970/sq\u00a0mi). The capital and largest city is Brussels; other major cities are Antwerp, Ghent, Charleroi, Li\u00e8ge, Bruges, Namur, and Leuven."
+        },
+        {
+            "name": "Australia",
+            "topLevelDomain": [
+                ".au"
+            ],
+            "alpha2Code": "AU",
+            "alpha3Code": "AUS",
+            "callingCodes": [
+                "61"
+            ],
+            "capital": "Canberra",
+            "altSpellings": [
+                "AU"
+            ],
+            "subregion": "Australia and New Zealand",
+            "region": "Oceania",
+            "population": 25687041,
+            "latlng": [
+                -27.0,
+                133.0
+            ],
+            "demonym": "Australian",
+            "area": 7692024.0,
+            "gini": 34.4,
+            "timezones": [
+                "UTC+05:00",
+                "UTC+06:30",
+                "UTC+07:00",
+                "UTC+08:00",
+                "UTC+09:30",
+                "UTC+10:00",
+                "UTC+10:30",
+                "UTC+11:30"
+            ],
+            "nativeName": "Australia",
+            "numericCode": "036",
+            "flags": {
+                "svg": "https://flagcdn.com/au.svg",
+                "png": "https://flagcdn.com/w320/au.png"
+            },
+            "currencies": [
+                {
+                    "code": "AUD",
+                    "name": "Australian dollar",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                }
+            ],
+            "translations": {
+                "br": "Aostralia",
+                "pt": "Austr\u00e1lia",
+                "nl": "Australi\u00eb",
+                "hr": "Australija",
+                "fa": "\u0627\u0633\u062a\u0631\u0627\u0644\u06cc\u0627",
+                "de": "Australien",
+                "es": "Australia",
+                "fr": "Australie",
+                "ja": "\u30aa\u30fc\u30b9\u30c8\u30e9\u30ea\u30a2",
+                "it": "Australia",
+                "hu": "Ausztr\u00e1lia"
+            },
+            "flag": "https://flagcdn.com/au.svg",
+            "cioc": "AUS",
+            "independent": true,
+            "wikipedia_summary": "Australia, officially the Commonwealth of Australia, is a sovereign country comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands. With an area of 7,617,930 square kilometres (2,941,300\u00a0sq\u00a0mi), Australia is the largest country by area in Oceania and the world's sixth-largest country. Australia is the oldest, flattest, and driest inhabited continent, with the least fertile soils. It is a megadiverse country, and its size gives it a wide variety of landscapes and climates, with deserts in the centre, tropical rainforests in the north-east, and mountain ranges in the south-east."
+        },
+        {
+            "name": "Ireland",
+            "topLevelDomain": [
+                ".ie"
+            ],
+            "alpha2Code": "IE",
+            "alpha3Code": "IRL",
+            "callingCodes": [
+                "353"
+            ],
+            "capital": "Dublin",
+            "altSpellings": [
+                "IE",
+                "\u00c9ire",
+                "Republic of Ireland",
+                "Poblacht na h\u00c9ireann"
+            ],
+            "subregion": "Northern Europe",
+            "region": "Europe",
+            "population": 4994724,
+            "latlng": [
+                53.0,
+                -8.0
+            ],
+            "demonym": "Irish",
+            "area": 70273.0,
+            "gini": 31.4,
+            "timezones": [
+                "UTC"
+            ],
+            "borders": [
+                "GBR"
+            ],
+            "nativeName": "\u00c9ire",
+            "numericCode": "372",
+            "flags": {
+                "svg": "https://flagcdn.com/ie.svg",
+                "png": "https://flagcdn.com/w320/ie.png"
+            },
+            "currencies": [
+                {
+                    "code": "EUR",
+                    "name": "Euro",
+                    "symbol": "\u20ac"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "ga",
+                    "iso639_2": "gle",
+                    "name": "Irish",
+                    "nativeName": "Gaeilge"
+                },
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                }
+            ],
+            "translations": {
+                "br": "Iwerzhon",
+                "pt": "Irlanda",
+                "nl": "Ierland",
+                "hr": "Irska",
+                "fa": "\u0627\u06cc\u0631\u0644\u0646\u062f",
+                "de": "Irland",
+                "es": "Irlanda",
+                "fr": "Irlande",
+                "ja": "\u30a2\u30a4\u30eb\u30e9\u30f3\u30c9",
+                "it": "Irlanda",
+                "hu": "\u00cdrorsz\u00e1g"
+            },
+            "flag": "https://flagcdn.com/ie.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "EU",
+                    "name": "European Union"
+                }
+            ],
+            "cioc": "IRL",
+            "independent": true,
+            "wikipedia_summary": "Ireland is an island in the North Atlantic Ocean, in north-western Europe. It is separated from Great Britain to its east by the North Channel, the Irish Sea, and St George's Channel. Ireland is the second-largest island of the British Isles, the third-largest in Europe, and the twentieth-largest on Earth."
+        },
+        {
+            "name": "New Zealand",
+            "topLevelDomain": [
+                ".nz"
+            ],
+            "alpha2Code": "NZ",
+            "alpha3Code": "NZL",
+            "callingCodes": [
+                "64"
+            ],
+            "capital": "Wellington",
+            "altSpellings": [
+                "NZ",
+                "Aotearoa"
+            ],
+            "subregion": "Australia and New Zealand",
+            "region": "Oceania",
+            "population": 5084300,
+            "latlng": [
+                -41.0,
+                174.0
+            ],
+            "demonym": "New Zealander",
+            "area": 270467.0,
+            "timezones": [
+                "UTC-11:00",
+                "UTC-10:00",
+                "UTC+12:00",
+                "UTC+12:45",
+                "UTC+13:00"
+            ],
+            "nativeName": "New Zealand",
+            "numericCode": "554",
+            "flags": {
+                "svg": "https://flagcdn.com/nz.svg",
+                "png": "https://flagcdn.com/w320/nz.png"
+            },
+            "currencies": [
+                {
+                    "code": "NZD",
+                    "name": "New Zealand dollar",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                },
+                {
+                    "iso639_1": "mi",
+                    "iso639_2": "mri",
+                    "name": "M\u0101ori",
+                    "nativeName": "te reo M\u0101ori"
+                }
+            ],
+            "translations": {
+                "br": "Zeland-Nevez",
+                "pt": "Nova Zel\u00e2ndia",
+                "nl": "Nieuw-Zeeland",
+                "hr": "Novi Zeland",
+                "fa": "\u0646\u06cc\u0648\u0632\u06cc\u0644\u0646\u062f",
+                "de": "Neuseeland",
+                "es": "Nueva Zelanda",
+                "fr": "Nouvelle-Z\u00e9lande",
+                "ja": "\u30cb\u30e5\u30fc\u30b8\u30fc\u30e9\u30f3\u30c9",
+                "it": "Nuova Zelanda",
+                "hu": "\u00daj-Z\u00e9land"
+            },
+            "flag": "https://flagcdn.com/nz.svg",
+            "cioc": "NZL",
+            "independent": true,
+            "wikipedia_summary": "New Zealand is an island country in the southwestern Pacific Ocean. It consists of two main landmasses\u2014the North Island and the South Island \u2014and over 700 smaller islands. It is the sixth-largest island country by area, covering 268,021 square kilometres (103,500\u00a0sq\u00a0mi). New Zealand is about 2,000 kilometres (1,200\u00a0mi) east of Australia across the Tasman Sea and 1,000 kilometres (600\u00a0mi) south of the islands of New Caledonia, Fiji, and Tonga. The country's varied topography and sharp mountain peaks, including the Southern Alps, owe much to tectonic uplift and volcanic eruptions. New Zealand's capital city is Wellington, and its most populous city is Auckland."
+        },
+        {
+            "name": "Czech Republic",
+            "topLevelDomain": [
+                ".cz"
+            ],
+            "alpha2Code": "CZ",
+            "alpha3Code": "CZE",
+            "callingCodes": [
+                "420"
+            ],
+            "capital": "Prague",
+            "altSpellings": [
+                "CZ",
+                "\u010cesk\u00e1 republika",
+                "\u010cesko"
+            ],
+            "subregion": "Central Europe",
+            "region": "Europe",
+            "population": 10698896,
+            "latlng": [
+                49.75,
+                15.5
+            ],
+            "demonym": "Czech",
+            "area": 78865.0,
+            "gini": 25.0,
+            "timezones": [
+                "UTC+01:00"
+            ],
+            "nativeName": "\u010cesk\u00e1 republika",
+            "numericCode": "203",
+            "flags": {
+                "svg": "https://flagcdn.com/cz.svg",
+                "png": "https://flagcdn.com/w320/cz.png"
+            },
+            "currencies": [
+                {
+                    "code": "CZK",
+                    "name": "Czech koruna",
+                    "symbol": "K\u010d"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "cs",
+                    "iso639_2": "ces",
+                    "name": "Czech",
+                    "nativeName": "\u010de\u0161tina"
+                },
+                {
+                    "iso639_1": "sk",
+                    "iso639_2": "slk",
+                    "name": "Slovak",
+                    "nativeName": "sloven\u010dina"
+                }
+            ],
+            "translations": {
+                "br": "Tchekia",
+                "pt": "Rep\u00fablica Checa",
+                "nl": "Tsjechi\u00eb",
+                "hr": "\u010ce\u0161ka",
+                "fa": "\u062c\u0645\u0647\u0648\u0631\u06cc \u0686\u06a9",
+                "de": "Tschechische Republik",
+                "es": "Rep\u00fablica Checa",
+                "fr": "R\u00e9publique tch\u00e8que",
+                "ja": "\u30c1\u30a7\u30b3",
+                "it": "Repubblica Ceca",
+                "hu": "Csehorsz\u00e1g"
+            },
+            "flag": "https://flagcdn.com/cz.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "EU",
+                    "name": "European Union"
+                }
+            ],
+            "cioc": "CZE",
+            "independent": true,
+            "wikipedia_summary": "The Czech Republic, also known as Czechia, is a landlocked country in Central Europe. Historically known as Bohemia, it is bordered by Austria to the south, Germany to the west, Poland to the northeast, and Slovakia to the southeast. The Czech Republic has a hilly landscape that covers an area of 78,871 square kilometers (30,452\u00a0sq\u00a0mi) with a mostly temperate continental and oceanic climate. The capital and largest city is Prague; other major cities and urban areas include Brno, Ostrava, Plze\u0148 and Liberec."
+        },
+        {
+            "name": "Puerto Rico",
+            "topLevelDomain": [
+                ".pr"
+            ],
+            "alpha2Code": "PR",
+            "alpha3Code": "PRI",
+            "callingCodes": [
+                "1"
+            ],
+            "capital": "San Juan",
+            "altSpellings": [
+                "PR",
+                "Commonwealth of Puerto Rico",
+                "Estado Libre Asociado de Puerto Rico"
+            ],
+            "subregion": "Caribbean",
+            "region": "Americas",
+            "population": 3194034,
+            "latlng": [
+                18.25,
+                -66.5
+            ],
+            "demonym": "Puerto Rican",
+            "area": 8870.0,
+            "timezones": [
+                "UTC-04:00"
+            ],
+            "nativeName": "Puerto Rico",
+            "numericCode": "630",
+            "flags": {
+                "svg": "https://flagcdn.com/pr.svg",
+                "png": "https://flagcdn.com/w320/pr.png"
+            },
+            "currencies": [
+                {
+                    "code": "USD",
+                    "name": "United States dollar",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "es",
+                    "iso639_2": "spa",
+                    "name": "Spanish",
+                    "nativeName": "Espa\u00f1ol"
+                },
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                }
+            ],
+            "translations": {
+                "br": "Puerto Rico",
+                "pt": "Porto Rico",
+                "nl": "Puerto Rico",
+                "hr": "Portoriko",
+                "fa": "\u067e\u0648\u0631\u062a\u0648 \u0631\u06cc\u06a9\u0648",
+                "de": "Puerto Rico",
+                "es": "Puerto Rico",
+                "fr": "Porto Rico",
+                "ja": "\u30d7\u30a8\u30eb\u30c8\u30ea\u30b3",
+                "it": "Porto Rico",
+                "hu": "Puerto Rico"
+            },
+            "flag": "https://flagcdn.com/pr.svg",
+            "cioc": "PUR",
+            "independent": false,
+            "wikipedia_summary": "Puerto Rico, officially the Commonwealth of Puerto Rico, is a Caribbean island and unincorporated territory of the United States. It is located in the northeast Caribbean Sea, approximately 1,000 miles (1,600\u00a0km) southeast of Miami, Florida, between the Dominican Republic and the U.S. Virgin Islands, and includes the eponymous main island and several smaller islands, such as Mona, Culebra, and Vieques. It has roughly 3.2\u00a0million residents, and its capital and most populous city is San Juan. Spanish and English are the official languages of the executive branch of government, though Spanish predominates."
+        },
+        {
+            "name": "Haiti",
+            "topLevelDomain": [
+                ".ht"
+            ],
+            "alpha2Code": "HT",
+            "alpha3Code": "HTI",
+            "callingCodes": [
+                "509"
+            ],
+            "capital": "Port-au-Prince",
+            "altSpellings": [
+                "HT",
+                "Republic of Haiti",
+                "R\u00e9publique d'Ha\u00efti",
+                "Repiblik Ayiti"
+            ],
+            "subregion": "Caribbean",
+            "region": "Americas",
+            "population": 11402533,
+            "latlng": [
+                19.0,
+                -72.41666666
+            ],
+            "demonym": "Haitian",
+            "area": 27750.0,
+            "gini": 41.1,
+            "timezones": [
+                "UTC-05:00"
+            ],
+            "borders": [
+                "DOM"
+            ],
+            "nativeName": "Ha\u00efti",
+            "numericCode": "332",
+            "flags": {
+                "svg": "https://flagcdn.com/ht.svg",
+                "png": "https://flagcdn.com/w320/ht.png"
+            },
+            "currencies": [
+                {
+                    "code": "HTG",
+                    "name": "Haitian gourde",
+                    "symbol": "G"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "fr",
+                    "iso639_2": "fra",
+                    "name": "French",
+                    "nativeName": "fran\u00e7ais"
+                },
+                {
+                    "iso639_1": "ht",
+                    "iso639_2": "hat",
+                    "name": "Haitian",
+                    "nativeName": "Krey\u00f2l ayisyen"
+                }
+            ],
+            "translations": {
+                "br": "Haiti",
+                "pt": "Haiti",
+                "nl": "Ha\u00efti",
+                "hr": "Haiti",
+                "fa": "\u0647\u0627\u0626\u06cc\u062a\u06cc",
+                "de": "Haiti",
+                "es": "Haiti",
+                "fr": "Ha\u00efti",
+                "ja": "\u30cf\u30a4\u30c1",
+                "it": "Haiti",
+                "hu": "Haiti"
+            },
+            "flag": "https://flagcdn.com/ht.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "CARICOM",
+                    "name": "Caribbean Community",
+                    "otherNames": [
+                        "Comunidad del Caribe",
+                        "Communaut\u00e9 Carib\u00e9enne",
+                        "Caribische Gemeenschap"
+                    ]
+                }
+            ],
+            "cioc": "HAI",
+            "independent": true,
+            "wikipedia_summary": "Haiti, officially the Republic of Haiti, and formerly known as Hayti, is a country located on the island of Hispaniola in the Greater Antilles archipelago of the Caribbean Sea, east of Cuba and Jamaica, and south of The Bahamas and the Turks and Caicos Islands. It occupies the western three-eighths of the island which it shares with the Dominican Republic. To its south-west lies the small Navassa Island, which is claimed by Haiti but is disputed as a United States territory under federal administration. Haiti is 27,750\u00a0km2 (10,714\u00a0sq\u00a0mi) in size, the third largest country in the Caribbean by area, and has an estimated population of 11.4 million, making it the most populous country in the Caribbean. The capital is Port-au-Prince."
+        },
+        {
+            "name": "Cuba",
+            "topLevelDomain": [
+                ".cu"
+            ],
+            "alpha2Code": "CU",
+            "alpha3Code": "CUB",
+            "callingCodes": [
+                "53"
+            ],
+            "capital": "Havana",
+            "altSpellings": [
+                "CU",
+                "Republic of Cuba",
+                "Rep\u00fablica de Cuba"
+            ],
+            "subregion": "Caribbean",
+            "region": "Americas",
+            "population": 11326616,
+            "latlng": [
+                21.5,
+                -80.0
+            ],
+            "demonym": "Cuban",
+            "area": 109884.0,
+            "timezones": [
+                "UTC-05:00"
+            ],
+            "nativeName": "Cuba",
+            "numericCode": "192",
+            "flags": {
+                "svg": "https://flagcdn.com/cu.svg",
+                "png": "https://flagcdn.com/w320/cu.png"
+            },
+            "currencies": [
+                {
+                    "code": "CUC",
+                    "name": "Cuban convertible peso",
+                    "symbol": "$"
+                },
+                {
+                    "code": "CUP",
+                    "name": "Cuban peso",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "es",
+                    "iso639_2": "spa",
+                    "name": "Spanish",
+                    "nativeName": "Espa\u00f1ol"
+                }
+            ],
+            "translations": {
+                "br": "Kuba",
+                "pt": "Cuba",
+                "nl": "Cuba",
+                "hr": "Kuba",
+                "fa": "\u06a9\u0648\u0628\u0627",
+                "de": "Kuba",
+                "es": "Cuba",
+                "fr": "Cuba",
+                "ja": "\u30ad\u30e5\u30fc\u30d0",
+                "it": "Cuba",
+                "hu": "Kuba"
+            },
+            "flag": "https://flagcdn.com/cu.svg",
+            "cioc": "CUB",
+            "independent": true,
+            "wikipedia_summary": "Cuba, officially the Republic of Cuba, is an island country comprising the island of Cuba, as well as Isla de la Juventud and several minor archipelagos. Cuba is located where the northern Caribbean Sea, Gulf of Mexico, and Atlantic Ocean meet. Cuba is located east of the Yucat\u00e1n Peninsula (Mexico), south of both the American state of Florida and the Bahamas, west of Hispaniola, and north of both Jamaica and the Cayman Islands. Havana is the largest city and capital; other major cities include Santiago de Cuba and Camag\u00fcey. The official area of the main island of Cuba is 109,884\u00a0km2 (42,426\u00a0sq\u00a0mi) but a total of 350,730\u00a0km\u00b2 including the exclusive economic zone. The main island of Cuba is the largest island in Cuba and in the Caribbean, with an area of 109,884\u00a0km2 (42,426\u00a0sq\u00a0mi). Cuba is the second-most populous country in the Caribbean after Haiti, with over 11 million inhabitants."
+        },
+        {
+            "name": "Dominican Republic",
+            "topLevelDomain": [
+                ".do"
+            ],
+            "alpha2Code": "DO",
+            "alpha3Code": "DOM",
+            "callingCodes": [
+                "1"
+            ],
+            "capital": "Santo Domingo",
+            "altSpellings": [
+                "DO"
+            ],
+            "subregion": "Caribbean",
+            "region": "Americas",
+            "population": 10847904,
+            "latlng": [
+                19.0,
+                -70.66666666
+            ],
+            "demonym": "Dominican",
+            "area": 48671.0,
+            "gini": 41.9,
+            "timezones": [
+                "UTC-04:00"
+            ],
+            "borders": [
+                "HTI"
+            ],
+            "nativeName": "Rep\u00fablica Dominicana",
+            "numericCode": "214",
+            "flags": {
+                "svg": "https://flagcdn.com/do.svg",
+                "png": "https://flagcdn.com/w320/do.png"
+            },
+            "currencies": [
+                {
+                    "code": "DOP",
+                    "name": "Dominican peso",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "es",
+                    "iso639_2": "spa",
+                    "name": "Spanish",
+                    "nativeName": "Espa\u00f1ol"
+                }
+            ],
+            "translations": {
+                "br": "Republik Dominikan",
+                "pt": "Rep\u00fablica Dominicana",
+                "nl": "Dominicaanse Republiek",
+                "hr": "Dominikanska Republika",
+                "fa": "\u062c\u0645\u0647\u0648\u0631\u06cc \u062f\u0648\u0645\u06cc\u0646\u06cc\u06a9\u0646",
+                "de": "Dominikanische Republik",
+                "es": "Rep\u00fablica Dominicana",
+                "fr": "R\u00e9publique dominicaine",
+                "ja": "\u30c9\u30df\u30cb\u30ab\u5171\u548c\u56fd",
+                "it": "Repubblica Dominicana",
+                "hu": "Dominikai K\u00f6zt\u00e1rsas\u00e1g"
+            },
+            "flag": "https://flagcdn.com/do.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "CARICOM",
+                    "name": "Caribbean Community",
+                    "otherNames": [
+                        "Comunidad del Caribe",
+                        "Communaut\u00e9 Carib\u00e9enne",
+                        "Caribische Gemeenschap"
+                    ]
+                },
+                {
+                    "acronym": "CAIS",
+                    "name": "Central American Integration System",
+                    "otherAcronyms": [
+                        "SICA"
+                    ],
+                    "otherNames": [
+                        "Sistema de la Integraci\u00f3n Centroamericana,"
+                    ]
+                }
+            ],
+            "cioc": "DOM",
+            "independent": true,
+            "wikipedia_summary": "The Dominican Republic is a country located on the island of Hispaniola in the Greater Antilles archipelago of the Caribbean region. It occupies the eastern five-eighths of the island, which it shares with Haiti, making Hispaniola one of only two Caribbean islands, along with Saint Martin, that is shared by two sovereign states. The Dominican Republic is the second-largest nation in the Antilles by area at 48,671 square kilometers (18,792\u00a0sq\u00a0mi), and third-largest by population, with approximately 10.7 million people, down from 10.8 million in 2020, of whom approximately 3.3 million live in the metropolitan area of Santo Domingo, the capital city. The official language of the country is Spanish."
+        },
+        {
+            "name": "Jamaica",
+            "topLevelDomain": [
+                ".jm"
+            ],
+            "alpha2Code": "JM",
+            "alpha3Code": "JAM",
+            "callingCodes": [
+                "1"
+            ],
+            "capital": "Kingston",
+            "altSpellings": [
+                "JM"
+            ],
+            "subregion": "Caribbean",
+            "region": "Americas",
+            "population": 2961161,
+            "latlng": [
+                18.25,
+                -77.5
+            ],
+            "demonym": "Jamaican",
+            "area": 10991.0,
+            "gini": 45.5,
+            "timezones": [
+                "UTC-05:00"
+            ],
+            "nativeName": "Jamaica",
+            "numericCode": "388",
+            "flags": {
+                "svg": "https://flagcdn.com/jm.svg",
+                "png": "https://flagcdn.com/w320/jm.png"
+            },
+            "currencies": [
+                {
+                    "code": "JMD",
+                    "name": "Jamaican dollar",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                }
+            ],
+            "translations": {
+                "br": "Jamaika",
+                "pt": "Jamaica",
+                "nl": "Jamaica",
+                "hr": "Jamajka",
+                "fa": "\u062c\u0627\u0645\u0627\u0626\u06cc\u06a9\u0627",
+                "de": "Jamaika",
+                "es": "Jamaica",
+                "fr": "Jama\u00efque",
+                "ja": "\u30b8\u30e3\u30de\u30a4\u30ab",
+                "it": "Giamaica",
+                "hu": "Jamaica"
+            },
+            "flag": "https://flagcdn.com/jm.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "CARICOM",
+                    "name": "Caribbean Community",
+                    "otherNames": [
+                        "Comunidad del Caribe",
+                        "Communaut\u00e9 Carib\u00e9enne",
+                        "Caribische Gemeenschap"
+                    ]
+                }
+            ],
+            "cioc": "JAM",
+            "independent": true,
+            "wikipedia_summary": "Jamaica is an island country situated in the Caribbean Sea. Spanning 10,990 square kilometres (4,240\u00a0sq\u00a0mi) in area, it is the third-largest island of the Greater Antilles and the Caribbean. Jamaica lies about 145 kilometres (90\u00a0mi) south of Cuba, and 191 kilometres (119\u00a0mi) west of Hispaniola ; the British Overseas Territory of the Cayman Islands lies some 215 kilometres (134\u00a0mi) to the north-west."
+        },
+        {
+            "name": "Chile",
+            "topLevelDomain": [
+                ".cl"
+            ],
+            "alpha2Code": "CL",
+            "alpha3Code": "CHL",
+            "callingCodes": [
+                "56"
+            ],
+            "capital": "Santiago",
+            "altSpellings": [
+                "CL",
+                "Republic of Chile",
+                "Rep\u00fablica de Chile"
+            ],
+            "subregion": "South America",
+            "region": "Americas",
+            "population": 19116209,
+            "latlng": [
+                -30.0,
+                -71.0
+            ],
+            "demonym": "Chilean",
+            "area": 756102.0,
+            "gini": 44.4,
+            "timezones": [
+                "UTC-06:00",
+                "UTC-04:00"
+            ],
+            "borders": [
+                "ARG",
+                "BOL",
+                "PER"
+            ],
+            "nativeName": "Chile",
+            "numericCode": "152",
+            "flags": {
+                "svg": "https://flagcdn.com/cl.svg",
+                "png": "https://flagcdn.com/w320/cl.png"
+            },
+            "currencies": [
+                {
+                    "code": "CLP",
+                    "name": "Chilean peso",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "es",
+                    "iso639_2": "spa",
+                    "name": "Spanish",
+                    "nativeName": "Espa\u00f1ol"
+                }
+            ],
+            "translations": {
+                "br": "Chile",
+                "pt": "Chile",
+                "nl": "Chili",
+                "hr": "\u010cile",
+                "fa": "\u0634\u06cc\u0644\u06cc",
+                "de": "Chile",
+                "es": "Chile",
+                "fr": "Chili",
+                "ja": "\u30c1\u30ea",
+                "it": "Cile",
+                "hu": "Chile"
+            },
+            "flag": "https://flagcdn.com/cl.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "PA",
+                    "name": "Pacific Alliance",
+                    "otherNames": [
+                        "Alianza del Pac\u00edfico"
+                    ]
+                },
+                {
+                    "acronym": "USAN",
+                    "name": "Union of South American Nations",
+                    "otherAcronyms": [
+                        "UNASUR",
+                        "UNASUL",
+                        "UZAN"
+                    ],
+                    "otherNames": [
+                        "Uni\u00f3n de Naciones Suramericanas",
+                        "Uni\u00e3o de Na\u00e7\u00f5es Sul-Americanas",
+                        "Unie van Zuid-Amerikaanse Naties",
+                        "South American Union"
+                    ]
+                }
+            ],
+            "cioc": "CHI",
+            "independent": true,
+            "wikipedia_summary": "Chile, officially the Republic of Chile, is a country in the western part of South America. It is the southernmost country in the world, and the closest to Antarctica, occupying a long and narrow strip of land between the Andes to the east and the Pacific Ocean to the west. Chile covers an area of 756,096 square kilometers (291,930\u00a0sq\u00a0mi), with a population of 17.5 million as of 2017. It shares land borders with Peru to the north, Bolivia to the north-east, Argentina to the east, and the Drake Passage in the far south. Chile also controls the Pacific islands of Juan Fern\u00e1ndez, Isla Salas y G\u00f3mez, Desventuradas, and Easter Island in Oceania. It also claims about 1,250,000 square kilometers (480,000\u00a0sq\u00a0mi) of Antarctica under the Chilean Antarctic Territory. The country's capital and largest city is Santiago, and its national language is Spanish."
+        },
+        {
+            "name": "Argentina",
+            "topLevelDomain": [
+                ".ar"
+            ],
+            "alpha2Code": "AR",
+            "alpha3Code": "ARG",
+            "callingCodes": [
+                "54"
+            ],
+            "capital": "Buenos Aires",
+            "altSpellings": [
+                "AR",
+                "Argentine Republic",
+                "Rep\u00fablica Argentina"
+            ],
+            "subregion": "South America",
+            "region": "Americas",
+            "population": 45376763,
+            "latlng": [
+                -34.0,
+                -64.0
+            ],
+            "demonym": "Argentinean",
+            "area": 2780400.0,
+            "gini": 42.9,
+            "timezones": [
+                "UTC-03:00"
+            ],
+            "borders": [
+                "BOL",
+                "BRA",
+                "CHL",
+                "PRY",
+                "URY"
+            ],
+            "nativeName": "Argentina",
+            "numericCode": "032",
+            "flags": {
+                "svg": "https://flagcdn.com/ar.svg",
+                "png": "https://flagcdn.com/w320/ar.png"
+            },
+            "currencies": [
+                {
+                    "code": "ARS",
+                    "name": "Argentine peso",
+                    "symbol": "$"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "es",
+                    "iso639_2": "spa",
+                    "name": "Spanish",
+                    "nativeName": "Espa\u00f1ol"
+                },
+                {
+                    "iso639_1": "gn",
+                    "iso639_2": "grn",
+                    "name": "Guaran\u00ed",
+                    "nativeName": "Ava\u00f1e'\u1ebd"
+                }
+            ],
+            "translations": {
+                "br": "Arc'hantina",
+                "pt": "Argentina",
+                "nl": "Argentini\u00eb",
+                "hr": "Argentina",
+                "fa": "\u0622\u0631\u0698\u0627\u0646\u062a\u06cc\u0646",
+                "de": "Argentinien",
+                "es": "Argentina",
+                "fr": "Argentine",
+                "ja": "\u30a2\u30eb\u30bc\u30f3\u30c1\u30f3",
+                "it": "Argentina",
+                "hu": "Argent\u00edna"
+            },
+            "flag": "https://flagcdn.com/ar.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "USAN",
+                    "name": "Union of South American Nations",
+                    "otherAcronyms": [
+                        "UNASUR",
+                        "UNASUL",
+                        "UZAN"
+                    ],
+                    "otherNames": [
+                        "Uni\u00f3n de Naciones Suramericanas",
+                        "Uni\u00e3o de Na\u00e7\u00f5es Sul-Americanas",
+                        "Unie van Zuid-Amerikaanse Naties",
+                        "South American Union"
+                    ]
+                }
+            ],
+            "cioc": "ARG",
+            "independent": true,
+            "wikipedia_summary": "Argentina, officially the Argentine Republic, is a country in the southern half of South America. Argentina covers an area of 2,780,400\u00a0km2 (1,073,500\u00a0sq\u00a0mi), making it the second-largest country in South America after Brazil, the fourth-largest country in the Americas, and the eighth-largest country in the world. It shares the bulk of the Southern Cone with Chile to the west, and is also bordered by Bolivia and Paraguay to the north, Brazil to the northeast, Uruguay and the South Atlantic Ocean to the east, and the Drake Passage to the south. Argentina is a federal state subdivided into twenty-three provinces, and one autonomous city, which is the federal capital and largest city of the nation, Buenos Aires. The provinces and the capital have their own constitutions, but exist under a federal system. Argentina claims sovereignty over a part of Antarctica, the Falkland Islands and South Georgia and the South Sandwich Islands."
+        },
+        {
+            "name": "Nigeria",
+            "topLevelDomain": [
+                ".ng"
+            ],
+            "alpha2Code": "NG",
+            "alpha3Code": "NGA",
+            "callingCodes": [
+                "234"
+            ],
+            "capital": "Abuja",
+            "altSpellings": [
+                "NG",
+                "Nijeriya",
+                "Na\u00edj\u00edr\u00ed\u00e0",
+                "Federal Republic of Nigeria"
+            ],
+            "subregion": "Western Africa",
+            "region": "Africa",
+            "population": 206139587,
+            "latlng": [
+                10.0,
+                8.0
+            ],
+            "demonym": "Nigerian",
+            "area": 923768.0,
+            "gini": 35.1,
+            "timezones": [
+                "UTC+01:00"
+            ],
+            "borders": [
+                "BEN",
+                "CMR",
+                "TCD",
+                "NER"
+            ],
+            "nativeName": "Nigeria",
+            "numericCode": "566",
+            "flags": {
+                "svg": "https://flagcdn.com/ng.svg",
+                "png": "https://flagcdn.com/w320/ng.png"
+            },
+            "currencies": [
+                {
+                    "code": "NGN",
+                    "name": "Nigerian naira",
+                    "symbol": "\u20a6"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                }
+            ],
+            "translations": {
+                "br": "Nigeria",
+                "pt": "Nig\u00e9ria",
+                "nl": "Nigeria",
+                "hr": "Nigerija",
+                "fa": "\u0646\u06cc\u062c\u0631\u06cc\u0647",
+                "de": "Nigeria",
+                "es": "Nigeria",
+                "fr": "Nig\u00e9ria",
+                "ja": "\u30ca\u30a4\u30b8\u30a7\u30ea\u30a2",
+                "it": "Nigeria",
+                "hu": "Nig\u00e9ria"
+            },
+            "flag": "https://flagcdn.com/ng.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AU",
+                    "name": "African Union",
+                    "otherNames": [
+                        "\u0627\u0644\u0627\u062a\u062d\u0627\u062f \u0627\u0644\u0623\u0641\u0631\u064a\u0642\u064a",
+                        "Union africaine",
+                        "Uni\u00e3o Africana",
+                        "Uni\u00f3n Africana",
+                        "Umoja wa Afrika"
+                    ]
+                }
+            ],
+            "cioc": "NGR",
+            "independent": true,
+            "wikipedia_summary": "Nigeria, officially the Federal Republic of Nigeria, is a country in West Africa. It is situated between the Sahel to the north and the Gulf of Guinea to the south in the Atlantic Ocean. It covers an area of 923,769 square kilometres (356,669\u00a0sq\u00a0mi), and with a population of over 218 million, it is the most populous country in Africa, and the world's sixth-most populous country. Nigeria borders Niger in the north, Chad in the northeast, Cameroon in the east, and Benin in the west. Nigeria is a federal republic comprising 36 states and the Federal Capital Territory, where the capital, Abuja, is located. The largest city in Nigeria is Lagos, one of the largest metropolitan areas in the world and the second-largest in Africa."
+        },
+        {
+            "name": "Kenya",
+            "topLevelDomain": [
+                ".ke"
+            ],
+            "alpha2Code": "KE",
+            "alpha3Code": "KEN",
+            "callingCodes": [
+                "254"
+            ],
+            "capital": "Nairobi",
+            "altSpellings": [
+                "KE",
+                "Republic of Kenya",
+                "Jamhuri ya Kenya"
+            ],
+            "subregion": "Eastern Africa",
+            "region": "Africa",
+            "population": 53771300,
+            "latlng": [
+                1.0,
+                38.0
+            ],
+            "demonym": "Kenyan",
+            "area": 580367.0,
+            "gini": 40.8,
+            "timezones": [
+                "UTC+03:00"
+            ],
+            "borders": [
+                "ETH",
+                "SOM",
+                "SSD",
+                "TZA",
+                "UGA"
+            ],
+            "nativeName": "Kenya",
+            "numericCode": "404",
+            "flags": {
+                "svg": "https://flagcdn.com/ke.svg",
+                "png": "https://flagcdn.com/w320/ke.png"
+            },
+            "currencies": [
+                {
+                    "code": "KES",
+                    "name": "Kenyan shilling",
+                    "symbol": "Sh"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                },
+                {
+                    "iso639_1": "sw",
+                    "iso639_2": "swa",
+                    "name": "Swahili",
+                    "nativeName": "Kiswahili"
+                }
+            ],
+            "translations": {
+                "br": "Kenya",
+                "pt": "Qu\u00e9nia",
+                "nl": "Kenia",
+                "hr": "Kenija",
+                "fa": "\u06a9\u0646\u06cc\u0627",
+                "de": "Kenia",
+                "es": "Kenia",
+                "fr": "Kenya",
+                "ja": "\u30b1\u30cb\u30a2",
+                "it": "Kenya",
+                "hu": "Kenya"
+            },
+            "flag": "https://flagcdn.com/ke.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AU",
+                    "name": "African Union",
+                    "otherNames": [
+                        "\u0627\u0644\u0627\u062a\u062d\u0627\u062f \u0627\u0644\u0623\u0641\u0631\u064a\u0642\u064a",
+                        "Union africaine",
+                        "Uni\u00e3o Africana",
+                        "Uni\u00f3n Africana",
+                        "Umoja wa Afrika"
+                    ]
+                }
+            ],
+            "cioc": "KEN",
+            "independent": true,
+            "wikipedia_summary": "Kenya, officially the Republic of Kenya, is a country in East Africa. At 580,367 square kilometres (224,081\u00a0sq\u00a0mi), Kenya is the world's 48th largest country by area. With a population of more than 47.6 million in the 2019 census, Kenya is the 29th most populous country in the world. Kenya's capital and largest city is Nairobi, while its oldest, currently second largest city, and first capital is the coastal city of Mombasa. Kisumu City is the third-largest city and also an inland port on Lake Victoria. Other important urban centres include Nakuru and Eldoret. As of 2020, Kenya is the third-largest economy in sub-Saharan Africa after Nigeria and South Africa. Kenya is bordered by South Sudan to the northwest, Ethiopia to the north, Somalia to the east, Uganda to the west, Tanzania to the south, and the Indian Ocean to the southeast. Its geography, climate and population vary widely, ranging from cold snow-capped mountaintops with vast surrounding forests, wildlife and fertile agricultural regions to temperate climates in western and rift valley counties and dry less fertile arid and semi-arid areas and absolute deserts."
+        },
+        {
+            "name": "South Africa",
+            "topLevelDomain": [
+                ".za"
+            ],
+            "alpha2Code": "ZA",
+            "alpha3Code": "ZAF",
+            "callingCodes": [
+                "27"
+            ],
+            "capital": "Pretoria",
+            "altSpellings": [
+                "ZA",
+                "RSA",
+                "Suid-Afrika",
+                "Republic of South Africa"
+            ],
+            "subregion": "Southern Africa",
+            "region": "Africa",
+            "population": 59308690,
+            "latlng": [
+                -29.0,
+                24.0
+            ],
+            "demonym": "South African",
+            "area": 1221037.0,
+            "gini": 63.0,
+            "timezones": [
+                "UTC+02:00"
+            ],
+            "borders": [
+                "BWA",
+                "LSO",
+                "MOZ",
+                "NAM",
+                "SWZ",
+                "ZWE"
+            ],
+            "nativeName": "South Africa",
+            "numericCode": "710",
+            "flags": {
+                "svg": "https://flagcdn.com/za.svg",
+                "png": "https://flagcdn.com/w320/za.png"
+            },
+            "currencies": [
+                {
+                    "code": "ZAR",
+                    "name": "South African rand",
+                    "symbol": "R"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "af",
+                    "iso639_2": "afr",
+                    "name": "Afrikaans",
+                    "nativeName": "Afrikaans"
+                },
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                },
+                {
+                    "iso639_1": "nr",
+                    "iso639_2": "nbl",
+                    "name": "Southern Ndebele",
+                    "nativeName": "isiNdebele"
+                },
+                {
+                    "iso639_1": "st",
+                    "iso639_2": "sot",
+                    "name": "Southern Sotho",
+                    "nativeName": "Sesotho"
+                },
+                {
+                    "iso639_1": "ss",
+                    "iso639_2": "ssw",
+                    "name": "Swati",
+                    "nativeName": "SiSwati"
+                },
+                {
+                    "iso639_1": "tn",
+                    "iso639_2": "tsn",
+                    "name": "Tswana",
+                    "nativeName": "Setswana"
+                },
+                {
+                    "iso639_1": "ts",
+                    "iso639_2": "tso",
+                    "name": "Tsonga",
+                    "nativeName": "Xitsonga"
+                },
+                {
+                    "iso639_1": "ve",
+                    "iso639_2": "ven",
+                    "name": "Venda",
+                    "nativeName": "Tshiven\u1e13a"
+                },
+                {
+                    "iso639_1": "xh",
+                    "iso639_2": "xho",
+                    "name": "Xhosa",
+                    "nativeName": "isiXhosa"
+                },
+                {
+                    "iso639_1": "zu",
+                    "iso639_2": "zul",
+                    "name": "Zulu",
+                    "nativeName": "isiZulu"
+                }
+            ],
+            "translations": {
+                "br": "Suafrika",
+                "pt": "Rep\u00fablica Sul-Africana",
+                "nl": "Zuid-Afrika",
+                "hr": "Ju\u017enoafri\u010dka Republika",
+                "fa": "\u0622\u0641\u0631\u06cc\u0642\u0627\u06cc \u062c\u0646\u0648\u0628\u06cc",
+                "de": "Republik S\u00fcdafrika",
+                "es": "Rep\u00fablica de Sud\u00e1frica",
+                "fr": "Afrique du Sud",
+                "ja": "\u5357\u30a2\u30d5\u30ea\u30ab",
+                "it": "Sud Africa",
+                "hu": "D\u00e9l-afrikai K\u00f6zt\u00e1rsas\u00e1g"
+            },
+            "flag": "https://flagcdn.com/za.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AU",
+                    "name": "African Union",
+                    "otherNames": [
+                        "\u0627\u0644\u0627\u062a\u062d\u0627\u062f \u0627\u0644\u0623\u0641\u0631\u064a\u0642\u064a",
+                        "Union africaine",
+                        "Uni\u00e3o Africana",
+                        "Uni\u00f3n Africana",
+                        "Umoja wa Afrika"
+                    ]
+                }
+            ],
+            "cioc": "RSA",
+            "independent": true,
+            "wikipedia_summary": "South Africa, officially the Republic of South Africa (RSA), is the southernmost country in Africa. It is bounded to the south by 2,798 kilometres (1,739\u00a0mi) of coastline that stretch along the South Atlantic and Indian Oceans; to the north by the neighbouring countries of Namibia, Botswana, and Zimbabwe; and to the east and northeast by Mozambique and Eswatini. It also completely enclaves the country Lesotho. It is the southernmost country on the mainland of the Old World, and the second-most populous country located entirely south of the equator, after Tanzania. South Africa is a biodiversity hotspot, with unique biomes, plant and animal life. With over 60 million people, the country is the world's 23rd-most populous nation and covers an area of 1,221,037 square kilometres. South Africa has three capital cities, with the executive, judicial and legislative branches of government based in Pretoria, Bloemfontein, and Cape Town respectively. The largest city is Johannesburg."
+        },
+        {
+            "name": "Uganda",
+            "topLevelDomain": [
+                ".ug"
+            ],
+            "alpha2Code": "UG",
+            "alpha3Code": "UGA",
+            "callingCodes": [
+                "256"
+            ],
+            "capital": "Kampala",
+            "altSpellings": [
+                "UG",
+                "Republic of Uganda",
+                "Jamhuri ya Uganda"
+            ],
+            "subregion": "Eastern Africa",
+            "region": "Africa",
+            "population": 45741000,
+            "latlng": [
+                1.0,
+                32.0
+            ],
+            "demonym": "Ugandan",
+            "area": 241550.0,
+            "gini": 42.8,
+            "timezones": [
+                "UTC+03:00"
+            ],
+            "borders": [
+                "COD",
+                "KEN",
+                "RWA",
+                "SSD",
+                "TZA"
+            ],
+            "nativeName": "Uganda",
+            "numericCode": "800",
+            "flags": {
+                "svg": "https://flagcdn.com/ug.svg",
+                "png": "https://flagcdn.com/w320/ug.png"
+            },
+            "currencies": [
+                {
+                    "code": "UGX",
+                    "name": "Ugandan shilling",
+                    "symbol": "Sh"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "en",
+                    "iso639_2": "eng",
+                    "name": "English",
+                    "nativeName": "English"
+                },
+                {
+                    "iso639_1": "sw",
+                    "iso639_2": "swa",
+                    "name": "Swahili",
+                    "nativeName": "Kiswahili"
+                }
+            ],
+            "translations": {
+                "br": "Ouganda",
+                "pt": "Uganda",
+                "nl": "Oeganda",
+                "hr": "Uganda",
+                "fa": "\u0627\u0648\u06af\u0627\u0646\u062f\u0627",
+                "de": "Uganda",
+                "es": "Uganda",
+                "fr": "Uganda",
+                "ja": "\u30a6\u30ac\u30f3\u30c0",
+                "it": "Uganda",
+                "hu": "Uganda"
+            },
+            "flag": "https://flagcdn.com/ug.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AU",
+                    "name": "African Union",
+                    "otherNames": [
+                        "\u0627\u0644\u0627\u062a\u062d\u0627\u062f \u0627\u0644\u0623\u0641\u0631\u064a\u0642\u064a",
+                        "Union africaine",
+                        "Uni\u00e3o Africana",
+                        "Uni\u00f3n Africana",
+                        "Umoja wa Afrika"
+                    ]
+                }
+            ],
+            "cioc": "UGA",
+            "independent": true,
+            "wikipedia_summary": "Uganda, officially the Republic of Uganda, is a landlocked country in East Africa. The country is bordered to the east by Kenya, to the north by South Sudan, to the west by the Democratic Republic of the Congo, to the south-west by Rwanda, and to the south by Tanzania. The southern part of the country includes a substantial portion of Lake Victoria, shared with Kenya and Tanzania. Uganda is in the African Great Lakes region. Uganda also lies within the Nile basin and has a varied but generally a modified equatorial climate. It has a population of around 46 million, of which 8.5 million live in the capital and largest city of Kampala."
+        },
+        {
+            "name": "Madagascar",
+            "topLevelDomain": [
+                ".mg"
+            ],
+            "alpha2Code": "MG",
+            "alpha3Code": "MDG",
+            "callingCodes": [
+                "261"
+            ],
+            "capital": "Antananarivo",
+            "altSpellings": [
+                "MG",
+                "Republic of Madagascar",
+                "Repoblikan'i Madagasikara",
+                "R\u00e9publique de Madagascar"
+            ],
+            "subregion": "Eastern Africa",
+            "region": "Africa",
+            "population": 27691019,
+            "latlng": [
+                -20.0,
+                47.0
+            ],
+            "demonym": "Malagasy",
+            "area": 587041.0,
+            "gini": 42.6,
+            "timezones": [
+                "UTC+03:00"
+            ],
+            "nativeName": "Madagasikara",
+            "numericCode": "450",
+            "flags": {
+                "svg": "https://flagcdn.com/mg.svg",
+                "png": "https://flagcdn.com/w320/mg.png"
+            },
+            "currencies": [
+                {
+                    "code": "MGA",
+                    "name": "Malagasy ariary",
+                    "symbol": "Ar"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "fr",
+                    "iso639_2": "fra",
+                    "name": "French",
+                    "nativeName": "fran\u00e7ais"
+                },
+                {
+                    "iso639_1": "mg",
+                    "iso639_2": "mlg",
+                    "name": "Malagasy",
+                    "nativeName": "fiteny malagasy"
+                }
+            ],
+            "translations": {
+                "br": "Madagaskar",
+                "pt": "Madag\u00e1scar",
+                "nl": "Madagaskar",
+                "hr": "Madagaskar",
+                "fa": "\u0645\u0627\u062f\u0627\u06af\u0627\u0633\u06a9\u0627\u0631",
+                "de": "Madagaskar",
+                "es": "Madagascar",
+                "fr": "Madagascar",
+                "ja": "\u30de\u30c0\u30ac\u30b9\u30ab\u30eb",
+                "it": "Madagascar",
+                "hu": "Madagaszk\u00e1r"
+            },
+            "flag": "https://flagcdn.com/mg.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "AU",
+                    "name": "African Union",
+                    "otherNames": [
+                        "\u0627\u0644\u0627\u062a\u062d\u0627\u062f \u0627\u0644\u0623\u0641\u0631\u064a\u0642\u064a",
+                        "Union africaine",
+                        "Uni\u00e3o Africana",
+                        "Uni\u00f3n Africana",
+                        "Umoja wa Afrika"
+                    ]
+                }
+            ],
+            "cioc": "MAD",
+            "independent": true,
+            "wikipedia_summary": "Madagascar, officially the Republic of Madagascar, is an island country in the Indian Ocean, approximately 400 kilometres off the coast of East Africa across the Mozambique Channel. At 592,800 square kilometres (228,900\u00a0sq\u00a0mi) Madagascar is the world's second-largest island country, after Indonesia. The nation is home to around 30 million inhabitants and consists of the island of Madagascar, along with numerous smaller peripheral islands. Following the prehistoric breakup of the supercontinent Gondwana, Madagascar split from the Indian subcontinent around 88\u00a0million years ago, allowing native plants and animals to evolve in relative isolation. Consequently, Madagascar is a biodiversity hotspot; over 90% of its wildlife is endemic."
+        },
+        {
+            "name": "Bolivia (Plurinational State of)",
+            "topLevelDomain": [
+                ".bo"
+            ],
+            "alpha2Code": "BO",
+            "alpha3Code": "BOL",
+            "callingCodes": [
+                "591"
+            ],
+            "capital": "Sucre",
+            "altSpellings": [
+                "BO",
+                "Buliwya",
+                "Wuliwya",
+                "Plurinational State of Bolivia",
+                "Estado Plurinacional de Bolivia",
+                "Buliwya Mamallaqta",
+                "Wuliwya Suyu",
+                "Tet\u00e3 Vol\u00edvia"
+            ],
+            "subregion": "South America",
+            "region": "Americas",
+            "population": 11673029,
+            "latlng": [
+                -17.0,
+                -65.0
+            ],
+            "demonym": "Bolivian",
+            "area": 1098581.0,
+            "gini": 41.6,
+            "timezones": [
+                "UTC-04:00"
+            ],
+            "borders": [
+                "ARG",
+                "BRA",
+                "CHL",
+                "PRY",
+                "PER"
+            ],
+            "nativeName": "Bolivia",
+            "numericCode": "068",
+            "flags": {
+                "svg": "https://flagcdn.com/bo.svg",
+                "png": "https://flagcdn.com/w320/bo.png"
+            },
+            "currencies": [
+                {
+                    "code": "BOB",
+                    "name": "Bolivian boliviano",
+                    "symbol": "Bs."
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "es",
+                    "iso639_2": "spa",
+                    "name": "Spanish",
+                    "nativeName": "Espa\u00f1ol"
+                },
+                {
+                    "iso639_1": "ay",
+                    "iso639_2": "aym",
+                    "name": "Aymara",
+                    "nativeName": "aymar aru"
+                },
+                {
+                    "iso639_1": "qu",
+                    "iso639_2": "que",
+                    "name": "Quechua",
+                    "nativeName": "Runa Simi"
+                }
+            ],
+            "translations": {
+                "br": "Bolivia",
+                "pt": "Bol\u00edvia",
+                "nl": "Bolivia",
+                "hr": "Bolivija",
+                "fa": "\u0628\u0648\u0644\u06cc\u0648\u06cc",
+                "de": "Bolivien",
+                "es": "Bolivia",
+                "fr": "Bolivie",
+                "ja": "\u30dc\u30ea\u30d3\u30a2\u591a\u6c11\u65cf\u56fd",
+                "it": "Bolivia",
+                "hu": "Bol\u00edvia"
+            },
+            "flag": "https://flagcdn.com/bo.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "USAN",
+                    "name": "Union of South American Nations",
+                    "otherAcronyms": [
+                        "UNASUR",
+                        "UNASUL",
+                        "UZAN"
+                    ],
+                    "otherNames": [
+                        "Uni\u00f3n de Naciones Suramericanas",
+                        "Uni\u00e3o de Na\u00e7\u00f5es Sul-Americanas",
+                        "Unie van Zuid-Amerikaanse Naties",
+                        "South American Union"
+                    ]
+                }
+            ],
+            "cioc": "BOL",
+            "independent": true,
+            "wikipedia_summary": "Bolivia, officially the Plurinational State of Bolivia, is a landlocked country located in western-central South America. The seat of government and executive capital is La Paz, while the constitutional capital is Sucre. The largest city and principal industrial center is Santa Cruz de la Sierra, located on the Llanos Orientales, a mostly flat region in the east of the country."
+        },
+        {
+            "name": "Venezuela (Bolivarian Republic of)",
+            "topLevelDomain": [
+                ".ve"
+            ],
+            "alpha2Code": "VE",
+            "alpha3Code": "VEN",
+            "callingCodes": [
+                "58"
+            ],
+            "capital": "Caracas",
+            "altSpellings": [
+                "VE",
+                "Bolivarian Republic of Venezuela",
+                "Rep\u00fablica Bolivariana de Venezuela"
+            ],
+            "subregion": "South America",
+            "region": "Americas",
+            "population": 28435943,
+            "latlng": [
+                8.0,
+                -66.0
+            ],
+            "demonym": "Venezuelan",
+            "area": 916445.0,
+            "gini": 44.8,
+            "timezones": [
+                "UTC-04:00"
+            ],
+            "borders": [
+                "BRA",
+                "COL",
+                "GUY"
+            ],
+            "nativeName": "Venezuela",
+            "numericCode": "862",
+            "flags": {
+                "svg": "https://flagcdn.com/ve.svg",
+                "png": "https://flagcdn.com/w320/ve.png"
+            },
+            "currencies": [
+                {
+                    "code": "VEF",
+                    "name": "Venezuelan bol\u00edvar",
+                    "symbol": "Bs S"
+                }
+            ],
+            "languages": [
+                {
+                    "iso639_1": "es",
+                    "iso639_2": "spa",
+                    "name": "Spanish",
+                    "nativeName": "Espa\u00f1ol"
+                }
+            ],
+            "translations": {
+                "br": "Venezuela",
+                "pt": "Venezuela",
+                "nl": "Venezuela",
+                "hr": "Venezuela",
+                "fa": "\u0648\u0646\u0632\u0648\u0626\u0644\u0627",
+                "de": "Venezuela",
+                "es": "Venezuela",
+                "fr": "Venezuela",
+                "ja": "\u30d9\u30cd\u30ba\u30a8\u30e9\u30fb\u30dc\u30ea\u30d0\u30eb\u5171\u548c\u56fd",
+                "it": "Venezuela",
+                "hu": "Venezuela"
+            },
+            "flag": "https://flagcdn.com/ve.svg",
+            "regionalBlocs": [
+                {
+                    "acronym": "USAN",
+                    "name": "Union of South American Nations",
+                    "otherAcronyms": [
+                        "UNASUR",
+                        "UNASUL",
+                        "UZAN"
+                    ],
+                    "otherNames": [
+                        "Uni\u00f3n de Naciones Suramericanas",
+                        "Uni\u00e3o de Na\u00e7\u00f5es Sul-Americanas",
+                        "Unie van Zuid-Amerikaanse Naties",
+                        "South American Union"
+                    ]
+                }
+            ],
+            "cioc": "VEN",
+            "independent": true,
+            "wikipedia_summary": "Venezuela, officially the Bolivarian Republic of Venezuela, is a country on the northern coast of South America, consisting of a continental landmass and many islands and islets in the Caribbean Sea. It has a territorial extension of 916,445\u00a0km2 (353,841\u00a0sq\u00a0mi), and its population was estimated at 29 million in 2022. The capital and largest urban agglomeration is the city of Caracas."
+        }
+    ]
+}

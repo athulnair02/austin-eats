@@ -3,17 +3,9 @@ import { useParams, Navigate } from 'react-router-dom';
 import restaurants from '../../temp-backend/restaurants.json';
 import recipes from '../../temp-backend/recipes.json'
 import cultures from '../../temp-backend/cultures.json'
-import ModelListItem from '../Models/sub_components/ModelListItem';
-import './Instances.css'
-
-function CommaSeparate(array, index) {
-  return array.map(function(val) {
-    if (index) {
-      return val[index];
-    }
-    return val;
-  }).join(', ');
-}
+import { Create_Recipe_Cell, Create_Culture_Cell } from '../../SharedFunctions';
+import { CommaSeparate } from '../../SharedFunctions';
+import '../../styles/Instances.css'
 
 function Restaurant(props) {
     let { id } = useParams();
@@ -86,13 +78,13 @@ function Restaurant(props) {
             </tr>
           </tbody>
           <div className='instanceSubTitle'>Recipes similar to {restaurant.name}</div>
-          <div className='scrollContainer'>
-            <ModelListItem name={relatedRecipe.name} image={relatedRecipe.image} link={`/recipes/${id}`} redirect={true}/>
-          </div>
+          <ul className='scrollContainer'>
+            <li>{Create_Recipe_Cell(relatedRecipe, `/recipes/${id}`)}</li>
+          </ul>
           <div className='instanceSubTitle'>Cultures related to {restaurant.name}</div>
-          <div className='scrollContainer'>
-            <ModelListItem name={relatedCulture.name} image={relatedCulture.flags.png} link={`/cultures/${id}`} redirect={true}/>
-          </div>
+          <ul className='scrollContainer'>
+            <li>{Create_Culture_Cell(relatedCulture, `/cultures/${id}`)}</li>
+          </ul>
         </div>
       </>
     );

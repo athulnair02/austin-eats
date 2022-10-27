@@ -5,36 +5,33 @@ image: node:latest
 stages:          # List of stages for jobs, and their order of execution
   - build
   - test
-  - deploy
 
 cache:
   paths:
     - front-end/node_modules/
 
-build:
+build_front_end:
   stage: build
   script:
     - cd front-end
     - npm install
     - CI=false npm run-script build
 
-test:
+test_front_end:
+  image: python:3.6-stretch
   stage: test
+  before_script:
+    - python3 -m pip install --upgrade pip
+    - python3 -m pip install selenium
+    - pip install webdriver-manager
   script:
-    - echo "Running React test suite......"
+    - make front-end-tests
 
-deploy_development:
-  only:
-    variables:
-      - $CI_COMMIT_BRANCH == "develop"
-  stage: deploy
+test_back_end:
+  image: python:3.6-stretch
+  stage: test
+  before_script:
+    - python3 -m pip install --upgrade pip
+    - pip3 install -r back-end/requirements.txt
   script:
-    - $AWS_DEV_DEPLOY
-
-deploy_production:
-  only:
-    variables:
-      - $CI_COMMIT_BRANCH == "main"
-  stage: deploy
-  script:
-    - $AWS_PROD_DEPLOY
+    - make back-end-tests

@@ -1,0 +1,89 @@
+.imageWrapper {
+    overflow: hidden;
+    height: 400px;
+    position: relative;
+}
+
+.homeImage {
+    background-image: url("../assets/austinLong.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 120px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: block;
+}
+
+.imageWrapper:hover .homeImage {
+    transform: scale(1.05);
+}
+
+.imageWrapper:hover .homeImage, .imageWrapper:not(:hover) .homeImage {
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+.homeTitle {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 800;
+    line-height: 20px;
+    color: rgb(202, 39, 39);
+    font-size: 75px;
+    text-shadow: 3px 3px rgb(78, 11, 11);
+    margin: 15px auto;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    top: 10px;
+    bottom: 0;
+    left: 0; 
+    right: 0; 
+    z-index: 75;
+}
+
+.homeSubTitle {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 500;
+    color: rgb(37, 37, 37);
+    font-size: 40px;
+    margin: 10px auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.homeSubSubTitle {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #23022E;
+    font-weight: 350;
+    font-size: 30px;
+    margin: 10px auto;
+    margin-top: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.spacer {
+    min-height: 90px;
+}
+
+body {
+    background-color: #CBD4C2;
+}
+    

@@ -1,0 +1,54 @@
+.wrapper {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.bioPic {
+  height: 286px;
+  object-fit: cover;
+}
+
+.bioCard {
+  height: fit-content;
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.bioWrapper {
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.git-table-headers {
+    font-weight: bold;
+}
+
+.infoCard {
+  display: inline-block;
+  box-shadow: 0 8px 6px -6px #999;
+  height: 300px;
+  width: 280px;
+  margin: 8px;
+}
+
+.customAction {
+  height: 300px;
+  width: 280px;
+}
+
+.logo {
+  padding: 8px;
+  object-fit: contain !important;
+  height: 172px;
+}
+
+.GLPM {
+  padding-top: 12px;
+  object-fit: contain !important;
+}
+
+.aboutPadding {
+  margin-bottom: 20px;
+}

@@ -3,9 +3,10 @@ import Recipes from '../Models/Recipes';
 import recipes from '../../temp-backend/recipes.json'
 import restaurants from '../../temp-backend/restaurants.json'
 import cultures from '../../temp-backend/cultures.json'
-import ModelListItem from '../Models/sub_components/ModelListItem';
+import { Create_Restaurant_Cell, Create_Culture_Cell } from '../../SharedFunctions';
+import { CommaSeparate, Format_Time } from '../../SharedFunctions';
 import { useParams, Navigate } from 'react-router-dom';
-import './Instances.css'
+import '../../styles/Instances.css'
 
 function RecipeInfoCell(props) {
   return (
@@ -20,22 +21,6 @@ function RecipeInfoCell(props) {
   )
 }
 
-function CommaSeparate(array, index) {
-  return array.map(function(val) {
-    if (index) {
-      return val[index];
-    }
-    return val;
-  }).join(', ');
-}
-
-// Format minutes into a neat string displaying hours and minutes
-function format_time(mins) {
-  const hours = Math.floor(mins/60);
-  const minutes = (mins % 60);
-  return hours > 0 ? `${hours} hr ${minutes} min` : `${minutes} min`;
-}
-
 function Recipe() {
     let { id } = useParams();
     let recipe = recipes[id];
@@ -48,12 +33,12 @@ function Recipe() {
 
     // Get recipe metrics
     const metrics = {
-      ['TOTAL TIME']: format_time(recipe.instructions_minutes < 0 ? recipe.ready_in_minutes : recipe.instructions_minutes),
-      ['SERVINGS']: recipe.servings,
-      ['HEALTHINESS']: `${recipe.health_score}/100`,
-      ['CALORIES']: `${Math.floor(recipe.nutrition.nutrients[0].amount)} ${recipe.nutrition.nutrients[0].unit}`,
-      ['CUISINE']: CommaSeparate(recipe.cuisines),
-      ['DISH']: CommaSeparate(recipe.dish_types),
+      'TOTAL TIME': Format_Time(recipe.instructions_minutes < 0 ? recipe.ready_in_minutes : recipe.instructions_minutes),
+      'SERVINGS': recipe.servings,
+      'HEALTHINESS': `${recipe.health_score}/100`,
+      'CALORIES': `${Math.floor(recipe.nutrition.nutrients[0].amount)} ${recipe.nutrition.nutrients[0].unit}`,
+      'CUISINE': CommaSeparate(recipe.cuisines),
+      'DISH': CommaSeparate(recipe.dish_types),
     };
 
     const infoCells = [];
@@ -92,7 +77,7 @@ function Recipe() {
         <div className='cultureTopDownContainer' style={{width: '80%'}}>
           <div className='instanceTitle'>{recipe.name}</div>
           <div className='recipeImage' style={{backgroundImage: `url(${recipe.image})`}}></div>
-          <div style={{paddingLeft: '50px', paddingRight: '50px'}}>
+          <div style={{marginLeft: '50px', marginRight: '50px'}}>
             <div className='headerFrame'>
               <div className='instanceSubTitle'>Recipe</div>
               <div className='recipeInfoList'>
@@ -118,13 +103,13 @@ function Recipe() {
             {nutrientRows}
           </table>
           <div className='instanceSubTitle'>Restaurants serving {recipe.name}</div>
-          <div className='scrollContainer'>
-            <ModelListItem name={relatedRestaurant.name} image={relatedRestaurant.image_url} link={`/restaurants/${id}`} redirect={true}/>
-          </div>
+          <ul className='scrollContainer'>
+            <li>{Create_Restaurant_Cell(relatedRestaurant, `/restaurants/${id}`)}</li>
+          </ul>
           <div className='instanceSubTitle'>Cultures related to {recipe.name}</div>
-          <div className='scrollContainer'>
-            <ModelListItem name={relatedCulture.name} image={relatedCulture.flags.png} link={`/cultures/${id}`} redirect={true}/>
-          </div>
+          <ul className='scrollContainer'>
+            <li>{Create_Culture_Cell(relatedCulture, `/cultures/${id}`)}</li>
+          </ul>
         </div>
       </>
     );

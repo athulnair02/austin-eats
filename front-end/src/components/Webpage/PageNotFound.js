@@ -1,7 +1,7 @@
 import React from 'react';
 import { Images, Container, Button } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
-import './PageNotFound.css'
+import '../../styles/PageNotFound.css'
 
 function About() {
     let navigate = useNavigate(); 

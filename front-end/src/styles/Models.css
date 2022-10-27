@@ -1,0 +1,143 @@
+.modelTitle {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 500;
+    line-height: 20px;
+    color: white;
+    font-size: 75px;
+    text-shadow: 2px 2px rgb(187, 35, 35);
+    margin: 50px auto;
+    text-align: center;
+}
+
+.modelFilterBar {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.paginationText {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400;
+    color: rgb(37, 37, 37);
+    font-size: 20px;
+    text-align: left;
+    width: fit-content;
+}
+
+.modelListItem {
+    height: fit-content;
+    min-height: 100%;
+    width: 100%;
+    max-width: 300px;
+    background-color: white;
+    margin: auto;
+    padding: 0px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px -7px;
+    position: relative;
+}
+
+.modelListItem:hover {
+    background-color: rgb(230,230,230);
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,.4);
+}
+
+.modelListItem:hover .modelListImage {
+    transform: scale(1.05);
+}
+
+.modelListItem:hover .shadowOverlay {
+    box-shadow: 0px -15px 15px 0px rgba(230,230,230,1) inset;
+}
+
+.modelListItem:hover, .modelListItem:hover .modelListImage, .modelListItem:hover .shadowOverlay {
+    -o-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.modelListItem:not(:hover), .modelListItem:not(:hover) .modelListImage, .modelListItem:not(:hover) .shadowOverlay {
+    -o-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.modalListBadges {
+    overflow: auto;
+    text-align: left;
+}
+
+.modelListHeader {
+    font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: black;
+    font-size: 28px;
+    text-align: left;
+    font-weight: 500;
+    white-space: wrap;
+    overflow: hidden;
+    line-height: 1;
+    margin-bottom: 5px;
+    padding: 0 5%;
+}
+
+.modalListBadges, .modelListHeader {
+    padding-left: 5%;
+}
+
+.modelListImageWrapper {
+    width: 100%;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.modelListImage {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.shadowOverlay {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 50;
+    box-shadow: 0px -15px 15px 0px rgba(255,255,255,1) inset;
+}
+
+.modelListButton {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 100;
+    background: transparent;
+    border: transparent;
+}
+
+.modelGrid {
+    padding: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+    gap: 10px;
+    grid-auto-rows: minmax(270px, auto);
+}
