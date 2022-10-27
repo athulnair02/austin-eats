@@ -1,6 +1,6 @@
 import React from 'react';
 import recipes from '../../temp-backend/recipes.json'
-import { Create_Recipe_Cell } from '../../SharedFunctions';
+import { Create_Recipe_Cell, Get_Data } from '../../SharedFunctions';
 import Selection from './sub_components/Selection';
 import InputField from './sub_components/InputField';
 import PaginateTable from './sub_components/PaginateTable';
@@ -38,21 +38,25 @@ function Recipes() {
       },
     ], []);
 
-    const model_data = recipes;
+    const [modelData, setModelData] = React.useState([]);
+    React.useEffect(() => {
+      Get_Data('recipes').then(data => setModelData(data));
+    }, [])
+
     const data = React.useMemo(() => {
       const t = [];
-      for (const [id, recipe] of Object.entries(model_data)) {
+      for (const [i, recipe] of Object.entries(modelData)) {
         t.push({
-          id: id,
+          id: recipe.id,
           name: recipe.name,
           ready_in_minutes: recipe.ready_in_minutes,
           ingredients: recipe.ingredients.length,
           dish_types: recipe.dish_types,
-          cuisine_type: recipe.cuisines,
+          cultures: recipe.cultures ? recipe.cultures[0] : null,
         });
       }
       return t;
-    }, [])
+    }, [modelData])
 
     return (
       <>
@@ -72,7 +76,7 @@ function Recipes() {
           <InputField helpText='Search for cuisine'></InputField>
         </Stack>
         <PaginateTable columns={columns} data={data} create_cell={(id) => {
-          return Create_Recipe_Cell(model_data[id], id);
+          return Create_Recipe_Cell(modelData[id], id);
         }}/>
 
         
