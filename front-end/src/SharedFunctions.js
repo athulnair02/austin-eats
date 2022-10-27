@@ -5,6 +5,7 @@ import haversine from 'haversine-distance';
 
 // Separate array into string with each element separated by a comma
 export function CommaSeparate(array, index) {
+    if (!array) return null;
     return array.map(function(val) {
         if (index) {
         return val[index];
@@ -51,30 +52,47 @@ export function Get_User_Coordinates() {
 //     return (haversine(userCoords, restaurant.coordinates))/METERS_IN_MILE;
 // }
 
+// Fetch model/instance data from api
+export async function Get_Data(model, id) {
+    let URL = "https://api.austineats.me/" + model;
+    if (id != null) {
+        URL += ("/" + id);
+    }
+    const response = await fetch(URL);
+    const json = await response.json();
+    return json;
+}
+
 export function Create_Restaurant_Cell(restaurant, link, style) {
-    return <ModelListItem name={restaurant.name} image={restaurant.image_url} link={link} style={style}
-    attributes={[
-        restaurant.review_count + ' reviews',
-        0 + ' miles', // todo: Actual value based off of user coordinates
-    ]}
-    badges = {{
+    const badges = {
         [!restaurant.is_closed ? 'Open' : 'Closed']: {
             backgroundColor: !restaurant.is_closed ? '#5fe368' : '#f26b6b',
         },
         ['⭐ ' + restaurant.rating]: {
             backgroundColor: '#f0de59',
         },
-        [restaurant.price]: {
+    }
+    if (restaurant.price) {
+        badges[restaurant.price] = {
             backgroundColor: '#d4d4d4',
-        },
-    }}/>
+        }
+    }
+
+    return <ModelListItem name={restaurant.name} image={restaurant.image_url} link={link} style={style}
+        attributes={[
+            restaurant.review_count + ' reviews',
+            0 + ' miles', // todo: Actual value based off of user coordinates
+        ]}
+        badges = {
+            badges
+    }/>
 }
 
 export function Create_Recipe_Cell(recipe, link, style) {
-    const formattedTotalTime = Format_Time(recipe.instructions_minutes < 0 ? recipe.ready_in_minutes : recipe.instructions_minutes)
+    const formattedTotalTime = Format_Time(recipe.ready_in_minutes);
     const badges = {}
-    for (const cuisine of recipe.cuisines) { // todo: Change this to cuisine_type when backend is actually queried
-        badges['🌎 ' + cuisine] = {
+    if (recipe.cultures) {
+        badges['🌎 ' + recipe.cultures[0].demonym] = {
             backgroundColor: '#8bdae8'
         }
     }
@@ -82,20 +100,21 @@ export function Create_Recipe_Cell(recipe, link, style) {
         backgroundColor: '#cccccc'
     }
 
-    return <ModelListItem name={recipe.name} image={recipe.image} link={link} style={style}
-    attributes={[
-        CommaSeparate(recipe.dish_types),
-        //`${recipe.health_score}/100 healthiness`, // todo: replace with another recipe attribute
-        recipe.ingredients.length + " ingredients", // Only ingredient number is passed from PaginateTable
-    ]}
-    badges = {
-        badges
+    return <ModelListItem name={recipe.name} image={recipe.image_url} link={link} style={style}
+        attributes={[
+            CommaSeparate(recipe.dish_types),
+            //`${recipe.health_score}/100 healthiness`, // todo: replace with another recipe attribute
+            recipe.ingredients ? recipe.ingredients.length + " ingredients" : '', // Only ingredient number is passed from PaginateTable
+        ]}
+        badges = {
+            badges
     }/>
 }
 
 export function Create_Culture_Cell(culture, link, style) {
-    const badges = {
-        ['🌎 ' + culture.region]: {
+    const badges = {}
+    if (culture.region) {
+        badges['🌎 ' + culture.region] = {
             backgroundColor: '#8bdae8'
         }
     }
@@ -107,13 +126,13 @@ export function Create_Culture_Cell(culture, link, style) {
         }
     }
 
-    return <ModelListItem name={culture.name} image={culture.flags.png} link={link} style={style}
-    attributes={[
-        culture.subregion,
-        culture.population.toLocaleString("en-US") + ' inhabitants',
-        culture.independent ? 'Independent' : 'Not independent',
-    ]}
-    badges = {
-        badges
+    return <ModelListItem name={culture.name} image={culture.flag_url} link={link} style={style}
+        attributes={[
+            culture.subregion,
+            culture.population ? culture.population.toLocaleString("en-US") + ' inhabitants' : '',
+            culture.independent ? 'Independent' : 'Not independent',
+        ]}
+        badges = {
+            badges
     }/>
 }

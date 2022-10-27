@@ -2,7 +2,7 @@ import React from 'react';
 import cultures from '../../temp-backend/cultures.json';
 import restaurants from '../../temp-backend/restaurants.json'
 import recipes from '../../temp-backend/recipes.json'
-import { Create_Restaurant_Cell, Create_Recipe_Cell } from '../../SharedFunctions';
+import { Create_Restaurant_Cell, Create_Recipe_Cell, Get_Data } from '../../SharedFunctions';
 import { Images, Container } from "react-bootstrap";
 import { CommaSeparate } from '../../SharedFunctions';
 import { useParams, Navigate } from 'react-router-dom';
@@ -10,32 +10,35 @@ import '../../styles/Instances.css'
 
 function Culture(props) {
     let { id } = useParams();
-    let culture = cultures[id];
+    
+    const [instanceData, setInstanceData] = React.useState([]);
+    React.useEffect(() => {
+      Get_Data('cultures', id).then(data => setInstanceData(data));
+    }, [])
 
-    // Redirect to home page, invalid culture
-    if (culture == null) {
-      return <Navigate to="../../" />
-    }
+    // // Redirect to home page, invalid culture
+    // if (culture == null) {
+    //   return <Navigate to="../../" />
+    // }
 
     
-    let population = culture.population;
-    let populationFormatted = population.toLocaleString("en-US");
+    let population = instanceData.population;
+    let populationFormatted = population ? population.toLocaleString("en-US") : '';
 
-    let multipleLanguages = Object.keys(culture.languages).length > 1
-    let languages = CommaSeparate(culture.languages);
+    let multipleLanguages = instanceData.languages ? Object.keys(instanceData.languages).length > 1 : false;
+    let languages = CommaSeparate(instanceData.languages);
 
-    let multipleCurrencies = Object.keys(culture.currencies).length > 1
-    let currencies = CommaSeparate(culture.currencies, "name")
+    let multipleCurrencies = instanceData.currencies ? Object.keys(instanceData.currencies).length > 1 : false;
+    let currencies = CommaSeparate(instanceData.currencies, "name");
 
-    let regionalBlocs = null
-    if (culture.regional_blocs) {
-      regionalBlocs = CommaSeparate(culture.regional_blocs, "name")
+    let regionalBlocs = null;
+    if (instanceData.regional_blocs) {
+      regionalBlocs = CommaSeparate(instanceData.regional_blocs, "name");
     }
 
-    const relatedRestaurant = restaurants[id];
-    const relatedRecipe = recipes[id];
+    const related_restaurants = instanceData.restaurants ? instanceData.restaurants : [];
+    const related_recipes = instanceData.recipes ? instanceData.recipes : [];
 
-    console.log(culture);
     // return (
     //   <>
     //     <div className='cultureWideContainer'>
@@ -47,22 +50,22 @@ function Culture(props) {
       <>
         <div className='cultureTopDownContainer'>
           <div className='instanceTitle'>
-            {culture.demonym} Culture
+            {instanceData.demonym} Culture
           </div>
           <div className='instanceSubTitle' style={{fontSize:`35px`}}>
-            A closer look at {culture.name}
+            A closer look at {instanceData.name}
           </div>
           <div className='cultureContainer'>
-            <div title={`Flag of ${culture.name}`} className='cultureFlag' style={{backgroundImage:`url(${culture.flags.png})`}}> </div>
+            <div title={`Flag of ${instanceData.name}`} className='cultureFlag' style={{backgroundImage:`url(${instanceData.flag_url})`}}> </div>
             <div className='instanceText' style={{textAlign:'left'}}>
-              <span className="tab"></span> {culture.summary}
+              <span className="tab"></span> {instanceData.summary}
             </div>
           </div>
           <div className='cultureContainer' style={{height:`200px`, display:`flex`, alignItems:'center', marginTop:'50px'}}>
-            <iframe align="top" className='googleMap' src={`https://maps.google.com/maps?q=${culture.name}&output=embed`}></iframe>
+            <iframe align="top" className='googleMap' src={`https://maps.google.com/maps?q=${instanceData.name}&output=embed`}></iframe>
           </div>
           <div className='instanceText'>
-            The country's region is {culture.region}, specifically in {culture.subregion}.
+            The country's region is {instanceData.region}, specifically in {instanceData.subregion}.
           </div>
           <div className='instanceSubTitle' style={{fontSize:`35px`}}>
             Quick Facts
@@ -79,7 +82,7 @@ function Culture(props) {
           <tbody align="center">
             <tr>
               <td className='tdLeft'>Capital City</td>
-              <td>{culture.capital}</td>
+              <td>{instanceData.capital}</td>
             </tr>
             <tr>
               <td className='tdLeft'>Population</td>
@@ -87,7 +90,7 @@ function Culture(props) {
             </tr>
             <tr>
               <td className='tdLeft'>Independence</td>
-              <td>{culture.independent ? "The country is recognized as independent." : "The country is not independent."}</td>
+              <td>{instanceData.independent ? "The country is recognized as independent." : "The country is not independent."}</td>
             </tr>
             <tr>
               <td className='tdLeft'>Primary Languages</td>
@@ -102,13 +105,13 @@ function Culture(props) {
               <td>{regionalBlocs == null ? "No regional blocs." : regionalBlocs}</td>
             </tr>
           </tbody>
-          <div className='instanceSubTitle'>{culture.demonym} Restaurants</div>
+          <div className='instanceSubTitle'>{instanceData.demonym} Restaurants</div>
           <ul className='scrollContainer'>
-            <li>{Create_Restaurant_Cell(relatedRestaurant, `/restaurants/${id}`)}</li>
+            {related_restaurants.map((restaurant) => <li>{Create_Restaurant_Cell(restaurant, `/restaurants/${restaurant.id}`)}</li>)}
           </ul>
-          <div className='instanceSubTitle'>{culture.demonym} Recipes</div>
+          <div className='instanceSubTitle'>{instanceData.demonym} Recipes</div>
           <ul className='scrollContainer'>
-            <li>{Create_Recipe_Cell(relatedRecipe, `/recipes/${id}`)}</li>
+            {related_recipes.map((recipe) => <li>{Create_Recipe_Cell(recipe, `/recipes/${recipe.id}`)}</li>)}
           </ul>
         </div>
       </>
