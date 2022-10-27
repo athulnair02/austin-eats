@@ -18,3 +18,4 @@ back-end-tests:
 
 front-end-tests:
 	echo "Running Mocha and Selenium test suite..."
+	cd front-end/ && python3 guitests.py
