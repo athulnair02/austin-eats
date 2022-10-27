@@ -1,25 +1,16 @@
-from flask import Flask, make_response, jsonify
+from flask import Flask
 from db import init_db
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
-from marshmallow import fields, post_dump
+from marshmallow import fields, Schema
 from sqlalchemy.dialects.postgresql import ARRAY
+
+# TexasVotes code helped a lot with this
 
 app = Flask(__name__)
 CORS(app)
 db = init_db(app)
 ma = Marshmallow(app)
-
-# Association table between cultures and restaurants; many to many relationship
-join_culture_restaurant = db.Table(
-    "join_culture_restaurant",
-    db.Column(
-        "culture_id", db.Integer, db.ForeignKey("cultures.id"), primary_key=True
-    ),
-    db.Column(
-        "restaurant_id", db.Integer, db.ForeignKey("restaurants.id"), primary_key=True
-    ),
-)
 
 # Association table between cultures and recipes; many to many relationship
 join_culture_recipe = db.Table(
@@ -29,6 +20,17 @@ join_culture_recipe = db.Table(
     ),
     db.Column(
         "recipe_id", db.Integer, db.ForeignKey("recipes.id"), primary_key=True
+    ),
+)
+
+# Association table between cultures and restaurants; many to many relationship
+join_restaurant_culture = db.Table(
+    "join_culture_restaurant",
+    db.Column(
+        "restaurant_id", db.Integer, db.ForeignKey("restaurants.id"), primary_key=True
+    ),
+    db.Column(
+        "culture_id", db.Integer, db.ForeignKey("cultures.id"), primary_key=True
     ),
 )
 
@@ -45,8 +47,9 @@ join_restaurant_recipe = db.Table(
 
 class Culture(db.Model) :
     __tablename__ = 'cultures'
-    
     id = db.Column(db.Integer, primary_key=True)
+
+    # variables
     name = db.Column(db.String())
     capital = db.Column(db.String())
     flag_url = db.Column(db.String())
@@ -66,6 +69,20 @@ class Culture(db.Model) :
 class Restaurant(db.Model) :
     __tablename__ = 'restaurants'
     id = db.Column(db.Integer, primary_key=True)
+    # associations
+    cultures = db.relationship(
+        "Culture",
+        secondary = join_restaurant_culture,
+        backref = db.backref("restaurants", lazy="dynamic")
+    )
+
+    recipes = db.relationship(
+        "Recipe",
+        secondary = join_restaurant_recipe,
+        backref = db.backref("restaurants", lazy="dynamic")
+    )
+
+    # variables
     name = db.Column(db.String)
     image_url = db.Column(db.String)
     restaurant_url = db.Column(db.String)
@@ -79,6 +96,7 @@ class Restaurant(db.Model) :
     price = db.Column(db.String)
     delivery = db.Column(db.Boolean)
     is_open = db.Column(db.Boolean)
+    reviews = db.Column(db.JSON)
 
     def __repr__(self):
         return "<Restaurant %s>" % self.name
@@ -86,6 +104,15 @@ class Restaurant(db.Model) :
 class Recipe(db.Model) :
     __tablename__ = 'recipes'
     id = db.Column(db.Integer, primary_key=True)
+
+    # associations
+    cultures = db.relationship(
+        "Culture",
+        secondary = join_culture_recipe,
+        backref = db.backref("recipes", lazy="dynamic")
+    )
+
+    # variables
     name = db.Column(db.String())
     summary = db.Column(db.String())
     image_url = db.Column(db.String())
@@ -111,12 +138,12 @@ class Recipe(db.Model) :
     recipe_id = db.Column(db.Integer, db.ForeignKey("recipes.id"))"""
 
 
-class CultureSchema() :
+class CultureSchema(Schema) :
     id = fields.Integer(required=True)
     name = fields.String(required=True)
 
-    restaurants = fields.Nested("RestaurantSchema", only=("id", "name", "image", "rating", "review_count", "price"), required=True, attribute="restaurants", many=True)
-    recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_type", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
+    restaurants = fields.Nested("RestaurantSchema", only=("id", "name", "image_url", "rating", "review_count", "price"), required=True, attribute="restaurants", many=True)
+    recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_types", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
 
     capital = fields.String(required=True)
     flag_url = fields.String(required=True)
@@ -131,36 +158,37 @@ class CultureSchema() :
     summary = fields.String(required=True)
 
 # may need to adjust this MenuSchema
-class MenuSchema() :
+class MenuSchema(Schema) :
     id = fields.Integer(required=True)
     dishes = fields.List(fields.String(), required=True)
 
-class RestaurantSchema() :
+class RestaurantSchema(Schema) :
     id = fields.Integer(required=True)
     name = fields.String(required=True)
 
     dishes = fields.Pluck(MenuSchema, "dishes", many=True)
-    cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region"), required=True, attribute="cultures", many=True)
+    cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region", "flag_url"), required=True, attribute="cultures", many=True)
     # not sure how to link recipes to the dishes; we will see!
-    recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_type", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
+    recipes = fields.Nested("RecipeSchema", only=("id", "name", "cuisine_type", "dish_types", "ready_in_minutes", "servings"), required=True, attribute="recipes", many=True)
 
     image_url = fields.String(required=False)
     restaurant_url = fields.String(required=False)
     display_phone = fields.String(required=True)
-    categories = fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
+    categories = fields.List(fields.String(), required=True) #fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
     rating = fields.Integer(required=True)
     review_count = fields.Integer(required=True)
     display_address = fields.String(required=True)
-    latlng = fields.Dict(keys=fields.String(), values=fields.Integer(), required=True)
+    latlng = fields.List(fields.Float(), required=True) #fields.Dict(keys=fields.String(), values=fields.Integer(), required=True)
+    photos = fields.List(fields.String(), required=True)
     price = fields.String(required=True)
     # takeout, delivery
     delivery = fields.Bool(required=True)
 
-class RecipeSchema() :
+class RecipeSchema(Schema) :
     id = fields.Integer(required=True)
     name = fields.String(required=True)
 
-    restaurants = fields.Nested("RestaurantSchema", only=("id", "name", "image", "rating", "review_count", "price"), required=True, attribute="restaurants", many=True)
+    restaurants = fields.Nested("RestaurantSchema", only=("id", "name", "image_url", "rating", "review_count", "price"), required=True, attribute="restaurants", many=True)
     cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region"), required=True, attribute="cultures", many=True)
 
     summary = fields.String(required=True)
@@ -170,12 +198,13 @@ class RecipeSchema() :
     servings = fields.Integer(required=True)
     # low-fat, etc
     diet_labels = fields.List(fields.String(), required=True)
-    ingredients = fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
+    ingredients = fields.List(fields.String(), required=True) #fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
     total_nutrients = fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
     instructions = fields.List(fields.String(), required=True)
     cuisine_type = fields.List(fields.String(), required=True)
     # b, l, d
-    dish_type = fields.List(fields.String(), required=True)
+    dish_types = fields.List(fields.String(), required=True)
+    dish_name = fields.String(required=True)
 
 culture_schema = CultureSchema()
 restaurant_schema = RestaurantSchema()
