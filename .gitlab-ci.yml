@@ -23,6 +23,7 @@ test_front_end:
   before_script:
     - python3 -m pip install --upgrade pip
     - python3 -m pip install selenium
+    - pip install webdriver-manager
   script:
     - make front-end-tests
 
