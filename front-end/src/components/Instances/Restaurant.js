@@ -3,32 +3,34 @@ import { useParams, Navigate } from 'react-router-dom';
 import restaurants from '../../temp-backend/restaurants.json';
 import recipes from '../../temp-backend/recipes.json'
 import cultures from '../../temp-backend/cultures.json'
-import { Create_Recipe_Cell, Create_Culture_Cell } from '../../SharedFunctions';
+import { Create_Recipe_Cell, Create_Culture_Cell, Get_Data } from '../../SharedFunctions';
 import { CommaSeparate } from '../../SharedFunctions';
 import '../../styles/Instances.css'
 
 function Restaurant(props) {
     let { id } = useParams();
-    let restaurant = restaurants[id];
 
-    // redirect to home page, invalid culture
-    if(restaurant == null) {
-      return <Navigate to="../../" />
-    }
+    const [instanceData, setInstanceData] = React.useState([]);
+    React.useEffect(() => {
+      Get_Data('restaurants', id).then(data => setInstanceData(data));
+    }, [])
 
-    let name = restaurant.name;
-    let rating = restaurant.rating;
-    let phoneNumber = restaurant.display_phone;
-    let price = restaurant.price;
-    let coordinates = restaurant.latlng;
-    let address = restaurant.location.display_address;
-    let categories = CommaSeparate(restaurant.categories, "title");
-    let open = restaurant.is_closed ? "closed" : "open";
-  
-    console.log(restaurant);
+    // // redirect to home page, invalid culture
+    // if(restaurant == null) {
+    //   return <Navigate to="../../" />
+    // }
+
+    let name = instanceData.name;
+    let rating = instanceData.rating;
+    let phoneNumber = instanceData.display_phone;
+    let price = instanceData.price;
+    let coordinates = instanceData.latlng;
+    let address = instanceData.display_address;
+    let categories = CommaSeparate(instanceData.categories, "title");
+    let open = instanceData.is_closed ? "closed" : "open";
     
-    const relatedRecipe = recipes[id];
-    const relatedCulture = cultures[id];
+    const related_recipes = instanceData.recipes ? instanceData.recipes : [];
+    const related_cultures = instanceData.cultures ? instanceData.cultures : [];
 
     return (
       <>
@@ -37,9 +39,9 @@ function Restaurant(props) {
           <div className='instanceSubTitle' style={{fontSize:`35px`}}>
             A closer look at {name}
           </div>
-          <div> <img src={restaurant.image_url} alt="restaurant image"/> </div>
+          <div> <img src={instanceData.image_url} alt="restaurant image"/> </div>
           <div className='cultureContainer' style={{height:`200px`, display:`flex`, alignItems:'center', marginTop:'50px'}}>
-            <iframe align="top" className='googleMap' src={`https://maps.google.com/maps?q=${restaurant.name}&output=embed`}></iframe>
+            <iframe align="top" className='googleMap' src={`https://maps.google.com/maps?q=${instanceData.name}&output=embed`}></iframe>
           </div>
           <div className='instanceText'>
             The categories of this restaurant are: {categories}.
@@ -62,7 +64,7 @@ function Restaurant(props) {
             </tr>
             <tr>
               <td className='tdLeft'>Number of reviews</td>
-              <td>{restaurant.review_count}</td>
+              <td>{instanceData.review_count}</td>
             </tr>
             <tr>
               <td className='tdLeft'>Contact info</td>
@@ -70,20 +72,20 @@ function Restaurant(props) {
             </tr>
             <tr>
               <td className='tdLeft'>Distance</td>
-              <td>{restaurant.distance}</td>
+              <td>{0 + ' miles'}</td>
             </tr>
             <tr>
               <td className='tdLeft'>Open?</td>
               <td>{open}</td>
             </tr>
           </tbody>
-          <div className='instanceSubTitle'>Recipes similar to {restaurant.name}</div>
+          <div className='instanceSubTitle'>Recipes similar to {instanceData.name}</div>
           <ul className='scrollContainer'>
-            <li>{Create_Recipe_Cell(relatedRecipe, `/recipes/${id}`)}</li>
+            {related_recipes.map((recipe) => <li>{Create_Recipe_Cell(recipe, `/recipes/${recipe.id}`)}</li>)}
           </ul>
-          <div className='instanceSubTitle'>Cultures related to {restaurant.name}</div>
+          <div className='instanceSubTitle'>Cultures related to {instanceData.name}</div>
           <ul className='scrollContainer'>
-            <li>{Create_Culture_Cell(relatedCulture, `/cultures/${id}`)}</li>
+            {related_cultures.map((culture) => <li>{Create_Culture_Cell(culture, `/cultures/${id}`)}</li>)}
           </ul>
         </div>
       </>
