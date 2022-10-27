@@ -1,6 +1,6 @@
 import React from 'react';
 import cultures from '../../temp-backend/cultures.json'
-import { Create_Culture_Cell } from '../../SharedFunctions';
+import { Create_Culture_Cell, Get_Data } from '../../SharedFunctions';
 import Selection from './sub_components/Selection';
 import InputField from './sub_components/InputField';
 import PaginateTable from './sub_components/PaginateTable';
@@ -37,12 +37,16 @@ function Cultures() {
       },
     ], []);
 
-    const model_data = cultures;
+    const [modelData, setModelData] = React.useState([]);
+    React.useEffect(() => {
+      Get_Data('cultures').then(data => setModelData(data));
+    }, [])
+
     const data = React.useMemo(() => {
       const t = [];
-      for (const [id, culture] of Object.entries(model_data)) {
+      for (const [i, culture] of Object.entries(modelData)) {
         t.push({
-          id: id,
+          id: culture.id,
           name: culture.name,
           region: culture.region,
           subregion: culture.subregion,
@@ -51,7 +55,7 @@ function Cultures() {
         });
       }
       return t;
-    }, [])
+    }, [modelData])
 
     return (
       <>
@@ -71,7 +75,7 @@ function Cultures() {
           <InputField helpText='Filter by min number of blocs' unit='blocs' unitPosition='end'></InputField>
         </Stack>
         <PaginateTable columns={columns} data={data} create_cell={(id) => {
-          return Create_Culture_Cell(model_data[id], id);
+          return Create_Culture_Cell(modelData[id-1], id);
         }}/>
 
         {/* <div class = "cultures-information">

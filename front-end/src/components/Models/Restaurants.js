@@ -1,6 +1,6 @@
 import React from 'react';
 import restaurants from '../../temp-backend/restaurants.json'
-import { Create_Restaurant_Cell, Get_User_Coordinates } from '../../SharedFunctions';
+import { Create_Restaurant_Cell, Get_User_Coordinates, Get_Data } from '../../SharedFunctions';
 import Selection from './sub_components/Selection';
 import Check from './sub_components/Check';
 import InputField from './sub_components/InputField';
@@ -38,12 +38,16 @@ function Restaurants() {
       },
     ], []);
 
-    const model_data = restaurants;
+    const [modelData, setModelData] = React.useState([]);
+    React.useEffect(() => {
+      Get_Data('restaurants').then(data => setModelData(data));
+    }, [])
+
     const data = React.useMemo(() => {
       const t = [];
-      for (const [id, restaurant] of Object.entries(model_data)) {
+      for (const [i, restaurant] of Object.entries(modelData)) {
         t.push({
-          id: id,
+          id: restaurant.id,
           name: restaurant.name,
           rating: restaurant.rating,
           review_count: restaurant.review_count,
@@ -52,7 +56,7 @@ function Restaurants() {
         });
       }
       return t;
-    }, [])
+    }, [modelData])
 
     //const getCoordsPromise = Get_User_Coordinates();
 
@@ -74,7 +78,7 @@ function Restaurants() {
           <Check text='Open now'></Check>
         </Stack>
         <PaginateTable columns={columns} data={data} create_cell={(id) => {
-          return Create_Restaurant_Cell(model_data[id], id);
+          return Create_Restaurant_Cell(modelData[id], id);
         }}/>
 
         {/* <div class = "restaurant-information">
