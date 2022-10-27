@@ -19,6 +19,9 @@ WORKDIR /usr/src/back-end
 RUN pip3 install --upgrade pip
 RUN pip3 install -r requirements.txt
 
-EXPOSE 5000
+EXPOSE 80
 
-# CMD ["python3", "app.py"]
+COPY nginx.conf /etc/nginx
+RUN chmod +x ./start.sh
+
+CMD ["./start.sh"]
