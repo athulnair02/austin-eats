@@ -88,7 +88,7 @@ class Restaurant(db.Model) :
     restaurant_url = db.Column(db.String)
     display_phone = db.Column(db.String)
     categories = db.Column(ARRAY(db.String()))
-    rating = db.Column(db.Float)
+    rating = db.Column(db.Integer)
     review_count = db.Column(db.Integer)
     display_address = db.Column(db.String)
     latlng = db.Column(ARRAY(db.Float()))
@@ -207,5 +207,8 @@ class RecipeSchema(Schema) :
     dish_name = fields.String(required=True)
 
 culture_schema = CultureSchema()
+culture_schema_basic = CultureSchema(exclude=['restaurants', 'recipes'])
 restaurant_schema = RestaurantSchema()
+restaurant_schema_basic = RestaurantSchema(exclude=['cultures', 'recipes'])
 recipe_schema = RecipeSchema()
+recipe_schema_basic = RecipeSchema(exclude=['restaurants', 'cultures'])
