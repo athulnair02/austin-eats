@@ -1,12 +1,47 @@
 from models import Culture, Restaurant, Recipe, db, app, culture_schema, culture_schema_basic, restaurant_schema, restaurant_schema_basic, recipe_schema, recipe_schema_basic #, schemas
 from flask import Flask, make_response, jsonify, request
-# from geopy import distance
+from geopy import distance
 from format import *
 import requests
 import json
 import math, operator
 
 # TexasVotes code helped a lot with this
+
+# simple float validity check
+def isfloat(num):
+    try:
+        float(num)
+        return True
+    except ValueError:
+        return False
+
+# calculates the coordinates from the restaurant and inserts a distance field to work with the schema
+def caulcate_distance(user_loc: str, model, relations):
+    if (model is Restaurant and isinstance(user_loc, str)):
+        lat, lon = user_loc.split(',')
+        lat = lat.strip()
+        lon = lon.strip()
+        if isfloat(lat) and isfloat(lon):
+            for relation in relations:
+                from_loc = (float(lat), float(lon))
+                to_loc = (relation.latlng[0], relation.latlng[1])
+                miles = distance.distance(from_loc, to_loc).miles
+                relation.distance = round(miles, 1)
+
+# dump to schema, adding any extra fields that should be added prior to returning
+def schema_dump(model, schema, args, relations: list, dump_as_list: bool):
+    # calculate distance from restaurant
+    user_loc = args.get("user_loc")
+    caulcate_distance(user_loc, model, relations)
+
+    # dump into schema
+    all_instances = []
+    if dump_as_list is True:
+        all_instances = [schema.dump(relation) for relation in relations]
+    else:
+        all_instances = schema.dump(relations[0])
+    return json.dumps(all_instances)
 
 # Filters the specified query with the given args
 # Checks each args existence in the model, and performs a chain-filter
@@ -30,17 +65,18 @@ def filter_query(query, model, args):
             column = getattr(model, arg)
             if column.type.python_type == int or column.type.python_type == float:
                 # filter int, float by operation
-                print("operator")
                 filter_val = values_list[0]
                 if filter_val.isnumeric():
                     query = query.filter(operation(column, filter_val) if operation else column == filter_val)
             elif column.type.python_type == bool:
                 # filter by simple bool equality
-                print("bool!")
                 query = query.filter(column == (values_list[0].lower() == "true"))
             elif column.type.python_type == str:
-                # filter by string equality
+                # filter by string equality (CASE-SENSITIVE)
                 query = query.filter(column.in_(values_list))
+            elif column.type.python_type == list:
+                # filter by containing in list (CASE-SENSITIVE)
+                query = query.filter(column.contains(values_list))
     return query #.filter(model.price.in_(['$', '$$']))
 
 # Queries all on models with pagination, filtering support
@@ -57,8 +93,13 @@ def query_all(model, schema, args):
     else:
         # retrieve all instances
         relations = relations.all()
-    all_instances = [schema.dump(relation) for relation in relations]
-    return json.dumps(all_instances)
+    
+    return schema_dump(model, schema, args, relations, dump_as_list=True)
+
+# Queries from id on models
+def query_one(model, schema, id, args):
+    relation = db.session.query(model).get(id)
+    return schema_dump(model, schema, args, [relation], dump_as_list=False)
 
 
 @app.route('/api/restaurants', methods=['GET'])
@@ -67,8 +108,7 @@ def restaurants() :
 
 @app.route('/api/restaurants/<int:id>', methods=['GET'])
 def restaurants_id(id) :
-    relation = db.session.query(Restaurant).get(id)
-    return json.dumps(restaurant_schema.dump(relation))
+    return query_one(Restaurant, restaurant_schema, id, request.args)
 
 @app.route('/api/recipes', methods=['GET'])
 def recipes() :
@@ -76,8 +116,7 @@ def recipes() :
 
 @app.route('/api/recipes/<int:id>', methods=['GET'])
 def recipes_id(id) :
-    relation = db.session.query(Recipe).get(id)
-    return json.dumps(recipe_schema.dump(relation))
+    return query_one(Recipe, recipe_schema, id, request.args)
 
 @app.route('/api/cultures', methods=['GET'])
 def cultures() :
@@ -85,14 +124,10 @@ def cultures() :
 
 @app.route('/api/cultures/<int:id>', methods=['GET'])
 def cultures_id(id) :
-    relation = db.session.query(Culture).get(id)
-    return json.dumps(culture_schema.dump(relation))
+    return query_one(Culture, culture_schema, id, request.args)
 
 @app.route('/api')
 def hello_world() :
-    newport_ri = (41.49008, -71.312796)
-    cleveland_oh = (41.499498, -81.695391)
-    print(distance.distance(newport_ri, cleveland_oh).miles)
     return "snoopin' around are we?"
 
 if __name__ == '__main__':

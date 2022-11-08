@@ -34,7 +34,7 @@ def push_restaurants(data) :
             restaurant_url = yelp_data.get("url"),
             display_phone = yelp_data.get("display_phone"),
             categories = list(all_categories),
-            rating = yelp_data.get("rating"),
+            rating = round(yelp_data.get("rating")),
             review_count = yelp_data.get("review_count"),
             display_address = restaurant.get("address").get("place_formatted_address"),
             latlng = [restaurant.get("address").get("latitude"), restaurant.get("address").get("longitude")],
@@ -155,6 +155,7 @@ def push_recipes(data) :
             image_url = recipe.get("image"),
             source_url = recipe.get("sourceUrl"),
             ready_in_minutes = recipe.get("readyInMinutes"),
+            instructions_minutes = recipe.get("instructions_minutes"),
             servings = recipe.get("servings"),
             labels = labels,
             ingredients = ingredients,
@@ -162,6 +163,7 @@ def push_recipes(data) :
             instructions = instructions,
             dish_types = dish_types,
             cuisine_type = recipe.get("cuisines"),
+            health_score = recipe.get("healthScore"),
             dish_name = recipe.get("dish_name")
         )
         db.session.add(new_recipe)

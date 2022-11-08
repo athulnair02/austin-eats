@@ -54,7 +54,7 @@ class Culture(db.Model) :
     capital = db.Column(db.String())
     flag_url = db.Column(db.String())
     currency = db.Column(db.String())
-    languages = db.Column(db.String())
+    languages = db.Column(ARRAY(db.String()))
     subregion = db.Column(db.String())
     region = db.Column(db.String())
     population = db.Column(db.Integer)
@@ -118,6 +118,7 @@ class Recipe(db.Model) :
     image_url = db.Column(db.String())
     source_url = db.Column(db.String())
     ready_in_minutes = db.Column(db.Integer)
+    # TODO: instructions_minutes = db.Column(db.Integer)
     servings = db.Column(db.Integer)
     labels = db.Column(ARRAY(db.String())) # Vegan, Vegetarian, etc
     ingredients = db.Column(ARRAY(db.String()))
@@ -125,6 +126,7 @@ class Recipe(db.Model) :
     instructions = db.Column(ARRAY(db.String()))
     dish_types = db.Column(ARRAY(db.String())) # Breakfast, Lunch, Dinner, etc
     cuisine_type = db.Column(ARRAY(db.String())) # American, Chinese, etc
+    # TODO: health_score = db.Column(db.Integer)
     dish_name = db.Column(db.String) # Taco, Salad, etc
 
     def __repr__(self):
@@ -179,6 +181,7 @@ class RestaurantSchema(Schema) :
     review_count = fields.Integer(required=True)
     display_address = fields.String(required=True)
     latlng = fields.List(fields.Float(), required=True) #fields.Dict(keys=fields.String(), values=fields.Integer(), required=True)
+    distance = fields.Float()
     photos = fields.List(fields.String(), required=True)
     price = fields.String(required=True)
     # takeout, delivery
@@ -195,6 +198,7 @@ class RecipeSchema(Schema) :
     image_url = fields.String(required=True)
     source_url = fields.String(required=True)
     ready_in_minutes = fields.Integer(required=True)
+    # TODO: instructions_minutes = fields.Integer(required=True)
     servings = fields.Integer(required=True)
     # low-fat, etc
     diet_labels = fields.List(fields.String(), required=True)
@@ -202,6 +206,7 @@ class RecipeSchema(Schema) :
     total_nutrients = fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
     instructions = fields.List(fields.String(), required=True)
     cuisine_type = fields.List(fields.String(), required=True)
+    # TODO: health_score = fields.Integer(required=True)
     # b, l, d
     dish_types = fields.List(fields.String(), required=True)
     dish_name = fields.String(required=True)
