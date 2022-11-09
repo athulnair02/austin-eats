@@ -5,6 +5,7 @@ from format import *
 import requests
 import json
 import math, operator
+import re
 
 # TexasVotes code helped a lot with this
 
@@ -42,7 +43,7 @@ def schema_dump(model, schema, args, relations: list, dump_as_list: bool):
     else:
         all_instances = schema.dump(relations[0])
     return json.dumps(all_instances)
-
+        
 # Filters the specified query with the given args
 # Checks each args existence in the model, and performs a chain-filter
 # TODO: to make restaurant filter by price work, must re-load data by making Rating an int instead of a float. float comparison sucks!
@@ -78,6 +79,24 @@ def filter_query(query, model, args):
                 # filter by containing in list (CASE-SENSITIVE)
                 query = query.filter(column.contains(values_list))
     return query #.filter(model.price.in_(['$', '$$']))
+
+
+def search_query(query, model, args):
+    if not args:
+        return query
+    else:
+        args = args[0].strip()
+    terms = args.split()
+    searches_set = set()
+
+    # match the term to the name
+    for term in terms:
+        if re.search(term.lower(), model.name.lower())
+            searches_set.add(model.name)
+    
+    query = query.join(model).filter(or_(*tuple(searches_set)))
+    return query
+
 
 # Queries all on models with pagination, filtering support
 def query_all(model, schema, args):
