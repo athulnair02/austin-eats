@@ -12,6 +12,10 @@ import '../../styles/Models.css'
 function Cultures() {
     const columns = React.useMemo(() => [
       {
+        Header: "Index",
+        accessor: "i",
+      },
+      {
         Header: "Id",
         accessor: "id",
       },
@@ -46,6 +50,7 @@ function Cultures() {
       const t = [];
       for (const [i, culture] of Object.entries(modelData)) {
         t.push({
+          i: i,
           id: culture.id,
           name: culture.name,
           region: culture.region,
@@ -74,8 +79,8 @@ function Cultures() {
           <InputField helpText='Search for subregion'></InputField>
           <InputField helpText='Filter by min number of blocs' unit='blocs' unitPosition='end'></InputField>
         </Stack>
-        <PaginateTable columns={columns} data={data} create_cell={(id) => {
-          return Create_Culture_Cell(modelData[id-1], id);
+        <PaginateTable columns={columns} data={data} create_cell={(id, index) => {
+          return Create_Culture_Cell(modelData[index], id);
         }}/>
 
         {/* <div class = "cultures-information">

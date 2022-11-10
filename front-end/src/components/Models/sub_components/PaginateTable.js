@@ -73,7 +73,7 @@ function PaginateTable({ columns, data, create_cell }) {
         </Stack>
         <div className='modelGrid'>
           {page.map((row, i) => { // Create model cells
-            return create_cell(row.original.id);
+            return create_cell(row.original.id, row.original.i);
           })}
         </div>
       </>

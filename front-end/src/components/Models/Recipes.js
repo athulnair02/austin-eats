@@ -13,6 +13,10 @@ function Recipes() {
     // todo: One more column for the additional sort attribute! Health score is not in backend model data!
     const columns = React.useMemo(() => [
       {
+        Header: "Index",
+        accessor: "i",
+      },
+      {
         Header: "Id",
         accessor: "id",
       },
@@ -47,6 +51,7 @@ function Recipes() {
       const t = [];
       for (const [i, recipe] of Object.entries(modelData)) {
         t.push({
+          i: i,
           id: recipe.id,
           name: recipe.name,
           ready_in_minutes: recipe.ready_in_minutes,
@@ -75,8 +80,8 @@ function Recipes() {
           <InputField helpText='Filter by max time' unit={'mins'} unitPosition='end'></InputField>
           <InputField helpText='Search for cuisine'></InputField>
         </Stack>
-        <PaginateTable columns={columns} data={data} create_cell={(id) => {
-          return Create_Recipe_Cell(modelData[id], id);
+        <PaginateTable columns={columns} data={data} create_cell={(id, index) => {
+          return Create_Recipe_Cell(modelData[index], id);
         }}/>
 
         

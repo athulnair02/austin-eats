@@ -13,6 +13,10 @@ import '../../styles/Models.css'
 function Restaurants() {
     const columns = React.useMemo(() => [
       {
+        Header: "Index",
+        accessor: "i",
+      },
+      {
         Header: "Id",
         accessor: "id",
       },
@@ -47,6 +51,7 @@ function Restaurants() {
       const t = [];
       for (const [i, restaurant] of Object.entries(modelData)) {
         t.push({
+          i: i,
           id: restaurant.id,
           name: restaurant.name,
           rating: restaurant.rating,
@@ -77,8 +82,8 @@ function Restaurants() {
           <InputField helpText='Filter by min number of ratings' unit={<b>{'>'}</b>} unitPosition='start'></InputField>
           <Check text='Open now'></Check>
         </Stack>
-        <PaginateTable columns={columns} data={data} create_cell={(id) => {
-          return Create_Restaurant_Cell(modelData[id], id);
+        <PaginateTable columns={columns} data={data} create_cell={(id, index) => {
+          return Create_Restaurant_Cell(modelData[index], id);
         }}/>
 
         {/* <div class = "restaurant-information">
