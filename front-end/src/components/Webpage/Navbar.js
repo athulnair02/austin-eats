@@ -22,7 +22,7 @@ function MainNavbar() {
           </Nav>
           <Nav>
             <Nav.Link className='color-link' href='/about'>About</Nav.Link>
-            <Nav.Link className='color-link' href ='/search' eventKey='search' disabled>Search</Nav.Link>
+            <Nav.Link className='color-link' href ='/search' eventKey='search'>Search</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

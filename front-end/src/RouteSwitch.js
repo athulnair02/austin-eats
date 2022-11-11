@@ -15,6 +15,7 @@ import Culture from './components/Instances/Culture'
 import Recipe from './components/Instances/Recipe'
 import Restaurant from './components/Instances/Restaurant'
 import PageNotFound from './components/Webpage/PageNotFound'
+import Search from './components/Search/Search'
 
 function RouteSwitch() {
     return (
@@ -29,6 +30,7 @@ function RouteSwitch() {
                 <Route path="/restaurants/:id" element={<Restaurant />} />
                 <Route path="/recipes/:id" element={<Recipe />} />
                 <Route path="/cultures/:id" element={<Culture />} />
+                <Route path="/search" element={<Search />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
         </BrowserRouter>

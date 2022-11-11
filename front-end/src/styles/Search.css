@@ -1,0 +1,18 @@
+.bar-box {
+    margin-top: 128px;
+    margin-bottom: 192px;
+}
+
+.title-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px
+}
+
+.searchbar {
+    width: 800px;
+    background-color: white;
+}
+
+.last-spacer {
+    margin-bottom: 32px;
+}
