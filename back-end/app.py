@@ -112,9 +112,13 @@ def filter_query(query, model, args):
             column = getattr(model, arg)
             if column.type.python_type == int or column.type.python_type == float:
                 # filter int, float by operation
-                filter_val = values_list[0]
-                if filter_val.isnumeric():
-                    query = query.filter(operation(column, filter_val) if operation else column == filter_val)
+                conditions = []
+                for filter_val in values_list:
+                    if filter_val.isnumeric():
+                        conditions.append(operation(column, filter_val) if operation else column == filter_val)
+                query = query.filter(
+                    or_(*conditions)
+                )
             elif column.type.python_type == bool:
                 # filter by simple bool equality
                 query = query.filter(column == (values_list[0].lower() == "true"))
