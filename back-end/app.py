@@ -21,30 +21,46 @@ def isfloat(num):
     except ValueError:
         return False
 
-# calculates the coordinates from the restaurant and inserts a distance field to work with the schema
-def caulcate_distance(user_loc: str, max_distance, model, relations):
-    filtered_relations = relations
-    if (model is Restaurant and isinstance(user_loc, str)):
+# calculates the (lat, lon) coordinates from a lat, lon string
+def get_from_loc(user_loc: str):
+    if isinstance(user_loc, str):
         lat, lon = user_loc.split(',')
         lat = lat.strip()
         lon = lon.strip()
         if isfloat(lat) and isfloat(lon):
-            if max_distance and isfloat(max_distance):
-                filtered_relations = []
-                max_distance = float(max_distance)
-            for relation in relations:
-                from_loc = (float(lat), float(lon))
-                to_loc = (relation.latlng[0], relation.latlng[1])
-                miles = distance.distance(from_loc, to_loc).miles
-                relation.distance = round(miles, 1)
+            return (float(lat), float(lon))
+    return None
 
-                # filter by max_distance
-                if max_distance and relation.distance <= max_distance:
-                    filtered_relations.append(relation)
-    return filtered_relations
+# calculates the max_distance float from a max_distance string
+def get_max_distance(max_distance: str):
+    if max_distance is not None and isfloat(max_distance):
+        max_distance = float(max_distance)
+        return max_distance
+    return None
+
+# calculates the coordinates from the restaurant and inserts a distance field to work with the schema
+def caulcate_distance(user_loc: str, model, relations, max_distance = None):
+    did_filter = False
+    filtered_relations = relations
+    from_loc = get_from_loc(user_loc)
+    max_distance = get_max_distance(max_distance)
+    if model is Restaurant and from_loc is not None:
+        if max_distance is not None:
+            filtered_relations = []
+            did_filter = True
+        for relation in relations:
+            to_loc = (relation.latlng[0], relation.latlng[1])
+            miles = distance.distance(from_loc, to_loc).miles
+            relation.distance = round(miles, 1)
+
+            # filter by max_distance
+            if max_distance is not None and relation.distance <= max_distance:
+                filtered_relations.append(relation.id)
+    return filtered_relations, did_filter
 
 # calculates whether the Restaurant is open now or not
-def calculate_open_status(filter_open_now, model, relations):
+def calculate_open_status(model, relations, filter_open_now = False):
+    did_filter = False
     filtered_relations = relations
     if model is Restaurant:
         now = datetime.datetime.now(ZoneInfo("America/Chicago"))
@@ -52,6 +68,7 @@ def calculate_open_status(filter_open_now, model, relations):
         filter_open_now = filter_open_now.lower() == "true" if filter_open_now else None
         if filter_open_now:
             filtered_relations = []
+            did_filter = True
         for relation in relations:
             relation.open_now = False
             for time_data in relation.hours:
@@ -68,18 +85,18 @@ def calculate_open_status(filter_open_now, model, relations):
                 if start_time < now < end_time:
                     relation.open_now = True
                     if filter_open_now:
-                        filtered_relations.append(relation)
+                        filtered_relations.append(relation.id)
                 break
-    return filtered_relations
+    return filtered_relations, did_filter
 
 # dump to schema, adding any extra fields that should be added prior to returning
 def schema_dump(model, schema, args, data, dump_as_list: bool):
     relations = data.get("relations") if isinstance(data, dict) else data
 
     # calculate distance from restaurant
-    relations = caulcate_distance(args.get("user_loc"), args.get("max_distance"), model, relations)
+    caulcate_distance(args.get("user_loc"), model, relations)
     # calculate whether the restaurant is open now
-    relations = calculate_open_status(args.get("open_now"), model, relations)
+    calculate_open_status(model, relations)
 
     # dump into schema
     all_instances = []
@@ -116,6 +133,8 @@ def filter_query(query, model, args):
                 conditions = []
                 for filter_val in values_list:
                     if filter_val.isnumeric():
+                        if int(filter_val) > 2147483647:
+                            filter_val = "2147483647"
                         conditions.append(operation(column, filter_val) if operation else column == filter_val)
                 query = query.filter(
                     or_(*conditions)
@@ -177,6 +196,21 @@ def search_query(query, model, args):
 def query_all(model, schema, args):
     relations = filter_query(db.session.query(model), model, args)
 
+    if model is Restaurant:
+        relations_temp = relations.all()
+
+        # filter distance
+        max_distance = args.get("max_distance")
+        user_loc = args.get("user_loc")
+        filtered_ids, did_filter = caulcate_distance(user_loc, model, relations_temp, 0.001 if max_distance == 0 else max_distance)
+        if did_filter:
+            relations = relations.filter(model.id.in_(filtered_ids))
+        
+        # filter open_now
+        filtered_ids, did_filter = calculate_open_status(model, relations_temp, args.get("open_now"))
+        if did_filter:
+            relations = relations.filter(model.id.in_(filtered_ids))
+    
     # arg handling
     page_req = args.get("page", default = -1, type = int)
     per_page_req = args.get("per_page", default = 25, type = int)
