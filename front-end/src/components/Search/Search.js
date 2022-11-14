@@ -6,6 +6,7 @@ import { TextField, Typography, Stack, Button } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { Create_Culture_Cell, Create_Recipe_Cell, Create_Restaurant_Cell} from "../../SharedFunctions";
 import { API_URL } from "../../Global";
+import '../../styles/Search.css'
 
 const SEARCH_PATHS = ["cultures", "restaurants", "recipes"];
 const RESULT_LIMIT = 10;
@@ -16,7 +17,7 @@ function Search(props) {
     let [params, setParams] = useState("");
     const [searchQ, setSearch] = useState("");
 
-    const [results, setResults] =   useState( {
+    const [results, setResults] = useState({
         cultures: [],
         recipes: [],
         restaurants: [],
@@ -25,7 +26,7 @@ function Search(props) {
     let navigate = useNavigate();
 
     const updateSearch = (search) => {
-        let path = "?q=$search";
+        let path = `?q=${search}`;
         navigate(path);
         setParams(search);
     };
@@ -45,9 +46,9 @@ function Search(props) {
         }
 
         const getResults = async ( { model, params} ) => {
-            let url = API_URL + "/${model}?per_page=${RESULT_LIMIT}";
+            let url = API_URL + '/${model}?per_page=${RESULT_LIMIT}';
             if (params) {
-                url = "${url}&${constructParams(params)}";
+                url = '${url}&${constructParams(params)}';
             }
             let data = await fetch(url);
             data = await data.json();
@@ -65,7 +66,7 @@ function Search(props) {
                 let resolved = await Promise.all(promises);
                 let output = {};
                 resolved.forEach((data, i) => {
-                    let count = data["numInstances"];
+                    let count = data['numInstances'];
                     if (count > RESULT_LIMIT) {
                         output[SEARCH_PATHS[i]] = data["list"].slice(0, RESULT_LIMIT - 1);
                         let extraResults = [{eor: true, amount: count - RESULT_LIMIT}];
@@ -84,9 +85,10 @@ function Search(props) {
 
     return (
         <div>
+            <div className="searchTitle">Search</div>
             <div className="bar-box">
                 <h1 className="title-wrapper">
-                    {searchParams.get("q") ? `Results for ${searchParams.get("q")}` : "Search for a culture, recipe, or restaurant here"}
+                    {searchParams.get("q") ? `Results for ${searchParams.get("q")}` : "Search for a restaurant, recipe, or culture here"}
                 </h1>
                 <TextField className="searchbar" onKeyPress={(ev) => {
                         if(ev.key === "Enter"){
@@ -112,22 +114,22 @@ function Search(props) {
                     ))}
                 </Stack> 
 
-                <h1 className="title-wrapper">Culture Results</h1>
-                <Stack direction="row" flexWrap="wrap" className="center-row">
-                    {results["restaurants"].map((c) => (
-                        c["eor"] ? 
-                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/companies?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
-                                <Typography> View {c["amount"]} more results in cultures</Typography>
-                        </Button> : null // : Search Card goes here
-                    ))}
-                </Stack> 
-
                 <h1 className="title-wrapper">Recipe Results</h1>
                 <Stack direction="row" flexWrap="wrap" className="center-row">
                     {results["restaurants"].map((c) => (
                         c["eor"] ? 
                         <Button className="search-button" variant="outlined" component={RouterLink} to={`/companies?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
                                 <Typography> View {c["amount"]} more results in recipes</Typography>
+                        </Button> : null // : Search Card goes here
+                    ))}
+                </Stack> 
+
+                <h1 className="title-wrapper">Culture Results</h1>
+                <Stack direction="row" flexWrap="wrap" className="center-row">
+                    {results["restaurants"].map((c) => (
+                        c["eor"] ? 
+                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/companies?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
+                                <Typography> View {c["amount"]} more results in cultures</Typography>
                         </Button> : null // : Search Card goes here
                     ))}
                 </Stack> 
