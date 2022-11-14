@@ -18,6 +18,21 @@
     margin-bottom: 32px;
 }
 
+.card-title {
+    font-size: medium;
+    line-height: 85%;
+}
+
+.search-button {
+    height:50px;
+    width: 1000px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.center-row {
+    justify-content: center;
+}
 
 .searchTitle {
     font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

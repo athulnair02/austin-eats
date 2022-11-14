@@ -46,9 +46,9 @@ function Search(props) {
         }
 
         const getResults = async ( { model, params} ) => {
-            let url = API_URL + '/${model}?per_page=${RESULT_LIMIT}';
+            let url = API_URL + `/${model}?per_page=${RESULT_LIMIT}`;
             if (params) {
-                url = '${url}&${constructParams(params)}';
+                url = `${url}&${constructParams(params)}`;
             }
             let data = await fetch(url);
             data = await data.json();
@@ -109,7 +109,7 @@ function Search(props) {
                     {results["restaurants"].map((r) => (
                         r["eor"] ? 
                         <Button className="search-button" variant="outlined" component={RouterLink} to={`/restaurants?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
-                                <Typography> View {r["amount"]} more results in restaurants</Typography>
+                                <Typography className="cardTitle"> View {r["amount"]} more results in restaurants</Typography>
                         </Button> : null // : Search Card goes here
                     ))}
                 </Stack> 
@@ -119,7 +119,7 @@ function Search(props) {
                     {results["restaurants"].map((r) => (
                         r["eor"] ? 
                         <Button className="search-button" variant="outlined" component={RouterLink} to={`/recipes?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
-                                <Typography> View {r["amount"]} more results in recipes</Typography>
+                                <Typography className="cardTitle"> View {r["amount"]} more results in recipes</Typography>
                         </Button> : null // : Search Card goes here
                     ))}
                 </Stack> 
@@ -129,7 +129,7 @@ function Search(props) {
                     {results["restaurants"].map((c) => (
                         c["eor"] ? 
                         <Button className="search-button" variant="outlined" component={RouterLink} to={`/cultures?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
-                                <Typography> View {c["amount"]} more results in cultures</Typography>
+                                <Typography className="cardTitle"> View {c["amount"]} more results in cultures</Typography>
                         </Button> : null // : Search Card goes here
                     ))}
                 </Stack> 
