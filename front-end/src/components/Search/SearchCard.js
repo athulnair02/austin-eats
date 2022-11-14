@@ -1,8 +1,7 @@
-import { Card, CardContent, CardMedia, CardActionArea } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
 import "../../styles/Search.css";
 import "../../styles/Models.css";
 import Highlight from "../Highlight/Highlight";
+import { Create_Restaurant_Cell, Create_Recipe_Cell, Create_Culture_Cell } from "../../SharedFunctions";
 
 export default function SearchCard(props) {
     if(props.model === "restaurants"){
@@ -15,15 +14,15 @@ export default function SearchCard(props) {
 }
 
 function RestaurantSCard (props) {
-    return (<Card className="whatever_search_card">
-        <CardActionArea className="whatever_search_action" component={RouterLink} to={"/restaurants/" + props.data.id}>
-            <CardContent>
-                <p className="card-content-wrap"><strong><Highlight by={props.highlight}>{props.data.name}</Highlight></strong></p>
-                <p className="cardContent"><strong>Text: </strong>
-                <Highlight by={props.highlight}>{props.data.text}</Highlight></p>
-            </CardContent>
-        </CardActionArea>
-    </Card>)
+    return (Create_Restaurant_Cell(props.data.id, props.data.link));
+}
+
+function RecipeSCard (props) {
+    return (Create_Recipe_Cell(props.data.id, props.data.link));
+}
+
+function CultureSCard (props) {
+    return (Create_Culture_Cell(props.data.id, props.data.link));
 }
 
 

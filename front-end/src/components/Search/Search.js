@@ -7,6 +7,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { Create_Culture_Cell, Create_Recipe_Cell, Create_Restaurant_Cell} from "../../SharedFunctions";
 import { API_URL } from "../../Global";
 import '../../styles/Search.css'
+import SearchCard from "./SearchCard";
 
 const SEARCH_PATHS = ["cultures", "restaurants", "recipes"];
 const RESULT_LIMIT = 10;
@@ -110,7 +111,7 @@ function Search(props) {
                         r["eor"] ? 
                         <Button className="search-button" variant="outlined" component={RouterLink} to={`/restaurants?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
                                 <Typography className="cardTitle"> View {r["amount"]} more results in restaurants</Typography>
-                        </Button> : null // : Search Card goes here
+                        </Button> : <SearchCard model="restaurants" data={r} highlight={params}/> // : Search Card goes here
                     ))}
                 </Stack> 
 
@@ -120,7 +121,7 @@ function Search(props) {
                         r["eor"] ? 
                         <Button className="search-button" variant="outlined" component={RouterLink} to={`/recipes?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
                                 <Typography className="cardTitle"> View {r["amount"]} more results in recipes</Typography>
-                        </Button> : null // : Search Card goes here
+                        </Button> : <SearchCard model="recipes" data={r} highlight={params}/> // : Search Card goes here
                     ))}
                 </Stack> 
 
@@ -130,7 +131,7 @@ function Search(props) {
                         c["eor"] ? 
                         <Button className="search-button" variant="outlined" component={RouterLink} to={`/cultures?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
                                 <Typography className="cardTitle"> View {c["amount"]} more results in cultures</Typography>
-                        </Button> : null // : Search Card goes here
+                        </Button> : <SearchCard model="cultures" data={c} highlight={params}/> // : Search Card goes here
                     ))}
                 </Stack> 
             </Container>
