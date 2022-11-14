@@ -106,20 +106,20 @@ function Search(props) {
             <Container className="last-spacer">
                 <h1 className="title-wrapper">Restaurant Results</h1>
                 <Stack direction="row" flexWrap="wrap" className="center-row">
-                    {results["restaurants"].map((c) => (
-                        c["eor"] ? 
-                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/companies?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
-                                <Typography> View {c["amount"]} more results in restaurants</Typography>
+                    {results["restaurants"].map((r) => (
+                        r["eor"] ? 
+                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/restaurants?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
+                                <Typography> View {r["amount"]} more results in restaurants</Typography>
                         </Button> : null // : Search Card goes here
                     ))}
                 </Stack> 
 
                 <h1 className="title-wrapper">Recipe Results</h1>
                 <Stack direction="row" flexWrap="wrap" className="center-row">
-                    {results["restaurants"].map((c) => (
-                        c["eor"] ? 
-                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/companies?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
-                                <Typography> View {c["amount"]} more results in recipes</Typography>
+                    {results["restaurants"].map((r) => (
+                        r["eor"] ? 
+                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/recipes?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
+                                <Typography> View {r["amount"]} more results in recipes</Typography>
                         </Button> : null // : Search Card goes here
                     ))}
                 </Stack> 
@@ -128,7 +128,7 @@ function Search(props) {
                 <Stack direction="row" flexWrap="wrap" className="center-row">
                     {results["restaurants"].map((c) => (
                         c["eor"] ? 
-                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/companies?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
+                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/cultures?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
                                 <Typography> View {c["amount"]} more results in cultures</Typography>
                         </Button> : null // : Search Card goes here
                     ))}
