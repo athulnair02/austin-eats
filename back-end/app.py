@@ -10,9 +10,14 @@ import json
 import math, operator
 import re
 import datetime, time
+import multiprocessing
+from werkzeug.datastructures import MultiDict
 from sqlalchemy import or_, func, case
 
 # TexasVotes code helped a lot with this
+
+manager = multiprocessing.Manager()
+queue = manager.Queue()
 
 # simple float validity check
 def isfloat(num):
@@ -91,7 +96,7 @@ def calculate_open_status(model, relations, filter_open_now = False):
     return filtered_relations, did_filter
 
 # dump to schema, adding any extra fields that should be added prior to returning
-def schema_dump(model, schema, args, data, dump_as_list: bool):
+def schema_dump(model, schema, args, data, dump_as_list: bool, dont_dump=False):
     relations = data.get("relations") if isinstance(data, dict) else data
 
     # calculate distance from restaurant
@@ -106,12 +111,15 @@ def schema_dump(model, schema, args, data, dump_as_list: bool):
         all_instances = data
     else:
         all_instances = schema.dump(relations[0])
-    return json.dumps(all_instances)
-        
+    
+    if dont_dump:
+        queue.put((model.__tablename__, all_instances))
+    return all_instances if dont_dump else json.dumps(all_instances)
+
 # Filters the specified query with the given args
 # Checks each args existence in the model, and performs a chain-filter
 def filter_query(query, model, args):
-    print(args)
+    # print(args)
     arg_operations = [("_LT", operator.lt), ("_LE", operator.le), ("_GT", operator.gt), ("_GE", operator.ge), ("_PRT", None)]
     for arg in args:
         values_list = args.getlist(arg)
@@ -184,17 +192,21 @@ def search_query(query, model, args):
     if len(terms) < 1:
         return query
 
-    # match the term to the name
+    # match the term to the various string columns
     matched_ids = []
-    matched_relations = query.filter(func.lower(model.name).ilike('%{0}%'.format(terms[0].lower())))
-    for relation in matched_relations:
-        matched_ids.append(relation.id)
-    for num in range(1, len(terms)):
-        term = terms[num]
-        term_matches = query.filter(func.lower(model.name).ilike('%{0}%'.format(term.lower())))
-        for relation in term_matches:
-            matched_ids.append(relation.id)
-        matched_relations = matched_relations.union_all(term_matches)
+    matched_relations = query.filter(False)
+    for term in terms:
+        # prevent searches that are a waste of time, too few to be a "real" term
+        if len(term) < 3:
+            continue
+
+        search_column_list = model.search_list(term)
+        # print(search_column_list[0])
+        for column in search_column_list:
+            term_matches = filter_query(query, model, MultiDict([column]))#query.filter(func.lower(model.name).ilike('%{0}%'.format(term.lower())))
+            for relation in term_matches:
+                matched_ids.append(relation.id)
+            matched_relations = matched_relations.union_all(term_matches)
     if len(matched_ids) < 1:
         return query.filter(False)
     
@@ -206,7 +218,7 @@ def search_query(query, model, args):
 
 
 # Queries all on models with pagination, filtering support
-def query_all(model, schema, args):
+def query_all(model, schema, args, dont_dump=False):
     relations = filter_query(db.session.query(model), model, args)
     relations = search_query(relations, model, args)
 
@@ -240,7 +252,7 @@ def query_all(model, schema, args):
         # retrieve all instances
         data["relations"] = relations.all()
     
-    return schema_dump(model, schema, args, data, dump_as_list=True)
+    return schema_dump(model, schema, args, data, dump_as_list=True, dont_dump=dont_dump)
 
 # Queries from id on models
 def query_one(model, schema, id, args):
@@ -271,6 +283,42 @@ def cultures() :
 @app.route('/api/cultures/<int:id>', methods=['GET'])
 def cultures_id(id) :
     return query_one(Culture, culture_schema, id, request.args)
+
+@app.route('/api/all', methods=['GET'])
+def all_models() :
+    # start_time = datetime.datetime.now()
+    data = {}
+    # data["restaurant_relations"] = query_all(Restaurant, restaurant_schema_basic, request.args, dont_dump=True)["relations"]
+    # data["recipe_relations"] = query_all(Recipe, recipe_schema_basic, request.args, dont_dump=True)["relations"]
+    # data["culture_relations"] = query_all(Culture, culture_schema_basic, request.args, dont_dump=True)["relations"]
+
+    # Data for processes results and jobs to perform
+    jobs_to_perform = [
+        (Restaurant, restaurant_schema_basic),
+        (Recipe, recipe_schema_basic),
+        (Culture, culture_schema_basic)
+    ]
+    proc_to_result = {
+        Restaurant.__tablename__: "restaurant_relations",
+        Recipe.__tablename__: "recipe_relations",
+        Culture.__tablename__: "culture_relations"
+    }
+    jobs = []
+
+    # Relations search jobs
+    for job in jobs_to_perform:
+        proc = multiprocessing.Process(target=query_all, args=(job[0], job[1], request.args, True))
+        jobs.append(proc)
+        proc.start()
+
+    for job in jobs:
+        job.join()
+    while not queue.empty():
+        job_result = queue.get()
+        data[proc_to_result.get(job_result[0])] = job_result[1]["relations"]
+    # end_time = datetime.datetime.now()
+    # print(end_time - start_time)
+    return json.dumps(data)
 
 @app.route('/api')
 def hello_world() :
