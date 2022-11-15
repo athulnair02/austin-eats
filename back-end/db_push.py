@@ -20,12 +20,26 @@ def push_restaurants(data) :
     rest_id = 0
     for restaurant in data:
 
+        # Merge categories
         yelp_data = restaurant.get("yelp_data").get("restaurant")
         all_categories = set()
         for cat in yelp_data.get("categories"):
             all_categories.add(cat.get("title"))
         for cat in restaurant.get("cuisines"):
             all_categories.add(cat)
+        # Format reviews
+        yelp_reviews = []
+        for review in restaurant.get("yelp_data").get("reviews"):
+            yelp_reviews.append({
+                "text": review.get("text"),
+                "rating": review.get("rating"),
+                "user": review.get("user").get("name")
+            })
+        # Format hours
+        open_hours = []
+        for hours_data in yelp_data.get("hours"):
+            if hours_data.get("hours_type") == "REGULAR":
+                open_hours = hours_data.get("open")
         
         new_rest = Restaurant(
             id = rest_id,
@@ -41,8 +55,8 @@ def push_restaurants(data) :
             photos = yelp_data.get("photos"),
             price = yelp_data.get("price"),
             delivery = restaurant.get("is_delivery_available"),
-            is_open = yelp_data.get("hours")[0].get("is_open_now"),
-            reviews = restaurant.get("yelp_data").get("reviews")
+            hours = open_hours,
+            reviews = yelp_reviews
         )
 
         # link Restaurants --> Cultures
@@ -101,6 +115,11 @@ def populate_cultures() :
 
 def push_cultures(data) :
     for culture in data["cultures"] :
+        blocs = []
+        if culture.get("regionalBlocs"):
+            for bloc in culture["regionalBlocs"]:
+                blocs.append(bloc.get("name"))
+
         entry = dict()
         entry["name"] = culture["name"]
         entry["capital"] = culture["capital"]
@@ -114,6 +133,7 @@ def push_cultures(data) :
         entry["languages"] = [language_dict["name"] for language_dict in culture["languages"]] # culture["languages"][0]["name"]
         entry["independent"] = culture["independent"]
         entry["summary"] = culture["wikipedia_summary"]
+        entry["regional_blocs"] = blocs
         culture_db_instance = Culture(**entry)
         db.session.add(culture_db_instance)
 
@@ -148,17 +168,23 @@ def push_recipes(data) :
         # Get dish types, format into array of strings
         dish_types = [t for t in DISH_TYPES if t.lower() in recipe["dishTypes"]]
 
+        # Get recipe time
+        instructions_minutes = recipe.get("instructions_minutes")
+        recipe_minutes = recipe.get("readyInMinutes")
+        if instructions_minutes > recipe_minutes:
+            recipe_minutes = instructions_minutes
+
         new_recipe = Recipe(
             id = recipe_id,
             name = recipe.get("title"),
             summary = recipe.get("summary"),
             image_url = recipe.get("image"),
             source_url = recipe.get("sourceUrl"),
-            ready_in_minutes = recipe.get("readyInMinutes"),
-            instructions_minutes = recipe.get("instructions_minutes"),
+            ready_in_minutes = recipe_minutes,
             servings = recipe.get("servings"),
             labels = labels,
             ingredients = ingredients,
+            num_ingredients = len(ingredients),
             total_nutrients = recipe.get("nutrition").get("nutrients"),
             instructions = instructions,
             dish_types = dish_types,

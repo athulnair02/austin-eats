@@ -62,6 +62,7 @@ class Culture(db.Model) :
     demonym = db.Column(db.String())
     independent = db.Column(db.Boolean)
     summary = db.Column(db.String())
+    regional_blocs = db.Column(ARRAY(db.String()))
 
     def __repr__(self):
         return "<Culture %s>" % self.name
@@ -95,8 +96,8 @@ class Restaurant(db.Model) :
     photos = db.Column(ARRAY(db.String()))
     price = db.Column(db.String)
     delivery = db.Column(db.Boolean)
-    is_open = db.Column(db.Boolean)
     reviews = db.Column(db.JSON)
+    hours = db.Column(db.JSON)
 
     def __repr__(self):
         return "<Restaurant %s>" % self.name
@@ -118,10 +119,10 @@ class Recipe(db.Model) :
     image_url = db.Column(db.String())
     source_url = db.Column(db.String())
     ready_in_minutes = db.Column(db.Integer)
-    instructions_minutes = db.Column(db.Integer)
     servings = db.Column(db.Integer)
     labels = db.Column(ARRAY(db.String())) # Vegan, Vegetarian, etc
     ingredients = db.Column(ARRAY(db.String()))
+    num_ingredients = db.Column(db.Integer)
     total_nutrients = db.Column(db.JSON) # Macros, Calories, etc         # db.relationship("Nutrient") # One-Many relationship between recipe & nutrients
     instructions = db.Column(ARRAY(db.String()))
     dish_types = db.Column(ARRAY(db.String())) # Breakfast, Lunch, Dinner, etc
@@ -145,7 +146,7 @@ class CultureSchema(Schema) :
     name = fields.String(required=True)
 
     restaurants = fields.Nested("RestaurantSchema", only=("id", "name", "image_url", "rating", "review_count", "price"), required=True, attribute="restaurants", many=True)
-    recipes = fields.Nested("RecipeSchema", only=("id", "name", "image_url", "ingredients", "dish_types", "ready_in_minutes", "instructions_minutes", "cuisine_type"), required=True, attribute="recipes", many=True)
+    recipes = fields.Nested("RecipeSchema", only=("id", "name", "image_url", "ingredients", "dish_types", "ready_in_minutes", "cuisine_type"), required=True, attribute="recipes", many=True)
 
     capital = fields.String(required=True)
     flag_url = fields.String(required=True)
@@ -158,11 +159,20 @@ class CultureSchema(Schema) :
     demonym = fields.String(required=True)
     independent = fields.Boolean(required=True)
     summary = fields.String(required=True)
+    regional_blocs = fields.List(fields.String(), required=True)
 
 # may need to adjust this MenuSchema
 class MenuSchema(Schema) :
     id = fields.Integer(required=True)
     dishes = fields.List(fields.String(), required=True)
+class ReviewSchema(Schema) :
+    text = fields.String(required=True)
+    rating = fields.Integer(required=True)
+    user = fields.String(required=True)
+class HoursSchema(Schema) :
+    start = fields.String(required=True)
+    end = fields.String(required=True)
+    day = fields.Integer(required=True)
 
 class RestaurantSchema(Schema) :
     id = fields.Integer(required=True)
@@ -170,8 +180,8 @@ class RestaurantSchema(Schema) :
 
     dishes = fields.Pluck(MenuSchema, "dishes", many=True)
     cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region", "subregion", "population", "flag_url", "independent"), required=True, attribute="cultures", many=True)
-    # not sure how to link recipes to the dishes; we will see!
-    recipes = fields.Nested("RecipeSchema", only=("id", "name", "image_url", "ingredients", "dish_types", "ready_in_minutes", "instructions_minutes", "cuisine_type"), required=True, attribute="recipes", many=True)
+    
+    recipes = fields.Nested("RecipeSchema", only=("id", "name", "image_url", "ingredients", "dish_types", "ready_in_minutes", "cuisine_type"), required=True, attribute="recipes", many=True)
 
     image_url = fields.String(required=False)
     restaurant_url = fields.String(required=False)
@@ -182,10 +192,13 @@ class RestaurantSchema(Schema) :
     display_address = fields.String(required=True)
     latlng = fields.List(fields.Float(), required=True) #fields.Dict(keys=fields.String(), values=fields.Integer(), required=True)
     distance = fields.Float()
+    open_now = fields.Bool(required=True)
     photos = fields.List(fields.String(), required=True)
     price = fields.String(required=True)
-    # takeout, delivery
+    
     delivery = fields.Bool(required=True)
+    reviews = fields.List(fields.Nested(ReviewSchema))
+    hours = fields.List(fields.Nested(HoursSchema))
 
 class RecipeSchema(Schema) :
     id = fields.Integer(required=True)
@@ -198,11 +211,11 @@ class RecipeSchema(Schema) :
     image_url = fields.String(required=True)
     source_url = fields.String(required=True)
     ready_in_minutes = fields.Integer(required=True)
-    instructions_minutes = fields.Integer(required=True)
     servings = fields.Integer(required=True)
     # low-fat, etc
     diet_labels = fields.List(fields.String(), required=True)
     ingredients = fields.List(fields.String(), required=True) #fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
+    num_ingredients = fields.Integer(required=True)
     total_nutrients = fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
     instructions = fields.List(fields.String(), required=True)
     cuisine_type = fields.List(fields.String(), required=True)
@@ -216,4 +229,4 @@ culture_schema_basic = CultureSchema(exclude=['restaurants', 'recipes'])
 restaurant_schema = RestaurantSchema()
 restaurant_schema_basic = RestaurantSchema(exclude=['cultures', 'recipes'])
 recipe_schema = RecipeSchema()
-recipe_schema_basic = RecipeSchema(exclude=['restaurants', 'cultures'])
+recipe_schema_basic = RecipeSchema(exclude=['restaurants', 'cultures', 'total_nutrients'])
