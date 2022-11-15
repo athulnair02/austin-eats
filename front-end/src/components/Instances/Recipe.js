@@ -117,7 +117,7 @@ function Recipe() {
           </ul>
           <div className='instanceSubTitle'>Cultures related to {instanceData.name}</div>
           <ul className='scrollContainer'>
-            {related_cultures.map((culture) => <li>{Create_Culture_Cell(culture, `/cultures/${id}`)}</li>)}
+            {related_cultures.map((culture) => <li>{Create_Culture_Cell(culture, `/cultures/${culture.id}`)}</li>)}
           </ul>
         </div>
       </>
