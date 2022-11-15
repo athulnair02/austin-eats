@@ -3,6 +3,8 @@ from db import init_db
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from marshmallow import fields, Schema
+from werkzeug.datastructures import MultiDict
+from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
 from sqlalchemy.dialects.postgresql import ARRAY
 
 # TexasVotes code helped a lot with this
@@ -64,6 +66,10 @@ class Culture(db.Model) :
     summary = db.Column(db.String())
     regional_blocs = db.Column(ARRAY(db.String()))
 
+    @hybrid_method
+    def search_list(self, term: str):
+        return [("name_PRT", term), ("summary_PRT", term), ("demonym_PRT", term), ("subregion_PRT", term), ("languages_PRT", term)]
+
     def __repr__(self):
         return "<Culture %s>" % self.name
 
@@ -99,6 +105,10 @@ class Restaurant(db.Model) :
     reviews = db.Column(db.JSON)
     hours = db.Column(db.JSON)
 
+    @hybrid_method
+    def search_list(self, term: str):
+        return [("name_PRT", term), ("categories_PRT", term), ("price", term)]
+    
     def __repr__(self):
         return "<Restaurant %s>" % self.name
 
@@ -129,6 +139,10 @@ class Recipe(db.Model) :
     cuisine_type = db.Column(ARRAY(db.String())) # American, Chinese, etc
     health_score = db.Column(db.Integer)
     dish_name = db.Column(db.String) # Taco, Salad, etc
+
+    @hybrid_method
+    def search_list(self, term: str):
+        return [("name_PRT", term), ("summary_PRT", term), ("dish_name", term), ("labels_PRT", term), ("cuisine_type_PRT", term)]
 
     def __repr__(self):
         return "<Recipe %s>" % self.name
