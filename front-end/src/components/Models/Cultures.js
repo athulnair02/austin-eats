@@ -1,66 +1,28 @@
 import React from 'react';
 import cultures from '../../temp-backend/cultures.json'
-import { Create_Culture_Cell, Get_Data } from '../../SharedFunctions';
+import { Create_Culture_Cell } from '../../SharedFunctions';
 import Selection from './sub_components/Selection';
 import InputField from './sub_components/InputField';
-import PaginateTable from './sub_components/PaginateTable';
-import { Row, Dropdown, Form} from "react-bootstrap";
+import { PaginateTable } from './sub_components/PaginateTable';
+import SearchIcon from '@mui/icons-material/Search';
 import { Stack } from '@mui/system';
 import { Divider } from '@mui/material';
 import '../../styles/Models.css'
 
 function Cultures() {
-    const columns = React.useMemo(() => [
-      {
-        Header: "Index",
-        accessor: "i",
-      },
-      {
-        Header: "Id",
-        accessor: "id",
-      },
-      {
-        Header: "Name",
-        accessor: "name",
-      },
-      {
-        Header: "Region",
-        accessor: "region",
-      },
-      {
-        Header: "Subregion",
-        accessor: "subregion",
-      },
-      {
-        Header: "Population",
-        accessor: "population",
-      },
-      {
-        Header: "Independent",
-        accessor: "independent",
-      },
-    ], []);
+    const [pageQueryParams, setPageQueryParams] = React.useState({});
 
-    const [modelData, setModelData] = React.useState([]);
-    React.useEffect(() => {
-      Get_Data('cultures').then(data => setModelData(data));
-    }, [])
-
-    const data = React.useMemo(() => {
-      const t = [];
-      for (const [i, culture] of Object.entries(modelData)) {
-        t.push({
-          i: i,
-          id: culture.id,
-          name: culture.name,
-          region: culture.region,
-          subregion: culture.subregion,
-          population: culture.population,
-          independent: culture.independent,
-        });
+    // Set query param to value, if value == defaultValue remove query param (remove key from state object, no need to specify in query)
+    function setParamsDefaultValue(key, value, defaultValue) {
+      if ((Array.isArray(value) && JSON.stringify(value) == JSON.stringify(defaultValue)) || value == defaultValue) {
+        const obj = {...pageQueryParams};
+        delete obj[key];
+        setPageQueryParams(obj);
+        console.log("deleted " + key);
+      } else {
+        setPageQueryParams({...pageQueryParams, [key]: value});
       }
-      return t;
-    }, [modelData])
+    }
 
     return (
       <>
@@ -73,45 +35,48 @@ function Cultures() {
           spacing={2}
           className='modelFilterBar'
         >
-          <Selection text='Independence' helpText='Filter by independence status' choices={['Independent', 'Not independent']}></Selection>
-          <InputField helpText='Filter by min population' unit={<b>{'>'}</b>} unitPosition='start'></InputField>
-          <InputField helpText='Search for region'></InputField>
-          <InputField helpText='Search for subregion'></InputField>
-          <InputField helpText='Filter by min number of blocs' unit='blocs' unitPosition='end'></InputField>
+          <InputField 
+            icon={<SearchIcon/>}
+            label='Search'
+            unitPosition='end'
+            width='75ch'
+            onBlur={(search) => setParamsDefaultValue('search', search, '')}>
+          </InputField>
         </Stack>
-        <PaginateTable columns={columns} data={data} create_cell={(id, index) => {
-          return Create_Culture_Cell(modelData[index], id);
-        }}/>
-
-        {/* <div class = "cultures-information">
-          <Row>
-            <Dropdown class="dropdownStyle">
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Independence status
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Independent</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Not independent</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-
-            <Form.Group className="population" controlId="formPopulation">
-              <Form.Control type="population" placeholder="Minimum population" />
-            </Form.Group>
-
-            <Form.Group className="region" controlId="formRegion">
-              <Form.Control type="region" placeholder="Region" />
-            </Form.Group>
-
-            <Form.Group className="subregion" controlId="formSubregion">
-              <Form.Control type="subregion" placeholder="Subregion" />
-            </Form.Group>
-
-            <Form.Group className="regionalBlocs" controlId="formRegionalBlocs">
-              <Form.Control type="regionalBlocs" placeholder="# of regional blocs" />
-            </Form.Group>
-          </Row>
-        </div> */}
+        <Stack
+          direction="row"
+          divider={<Divider orientation="vertical" flexItem />}
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+          className='modelFilterBar'
+        >
+          <Selection 
+            text='Independence'
+            helpText='Filter by independence status' 
+            choices={['Independent', 'Not independent']}
+            onChange={(value) => setParamsDefaultValue('independent', value >= 0 ? value == 0 : value, -1)}>
+          </Selection>
+          <InputField
+            helpText='Filter by min population'
+            unit={<b>{'≥'}</b>}
+            unitPosition='start'
+            onBlur={(minPopulation) => setParamsDefaultValue('population_GE', minPopulation, '')}>
+          </InputField>
+          <InputField
+            helpText='Search for region'
+            onBlur={(search) => setParamsDefaultValue('region_PRT', search, '')}>
+          </InputField>
+          <InputField 
+            helpText='Search for subregion'
+            onBlur={(search) => setParamsDefaultValue('subregion_PRT', search, '')}>
+          </InputField>
+          <InputField 
+            helpText='Search for language'
+            onBlur={(search) => setParamsDefaultValue('languages_PRT', search, '')}> 
+          </InputField>
+        </Stack>
+        <PaginateTable model='cultures' pageQueryParams={pageQueryParams} create_cell={Create_Culture_Cell}/>
       </>
     );
   }
