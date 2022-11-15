@@ -3,13 +3,14 @@ from flask import Flask, make_response, jsonify, request
 from geopy import distance
 from datetime import date
 from zoneinfo import ZoneInfo
+from collections import Counter
 from format import *
 import requests
 import json
 import math, operator
 import re
 import datetime, time
-from sqlalchemy import or_, func
+from sqlalchemy import or_, func, case
 
 # TexasVotes code helped a lot with this
 
@@ -176,25 +177,38 @@ def filter_query(query, model, args):
 
 
 def search_query(query, model, args):
-    if not args:
+    search = args.get("search")
+    if not search:
         return query
-    else:
-        args = args[0].strip()
-    terms = args.split()
-    searches_set = set()
+    terms = search.split()
+    if len(terms) < 1:
+        return query
 
     # match the term to the name
-    for term in terms:
-        if re.search(term.lower(), model.name.lower())
-            searches_set.add(model.name)
+    matched_ids = []
+    matched_relations = query.filter(func.lower(model.name).ilike('%{0}%'.format(terms[0].lower())))
+    for relation in matched_relations:
+        matched_ids.append(relation.id)
+    for num in range(1, len(terms)):
+        term = terms[num]
+        term_matches = query.filter(func.lower(model.name).ilike('%{0}%'.format(term.lower())))
+        for relation in term_matches:
+            matched_ids.append(relation.id)
+        matched_relations = matched_relations.union_all(term_matches)
+    if len(matched_ids) < 1:
+        return query.filter(False)
     
-    query = query.join(model).filter(or_(*tuple(searches_set)))
-    return query
+    # contains ids in descending frequency order (contains duplicates)
+    sorted_ids_dup = [n for n,count in Counter(matched_ids).most_common() for i in range(count)]
+    # ordering rule how to sort
+    id_ordering = case({_id: index for index, _id in enumerate(sorted_ids_dup)}, value=model.id)
+    return matched_relations.order_by(id_ordering)
 
 
 # Queries all on models with pagination, filtering support
 def query_all(model, schema, args):
     relations = filter_query(db.session.query(model), model, args)
+    relations = search_query(relations, model, args)
 
     if model is Restaurant:
         relations_temp = relations.all()

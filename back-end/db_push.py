@@ -115,6 +115,11 @@ def populate_cultures() :
 
 def push_cultures(data) :
     for culture in data["cultures"] :
+        blocs = []
+        if culture.get("regionalBlocs"):
+            for bloc in culture["regionalBlocs"]:
+                blocs.append(bloc.get("name"))
+
         entry = dict()
         entry["name"] = culture["name"]
         entry["capital"] = culture["capital"]
@@ -128,6 +133,7 @@ def push_cultures(data) :
         entry["languages"] = [language_dict["name"] for language_dict in culture["languages"]] # culture["languages"][0]["name"]
         entry["independent"] = culture["independent"]
         entry["summary"] = culture["wikipedia_summary"]
+        entry["regional_blocs"] = blocs
         culture_db_instance = Culture(**entry)
         db.session.add(culture_db_instance)
 
