@@ -177,9 +177,12 @@ def filter_query(query, model, args):
 
 
 def search_query(query, model, args):
-    if not args:
-       return query
-    terms = args.get("search").split()
+    search = args.get("search")
+    if not search:
+        return query
+    terms = search.split()
+    if len(terms) < 1:
+        return query
 
     # match the term to the name
     matched_ids = []
@@ -192,17 +195,14 @@ def search_query(query, model, args):
         for relation in term_matches:
             matched_ids.append(relation.id)
         matched_relations = matched_relations.union_all(term_matches)
+    if len(matched_ids) < 1:
+        return query.filter(False)
     
     # contains ids in descending frequency order (contains duplicates)
     sorted_ids_dup = [n for n,count in Counter(matched_ids).most_common() for i in range(count)]
-    # contains ids in descending frequency order (no duplicates)
-    sorted_ids = []
-    for sorted_id in sorted_ids_dup:
-        if sorted_id not in sorted_ids:
-            sorted_ids.append(sorted_id)
     # ordering rule how to sort
     id_ordering = case({_id: index for index, _id in enumerate(sorted_ids_dup)}, value=model.id)
-    return query.filter(model.id.in_(sorted_ids)).order_by(id_ordering)
+    return matched_relations.order_by(id_ordering)
 
 
 # Queries all on models with pagination, filtering support
