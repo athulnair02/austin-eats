@@ -62,6 +62,7 @@ class Culture(db.Model) :
     demonym = db.Column(db.String())
     independent = db.Column(db.Boolean)
     summary = db.Column(db.String())
+    regional_blocs = db.Column(ARRAY(db.String()))
 
     def __repr__(self):
         return "<Culture %s>" % self.name
@@ -158,6 +159,7 @@ class CultureSchema(Schema) :
     demonym = fields.String(required=True)
     independent = fields.Boolean(required=True)
     summary = fields.String(required=True)
+    regional_blocs = fields.List(fields.String(), required=True)
 
 # may need to adjust this MenuSchema
 class MenuSchema(Schema) :
