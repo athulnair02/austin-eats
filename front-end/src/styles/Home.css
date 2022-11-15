@@ -72,6 +72,7 @@
     font-size: 30px;
     margin: 10px auto;
     margin-top: 0px;
+    margin-bottom: 30px;
     padding-left: 20px;
     padding-right: 20px;
     width: auto;
@@ -81,6 +82,11 @@
 
 .spacer {
     min-height: 90px;
+}
+
+#map {
+    height: 500px;
+    margin-top: 15px;
 }
 
 body {

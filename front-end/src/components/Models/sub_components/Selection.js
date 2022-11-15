@@ -7,7 +7,7 @@ import Select from '@mui/material/Select';
 
 function Selection(props) {
   const MULTIPLE = props.multiple;
-  let defaultValue = props.defaultValue;
+  let defaultValue = MULTIPLE && props.defaultValue ? [...props.defaultValue] : props.defaultValue;
   if (defaultValue == null) {
     defaultValue = MULTIPLE ? [] : (props.removeNone ? 0 : -1);
   }
@@ -22,7 +22,11 @@ function Selection(props) {
 
       // Callback
       if (props.onChange) {
-        props.onChange(value, props.choices[value]);
+        if (MULTIPLE) {
+          props.onChange(value, value.map(i => props.choices[i]));
+        } else {
+          props.onChange(value, props.choices[value]);
+        }
       }
     };
 
