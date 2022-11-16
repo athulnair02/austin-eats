@@ -10,14 +10,12 @@ import json
 import math, operator
 import re
 import datetime, time
-import multiprocessing
+import threading
+import queue
 from werkzeug.datastructures import MultiDict
 from sqlalchemy import or_, func, case
 
 # TexasVotes code helped a lot with this
-
-manager = multiprocessing.Manager()
-queue = manager.Queue()
 
 # simple float validity check
 def isfloat(num):
@@ -96,7 +94,7 @@ def calculate_open_status(model, relations, filter_open_now = False):
     return filtered_relations, did_filter
 
 # dump to schema, adding any extra fields that should be added prior to returning
-def schema_dump(model, schema, args, data, dump_as_list: bool, dont_dump=False):
+def schema_dump(model, schema, args, data, dump_as_list: bool, dump_queue=False):
     relations = data.get("relations") if isinstance(data, dict) else data
 
     # calculate distance from restaurant
@@ -112,9 +110,9 @@ def schema_dump(model, schema, args, data, dump_as_list: bool, dont_dump=False):
     else:
         all_instances = schema.dump(relations[0])
     
-    if dont_dump:
-        queue.put((model.__tablename__, all_instances))
-    return all_instances if dont_dump else json.dumps(all_instances)
+    if dump_queue:
+        dump_queue.put((model.__tablename__, all_instances))
+    return json.dumps(all_instances)
 
 # Filters the specified query with the given args
 # Checks each args existence in the model, and performs a chain-filter
@@ -218,7 +216,7 @@ def search_query(query, model, args):
 
 
 # Queries all on models with pagination, filtering support
-def query_all(model, schema, args, dont_dump=False):
+def query_all(model, schema, args, dump_queue=False):
     relations = filter_query(db.session.query(model), model, args)
     relations = search_query(relations, model, args)
 
@@ -252,7 +250,7 @@ def query_all(model, schema, args, dont_dump=False):
         # retrieve all instances
         data["relations"] = relations.all()
     
-    return schema_dump(model, schema, args, data, dump_as_list=True, dont_dump=dont_dump)
+    return schema_dump(model, schema, args, data, dump_as_list=True, dump_queue=dump_queue)
 
 # Queries from id on models
 def query_one(model, schema, id, args):
@@ -292,30 +290,31 @@ def all_models() :
     # data["recipe_relations"] = query_all(Recipe, recipe_schema_basic, request.args, dont_dump=True)["relations"]
     # data["culture_relations"] = query_all(Culture, culture_schema_basic, request.args, dont_dump=True)["relations"]
 
-    # Data for processes results and jobs to perform
+    # Data for threads results and jobs to perform
     jobs_to_perform = [
         (Restaurant, restaurant_schema_basic),
         (Recipe, recipe_schema_basic),
         (Culture, culture_schema_basic)
     ]
-    proc_to_result = {
+    thread_to_result = {
         Restaurant.__tablename__: "restaurant_relations",
         Recipe.__tablename__: "recipe_relations",
         Culture.__tablename__: "culture_relations"
     }
     jobs = []
+    all_models_queue = queue.Queue()
 
     # Relations search jobs
     for job in jobs_to_perform:
-        proc = multiprocessing.Process(target=query_all, args=(job[0], job[1], request.args, True))
-        jobs.append(proc)
-        proc.start()
+        thread = threading.Thread(target=query_all, args=(job[0], job[1], request.args, all_models_queue))
+        jobs.append(thread)
+        thread.start()
 
     for job in jobs:
         job.join()
-    while not queue.empty():
-        job_result = queue.get()
-        data[proc_to_result.get(job_result[0])] = job_result[1]["relations"]
+    while not all_models_queue.empty():
+        job_result = all_models_queue.get()
+        data[thread_to_result.get(job_result[0])] = job_result[1]["relations"]
     # end_time = datetime.datetime.now()
     # print(end_time - start_time)
     return json.dumps(data)
