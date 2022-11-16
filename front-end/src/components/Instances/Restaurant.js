@@ -56,7 +56,7 @@ function Restaurant(props) {
           <div className='instanceSubTitle' style={{fontSize:`35px`}}>
             A closer look at {name}
           </div>
-          <div> <img src={instanceData.image_url} alt="restaurant image"/> </div>
+          <div className='recipeImage' style={{backgroundImage: `url(${instanceData.image_url})`}}></div>
           <div className='cultureContainer' style={{height:`200px`, display:`flex`, alignItems:'center', marginTop:'50px'}}>
             <iframe align="top" className='googleMap' src={`https://maps.google.com/maps?q=${instanceData.name}&output=embed`}></iframe>
           </div>
