@@ -1,16 +1,18 @@
 /* eslint-disable no-template-curly-in-string */
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Card, Container } from "react-bootstrap";
-import { TextField, Typography, Stack, Button } from "@mui/material";
+import { Container } from "react-bootstrap";
+import { TextField, Typography, Stack, Button, Input } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { Create_Culture_Cell, Create_Recipe_Cell, Create_Restaurant_Cell} from "../../SharedFunctions";
 import { API_URL } from "../../Global";
 import '../../styles/Search.css'
+import '../../styles/Models.css'
 import SearchCard from "./SearchCard";
+import SearchIcon from '@mui/icons-material/Search'
 
 const SEARCH_PATHS = ["cultures", "restaurants", "recipes"];
-const RESULT_LIMIT = 10;
+const RESULT_LIMIT = 25;
 
 function Search(props) {
 
@@ -27,27 +29,27 @@ function Search(props) {
     let navigate = useNavigate();
 
     const updateSearch = (search) => {
-        let path = `?q=${search}`;
+        let path = `?search=${search}`;
         navigate(path);
         setParams(search);
     };
 
     useEffect(() => {
-        if (searchParams.get("q")) {
-            setParams(searchParams.get("q"));
-            setSearch(searchParams.get("q"));
+        if (searchParams.get("search")) {
+            setParams(searchParams.get("search"));
+            setSearch(searchParams.get("search"));
         }
 
         const constructParams = (params) => {
             let p = "";
             if (params) {
-                p = "q=" + params;
+                p = "search=" + params;
             }
             return p;
         }
 
         const getResults = async ( { model, params} ) => {
-            let url = API_URL + `/${model}?per_page=${RESULT_LIMIT}`;
+            let url = API_URL + `/${model}?page=1&per_page=${RESULT_LIMIT}`;
             if (params) {
                 url = `${url}&${constructParams(params)}`;
             }
@@ -61,7 +63,7 @@ function Search(props) {
                 let promises = SEARCH_PATHS.map((model) => {
                     return getResults({
                         model: model,
-                        params: searchParams.get("q"),
+                        params: searchParams.get("search"),
                     });
                 });
                 let resolved = await Promise.all(promises);
@@ -89,7 +91,7 @@ function Search(props) {
             <div className="searchTitle">Search</div>
             <div className="bar-box">
                 <h1 className="title-wrapper">
-                    {searchParams.get("q") ? `Results for ${searchParams.get("q")}` : "Search for a restaurant, recipe, or culture here"}
+                    {searchParams.get("search") ? `Results for ${searchParams.get("search")}` : "Search for a restaurant, recipe, or culture here"}
                 </h1>
                 <TextField className="searchbar" onKeyPress={(ev) => {
                         if(ev.key === "Enter"){
@@ -97,6 +99,7 @@ function Search(props) {
                             updateSearch(ev.target.value)
                         }
                     }}
+                    icon={<SearchIcon/>}
                     label="Search"
                     placeholder="Enter sitewide search here"
                     value={searchQ}
@@ -109,9 +112,9 @@ function Search(props) {
                 <Stack direction="row" flexWrap="wrap" className="center-row">
                     {results["restaurants"].map((r) => (
                         r["eor"] ? 
-                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/restaurants?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
+                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/restaurants?search=${searchParams.get("search") ? searchParams.get("search") : ""}`}>
                                 <Typography className="cardTitle"> View {r["amount"]} more results in restaurants</Typography>
-                        </Button> : <SearchCard model="restaurants" data={r} highlight={params}/> // : Search Card goes here
+                        </Button> : null // : Search Card goes here
                     ))}
                 </Stack> 
 
@@ -119,9 +122,9 @@ function Search(props) {
                 <Stack direction="row" flexWrap="wrap" className="center-row">
                     {results["restaurants"].map((r) => (
                         r["eor"] ? 
-                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/recipes?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
+                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/recipes?search=${searchParams.get("search") ? searchParams.get("search") : ""}`}>
                                 <Typography className="cardTitle"> View {r["amount"]} more results in recipes</Typography>
-                        </Button> : <SearchCard model="recipes" data={r} highlight={params}/> // : Search Card goes here
+                        </Button> : null // : Search Card goes here
                     ))}
                 </Stack> 
 
@@ -129,9 +132,9 @@ function Search(props) {
                 <Stack direction="row" flexWrap="wrap" className="center-row">
                     {results["restaurants"].map((c) => (
                         c["eor"] ? 
-                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/cultures?q=${searchParams.get("q") ? searchParams.get("q") : ""}`}>
+                        <Button className="search-button" variant="outlined" component={RouterLink} to={`/cultures?search=${searchParams.get("search") ? searchParams.get("search") : ""}`}>
                                 <Typography className="cardTitle"> View {c["amount"]} more results in cultures</Typography>
-                        </Button> : <SearchCard model="cultures" data={c} highlight={params}/> // : Search Card goes here
+                        </Button> : null // : Search Card goes here
                     ))}
                 </Stack> 
             </Container>

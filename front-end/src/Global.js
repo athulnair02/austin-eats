@@ -1,3 +1,3 @@
-const API_URL = `https://api.austineats.me`;
+const API_URL = `http://localhost:5000/api`;
 
 export { API_URL };
