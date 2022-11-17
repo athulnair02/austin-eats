@@ -54,7 +54,7 @@ export function Get_User_Coordinates() {
 
 // Fetch model/instance data from api
 export async function Get_Data(model, id, controller) {
-    let URL = "http://127.0.0.1:5000/api/" + model; //"https://api.austineats.me/" + model;
+    let URL = "https://api.austineats.me/" + model;
     if (id != null) {
         URL += ("/" + id);
     }
