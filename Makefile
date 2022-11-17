@@ -16,7 +16,11 @@ back-end-tests:
 	echo "Running unittests and Postman test suite..."
 	python3 back-end/unittests.py -v
 
-front-end-tests:
-	echo "Running Mocha and Selenium test suite..."
+front-jest-tests:
+	echo "Running Jest test suite..."
+	cd front-end/ && npm test --silent
+
+front-acceptance-tests:
+	echo "Running Selenium test suite..."
 	cd ./front-end/gui_tests/ && chmod +x chromedriver_linux
 	cd ./front-end/ && python3 guitests.py

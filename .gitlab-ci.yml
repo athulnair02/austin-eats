@@ -17,13 +17,20 @@ build_front_end:
     - npm install
     - CI=false npm run-script build
 
-test_front_end:
+
+test_front_jest:
+  stage: test
+  script:
+    - make front-jest-tests
+  
+
+test_front_acceptance:
   stage: test
   image: forbesye/selenium-ci
   before_script:
     - pip install -r front-end/gui_tests/requirements.txt
   script:
-    - make front-end-tests
+    - make front-acceptance-tests
 
 test_back_end:
   image: python:3.6-stretch
