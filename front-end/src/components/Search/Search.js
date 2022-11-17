@@ -40,7 +40,7 @@ function Search(props) {
         // Create elements from query
         let searchResults = [];
         for (const [model, create_cell] of Object.entries(MODELS)) {
-          const elements = Get_Elements_From_Data(data[model.toLowerCase() + '_relations'], searchWords, create_cell);
+          const elements = Get_Elements_From_Data(data[model.toLowerCase() + '_relations'], searchWords, (instance, id) => create_cell(instance, `/${model.toLowerCase()}s/${id}`));
           if (elements.length > 0) {
             searchResults = [...searchResults, (
               <React.Fragment key={model}>

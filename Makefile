@@ -22,4 +22,5 @@ front-jest-tests:
 
 front-acceptance-tests:
 	echo "Running Selenium test suite..."
-	cd front-end/ && python3 guitests.py
+	cd ./front-end/gui_tests/ && chmod +x chromedriver_linux
+	cd ./front-end/ && python3 guitests.py
