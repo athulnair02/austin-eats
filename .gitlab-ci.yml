@@ -18,12 +18,10 @@ build_front_end:
     - CI=false npm run-script build
 
 test_front_end:
-  image: python:3.6-stretch
   stage: test
+  image: forbesye/selenium-ci
   before_script:
-    - python3 -m pip install --upgrade pip
-    - python3 -m pip install selenium
-    - pip install webdriver-manager
+    - pip install -r front-end/gui_tests/requirements.txt
   script:
     - make front-end-tests
 
