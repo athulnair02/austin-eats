@@ -20,6 +20,7 @@
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
     "react-table": "^7.8.0",
+    "testing-library": "^0.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "eslint": "^8.24.0",
+    "jest": "^27.5.1",
     "prettier": "2.7.1"
   }
 }
