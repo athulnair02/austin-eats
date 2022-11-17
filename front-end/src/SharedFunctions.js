@@ -53,20 +53,86 @@ export function Get_User_Coordinates() {
 // }
 
 // Fetch model/instance data from api
-export async function Get_Data(model, id) {
+export async function Get_Data(model, id, controller) {
     let URL = "https://api.austineats.me/" + model;
     if (id != null) {
         URL += ("/" + id);
     }
-    const response = await fetch(URL);
-    const json = await response.json();
-    return json;
+
+    return await fetch(URL, controller ? { signal: controller.signal } : null)
+        .then((response) => response.json())
+        .catch(err => console.log(err));
+}
+
+// Apply params to query & get query data
+export function Get_Query_Data(model, query, pageQueryParams, userCoords, controller) {
+    let searchWords = [];
+    for (const [filter, value] of Object.entries(pageQueryParams)) {
+        // Add to query
+        if (Array.isArray(value)) {
+            value.forEach(v => (query += `&${filter}=${v}`));
+        } else {
+            query += `&${filter}=${value}`;
+        }
+
+        // If search field, get search words
+        if (filter == 'search') searchWords = value.toLowerCase().split(' ');
+        console.log(searchWords);
+    }
+    if (userCoords) query += `&user_loc=${userCoords.latitude}, ${userCoords.longitude}`;
+    if (query != '') query = '?' + query.substring(1);
+
+    console.log(query);
+    return Get_Data(model + query, null, controller).then(data => {
+        return [data, searchWords];
+    });
+}
+
+export function Get_Elements_From_Data(dataRelation, searchWords, create_cell) {
+    const elements = [];
+    for (const instance of dataRelation) {
+        if (searchWords.length > 0) {
+            let matchRegex = '';
+            searchWords.map(word => matchRegex += ('|' + word));
+            matchRegex = matchRegex.substring(1);
+
+            // Divide name into parts where the matching terms are alone
+            const nameParts = instance.name.split(new RegExp(`(${matchRegex})`, "gi"));
+            console.log(nameParts);
+
+            // Iterate through parts, if a match is found, highlight the text
+            // Credit to nlopezm for the codesandbox example "React Highlight Text"
+            instance.highlightedName = nameParts.map((part, index) => <React.Fragment key={index}>
+                {searchWords.includes(part.toLowerCase()) ? (
+                    <b style={{ backgroundColor: 'rgba(112, 215, 255, .7)' }}>{part}</b>
+                ) : part}
+            </React.Fragment>);
+        }
+
+        elements.push(create_cell(instance, instance.id));
+    }
+    return elements;
+}
+
+// Set key of object to new value, setting to defaultValue will remove the key
+// Used for querying
+export function Set_Object_State(state, setState, key, value, defaultValue) {
+    if ((Array.isArray(value) && JSON.stringify(value) == JSON.stringify(defaultValue)) || value == defaultValue) {
+        if (state[key]) {
+            const obj = {...state};
+            delete obj[key];
+            setState(obj);
+            console.log("deleted " + key);
+        }
+    } else if (state[key] != value) { // If state index is the same, do not update the state (prevent unneeded re-renders/re-queries)
+        setState({...state, [key]: value});
+    }
 }
 
 export function Create_Restaurant_Cell(restaurant, link, style) {
     const badges = {
-        [!restaurant.is_closed ? 'Open' : 'Closed']: {
-            backgroundColor: !restaurant.is_closed ? '#5fe368' : '#f26b6b',
+        [restaurant.open_now ? 'Open' : 'Closed']: {
+            backgroundColor: restaurant.open_now ? '#5fe368' : '#f26b6b',
         },
         ['⭐ ' + restaurant.rating]: {
             backgroundColor: '#f0de59',
@@ -78,11 +144,11 @@ export function Create_Restaurant_Cell(restaurant, link, style) {
         }
     }
 
-    return <ModelListItem name={restaurant.name} image={restaurant.image_url} link={link} style={style}
-        attributes={[
-            restaurant.review_count + ' reviews',
-            0 + ' miles', // todo: Actual value based off of user coordinates
-        ]}
+    const attributes = [restaurant.review_count + ' reviews'];
+    if (restaurant.distance) attributes.push(restaurant.distance + ' miles');
+
+    return <ModelListItem name={restaurant.highlightedName || restaurant.name} image={restaurant.image_url} link={link} style={style}
+        attributes={attributes}
         badges = {
             badges
     }/>
@@ -91,21 +157,24 @@ export function Create_Restaurant_Cell(restaurant, link, style) {
 export function Create_Recipe_Cell(recipe, link, style) {
     const formattedTotalTime = Format_Time(recipe.ready_in_minutes);
     const badges = {}
-    if (recipe.cultures) {
-        badges['🌎 ' + recipe.cultures[0].demonym] = {
-            backgroundColor: '#8bdae8'
+    if (recipe.cuisine_type) {
+        for (const cuisine of recipe.cuisine_type) {
+            badges['🌎 ' + cuisine] = {
+                backgroundColor: '#8bdae8'
+            }
         }
     }
     badges['🕒 ' + formattedTotalTime] = {
         backgroundColor: '#cccccc'
     }
 
-    return <ModelListItem name={recipe.name} image={recipe.image_url} link={link} style={style}
-        attributes={[
-            CommaSeparate(recipe.dish_types),
-            //`${recipe.health_score}/100 healthiness`, // todo: replace with another recipe attribute
-            recipe.ingredients ? recipe.ingredients.length + " ingredients" : '', // Only ingredient number is passed from PaginateTable
-        ]}
+    const attributes = [];
+    if (recipe.dish_types.length > 0) attributes.push(CommaSeparate(recipe.dish_types)); // Dish type is not specified in all
+    attributes.push(`${recipe.health_score}/100 healthiness`);
+    if (recipe.num_ingredients) attributes.push(recipe.num_ingredients + " ingredients");
+
+    return <ModelListItem name={recipe.highlightedName || recipe.name} image={recipe.image_url} link={link} style={style}
+        attributes={attributes}
         badges = {
             badges
     }/>
@@ -118,15 +187,15 @@ export function Create_Culture_Cell(culture, link, style) {
             backgroundColor: '#8bdae8'
         }
     }
-    if (culture.regional_blocs) {
-        for (const bloc of culture.regional_blocs) {
-            badges[bloc.acronym] = {
+    if (culture.languages) {
+        for (const language of culture.languages) {
+            badges[language] = {
                 backgroundColor: '#cccccc'
             }
         }
     }
 
-    return <ModelListItem name={culture.name} image={culture.flag_url} link={link} style={style}
+    return <ModelListItem name={culture.highlightedName || culture.name} image={culture.flag_url} link={link} style={style}
         attributes={[
             culture.subregion,
             culture.population ? culture.population.toLocaleString("en-US") + ' inhabitants' : '',

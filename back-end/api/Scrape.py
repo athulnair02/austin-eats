@@ -154,6 +154,17 @@ def scrape_recipes_data():
     """
     print("\t\tScraping recipes data..")
 
+    # add instructions_minutes field to recipe
+    def add_instructions_minutes(recipe):
+        instructions = recipe.get("analyzedInstructions")
+        if instructions and recipe.get("instructions_minutes") is None:
+            minutes = 0
+            for step in instructions[0]["steps"]:
+                step_time = step.get("length")
+                if step_time:
+                    minutes += step_time["number"]
+            recipe["instructions_minutes"] = minutes
+
     create_json_file(RESTAURANTS_JSON_PATH)
     with open(RESTAURANTS_JSON_PATH, 'r+', encoding='utf-8') as file:
         current_restaurants = json.load(file)
@@ -163,13 +174,29 @@ def scrape_recipes_data():
         num_done = 0
         failed_recipes = set()
 
-        create_json_file(RECIPES_JSON_PATH, {"acceptable_menu_items": [], "already_scraped_items": [], "menu_items_lookup": {}, "recipes": []})
+        create_json_file(RECIPES_JSON_PATH, {"acceptable_menu_items": [], "already_scraped_items": [], "menu_items_lookup": {}, "menu_items_to_cuisines": {}, "recipes": []})
         with open(RECIPES_JSON_PATH, 'r+', encoding='utf-8') as file:
             current_recipes_data = json.load(file)
             accepted_items = current_recipes_data["acceptable_menu_items"]
             already_scraped_items = current_recipes_data["already_scraped_items"]
             menu_items_lookup = current_recipes_data["menu_items_lookup"]
+            menu_items_to_cuisines = current_recipes_data["menu_items_to_cuisines"]
             current_recipes = current_recipes_data["recipes"]
+
+            def add_cuisines(recipe):
+                cuisines = recipe.get("cuisines")
+                if len(cuisines) < 1:
+                    dish_name = recipe["dish_name"]
+                    cuisines_from = menu_items_to_cuisines.get(dish_name)
+                    if cuisines_from is not None:
+                        recipe["cuisines"] = cuisines_from
+                    else:
+                        print("\t\t\tNo menu_items_to_cuisines for dish {0}. Perform manual review.".format(dish_name))
+            
+            # append extra fields current recipes, if not already existing
+            for recipe in current_recipes:
+                add_instructions_minutes(recipe)
+                add_cuisines(recipe)
 
             # gather recipes data from restaurants
             for restaurant in current_restaurants:
@@ -210,6 +237,8 @@ def scrape_recipes_data():
                             already_scraped_items.append(accepted_name_query)
                             for recipe in recipes_data:
                                 recipe["dish_name"] = accepted_name_query.strip()
+                                add_instructions_minutes(recipe)
+                                add_cuisines(recipe)
                                 current_recipes.append(recipe)
                             break
                 if num_acceptable_items == 0:

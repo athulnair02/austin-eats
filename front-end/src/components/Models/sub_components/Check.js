@@ -4,7 +4,8 @@ import Checkbox from '@mui/material/Checkbox';
 
 function Check(props) {
     const handleChange = (event) => {
-      console.log(event.target.checked);
+      // Callback
+      if (props.onChange) props.onChange(event.target.checked);
     }
 
     return (

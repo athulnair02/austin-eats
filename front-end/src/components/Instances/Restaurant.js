@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
+import { Get_User_Coordinates } from '../../SharedFunctions';
 import restaurants from '../../temp-backend/restaurants.json';
 import recipes from '../../temp-backend/recipes.json'
 import cultures from '../../temp-backend/cultures.json'
@@ -11,9 +12,25 @@ function Restaurant(props) {
     let { id } = useParams();
 
     const [instanceData, setInstanceData] = React.useState([]);
+    const renderCoords = React.useRef(false);
+    function query() {
+      let query = '';
+      if (renderCoords.current) query += `?user_loc=${renderCoords.current.latitude}, ${renderCoords.current.longitude}`;
+      Get_Data('restaurants', id + query).then(data => {
+        // Ensure that query without coords doesn't replace query with coords
+        if (renderCoords.current == null || data.distance) setInstanceData(data)
+      });
+    }
+
     React.useEffect(() => {
-      Get_Data('restaurants', id).then(data => setInstanceData(data));
-    }, [])
+      query(); // Initially load page
+
+      // Get user coordinates and update page when they're received
+      Get_User_Coordinates().then(coords => {
+        renderCoords.current = coords;
+        query();
+      });
+    }, []);
 
     // // redirect to home page, invalid culture
     // if(restaurant == null) {
@@ -24,10 +41,10 @@ function Restaurant(props) {
     let rating = instanceData.rating;
     let phoneNumber = instanceData.display_phone;
     let price = instanceData.price;
-    let coordinates = instanceData.latlng;
+    let distance = instanceData.distance;
     let address = instanceData.display_address;
     let categories = CommaSeparate(instanceData.categories, "title");
-    let open = instanceData.is_closed ? "closed" : "open";
+    let open = instanceData.open_now ? "Open" : "Closed";
     
     const related_recipes = instanceData.recipes ? instanceData.recipes : [];
     const related_cultures = instanceData.cultures ? instanceData.cultures : [];
@@ -39,7 +56,7 @@ function Restaurant(props) {
           <div className='instanceSubTitle' style={{fontSize:`35px`}}>
             A closer look at {name}
           </div>
-          <div> <img src={instanceData.image_url} alt="restaurant image"/> </div>
+          <div className='recipeImage' style={{backgroundImage: `url(${instanceData.image_url})`}}></div>
           <div className='cultureContainer' style={{height:`200px`, display:`flex`, alignItems:'center', marginTop:'50px'}}>
             <iframe align="top" className='googleMap' src={`https://maps.google.com/maps?q=${instanceData.name}&output=embed`}></iframe>
           </div>
@@ -72,7 +89,7 @@ function Restaurant(props) {
             </tr>
             <tr>
               <td className='tdLeft'>Distance</td>
-              <td>{0 + ' miles'}</td>
+              <td>{distance ? distance + ' miles' : 'distance unknown (enable location access)'}</td>
             </tr>
             <tr>
               <td className='tdLeft'>Open?</td>
@@ -85,7 +102,7 @@ function Restaurant(props) {
           </ul>
           <div className='instanceSubTitle'>Cultures related to {instanceData.name}</div>
           <ul className='scrollContainer'>
-            {related_cultures.map((culture) => <li>{Create_Culture_Cell(culture, `/cultures/${id}`)}</li>)}
+            {related_cultures.map((culture) => <li>{Create_Culture_Cell(culture, `/cultures/${culture.id}`)}</li>)}
           </ul>
         </div>
       </>

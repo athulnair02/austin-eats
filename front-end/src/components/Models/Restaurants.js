@@ -1,64 +1,23 @@
 import React from 'react';
 import restaurants from '../../temp-backend/restaurants.json'
-import { Create_Restaurant_Cell, Get_User_Coordinates, Get_Data } from '../../SharedFunctions';
+import { Set_Object_State, Create_Restaurant_Cell } from '../../SharedFunctions';
 import Selection from './sub_components/Selection';
 import Check from './sub_components/Check';
 import InputField from './sub_components/InputField';
-import PaginateTable from './sub_components/PaginateTable';
-import { Row, Dropdown, Form} from "react-bootstrap";
+import { PaginateTable } from './sub_components/PaginateTable';
+import SearchIcon from '@mui/icons-material/Search';
 import { Stack } from '@mui/system';
 import { Divider } from '@mui/material';
 import '../../styles/Models.css'
 
 function Restaurants() {
-    const columns = React.useMemo(() => [
-      {
-        Header: "Id",
-        accessor: "id",
-      },
-      {
-        Header: "Name",
-        accessor: "name",
-      },
-      {
-        Header: "Rating",
-        accessor: "rating",
-      },
-      {
-        Header: "Review count",
-        accessor: "review_count",
-      },
-      {
-        Header: "Distance",
-        accessor: "distance",
-      },
-      {
-        Header: "Price",
-        accessor: "price",
-      },
-    ], []);
+    const [pageQueryParams, setPageQueryParams] = React.useState({});
 
-    const [modelData, setModelData] = React.useState([]);
-    React.useEffect(() => {
-      Get_Data('restaurants').then(data => setModelData(data));
-    }, [])
+    const prices = Array.from(Array(4).keys(), x => x); // [0, 1, 2, 3]
+    const priceChoices = Array.from(prices.keys(), x => '$'.repeat(x+1)); // [$, $$, $$$, $$$$]
 
-    const data = React.useMemo(() => {
-      const t = [];
-      for (const [i, restaurant] of Object.entries(modelData)) {
-        t.push({
-          id: restaurant.id,
-          name: restaurant.name,
-          rating: restaurant.rating,
-          review_count: restaurant.review_count,
-          distance: 0,
-          price: restaurant.price,
-        });
-      }
-      return t;
-    }, [modelData])
-
-    //const getCoordsPromise = Get_User_Coordinates();
+    const ratings = Array.from(Array(5).keys(), x => x); // [0, 1, 2, 3, 4]
+    const ratingChoices = Array.from(ratings.keys(), x => x+1); // [1, 2, 3, 4, 5]
 
     return (
       <>
@@ -71,62 +30,55 @@ function Restaurants() {
           spacing={2}
           className='modelFilterBar'
         >
-          <Selection text='Price' helpText='Filter by price' choices={Array.from(Array(4).keys(), x => '$'.repeat(x+1))} multiple={true}></Selection>
-          <Selection text='Rating' helpText='Filter by rating' choices={Array.from(Array(5).keys(), x => `${x+1} star`)} multiple={true}></Selection>
-          <InputField helpText='Filter by proximity' unit='mi'></InputField>
-          <InputField helpText='Filter by min number of ratings' unit={<b>{'>'}</b>} unitPosition='start'></InputField>
-          <Check text='Open now'></Check>
+          <InputField 
+            icon={<SearchIcon/>}
+            label='Search'
+            unitPosition='end'
+            width='75ch'
+            onBlur={(search) => Set_Object_State(pageQueryParams, setPageQueryParams, 'search', search, '')}>
+          </InputField>
         </Stack>
-        <PaginateTable columns={columns} data={data} create_cell={(id) => {
-          return Create_Restaurant_Cell(modelData[id], id);
-        }}/>
-
-        {/* <div class = "restaurant-information">
-          <Row>
-            <Dropdown class="dropdownStyle">
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Price
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">$</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">$$</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">$$$</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">$$$$</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-
-            <Dropdown class="dropdownStyle">
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Hours of Operation
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Open now</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">All</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-
-            <Form.Group className="radius" controlId="formRadius">
-              <Form.Control type="radius" placeholder="Radius (in meters, integer)" />
-            </Form.Group>
-
-            <Dropdown class="dropdownStyle">
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Rating
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">1 star</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">2 star</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">3 star</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">4 star</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">5 star</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-
-            <Form.Group className="numRatings" controlId="formNumRatings">
-              <Form.Control type="numRatings" placeholder="Minimum number of ratings" />
-            </Form.Group>
-          </Row>
-        </div> */}
+        <Stack
+          direction="row"
+          divider={<Divider orientation="vertical" flexItem />}
+          justifyContent="center"
+          alignItems="center"
+          spacing={2}
+          className='modelFilterBar'
+        >
+          <Selection 
+            text='Price'
+            helpText='Filter by price'
+            defaultValue={prices}
+            choices={priceChoices}
+            multiple={true}
+            onChange={(_, choices) => Set_Object_State(pageQueryParams, setPageQueryParams, 'price', choices, [...priceChoices])}>
+          </Selection>
+          <Selection 
+            text='Rating'
+            helpText='Filter by rating'
+            defaultValue={ratings}
+            choices={ratingChoices}
+            multiple={true}
+            onChange={(_, choices) => Set_Object_State(pageQueryParams, setPageQueryParams, 'rating', choices, [...ratingChoices])}>
+          </Selection>
+          <InputField 
+            helpText='Filter by proximity'
+            unit='mi'
+            onBlur={(proximity) => Set_Object_State(pageQueryParams, setPageQueryParams, 'max_distance', proximity, '')}>
+          </InputField>
+          <InputField 
+            helpText='Filter by min number of reviews'
+            unit={<b>{'≥'}</b>}
+            unitPosition='start'
+            onBlur={(minReviews) => Set_Object_State(pageQueryParams, setPageQueryParams, 'review_count_GE', minReviews, '')}>
+          </InputField>
+          <Check 
+            text='Open now'
+            onChange={(checked) => Set_Object_State(pageQueryParams, setPageQueryParams, 'open_now', checked, false)}>
+          </Check>
+        </Stack>
+        <PaginateTable model='restaurants' pageQueryParams={pageQueryParams} create_cell={Create_Restaurant_Cell} use_location={true}/>
       </>
     );
   }

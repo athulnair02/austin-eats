@@ -3,6 +3,8 @@ from db import init_db
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from marshmallow import fields, Schema
+from werkzeug.datastructures import MultiDict
+from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
 from sqlalchemy.dialects.postgresql import ARRAY
 
 # TexasVotes code helped a lot with this
@@ -54,7 +56,7 @@ class Culture(db.Model) :
     capital = db.Column(db.String())
     flag_url = db.Column(db.String())
     currency = db.Column(db.String())
-    languages = db.Column(db.String())
+    languages = db.Column(ARRAY(db.String()))
     subregion = db.Column(db.String())
     region = db.Column(db.String())
     population = db.Column(db.Integer)
@@ -62,6 +64,11 @@ class Culture(db.Model) :
     demonym = db.Column(db.String())
     independent = db.Column(db.Boolean)
     summary = db.Column(db.String())
+    regional_blocs = db.Column(ARRAY(db.String()))
+
+    @hybrid_method
+    def search_list(self, term: str):
+        return [("name_PRT", term), ("summary_PRT", term), ("demonym_PRT", term), ("subregion_PRT", term), ("languages_PRT", term)]
 
     def __repr__(self):
         return "<Culture %s>" % self.name
@@ -88,16 +95,20 @@ class Restaurant(db.Model) :
     restaurant_url = db.Column(db.String)
     display_phone = db.Column(db.String)
     categories = db.Column(ARRAY(db.String()))
-    rating = db.Column(db.Float)
+    rating = db.Column(db.Integer)
     review_count = db.Column(db.Integer)
     display_address = db.Column(db.String)
     latlng = db.Column(ARRAY(db.Float()))
     photos = db.Column(ARRAY(db.String()))
     price = db.Column(db.String)
     delivery = db.Column(db.Boolean)
-    is_open = db.Column(db.Boolean)
     reviews = db.Column(db.JSON)
+    hours = db.Column(db.JSON)
 
+    @hybrid_method
+    def search_list(self, term: str):
+        return [("name_PRT", term), ("categories_PRT", term), ("price", term)]
+    
     def __repr__(self):
         return "<Restaurant %s>" % self.name
 
@@ -121,11 +132,17 @@ class Recipe(db.Model) :
     servings = db.Column(db.Integer)
     labels = db.Column(ARRAY(db.String())) # Vegan, Vegetarian, etc
     ingredients = db.Column(ARRAY(db.String()))
+    num_ingredients = db.Column(db.Integer)
     total_nutrients = db.Column(db.JSON) # Macros, Calories, etc         # db.relationship("Nutrient") # One-Many relationship between recipe & nutrients
     instructions = db.Column(ARRAY(db.String()))
     dish_types = db.Column(ARRAY(db.String())) # Breakfast, Lunch, Dinner, etc
     cuisine_type = db.Column(ARRAY(db.String())) # American, Chinese, etc
+    health_score = db.Column(db.Integer)
     dish_name = db.Column(db.String) # Taco, Salad, etc
+
+    @hybrid_method
+    def search_list(self, term: str):
+        return [("name_PRT", term), ("summary_PRT", term), ("dish_name", term), ("labels_PRT", term), ("cuisine_type_PRT", term)]
 
     def __repr__(self):
         return "<Recipe %s>" % self.name
@@ -156,11 +173,20 @@ class CultureSchema(Schema) :
     demonym = fields.String(required=True)
     independent = fields.Boolean(required=True)
     summary = fields.String(required=True)
+    regional_blocs = fields.List(fields.String(), required=True)
 
 # may need to adjust this MenuSchema
 class MenuSchema(Schema) :
     id = fields.Integer(required=True)
     dishes = fields.List(fields.String(), required=True)
+class ReviewSchema(Schema) :
+    text = fields.String(required=True)
+    rating = fields.Integer(required=True)
+    user = fields.String(required=True)
+class HoursSchema(Schema) :
+    start = fields.String(required=True)
+    end = fields.String(required=True)
+    day = fields.Integer(required=True)
 
 class RestaurantSchema(Schema) :
     id = fields.Integer(required=True)
@@ -168,7 +194,7 @@ class RestaurantSchema(Schema) :
 
     dishes = fields.Pluck(MenuSchema, "dishes", many=True)
     cultures = fields.Nested("CultureSchema", only=("id", "name", "demonym", "region", "subregion", "population", "flag_url", "independent"), required=True, attribute="cultures", many=True)
-    # not sure how to link recipes to the dishes; we will see!
+    
     recipes = fields.Nested("RecipeSchema", only=("id", "name", "image_url", "ingredients", "dish_types", "ready_in_minutes", "cuisine_type"), required=True, attribute="recipes", many=True)
 
     image_url = fields.String(required=False)
@@ -179,10 +205,14 @@ class RestaurantSchema(Schema) :
     review_count = fields.Integer(required=True)
     display_address = fields.String(required=True)
     latlng = fields.List(fields.Float(), required=True) #fields.Dict(keys=fields.String(), values=fields.Integer(), required=True)
+    distance = fields.Float()
+    open_now = fields.Bool(required=True)
     photos = fields.List(fields.String(), required=True)
     price = fields.String(required=True)
-    # takeout, delivery
+    
     delivery = fields.Bool(required=True)
+    reviews = fields.List(fields.Nested(ReviewSchema))
+    hours = fields.List(fields.Nested(HoursSchema))
 
 class RecipeSchema(Schema) :
     id = fields.Integer(required=True)
@@ -199,13 +229,18 @@ class RecipeSchema(Schema) :
     # low-fat, etc
     diet_labels = fields.List(fields.String(), required=True)
     ingredients = fields.List(fields.String(), required=True) #fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
+    num_ingredients = fields.Integer(required=True)
     total_nutrients = fields.List(fields.Dict(keys=fields.String(), values=fields.String(), required=True), required=True)
     instructions = fields.List(fields.String(), required=True)
     cuisine_type = fields.List(fields.String(), required=True)
+    health_score = fields.Integer(required=True)
     # b, l, d
     dish_types = fields.List(fields.String(), required=True)
     dish_name = fields.String(required=True)
 
 culture_schema = CultureSchema()
+culture_schema_basic = CultureSchema(exclude=['restaurants', 'recipes'])
 restaurant_schema = RestaurantSchema()
+restaurant_schema_basic = RestaurantSchema(exclude=['cultures', 'recipes'])
 recipe_schema = RecipeSchema()
+recipe_schema_basic = RecipeSchema(exclude=['restaurants', 'cultures', 'total_nutrients'])

@@ -25,15 +25,14 @@ function Culture(props) {
     let population = instanceData.population;
     let populationFormatted = population ? population.toLocaleString("en-US") : '';
 
-    let multipleLanguages = instanceData.languages ? Object.keys(instanceData.languages).length > 1 : false;
     let languages = CommaSeparate(instanceData.languages);
+    let currency = instanceData.currency;
 
-    let multipleCurrencies = instanceData.currencies ? Object.keys(instanceData.currencies).length > 1 : false;
-    let currencies = CommaSeparate(instanceData.currencies, "name");
-
-    let regionalBlocs = null;
-    if (instanceData.regional_blocs) {
-      regionalBlocs = CommaSeparate(instanceData.regional_blocs, "name");
+    let regionalBlocs;
+    if (instanceData.regional_blocs && instanceData.regional_blocs.length > 0) {
+      regionalBlocs = CommaSeparate(instanceData.regional_blocs);
+    } else {
+      regionalBlocs = 'No regional blocs';
     }
 
     const related_restaurants = instanceData.restaurants ? instanceData.restaurants : [];
@@ -97,8 +96,8 @@ function Culture(props) {
               <td>{languages}</td>
             </tr>
             <tr>
-              <td className='tdLeft'>Currencies</td>
-              <td>{currencies}</td>
+              <td className='tdLeft'>Currency</td>
+              <td>{currency}</td>
             </tr>
             <tr>
               <td className='tdLeft'>Regional Blocs</td>
