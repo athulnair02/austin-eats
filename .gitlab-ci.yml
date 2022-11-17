@@ -22,10 +22,6 @@ test_front_jest:
   stage: test
   script:
     - make front-jest-tests
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-        when: manual
-        allow_failure: true
   
 
 test_front_acceptance:
@@ -37,10 +33,6 @@ test_front_acceptance:
     - pip install webdriver-manager
   script:
     - make front-acceptance-tests
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-        when: manual
-        allow_failure: true
 
 test_back_end:
   image: python:3.6-stretch
@@ -50,7 +42,3 @@ test_back_end:
     - pip3 install -r back-end/requirements.txt
   script:
     - make back-end-tests
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-        when: manual
-        allow_failure: true
