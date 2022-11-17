@@ -1,6 +1,6 @@
 import React from 'react';
 import recipes from '../../temp-backend/recipes.json'
-import { Create_Recipe_Cell } from '../../SharedFunctions';
+import { Set_Object_State, Create_Recipe_Cell } from '../../SharedFunctions';
 import Selection from './sub_components/Selection';
 import InputField from './sub_components/InputField';
 import { PaginateTable } from './sub_components/PaginateTable';
@@ -11,18 +11,6 @@ import '../../styles/Models.css'
 
 function Recipes() {
     const [pageQueryParams, setPageQueryParams] = React.useState({});
-
-    // Set query param to value, if value == defaultValue remove query param (remove key from state object, no need to specify in query)
-    function setParamsDefaultValue(key, value, defaultValue) {
-      if ((Array.isArray(value) && JSON.stringify(value) == JSON.stringify(defaultValue)) || value == defaultValue) {
-        const obj = {...pageQueryParams};
-        delete obj[key];
-        setPageQueryParams(obj);
-        console.log("deleted " + key);
-      } else {
-        setPageQueryParams({...pageQueryParams, [key]: value});
-      }
-    }
 
     return (
       <>
@@ -40,7 +28,7 @@ function Recipes() {
             label='Search'
             unitPosition='end'
             width='75ch'
-            onBlur={(search) => setParamsDefaultValue('search', search, '')}>
+            onBlur={(search) => Set_Object_State(pageQueryParams, setPageQueryParams, 'search', search, '')}>
           </InputField>
         </Stack>
         <Stack
@@ -56,29 +44,29 @@ function Recipes() {
             helpText='Filter by dish type'
             choices={['Breakfast', 'Lunch', 'Dinner', 'Appetizer']}
             multiple={true}
-            onChange={(_, choices) => setParamsDefaultValue('dish_types', choices, [])}>
+            onChange={(_, choices) => Set_Object_State(pageQueryParams, setPageQueryParams, 'dish_types', choices, [])}>
           </Selection>
           <InputField 
             helpText='Filter by min healthiness' 
             unit={<b>{'≥'}</b>} 
             unitPosition='start'
-            onBlur={(minHealth) => setParamsDefaultValue('health_score_GE', minHealth, '')}>
+            onBlur={(minHealth) => Set_Object_State(pageQueryParams, setPageQueryParams, 'health_score_GE', minHealth, '')}>
           </InputField>
           <InputField 
             helpText='Filter by max ingredients' 
             unit={<b>{'≤'}</b>} 
             unitPosition='start'
-            onBlur={(maxIngredients) => setParamsDefaultValue('num_ingredients_LE', maxIngredients, '')}>
+            onBlur={(maxIngredients) => Set_Object_State(pageQueryParams, setPageQueryParams, 'num_ingredients_LE', maxIngredients, '')}>
           </InputField>
           <InputField 
             helpText='Filter by max time' 
             unit={'mins'} 
             unitPosition='end'
-            onBlur={(maxMins) => setParamsDefaultValue('ready_in_minutes_LE', maxMins, '')}>
+            onBlur={(maxMins) => Set_Object_State(pageQueryParams, setPageQueryParams, 'ready_in_minutes_LE', maxMins, '')}>
           </InputField>
           <InputField 
             helpText='Search for cuisine'
-            onBlur={(search) => setParamsDefaultValue('cuisine_type_PRT', search, '')}>
+            onBlur={(search) => Set_Object_State(pageQueryParams, setPageQueryParams, 'cuisine_type_PRT', search, '')}>
           </InputField>
         </Stack>
         <PaginateTable model='recipes' pageQueryParams={pageQueryParams} create_cell={Create_Recipe_Cell}/>

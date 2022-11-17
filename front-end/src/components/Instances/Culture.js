@@ -29,8 +29,10 @@ function Culture(props) {
     let currency = instanceData.currency;
 
     let regionalBlocs;
-    if (instanceData.regional_blocs) {
+    if (instanceData.regional_blocs && instanceData.regional_blocs.length > 0) {
       regionalBlocs = CommaSeparate(instanceData.regional_blocs);
+    } else {
+      regionalBlocs = 'No regional blocs';
     }
 
     const related_restaurants = instanceData.restaurants ? instanceData.restaurants : [];
