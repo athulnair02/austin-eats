@@ -19,10 +19,11 @@ build_front_end:
 
 
 test_front_jest:
-  image: npm:latest
   stage: test
   script:
     - make front-jest-tests
+  rules:
+  
 
 test_front_acceptance:
   image: python:3.6-stretch
