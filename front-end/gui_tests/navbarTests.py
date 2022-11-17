@@ -3,29 +3,38 @@
 import os
 import unittest
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import sys
 
 PATH = "./gui_tests/chromedriver"
 URL = "https://www.austineats.me/"
 
-class TestSplash(unittest.TestCase):
+class TestNavbar(unittest.TestCase):
 
     # Get drivers and run website before all tests
     @classmethod
     def setUpClass(cls):
         print("PWD", os.getcwd())
-        chrome_options = Options()
-        chrome_options.add_argument("--headless")
-        caps = DesiredCapabilities().CHROME
-        caps["pageLoadStrategy"] = "eager"
-        cls.driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options, desired_capabilities=caps)
+        # chrome_options = Options()
+        # chrome_options.add_argument("--headless")
+        ops = Options()
+        ops.add_argument("--headless")
+        ops.add_argument("--disable-gpu")
+        ops.add_argument("--window-size=1280,800")
+        ops.add_argument("--allow-insecure-localhost")
+        ops.add_argument("--log-level=3")
+        ops.add_argument("--no-sandbox")
+        ops.add_argument("--disable-dev-shm-usage")
+
+        # caps = DesiredCapabilities().CHROME
+        # caps["pageLoadStrategy"] = "eager"
+        # cls.driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options, desired_capabilities=caps)
+        # cls.driver = webdriver.Remote(command_executor='http://selenium__standalone-chrome:4444/wd/hub', options=chrome_options, desired_capabilities=caps)
+        cls.driver = webdriver.Chrome(PATH, options=ops)
         cls.driver.get(URL)
 
     # Close browser and quit after all tests
