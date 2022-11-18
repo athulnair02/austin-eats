@@ -29,7 +29,8 @@ Phase 2:  b5786139
 Phase 3:  8c3cb022a10064526f32120c57c171ad369ed1b1
 
 The project leader for Phase I was Mihika Birmiwal (@mihikabirmiwal).
-The project leader for Phase II was Clint Camp. (@xXDarkEyesXx)
+The project leader for Phase II was Clint Camp. (@xXDarkEyesXx).
+The project leader for Phase III was Christian Camp. (@Repoised).
 
 ## Completion Time
 
@@ -43,6 +44,8 @@ The project leader for Phase II was Clint Camp. (@xXDarkEyesXx)
 | Christian Camp  | 20              | 23           |
 | Clint Camp      | 20              | 21           |
 
+### Phase II
+
 | Name            | Estimated Hours | Actual Hours |
 | --------------- | :-------------: | :----------: |
 | Thomas Moore    | 40              | 20           |
@@ -50,6 +53,15 @@ The project leader for Phase II was Clint Camp. (@xXDarkEyesXx)
 | Mihika Birmiwal | 40              | 20           |
 | Christian Camp  | 30              | 30           |
 | Clint Camp      | 30              | 30           |
+
+### Phase III
+| Name            | Estimated Hours | Actual Hours |
+| --------------- | :-------------: | :----------: |
+| Thomas Moore    | 15              | 7            |
+| Athul Nair      | 14              | 7            |
+| Mihika Birmiwal | 12              | 8            |
+| Christian Camp  | 12              | 10           |
+| Clint Camp      | 12              | 10           |
 
 ## Comments
 
