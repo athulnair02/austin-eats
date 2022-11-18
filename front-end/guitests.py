@@ -13,8 +13,14 @@ if __name__ == "__main__":
         print("Unsupported OS")
         exit(-1)
 
-    # os.system("python3 ./gui_tests/splashTests.py " + PATH)
+    os.system("echo Running Navbar Tests...")
     os.system("python3 ./gui_tests/navbarTests.py " + PATH)
-    # os.system("python3 ./gui_tests/politiciansTests.py " + PATH)
-    # os.system("python3 ./gui_tests/districtsTests.py " + PATH)
-    # os.system("python3 ./gui_tests/electionsTests.py " + PATH)
+
+    os.system("echo Running Element Tests...")
+    os.system("python3 ./gui_tests/elementTests.py " + PATH)
+
+    os.system("echo Running Search Tests...")
+    os.system("python3 ./gui_tests/searchTests.py " + PATH)
+
+    os.system("echo Running Filter Tests...")
+    os.system("python3 ./gui_tests/filterTests.py " + PATH)
