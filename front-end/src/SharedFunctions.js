@@ -118,7 +118,7 @@ export function Get_Elements_From_Data(dataRelation, searchWords, create_cell) {
 // Used for querying
 export function Set_Object_State(state, setState, key, value, defaultValue) {
     if ((Array.isArray(value) && JSON.stringify(value) == JSON.stringify(defaultValue)) || value == defaultValue) {
-        if (state[key]) {
+        if (state[key] != null) {
             const obj = {...state};
             delete obj[key];
             setState(obj);
@@ -170,7 +170,7 @@ export function Create_Recipe_Cell(recipe, link, style) {
 
     const attributes = [];
     if (recipe.dish_types.length > 0) attributes.push(CommaSeparate(recipe.dish_types)); // Dish type is not specified in all
-    attributes.push(`${recipe.health_score}/100 healthiness`);
+    if (recipe.health_score) attributes.push(`${recipe.health_score}/100 healthiness`);
     if (recipe.num_ingredients) attributes.push(recipe.num_ingredients + " ingredients");
 
     return <ModelListItem name={recipe.highlightedName || recipe.name} image={recipe.image_url} link={link} style={style}
