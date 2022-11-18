@@ -13,14 +13,14 @@ if __name__ == "__main__":
         print("Unsupported OS")
         exit(-1)
 
-    print("Running Navbar Tests...")
+    os.system("echo Running Navbar Tests...")
     os.system("python3 ./gui_tests/navbarTests.py " + PATH)
 
-    print("Running Element Tests...")
+    os.system("echo Running Element Tests...")
     os.system("python3 ./gui_tests/elementTests.py " + PATH)
 
-    print("Running Search Tests...")
+    os.system("echo Running Search Tests...")
     os.system("python3 ./gui_tests/searchTests.py " + PATH)
 
-    print("Running Filter Tests...")
+    os.system("echo Running Filter Tests...")
     os.system("python3 ./gui_tests/filterTests.py " + PATH)

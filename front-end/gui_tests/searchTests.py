@@ -44,7 +44,7 @@ class TestElements(unittest.TestCase):
         searchTextField = self.driver.find_element(by=By.XPATH, value="/html/body/div/div[2]/div/div/input")
         searchTextField.send_keys("tacos");
 
-        self.driver.find_element(by=By.XPATH, value="/html/body/div/div[2]/div/div/div").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div[1]").click()
 
         try:
             a = WebDriverWait(self.driver, 10).until(
@@ -64,7 +64,7 @@ class TestElements(unittest.TestCase):
         searchTextField = self.driver.find_element(by=By.XPATH, value="/html/body/div/div[2]/div/div/input")
         searchTextField.send_keys("Mary");
 
-        self.driver.find_element(by=By.XPATH, value="/html/body/div/div[2]/div/div/div").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div[1]").click()
 
         try:
             a = WebDriverWait(self.driver, 10).until(
@@ -84,7 +84,7 @@ class TestElements(unittest.TestCase):
         searchTextField = self.driver.find_element(by=By.XPATH, value="/html/body/div/div[2]/div/div/input")
         searchTextField.send_keys("Ame");
 
-        self.driver.find_element(by=By.XPATH, value="/html/body/div/div[2]/div/div/div").click()
+        self.driver.find_element(by=By.XPATH, value="/html/body/div/div[1]").click()
 
         try:
             a = WebDriverWait(self.driver, 10).until(
