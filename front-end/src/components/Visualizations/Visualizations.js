@@ -1,6 +1,7 @@
 import { Typography, Container, Stack } from "@mui/material";
 import CulturePrepTimes from "./CulturePrepTimes";
 import RestaurantPrices from "./RestaurantPrices";
+import NumRestaurantsCuisine from "./NumRestaurantsCuisine";
 
 function Visualizations() {
     return(
@@ -13,9 +14,10 @@ function Visualizations() {
                     Average Recipe Times for Different Cultures
                 </Typography>
                 <CulturePrepTimes />
-
-            </Stack>
-            <Stack justifyContent="center" direction="column" textAlign="center">
+                <Typography gutterBottom sx={{ marginTop: "16px", marginBottom: "8px" }} variant="h4">
+                    Number of Different Restaurant Types
+                </Typography>
+                <NumRestaurantsCuisine/>
                 <Typography gutterBottom sx={{ marginTop: "16px", marginBottom: "8px" }} variant="h4">
                     Restaurant Pricing
                 </Typography>

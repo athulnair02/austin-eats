@@ -23,7 +23,7 @@ function CulturePrepTimes(props) {
     useEffect(() => {
         const getData = async () => {
             let recipeResponse = await axios.get(
-                "https://api.austineats.me/recipes?per_page=260"
+                API_URL
             );
             let recipes = recipeResponse.data["relations"];
             console.log(recipes);
@@ -40,7 +40,7 @@ function CulturePrepTimes(props) {
             {visualization}
         </Box>
     );
-}
+};
 
 const process_data = (recipes) => {
     var ret = [];
@@ -86,7 +86,7 @@ const bar_chart = (data) => {
                 <Label
                 value="Culture"
                 position="insideBottom"
-                dy={15}
+                dy={10}
                 style={{textAnchor: "middle"}}/>
             </XAxis>
             <YAxis tick={true}>
