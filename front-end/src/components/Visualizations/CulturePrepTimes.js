@@ -19,6 +19,19 @@ function CulturePrepTimes(props) {
     let API_URL = "https://api.austineats.me/recipes?per_page=260";
 
     useEffect(() => {
+        // if (data.length === 0) {
+        //     const getData = async () => {
+        //         let recipeResponse = await axios.get(
+        //             "https://api.austineats.me/recipes?per_page=260"
+        //         );
+        //         let recipes = recipeResponse.data["relations"];
+        //         console.log(recipes);
+        //         let data = process_data(recipes);
+        //         console.log(data);
+        //         setData(data);
+        //     };
+        //     getData().then(() => console.log("data loaded"));
+        // }
         const getData = async () => {
             let recipeResponse = await axios.get(
                 "https://api.austineats.me/recipes?per_page=260"
@@ -42,6 +55,7 @@ function CulturePrepTimes(props) {
 
 const process_data = (recipes) => {
     var ret = [];
+    var cultures = new Map();
     for (const recipe of recipes) {
         ret.push({
             // i dont think this works well
@@ -50,6 +64,18 @@ const process_data = (recipes) => {
             name: recipe["name"],
         });
     }
+    // for (const recipe of recipes) {
+    //     var culture = recipe["cuisine_type"][0];
+    //     // culture_prep_times = {culture : list of recipe_times, "American" : [20, 40, 200]}
+    //     var culture_prep_times = cultures.get(culture);
+    //     if (culture_prep_times.length > 0) {
+
+    //     } else {
+    //         const recipe_time = recipe["ready_in_minutes"];
+    //         var prep_times = 
+    //         culture_prep_times.set()
+    //     }
+    // }
     return ret;
 };
 
@@ -65,7 +91,7 @@ const bar_chart = (data) => {
                 bottom: 5,
             }}>
             <CartesianGrid strokeDasharray="3 3"/>
-            <XAxis dataKey="name" tick={true}>
+            <XAxis dataKey="culture" tick={true}>
                 <Label
                 value="Cultures"
                 position="insideBottom"
@@ -79,7 +105,7 @@ const bar_chart = (data) => {
                 style={{ textAnchor: "middle" }}
                 />
             </YAxis>
-            <Bar dataKey="culture"/>
+            <Bar dataKey="time"/>
             </BarChart>
         </ResponsiveContainer>
     );
