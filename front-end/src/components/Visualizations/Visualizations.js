@@ -15,13 +15,13 @@ function Visualizations() {
                 </Typography>
                 <CulturePrepTimes />
                 <Typography gutterBottom sx={{ marginTop: "16px", marginBottom: "8px" }} variant="h4">
-                    Number of Different Restaurant Types
-                </Typography>
-                <NumRestaurantsCuisine/>
-                <Typography gutterBottom sx={{ marginTop: "16px", marginBottom: "8px" }} variant="h4">
                     Restaurant Pricing
                 </Typography>
                 <RestaurantPrices/>
+                <Typography gutterBottom sx={{ marginTop: "16px", marginBottom: "8px" }} variant="h4">
+                    Number of Different Restaurant Types
+                </Typography>
+                <NumRestaurantsCuisine/>
             </Stack>
         </Container>
     );

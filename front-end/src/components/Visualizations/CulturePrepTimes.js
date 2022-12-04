@@ -32,7 +32,7 @@ function CulturePrepTimes(props) {
             setData(data);
         };
         getData().then(() => console.log("data loaded"));
-    }, [API_URL, data]);
+    }, [API_URL]);
     let visualization = <LoadingWidget height="300px"/>;
     if (data.length > 0) visualization = bar_chart(data);
     return (
@@ -95,8 +95,7 @@ const bar_chart = (data) => {
                 value="Average recipe time in minutes"
                 position="insideLeft"
                 dx={0}
-                style={{ textAnchor: "middle" }}
-                />
+                style={{ textAnchor: "middle" }}/>
             </YAxis>
             <Tooltip payload={data} formatter = {(value) => value && value.toLocaleString("en-US", {style:"decimal", maximumFractionDigits:"0"}) + " mins"} />
             <Bar dataKey="time" fill="#ba6ebe">

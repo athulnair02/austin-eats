@@ -15,6 +15,8 @@ import { Box } from "@mui/material";
 import LoadingWidget from "./LoadingWidget";
 import Culture_Lookup from "./CultureLookup";
 
+const barColors = ["#422b18", "#c63936", "#46551b", "#0dc331", "#9a7a75", "#0301de", "#9f7733", "#609c5b", "#b57241", "#f5f2cf", "#9d04cf", "#ecbc37"];
+
 function NumRestaurantsCuisine(props) {
     let [data, setData] = useState({});
     let API_URL = "https://api.austineats.me/restaurants?per_page=100";
@@ -31,7 +33,7 @@ function NumRestaurantsCuisine(props) {
             setData(data);
         };
         getData().then(() => console.log("data loaded"));
-    }, [API_URL, data]);
+    }, [API_URL]);
     let visualization = <LoadingWidget height="300px"/>;
     if (data.length > 0) visualization = bar_chart(data);
     return (
@@ -60,10 +62,15 @@ const process_data = (restaurants) => {
     var rest_cultures = new Map();
     for (let [key, value] of rest_categories) {
         let lookup = Culture_Lookup[key];
-        if (lookup.length > 0) {
+        if (lookup) {
             for (const c of lookup) {
-                console.log("Culture: " + c + " Value: " + value);
-                rest_cultures.set(c, rest_cultures[c] + value); // doesn't work 
+                let curr = rest_cultures.get(c);
+                // rest_cultures.set(c, curr + value);
+                if (curr) {
+                    rest_cultures.set(c, curr + value);
+                } else {
+                    rest_cultures.set(c, value); // doesn't work
+                }
             }
         }
     }
@@ -104,7 +111,13 @@ const bar_chart = (data) => {
                 style={{ textAnchor: "middle" }}/>
             </YAxis>
             <Tooltip payload={data} formatter = {(value) => value && value.toLocaleString("en-US", {style:"decimal", maximumFractionDigits:"0"}) + " restaurants"} />
-            <Bar dataKey="num"></Bar>
+            <Bar dataKey="num" fill="#ba6ebe">
+                {
+                    data.map((entry, index) => {
+                        return <Cell key={`cell-${index}`} fill={barColors[index % 12]}/>;
+                    })
+                }
+            </Bar>
             </BarChart>
         </ResponsiveContainer>
     )
