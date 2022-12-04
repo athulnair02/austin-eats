@@ -84,7 +84,7 @@ const bar_chart = (data) => {
             <CartesianGrid strokeDasharray="3 3"/>
             <XAxis dataKey="culture" tick={false}>
                 <Label
-                value="Cultures"
+                value="Culture"
                 position="insideBottom"
                 dy={15}
                 style={{textAnchor: "middle"}}/>
@@ -92,7 +92,7 @@ const bar_chart = (data) => {
             <YAxis tick={true}>
                 <Label
                 angle={-90}
-                value="Average prep time in minutes"
+                value="Average recipe time in minutes"
                 position="insideLeft"
                 dx={0}
                 style={{ textAnchor: "middle" }}
