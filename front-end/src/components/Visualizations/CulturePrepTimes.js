@@ -89,12 +89,12 @@ const bar_chart = (data) => {
                 dy={15}
                 style={{textAnchor: "middle"}}/>
             </XAxis>
-            <YAxis tick={false}>
+            <YAxis tick={true}>
                 <Label
                 angle={-90}
                 value="Average prep time in minutes"
                 position="insideLeft"
-                dx={20}
+                dx={0}
                 style={{ textAnchor: "middle" }}
                 />
             </YAxis>
