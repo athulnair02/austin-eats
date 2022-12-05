@@ -85,7 +85,7 @@ const bar_chart = (data) => {
             <YAxis tick={false}>
                 <Label
                 angle={-90}
-                value="Average Salary"
+                value="Average salary in USD"
                 position="insideLeft"
                 dx={0}
                 style={{ textAnchor: "middle" }}/>
