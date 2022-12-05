@@ -50,7 +50,7 @@ const process_data = (restaurants) => {
     for (const restaurant of restaurants) {
         let category = restaurant["categories"]; // should be a list of cats, each cat should be in map
         for (const cat of category) {
-            let num_rests = rest_categories[cat];
+            let num_rests = rest_categories.get(cat);
             if (num_rests) {
                 rest_categories.set(cat, num_rests++);
             } else {

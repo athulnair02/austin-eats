@@ -17,7 +17,7 @@ import Restaurant from './components/Instances/Restaurant'
 import PageNotFound from './components/Webpage/PageNotFound'
 import Search from './components/Search/Search'
 import Visualizations from './components/Visualizations/Visualizations';
-import ProviderVisualizations from './components/Visualizations/ProviderVisualizations';
+import ProviderVisualizations from './components/ProviderVisualizations/ProviderVisualizations';
 
 function RouteSwitch() {
     return (
