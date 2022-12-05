@@ -19,6 +19,8 @@ function MainNavbar() {
             <Nav.Link className='color-link' href='/restaurants'>Restaurants</Nav.Link>
             <Nav.Link className='color-link' href='/recipes'>Recipes</Nav.Link>
             <Nav.Link className='color-link' href='/cultures'>Cultures</Nav.Link>
+            <Nav.Link className='color-link' href='/visualizations'>Visualizations</Nav.Link>
+            <Nav.Link className='color-link' href='/provider'>Provider Visualizations</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link className='color-link' href='/about'>About</Nav.Link>

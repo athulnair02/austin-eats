@@ -24,11 +24,13 @@ Pipelines         : https://gitlab.com/mihikabirmiwal/cs373-idb/-/pipelines <br>
 
 ## Git SHA
 
-Phase I:  b52aff4780b259e178c53bf7eb5972d0aa35953b
+Phase 1:  b52aff4780b259e178c53bf7eb5972d0aa35953b
 Phase 2:  b5786139
+Phase 3:  73b24dbcfbcf9e53be80f09623f4ce8b0d44808f
 
 The project leader for Phase I was Mihika Birmiwal (@mihikabirmiwal).
-The project leader for Phase II was Clint Camp. (@xXDarkEyesXx)
+The project leader for Phase II was Clint Camp. (@xXDarkEyesXx).
+The project leader for Phase III was Christian Camp. (@Repoised).
 
 ## Completion Time
 
@@ -42,6 +44,8 @@ The project leader for Phase II was Clint Camp. (@xXDarkEyesXx)
 | Christian Camp  | 20              | 23           |
 | Clint Camp      | 20              | 21           |
 
+### Phase II
+
 | Name            | Estimated Hours | Actual Hours |
 | --------------- | :-------------: | :----------: |
 | Thomas Moore    | 40              | 20           |
@@ -49,6 +53,15 @@ The project leader for Phase II was Clint Camp. (@xXDarkEyesXx)
 | Mihika Birmiwal | 40              | 20           |
 | Christian Camp  | 30              | 30           |
 | Clint Camp      | 30              | 30           |
+
+### Phase III
+| Name            | Estimated Hours | Actual Hours |
+| --------------- | :-------------: | :----------: |
+| Thomas Moore    | 15              | 7            |
+| Athul Nair      | 14              | 7            |
+| Mihika Birmiwal | 12              | 8            |
+| Christian Camp  | 12              | 10           |
+| Clint Camp      | 12              | 10           |
 
 ## Comments
 

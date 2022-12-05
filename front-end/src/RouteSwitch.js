@@ -16,6 +16,8 @@ import Recipe from './components/Instances/Recipe'
 import Restaurant from './components/Instances/Restaurant'
 import PageNotFound from './components/Webpage/PageNotFound'
 import Search from './components/Search/Search'
+import Visualizations from './components/Visualizations/Visualizations';
+import ProviderVisualizations from './components/Visualizations/ProviderVisualizations';
 
 function RouteSwitch() {
     return (
@@ -30,6 +32,8 @@ function RouteSwitch() {
                 <Route path="/restaurants/:id" element={<Restaurant />} />
                 <Route path="/recipes/:id" element={<Recipe />} />
                 <Route path="/cultures/:id" element={<Culture />} />
+                <Route path="/visualizations" element={<Visualizations/>} />
+                <Route path="/provider" element={<ProviderVisualizations/>} />
                 <Route path="/search" element={<Search />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
