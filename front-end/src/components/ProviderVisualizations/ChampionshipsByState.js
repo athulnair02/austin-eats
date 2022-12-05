@@ -87,7 +87,7 @@ const bar_chart = (data) => {
                 dx={0}
                 style={{ textAnchor: "middle" }}/>
             </YAxis>
-            <Tooltip payload={data} formatter = {(value) => value && value.toLocaleString("en-US", {style:"currency", currency:"USD"})} />
+            <Tooltip payload={data} formatter = {(value) => value && value.toLocaleString("en-US", {style:"decimal", maximumFractionDigits:"0"}) + " wins"} />
             <Bar dataKey="wins" fill="#ba6ebe">
                 {
                     data.map((entry, index) => {
