@@ -54,7 +54,7 @@ const process_data = (teams) => {
     for (let [key, value] of state_wins) {
         ret.push({
             state: key,
-            wins: value,
+            championships: value,
         });
     }
     return ret;
@@ -87,8 +87,8 @@ const bar_chart = (data) => {
                 dx={0}
                 style={{ textAnchor: "middle" }}/>
             </YAxis>
-            <Tooltip payload={data} formatter = {(value) => value && value.toLocaleString("en-US", {style:"decimal", maximumFractionDigits:"0"}) + " wins"} />
-            <Bar dataKey="wins" fill="#ba6ebe">
+            <Tooltip payload={data} formatter = {(value) => value && value.toLocaleString("en-US", {style:"decimal", maximumFractionDigits:"0"})} />
+            <Bar dataKey="championships" fill="#ba6ebe">
                 {
                     data.map((entry, index) => {
                         return <Cell key={`cell-${index}`} fill={barColors[index % 12]}/>;
