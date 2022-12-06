@@ -27,10 +27,12 @@ Pipelines         : https://gitlab.com/mihikabirmiwal/cs373-idb/-/pipelines <br>
 Phase 1:  b52aff4780b259e178c53bf7eb5972d0aa35953b
 Phase 2:  b5786139
 Phase 3:  73b24dbcfbcf9e53be80f09623f4ce8b0d44808f
+Phase 4:  
 
 The project leader for Phase I was Mihika Birmiwal (@mihikabirmiwal).
 The project leader for Phase II was Clint Camp. (@xXDarkEyesXx).
 The project leader for Phase III was Christian Camp. (@Repoised).
+The project leader for Phase IV was Thomas Moore. (@tmooretcm).
 
 ## Completion Time
 
@@ -62,6 +64,15 @@ The project leader for Phase III was Christian Camp. (@Repoised).
 | Mihika Birmiwal | 12              | 8            |
 | Christian Camp  | 12              | 10           |
 | Clint Camp      | 12              | 10           |
+
+### Phase IV
+| Name            | Estimated Hours | Actual Hours |
+| --------------- | :-------------: | :----------: |
+| Thomas Moore    | 4               | 4            |
+| Athul Nair      | 5               | 4            |
+| Mihika Birmiwal | 4               | 4            |
+| Christian Camp  | 3               | 4            |
+| Clint Camp      | 3               | 4            |
 
 ## Comments
 
