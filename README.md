@@ -79,3 +79,4 @@ The project leader for Phase IV was Thomas Moore. (@tmooretcm).
 README formatting, GitLab pipeline structure, and front-end code adapted from [FindingFootprints](https://gitlab.com/AlejandroCantu/group2), [TexasVotes](https://gitlab.com/forbesye/fitsbits/-/tree/master/), and our TA mentor Canyon Mooney.
 
 Orignal project hosted on [GitLab](https://gitlab.com/mihikabirmiwal/cs373-idb)
+Refer to [Phase IV Technical Report](https://github.com/athulnair02/austin-eats/blob/main/Phase_IV_Technical%20Report.pdf) for full information on tech stacks used, API, and rationale for the choices we made.
